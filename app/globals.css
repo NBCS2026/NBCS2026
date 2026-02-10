@@ -1,0 +1,561 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-light-red: #8c0c3a;
+  --color-dark-red: #5d1831;
+  --color-dark-gray: #000000b3;
+  --color-light-gray: #1e1e1eb2;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  
+  /* Viewport-responsive variables - updated by JavaScript */
+  --logo-width: 190px;
+  --nav-font-size: 1rem;
+  --nav-gap: 16px;
+  
+  /* Responsive container widths */
+  --container-sm: 1440px;
+  --container-md: 1600px;
+  --container-lg: 1800px;  /* For 2560px screens */
+  --container-xl: 2400px;  /* For 3440px+ screens */
+  
+  /* Responsive text max-widths */
+  --text-narrow: 38ch;
+  --text-medium: 65ch;
+  --text-wide: 75ch;
+  --text-ultrawide: 85ch;  /* Optimal readability */
+  
+  /* Responsive spacing */
+  --spacing-container-sm: 1.25rem;  /* 20px */
+  --spacing-container-md: 2rem;     /* 32px */
+  --spacing-container-lg: 4rem;     /* 64px */
+  --spacing-container-xl: 6rem;     /* 96px */
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Avenir', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  }
+}
+
+@layer components {
+  .section {
+    @apply max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-5 2xl:px-8 mb-16 lg:mb-[142px];
+  }
+  .medium-text {
+    @apply text-[15px] lg:text-[22px] text-light-gray font-medium;
+  }
+  .container-ultrawide {
+    @apply max-w-[1440px] 2xl:max-w-[1600px] mx-auto;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  }
+  .font-body {
+    font-family: 'Avenir', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  /* Ultrawide text readability */
+  .text-readable {
+    max-width: 75ch;
+  }
+  @media (min-width: 1536px) {
+    .text-readable {
+      max-width: 80ch;
+    }
+  }
+  
+  /* Short landscape screens (like 1024x600) */
+  @media (min-width: 1024px) and (max-height: 650px) {
+    .hero-content {
+      margin-top: 1rem !important;
+    }
+  }
+  
+  /* Mobile screens (iPhone size like 414x896) */
+  @media (max-width: 768px) {
+    .hero-content {
+      margin-top: 10rem !important;
+    }
+    .hero-button {
+      height: 56px !important;
+      padding: 20px 32px !important;
+      font-size: 18px !important;
+    }
+  }
+  
+  /* Extra small phones (~320px wide) - shrink hero button further */
+  @media (max-width: 360px) {
+    .hero-button {
+      height: 40px !important;
+      padding: 10px 14px !important;
+      font-size: 13px !important;
+      max-width: 100% !important;
+      white-space: normal !important;
+    }
+  }
+  
+  /* Smaller iPhone screens (375x667) */
+  @media (max-width: 414px) and (max-height: 736px) {
+    .hero-content {
+      margin-top: 4rem !important;
+    }
+  }
+  
+  /* Medium mobile screens (425x661) */
+  @media (min-width: 415px) and (max-width: 480px) and (max-height: 700px) {
+    .hero-content {
+      margin-top: 2rem !important;
+    }
+  }
+  
+  /* Medium screen sizes (625px to 1919px) - ensure pretitle scales proportionally */
+  @media (min-width: 625px) and (max-width: 1919px) {
+    .hero-content > p:first-of-type {
+      font-size: clamp(12px, 1.2vw, 22px) !important;
+    }
+  }
+  
+  /* Nav links spacing for medium-large screens (905px to 1145px) */
+  @media (min-width: 905px) and (max-width: 1145px) {
+    /* Override Tailwind gap classes */
+    header nav ul.flex,
+    header nav ul {
+      gap: var(--nav-gap, 0.5rem) !important; /* Reduce gap between nav links */
+    }
+    /* Make nav links smaller - override all font size classes */
+    header nav ul li a,
+    header nav a {
+      font-size: var(--nav-font-size, 0.8rem) !important; /* Make nav links smaller */
+      line-height: 1.2 !important;
+      padding: 0.25rem 0.4rem !important; /* Reduce padding */
+      display: inline-block !important;
+    }
+    /* Reduce nav container margins */
+    header nav {
+      margin-left: 0.75rem !important; /* Reduce nav container margins */
+      margin-right: 0.75rem !important;
+    }
+    /* Reduce language selector spacing */
+    header > ul.ml-auto {
+      margin-right: 1rem !important;
+      gap: 0.5rem !important;
+    }
+  }
+  
+  /* Logo size from 515px to 768px - use CSS variable with fallback */
+  @media (min-width: 515px) and (max-width: 768px) {
+    header a[href="/"],
+    header a[href^="/"],
+    header > a {
+      width: var(--logo-width, 210px) !important;
+      max-width: var(--logo-width, 210px) !important;
+      min-width: var(--logo-width, 210px) !important;
+    }
+    header a[href="/"] img,
+    header a[href^="/"] img,
+    header > a img {
+      width: var(--logo-width, 210px) !important;
+      max-width: var(--logo-width, 210px) !important;
+    }
+    /* Override any Tailwind width classes */
+    header a.w-\[190px\],
+    header a.w-\[230px\] {
+      width: var(--logo-width, 210px) !important;
+    }
+  }
+  
+  /* Progressive scaling from 768px to 905px - use fixed breakpoints */
+  @media (min-width: 769px) and (max-width: 850px) {
+    header a[href="/"] {
+      width: var(--logo-width, 70px) !important;
+      margin-left: 0 !important;
+    }
+    header nav ul li a {
+      font-size: var(--nav-font-size, 0.7rem) !important;
+      padding: 0.15rem 0.3rem !important;
+    }
+    header nav ul {
+      gap: var(--nav-gap, 0.25rem) !important;
+    }
+    header nav {
+      margin-left: 0.25rem !important;
+      margin-right: 0.25rem !important;
+    }
+    header {
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+    }
+    header > ul.ml-auto {
+      margin-right: 0.5rem !important;
+      gap: 0.25rem !important;
+    }
+    /* Scale down language selector */
+    header > ul.ml-auto button,
+    header > ul.ml-auto [role="combobox"],
+    header > ul li button {
+      font-size: 0.7rem !important;
+      padding: 0.25rem 0.5rem !important;
+      height: auto !important;
+      min-height: 28px !important;
+    }
+  }
+  
+  @media (min-width: 850px) and (max-width: 905px) {
+    header a[href="/"] {
+      width: var(--logo-width, 80px) !important;
+      margin-left: 0 !important;
+    }
+    header nav ul li a {
+      font-size: var(--nav-font-size, 0.75rem) !important;
+      padding: 0.2rem 0.35rem !important;
+    }
+    header nav ul {
+      gap: var(--nav-gap, 0.375rem) !important;
+    }
+    header nav {
+      margin-left: 0.5rem !important;
+      margin-right: 0.5rem !important;
+    }
+    header {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+    }
+    header > ul.ml-auto {
+      margin-right: 0.75rem !important;
+      gap: 0.375rem !important;
+    }
+    /* Scale down language selector */
+    header > ul.ml-auto button,
+    header > ul.ml-auto [role="combobox"],
+    header > ul li button {
+      font-size: 0.75rem !important;
+      padding: 0.3rem 0.6rem !important;
+      height: auto !important;
+      min-height: 32px !important;
+    }
+  }
+  
+  /* Large desktop screens (1920x1080 and similar) */
+  @media (min-width: 1920px) and (max-width: 2559px) {
+    .hero-content {
+      margin-top: 18rem !important;
+      margin-bottom: 8rem !important;
+      max-width: 1600px !important;
+      padding-left: 2rem !important;
+      padding-right: 2rem !important;
+    }
+    .hero-content h1 {
+      font-size: clamp(36px, 3.8vw, 73px) !important;
+      max-width: 75ch !important;
+    }
+    .hero-content > p:first-of-type {
+      font-size: clamp(14px, 1.1vw, 22px) !important;
+    }
+    .hero-content p {
+      font-size: clamp(14px, 1.1vw, 22px) !important;
+      max-width: 75ch !important;
+    }
+    .hero-button {
+      margin-top: 3rem !important;
+      height: 84px !important;
+      padding: 32px 56px !important;
+      font-size: 28px !important;
+      line-height: 1.2 !important;
+    }
+  }
+  
+  /* Ultra-wide screens (3440px+) - Danger zone fix */
+  @media (min-width: 3440px) {
+    /* Use more of the screen - don't leave 44% empty */
+    .hero-content {
+      margin-top: 18rem !important;
+      margin-bottom: 10rem !important;
+      max-width: 2400px !important; /* Use 70% of 3440px instead of 56% */
+      padding-left: 6rem !important;
+      padding-right: 6rem !important;
+    }
+    
+    .hero-content h1 {
+      font-size: clamp(72px, 5vw, 100px) !important;
+      max-width: 100ch !important; /* Optimal readability */
+    }
+    
+    .hero-content p {
+      font-size: clamp(20px, 1.6vw, 28px) !important;
+      max-width: 85ch !important; /* Better line length */
+      line-height: 1.7 !important;
+    }
+    
+    .hero-button {
+      margin-top: 3rem !important;
+      height: 72px !important;
+      padding: 24px 56px !important;
+      font-size: 24px !important;
+    }
+    
+    /* Header - balanced sizing */
+    header.flex.items-center {
+      max-width: 2400px !important; /* Match content width */
+      padding-left: 6rem !important;
+      padding-right: 6rem !important;
+      padding-top: 3rem !important;
+    }
+    
+    /* Navbar - prevent drift with balanced spacing */
+    header nav ul.flex {
+      gap: 2.5rem !important; /* Reduced from excessive gaps */
+    }
+    
+    header nav ul li a {
+      font-size: 1.25rem !important; /* 20px */
+      font-weight: 500 !important;
+      padding: 0.5rem 0 !important;
+    }
+    
+    /* Logo - proportional sizing */
+    header a[href="/"],
+    header a[href^="/"] {
+      width: 280px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
+    }
+    
+    header a[href="/"] img,
+    header a[href^="/"] img {
+      width: 100% !important;
+      height: auto !important;
+    }
+    
+    /* NavLink - balanced margins */
+    header nav.flex-1 {
+      margin-left: 4rem !important;
+      margin-right: 4rem !important;
+    }
+    
+    /* Language selector */
+    header button[data-slot="select-trigger"],
+    header [role="combobox"] {
+      font-size: 1.25rem !important;
+      height: 3.75rem !important;
+      padding: 0 2rem !important;
+    }
+    
+    header > ul.ml-auto {
+      margin-right: 0 !important; /* Remove excessive margin */
+      gap: 1.5rem !important;
+    }
+    
+    /* Section containers - use more space */
+    section.max-w-\[1440px\],
+    section.max-w-\[1600px\],
+    section.max-w-\[1920px\] {
+      max-width: 2400px !important;
+      padding-left: 6rem !important;
+      padding-right: 6rem !important;
+    }
+    
+    /* Text readability - optimal line lengths */
+    p.max-w-\[38ch\],
+    p.max-w-\[65ch\],
+    p.max-w-\[75ch\] {
+      max-width: 85ch !important;
+    }
+    
+    /* Grid layout proportions at ultra-wide are handled by Tailwind grid + container widths */
+  }
+  
+  /* QHD Monitors (2560px - 3439px) - Critical breakpoint */
+  @media (min-width: 2560px) and (max-width: 3439px) {
+    /* Remove transform scaling - use actual sizing */
+    .hero-content {
+      margin-top: 20rem !important;
+      margin-bottom: 8rem !important;
+      max-width: 1800px !important; /* Better use of space */
+      padding-left: 4rem !important;
+      padding-right: 4rem !important;
+    }
+    
+    .hero-content h1 {
+      font-size: clamp(60px, 4.5vw, 90px) !important;
+      max-width: 90ch !important; /* Better readability */
+    }
+    
+    .hero-content p {
+      font-size: clamp(18px, 1.5vw, 26px) !important;
+      max-width: 75ch !important; /* Improved readability */
+      line-height: 1.6 !important;
+    }
+    
+    .hero-button {
+      margin-top: 2.5rem !important;
+      height: 64px !important;
+      padding: 20px 48px !important;
+      font-size: 20px !important;
+    }
+    
+    /* Header - proper sizing without transform */
+    header.flex.items-center {
+      max-width: 1800px !important;
+      padding-left: 4rem !important;
+      padding-right: 4rem !important;
+      padding-top: 2.5rem !important;
+    }
+    
+    header nav ul li a {
+      font-size: 1.125rem !important; /* 18px */
+      font-weight: 500 !important;
+    }
+    
+    header nav ul.flex {
+      gap: 2rem !important;
+    }
+    
+    header a[href="/"],
+    header a[href^="/"] {
+      width: 240px !important;
+    }
+    
+    header button[data-slot="select-trigger"],
+    header [role="combobox"] {
+      font-size: 1.125rem !important;
+      height: 3.5rem !important;
+      padding: 0 1.5rem !important;
+    }
+    
+    /* Section containers - better max-widths */
+    section.max-w-\[1440px\],
+    section.max-w-\[1600px\] {
+      max-width: 1800px !important;
+      padding-left: 4rem !important;
+      padding-right: 4rem !important;
+    }
+    
+    /* Text readability improvements */
+    p.max-w-\[38ch\],
+    p.max-w-\[65ch\] {
+      max-width: 75ch !important;
+    }
+    
+    /* Grid proportions at QHD are handled by Tailwind grid + container widths */
+  }
+}

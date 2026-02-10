@@ -1,0 +1,42 @@
+{
+  "name": "nbcs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"next dev\" \"wait-on http://localhost:3000 && open http://localhost:3000/en\"",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome check",
+    "format": "biome format --write"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^2.0.2",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@vis.gl/react-google-maps": "^1.7.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.554.0",
+    "next": "^16.0.8",
+    "next-intl": "^4.5.5",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "swiper": "^12.0.3",
+    "tailwind-merge": "^3.4.0",
+    "resend": "^3.4.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/google.maps": "^3.58.1",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1.4.0",
+    "typescript": "^5",
+    "wait-on": "^9.0.3"
+  }
+}
