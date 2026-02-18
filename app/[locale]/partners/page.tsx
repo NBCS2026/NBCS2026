@@ -56,19 +56,19 @@ export default function page() {
           </div>
         </section>
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-20 sm:mb-24 md:mb-32 lg:mb-40 xl:mb-48 space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-28">
-          <div className="space-y-6 md:space-y-8">
+          <div>
             <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-[200px]">
               {t("text_eight")}
             </h1>
 
-            <div className="flex justify-center mb-[200px] my-8 sm:my-0">
+            <div className="flex justify-center mt-[200px] mb-[200px]">
               <picture className="block w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px]">
                 <img src="/sponsor_1.png" alt="alt" className="w-full h-auto" />
               </picture>
             </div>
           </div>
 
-          <div>
+          <div className="-mb-6 sm:-mb-8 md:-mb-10 lg:-mb-14">
             <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-[19px] md:mb-[27px]">
               {t("text_nine")}
             </h1>
@@ -89,9 +89,9 @@ export default function page() {
             </div>
           </div>
 
-          <div className="space-y-6 md:space-y-8">
-            <div className="flex justify-center my-8 sm:my-0">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center justify-items-center">
+          <div className="space-y-6 md:space-y-8 mb-0 sm:mb-0">
+            <div className="flex justify-center my-16 sm:my-0">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center justify-items-center">
                 <picture className="max-w-[241px]">
                   <img src="/sponsor_4.png" alt="alt" className="w-full h-auto" />
               </picture>
@@ -103,7 +103,7 @@ export default function page() {
           </div>
 
           <div className="space-y-6 md:space-y-8">
-            <div className="flex justify-center mb-[340px] my-8 sm:my-0">
+            <div className="flex justify-center mb-[170px]">
               <picture className="block max-w-[315px]">
                 <img src="/manitoba-logo.png" alt="Manitoba Government Logo" className="w-full h-auto" />
               </picture>
@@ -111,7 +111,7 @@ export default function page() {
             <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-[74px] md:mb-[82px]">
               {t("text_eleven")}
             </h1>
-            <div className="flex justify-center my-8 sm:my-0">
+            <div className="flex justify-center my-16 sm:my-12 md:my-16 lg:my-20">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-6 xl:gap-6 items-center justify-items-center w-full max-w-[900px]">
                 <div className="flex flex-col items-center sm:items-start">
                   <picture className="max-w-[290px] ml-0 sm:ml-6 md:ml-8">
