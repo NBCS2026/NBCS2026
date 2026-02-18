@@ -225,7 +225,7 @@
   },
   "footer": {
     "text_one": "Sommet pancanadien des communautés noires",
-    "text_two": "Ensemble, allons de l’avant.",
+    "text_two": "Ensemble, allons de l'avant.",
     "text_three": "En savoir plus sur nous",
     "text_four": "© 2025 Fondation Michaëlle Jean",
     "text_five": "Tous droits réservés",
@@ -242,5 +242,19 @@
     "program": "Programme",
     "partners": "Partenaires",
     "registration": "Inscription"
+  },
+  "tickets": {
+    "689387": {
+      "name": "Passe Jeunesse (18–30 ans)",
+      "description": "Accès complet à toute la programmation du Sommet (y compris le Gala)."
+    },
+    "689392": {
+      "name": "Passe Général Tarif Préférentiel (30+, Sommet seulement)",
+      "description": "Accès à toutes les séances et activités du Sommet. N'inclut pas le billet pour le Gala."
+    },
+    "689393": {
+      "name": "Passe Général Tarif Préférentiel (30+, Sommet + Gala)",
+      "description": "Accès complet à toute la programmation du Sommet, y compris le Gala d'ouverture."
+    }
   }
 }

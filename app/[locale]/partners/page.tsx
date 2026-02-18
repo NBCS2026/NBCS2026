@@ -6,13 +6,13 @@ import { Logo } from "@/components/logo";
 import { NavLink } from "@/components/nav-link";
 import ToggleMenu from "@/components/toggle-menu";
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useParams, useRouter } from "next/navigation";
 
 export default function page() {
   const params = useParams<{ locale: string }>();
   const t = useTranslations("partners");
-  const { locale } = params;
+  const locale = useLocale();
   const router = useRouter();
   return (
     <>
@@ -55,13 +55,13 @@ export default function page() {
             </p>
           </div>
         </section>
-        <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[87px] space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-28">
+        <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-20 sm:mb-24 md:mb-32 lg:mb-40 xl:mb-48 space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-28">
           <div className="space-y-6 md:space-y-8">
-            <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-[50px]">
+            <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-[200px]">
               {t("text_eight")}
             </h1>
 
-            <div className="flex justify-center mb-[200px]">
+            <div className="flex justify-center mb-[200px] my-8 sm:my-0">
               <picture className="block w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px]">
                 <img src="/sponsor_1.png" alt="alt" className="w-full h-auto" />
               </picture>
@@ -72,7 +72,7 @@ export default function page() {
             <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-[19px] md:mb-[27px]">
               {t("text_nine")}
             </h1>
-            <div className="flex justify-center">
+            <div className="flex justify-center my-8 sm:my-0">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center justify-items-center">
                 <picture className="max-w-[318.1px]">
                   <img src="/sponsor_2.png" alt="alt" className="w-full h-auto" />
@@ -90,7 +90,7 @@ export default function page() {
           </div>
 
           <div className="space-y-6 md:space-y-8">
-            <div className="flex justify-center">
+            <div className="flex justify-center my-8 sm:my-0">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center justify-items-center">
                 <picture className="max-w-[241px]">
                   <img src="/sponsor_4.png" alt="alt" className="w-full h-auto" />
@@ -103,7 +103,7 @@ export default function page() {
           </div>
 
           <div className="space-y-6 md:space-y-8">
-            <div className="flex justify-center mb-[340px]">
+            <div className="flex justify-center mb-[340px] my-8 sm:my-0">
               <picture className="block max-w-[315px]">
                 <img src="/manitoba-logo.png" alt="Manitoba Government Logo" className="w-full h-auto" />
               </picture>
@@ -111,23 +111,22 @@ export default function page() {
             <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-[74px] md:mb-[82px]">
               {t("text_eleven")}
             </h1>
-            <div className="flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center justify-items-center">
-                <picture className="max-w-[365px]">
-                  <img src="/sponsor_7.png" alt="alt" className="w-full h-auto" />
-              </picture>
-                <picture className="max-w-[235px]">
+            <div className="flex justify-center my-8 sm:my-0">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-6 xl:gap-6 items-center justify-items-center w-full max-w-[900px]">
+                <div className="flex flex-col items-center sm:items-start">
+                  <picture className="max-w-[290px] ml-0 sm:ml-6 md:ml-8">
+                    <img src={locale === "en" ? "/encore-logo-en.png" : "/sponsor_7.png"} alt="Encore logo" className="w-full h-auto" />
+                  </picture>
+                  <a href="https://www.cbc.ca/experiences/" target="_blank" rel="noopener noreferrer" className="block max-w-[700px] sm:max-w-[750px] md:max-w-[800px] lg:max-w-[850px] xl:max-w-[900px] mt-28 md:mt-32">
+                    <picture className="block w-full">
+                      <img src="/cbc-logo.png" alt="cbc-logo" className="w-full h-auto" />
+                    </picture>
+                  </a>
+                </div>
+                <picture className="max-w-[190px] mt-8 sm:-mt-28 md:-mt-32 sm:-ml-6 md:-ml-8">
                   <img src="/sponsor_8.png" alt="alt" className="w-full h-auto" />
-              </picture>
+                </picture>
               </div>
-            </div>
-          </div>
-
-          <div className="space-y-6 md:space-y-8">
-            <div className="flex justify-center">
-              <picture className="block max-w-[265px]">
-                <img src="/cbc-logo.webp" alt="cbc-logo" className="w-full h-auto" />
-              </picture>
             </div>
           </div>
         </section>

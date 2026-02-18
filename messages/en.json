@@ -248,5 +248,19 @@
     "partners": "Partners",
     "contact": "Contact",
     "registration": "Registration"
+  },
+  "tickets": {
+    "689387": {
+      "name": "Youth Pass (Ages 18–30)",
+      "description": "Full access to all Summit programming (including Gala)."
+    },
+    "689392": {
+      "name": "Early Bird General Pass (30+, Summit Only)",
+      "description": "Access to all Summit sessions and activities. Does not include Gala ticket."
+    },
+    "689393": {
+      "name": "Early Bird General Pass (30+, Summit + Gala)",
+      "description": "Full access to all Summit programming including the Opening Gala."
+    }
   }
 }
