@@ -55,7 +55,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
                       window.history.replaceState(null, '', url.toString());
                     }
                   } catch(e) {
-                    console.error('Error setting lang parameter:', e);
+                    // Error setting lang parameter - handled silently
                   }
                 }
                 // Set immediately

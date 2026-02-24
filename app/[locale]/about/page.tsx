@@ -45,11 +45,6 @@ export default function Page() {
           >
             {t("title")}
           </h1>
-          {/* <div className="tracking-widest  md:max-w-[71ch] mx-auto text-[#fcfcfc] text-[clamp(13px,1.43vw,22px)] leading-[1.1] mb-7 space-y-3">
-            <p>{t("post_titleOne")}</p>
-            <p>{t("post_titleTwo")}</p>
-            <p>{t("post_titleThree")}</p>
-          </div> */}
         </div>
       </div>
       <main className="bg-white rounded-t-2xl pt-14">
@@ -88,28 +83,6 @@ export default function Page() {
             <Timeline t={t} />
           </div>
         </section>
-        {/* <section className="max-w-[1440px] mx-auto px-5 hidden lg:grid grid-cols-1 lg:grid-cols-2 items-center justify-between">
-          <div>
-            <div className="mb-4 lg:mb-8">
-              <p className="text-light-red text-[clamp(16px,1.82vw,22px)] font-medium">
-                {t("text_twentyFour")}
-              </p>
-              <p className="text-black text-[clamp(24px,2.79vw,43px)] font-bold">
-                {t("text_twentyFive")}{" "}
-                <span className="text-light-red">{t("text_twentySix")}</span>
-              </p>
-            </div>
-            <p className="medium-text max-w-[38ch]">
-              <span className="text-light-red font-bold">
-                {t("text_twentySeven")}
-              </span>{" "}
-              {t("text_twentyEight")}
-            </p>
-          </div>
-          <picture>
-            <img src="/temporary.png" alt="temp" />
-          </picture>
-        </section> */}
         
         {/* Testimonial Section */}
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-32">

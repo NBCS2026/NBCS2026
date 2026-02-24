@@ -67,7 +67,6 @@ export default function Page() {
         });
       }
     } catch (error) {
-      console.error("Contact form error:", error);
       setSubmitStatus({
         type: "error",
         message: error instanceof Error ? error.message : "An error occurred. Please try again later.",
@@ -110,62 +109,6 @@ export default function Page() {
         </div>
       </div>
       <main className="bg-white rounded-t-2xl pt-14">
-        {/* <section className="max-w-[1440px] mx-auto px-5 flex flex-col md:flex-row gap-8 items-center mb-16 lg:mb-[142px]">
-          <div className="max-w-[60ch]">
-            <p className="font-bold text-[24px] text-center md:text-start md:text-[43px] mb-6 md:mb-14">
-              <span className="text-light-red">{t("text_one")}</span>{" "}
-              {t("text_two")}
-            </p>
-            <p className="font-medium text-[14px] md:text-[15px] text-dark-gray">
-              {t("text_three")}
-            </p>
-          </div>
-          <div className="w-full md:w-auto md:basis-[600px] space-y-6">
-            <div>
-              <Select>
-                <SelectTrigger
-                  className={`px-5 h-11 font-medium data-placeholder:text-black [&_svg]:text-black`}
-                >
-                  <SelectValue
-                    placeholder={locale == "en" ? "Subject" : "Object"}
-                  />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectItem value="fr">FR</SelectItem>
-                    <SelectItem value="en">EN</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
-            <div>
-              <label htmlFor="name" className="font-medium">
-                {t("text_four")}
-              </label>
-              <Input id="name" className="mt-3.5" />
-            </div>
-            <div>
-              <label htmlFor="email" className="font-medium">
-                {t("text_five")}
-              </label>
-              <Input id="email" type="email" className="mt-3.5" />
-            </div>
-            <div>
-              <label htmlFor="message" className="font-medium">
-                {t("text_six")}
-              </label>
-              <Input id="message" className="mt-3.5" />
-            </div>
-
-            <div className="space-y-3">
-              <p className="font-medium text-dark-gray">{t("text_seven")}</p>
-              <Button className="bg-transparent border hover:bg-transparent cursor-pointer rounded-full h-[50px] px-20 text-black font-semibold w-full md:w-auto">
-                {t("text_eight")}
-              </Button>
-            </div>
-          </div>
-        </section> */}
-        
         {/* Contact Form Section */}
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[142px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-start">

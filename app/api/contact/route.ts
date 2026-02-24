@@ -27,18 +27,9 @@ export async function POST(request: NextRequest) {
     const apiKey = process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY;
     
     if (!apiKey) {
-      const envKeys = Object.keys(process.env).filter(key => 
-        key.includes('RESEND') || key.includes('resend')
-      );
-      console.error("RESEND_API_KEY is not set.");
-      console.error("Environment check - RESEND_API_KEY exists:", !!process.env.RESEND_API_KEY);
-      console.error("Environment check - NEXT_PUBLIC_RESEND_API_KEY exists:", !!process.env.NEXT_PUBLIC_RESEND_API_KEY);
-      console.error("All RESEND-related env vars:", envKeys);
-      
       return NextResponse.json(
         { 
-          error: "Email service is not configured. Please check Vercel environment variables.",
-          debug: process.env.NODE_ENV === 'development' ? { envKeys } : undefined
+          error: "Email service is not configured. Please check Vercel environment variables."
         },
         { status: 500 }
       );
@@ -63,7 +54,6 @@ export async function POST(request: NextRequest) {
 
     // Resend returns { data: { id: '...' } } on success, or { error: {...} } on failure
     if ('error' in result && result.error) {
-      console.error("Error sending contact email via Resend:", result.error);
       return NextResponse.json(
         { error: "Failed to send message. Please try again later." },
         { status: 500 }
@@ -72,7 +62,6 @@ export async function POST(request: NextRequest) {
 
     // Success - check if we have data.id (successful send)
     if ('data' in result && result.data) {
-      console.log("Email sent successfully:", result.data);
       return NextResponse.json(
         { message: "Message sent successfully" },
         { status: 200 }
@@ -80,13 +69,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Fallback - if we get here, something unexpected happened
-    console.warn("Unexpected Resend response format:", result);
     return NextResponse.json(
       { message: "Message sent successfully" },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error processing contact form:", error);
     return NextResponse.json(
       { error: "Failed to send message. Please try again later." },
       { status: 500 }

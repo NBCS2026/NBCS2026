@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# National Black Canadians Summit 2026
+
+Official website for the 5th National Black Canadians Summit (NBCS 2026), a three-day gathering of leaders, artists, elders, youth, policymakers, and change-makers from across Canada.
+
+## About
+
+The National Black Canadians Summit brings communities together to celebrate Black culture, amplify lived experiences, and collectively shape a more just and inclusive future for a better Canada.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 with App Router
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **Internationalization:** next-intl (English & French)
+- **UI Components:** Radix UI
+- **Email Service:** Resend
+- **Event Registration:** Bizzabo
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20 or higher
+- npm, yarn, pnpm, or bun
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run Biome linter
+- `npm run format` - Format code with Biome
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── app/                    # Next.js app directory
+│   ├── [locale]/          # Internationalized routes (en, fr)
+│   │   ├── about/         # About page
+│   │   ├── contact/       # Contact page
+│   │   ├── info/          # Information page
+│   │   ├── media/         # Media page
+│   │   ├── partners/      # Partners/sponsors page
+│   │   ├── program/       # Program/schedule page
+│   │   └── ticket/        # Ticket registration page
+│   └── api/               # API routes
+│       └── contact/       # Contact form API
+├── components/            # React components
+│   ├── svg/              # SVG icon components
+│   └── ui/               # UI components (buttons, selects, etc.)
+├── hooks/                # Custom React hooks
+├── i18n/                 # Internationalization configuration
+├── lib/                   # Utility functions
+├── messages/              # Translation files (en.json, fr.json)
+└── public/              # Static assets (images, etc.)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create a `.env.local` file in the root directory with the following variables:
 
-## Deploy on Vercel
+```env
+# Resend API Key for contact form
+RESEND_API_KEY=your_resend_api_key
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Google Maps API Key (if using maps)
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_key
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Bizzabo Event ID
+NEXT_PUBLIC_BIZZABO_EVENT_ID=your_bizzabo_event_id
+```
+
+## Features
+
+- 🌐 **Bilingual Support:** Full English and French localization
+- 📱 **Responsive Design:** Optimized for all device sizes
+- 🎫 **Event Registration:** Integrated Bizzabo ticket system
+- 📧 **Contact Form:** Email integration via Resend
+- 🗺️ **Location Information:** Venue details and maps
+- 📅 **Program Schedule:** Interactive event schedule
+- 🎨 **Modern UI:** Clean, accessible design
+
+## Deployment
+
+The project is configured for deployment on Vercel. The build process is handled automatically.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+## Contributing
+
+This is a private project. For contributions or questions, please contact the project maintainers.
+
+## License
+
+Private - All rights reserved
+
+## Contact
+
+For inquiries about the National Black Canadians Summit:
+- Email: nbcs-spcn@fmjf.ca
+- Website: [Visit the official site](https://nbcs-spcn.ca)
+
+---
+
+Built with ❤️ for the National Black Canadians Summit 2026

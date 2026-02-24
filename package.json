@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write",
-    "stagewise": "stagewise"
+    "format": "biome format --write"
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^2.0.2",
