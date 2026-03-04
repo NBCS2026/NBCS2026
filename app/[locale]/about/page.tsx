@@ -157,21 +157,36 @@ export default function Page() {
             </p>
           </div>
           <div className="flex justify-center">
-            <div className="w-full max-w-[500px] h-[250px] sm:h-[300px] bg-white rounded-lg border border-[#D9D9D9] shadow-sm overflow-hidden">
-              <a 
-                href="https://www.youtube.com/watch?v=w_pZDBOxB7o" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity"
-              >
-                <img 
-                  src="/news-card-1.png" 
-                  alt="Summit Highlights" 
-                  className="w-full h-full object-cover"
-                />
-              </a>
+            <div className="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="w-full h-[250px] sm:h-[300px] bg-white rounded-lg border border-[#D9D9D9] shadow-sm overflow-hidden">
+                <a 
+                  href="https://www.youtube.com/watch?v=w_pZDBOxB7o" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity"
+                >
+                  <img 
+                    src="/news-card-1.png" 
+                    alt="Summit Highlights" 
+                    className="w-full h-full object-cover"
+                  />
+                </a>
+              </div>
+              <div className="w-full h-[250px] sm:h-[300px] bg-white rounded-lg border border-[#D9D9D9] shadow-sm overflow-hidden">
+                <a 
+                  href="https://vimeo.com/1170002549?share=copy&fl=sv&fe=ci" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity"
+                >
+                  <img 
+                    src="/news-card-2.png" 
+                    alt="Recap: 4th National Black Canadians Summit" 
+                    className="w-full h-full object-cover"
+                  />
+                </a>
+              </div>
             </div>
-
           </div>
         </section>
       </main>
