@@ -46,109 +46,21 @@ export default function Page() {
         </div>
       </div>
       <main className="bg-white rounded-t-2xl pt-14">
-        <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center gap-6 md:gap-8 lg:gap-10 2xl:gap-12 mb-12 sm:mb-16 md:mb-24 lg:mb-[142px]">
-          <div>
-            <div className="mb-8 lg:mb-10 text-center md:text-start">
-              <p className="font-medium text-[15px] lg:text-[21px] text-light-red mb-8">
-                {t("text_one")}
-              </p>
-              <h2 className="font-bold text-[24px] lg:text-[43px]">
-                {t("text_two")}
-              </h2>
-
-              <p className="tracking-widest max-w-[38ch] md:max-w-[86ch] mx-auto text-light-red font-medium text-[clamp(14px,1.43vw,22px)]">
-                {t("post_title")}
-              </p>
-            </div>
-            <div className="space-y-2 mb-7">
-              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
-                <span className="text-black font-bold">{t("text_three")}</span>{" "}
-                {t("text_four")}
-              </p>
-              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
-                <span className="text-black font-bold">{t("text_five")}</span>{" "}
-                {t("text_six")}
-              </p>
-              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
-                <span className="text-black font-bold">{t("text_seven")}</span>{" "}
-                {t("text_eight")}
-              </p>
-            </div>
-            <div className="space-y-2">
-              <p className="font-medium text-[15px] lg:text-[21px] text-light-red">
-                {t("text_eleven")}
-              </p>
-              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
-                <span className="text-black font-bold">{t("text_twelve")}</span>{" "}
-                {t("text_thirteen")}
-              </p>
-              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
-                <span className="text-black font-bold">
-                  {t("text_fourteen")}
-                </span>{" "}
-                {t("text_fifteen")}
-              </p>
-              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
-                <span className="text-black font-bold">
-                  {t("text_sixteen")}
-                </span>{" "}
-                {t("text_seventeen")}
-              </p>
-            </div>
-          </div>
-          <div className="w-full">
-            <div
-              className="flex flex-col items-start p-4 sm:p-6 md:p-8 lg:p-12 gap-6 md:gap-8 rounded-2xl sm:rounded-3xl lg:rounded-[40px]"
-              style={{
-                background:
-                  "linear-gradient(163.81deg, #5D1831 15.12%, #1C040D 88.75%)",
-                border: "1px solid #5D1831",
-              }}
-            >
-              <h2
-                className="font-heading text-white text-[clamp(32px,4vw,48px)] font-black tracking-widest"
-              >
-                {tHome("location_title")}
-              </h2>
-              <div className="w-full flex flex-col gap-6">
-                <div className="text-white">
-                  <h3 className="font-heading text-[clamp(20px,2.5vw,28px)] font-bold mb-2">
-                    {tHome("location_venue")}
-                  </h3>
-                  <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
-                    {tHome("location_address")}
-                  </p>
-                </div>
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=375+York+Ave,+Winnipeg,+MB+R3C+3J3,+Canada"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full rounded-xl sm:rounded-2xl lg:rounded-[32px] overflow-hidden block cursor-pointer transition-opacity hover:opacity-90"
-                >
-                  <img
-                    src="/rbc-convention-centre-map.png"
-                    alt="RBC Convention Centre Winnipeg Location Map - Click to open in Google Maps"
-                    className="w-full h-auto object-cover"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* 1. Recommended Accommodation (Delta) */}
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[142px]">
           <div
-            className="flex flex-col items-start p-4 sm:p-6 md:p-8 lg:p-12 gap-6 md:gap-8 lg:gap-12 rounded-2xl sm:rounded-3xl lg:rounded-[40px] relative min-h-[600px] lg:min-h-[700px]"
+            className="flex flex-col items-start p-4 sm:p-6 md:p-8 lg:p-12 gap-8 md:gap-10 lg:gap-12 rounded-2xl sm:rounded-3xl lg:rounded-[40px] relative min-h-[600px] lg:min-h-[700px]"
             style={{
               background:
                 "linear-gradient(163.81deg, #5D1831 15.12%, #1C040D 88.75%)",
               border: "1px solid #5D1831",
             }}
           >
-            <h2 className="font-heading text-white text-[clamp(32px,4vw,48px)] font-black tracking-widest">
+            <h2 className="font-heading text-white text-[clamp(32px,4vw,48px)] font-black tracking-widest w-full text-center">
               {t("delta_title")}
             </h2>
-            <div className="w-full flex flex-col gap-6">
-              <div className="text-white space-y-4">
+            <div className="w-full flex flex-col gap-8">
+              <div className="w-full text-white space-y-4 border border-[#8C0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10">
                 {locale === "fr" ? (
                   <>
                     <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
@@ -251,7 +163,7 @@ export default function Page() {
                   </>
                 )}
               </div>
-              <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 max-w-2xl">
+              <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 max-w-2xl mx-auto">
                 {[1, 2, 3, 4, 5, 6].map((num) => (
                   <div
                     key={num}
@@ -277,6 +189,138 @@ export default function Page() {
                 height={72}
                 className="object-contain opacity-90"
               />
+            </div>
+          </div>
+        </section>
+        {/* 2. Fly to the 2026 NBCS (Porter) */}
+        <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[142px]">
+          <div
+            className="flex flex-col items-start p-4 sm:p-6 md:p-8 lg:p-12 gap-8 md:gap-10 lg:gap-12 rounded-2xl sm:rounded-3xl lg:rounded-[40px]"
+            style={{
+              background:
+                "linear-gradient(163.81deg, #5D1831 15.12%, #1C040D 88.75%)",
+              border: "1px solid #5D1831",
+            }}
+          >
+            <h2 className="font-heading text-white text-[clamp(32px,4vw,48px)] font-black tracking-widest w-full text-center">
+              {t("porter_title")}
+            </h2>
+            <div className="w-full flex flex-col gap-4 text-white">
+              <div className="w-full border border-[#8C0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10">
+                <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
+                  {t("porter_intro")}
+                </p>
+                <div className="space-y-1 text-[clamp(16px,1.8vw,20px)] opacity-90 mt-4">
+                  <p>{t("porter_booking_period")}</p>
+                  <p className="mt-2 font-bold">{t("porter_travel_dates_label")}</p>
+                  <p>{t("porter_travel_to")}</p>
+                  <p>{t("porter_travel_from")}</p>
+                </div>
+                <div className="space-y-1 text-[clamp(16px,1.8vw,20px)] opacity-90 mt-4">
+                  <p className="font-bold">{t("porter_how_title")}</p>
+                  <p>{t("porter_online")}</p>
+                  <p>{t("porter_agent")}</p>
+                </div>
+                <p className="text-[clamp(16px,1.8vw,20px)] opacity-90 mt-4">
+                  {t("porter_body_one")}
+                </p>
+                <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
+                  {t("porter_body_two")}
+                </p>
+                <p className="text-[clamp(16px,1.8vw,20px)] opacity-90 font-semibold mt-2">
+                  {t("porter_cta")}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* 3. Venue details & map */}
+        <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center gap-6 md:gap-8 lg:gap-10 2xl:gap-12 mb-12 sm:mb-16 md:mb-24 lg:mb-[142px]">
+          <div>
+            <div className="mb-8 lg:mb-10 text-center md:text-start">
+              <p className="font-medium text-[15px] lg:text-[21px] text-light-red mb-8">
+                {t("text_one")}
+              </p>
+              <h2 className="font-bold text-[24px] lg:text-[43px]">
+                {t("text_two")}
+              </h2>
+
+              <p className="tracking-widest max-w-[38ch] md:max-w-[86ch] mx-auto text-light-red font-medium text-[clamp(14px,1.43vw,22px)]">
+                {t("post_title")}
+              </p>
+            </div>
+            <div className="space-y-2 mb-7">
+              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
+                <span className="text-black font-bold">{t("text_three")}</span>{" "}
+                {t("text_four")}
+              </p>
+              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
+                <span className="text-black font-bold">{t("text_five")}</span>{" "}
+                {t("text_six")}
+              </p>
+              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
+                <span className="text-black font-bold">{t("text_seven")}</span>{" "}
+                {t("text_eight")}
+              </p>
+            </div>
+            <div className="space-y-2">
+              <p className="font-medium text-[15px] lg:text-[21px] text-light-red">
+                {t("text_eleven")}
+              </p>
+              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
+                <span className="text-black font-bold">{t("text_twelve")}</span>{" "}
+                {t("text_thirteen")}
+              </p>
+              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
+                <span className="text-black font-bold">
+                  {t("text_fourteen")}
+                </span>{" "}
+                {t("text_fifteen")}
+              </p>
+              <p className="font-medium text-[15px] lg:text-[21px] text-dark-gray">
+                <span className="text-black font-bold">
+                  {t("text_sixteen")}
+                </span>{" "}
+                {t("text_seventeen")}
+              </p>
+            </div>
+          </div>
+          <div className="w-full">
+            <div
+              className="flex flex-col items-start p-4 sm:p-6 md:p-8 lg:p-12 gap-6 md:gap-8 rounded-2xl sm:rounded-3xl lg:rounded-[40px]"
+              style={{
+                background:
+                  "linear-gradient(163.81deg, #5D1831 15.12%, #1C040D 88.75%)",
+                border: "1px solid #5D1831",
+              }}
+            >
+              <h2
+                className="font-heading text-white text-[clamp(32px,4vw,48px)] font-black tracking-widest"
+              >
+                {tHome("location_title")}
+              </h2>
+              <div className="w-full flex flex-col gap-6">
+                <div className="text-white">
+                  <h3 className="font-heading text-[clamp(20px,2.5vw,28px)] font-bold mb-2">
+                    {tHome("location_venue")}
+                  </h3>
+                  <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
+                    {tHome("location_address")}
+                  </p>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=375+York+Ave,+Winnipeg,+MB+R3C+3J3,+Canada"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full rounded-xl sm:rounded-2xl lg:rounded-[32px] overflow-hidden block cursor-pointer transition-opacity hover:opacity-90"
+                >
+                  <img
+                    src="/rbc-convention-centre-map.png"
+                    alt="RBC Convention Centre Winnipeg Location Map - Click to open in Google Maps"
+                    className="w-full h-auto object-cover"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </section>

@@ -59,17 +59,28 @@ export function NavLink({ className, onClick }: NavLinKProps) {
         >
         {Links.map((link, idx) => {
           const isActive = pathname === link.url || pathname?.startsWith(link.url + "/");
+          const isInfoLink = link.url === "/info";
           return (
             <li key={idx} onClick={onClick}>
               <Link
-                className={`whitespace-nowrap ${
+                className={`${
+                  isInfoLink ? "flex flex-col items-center justify-center text-center leading-tight" : "whitespace-nowrap"
+                } ${
                   isActive 
                     ? "border-b-2 border-white" 
                     : ""
                 } hover:border-b-2 hover:border-white`}
                 href={link.url}
               >
-                {link.title}
+                {isInfoLink ? (
+                  <>
+                    <span>{t("info_line1")}</span>
+                    <span>{t("info_line2")}</span>
+                    <span>{t("info_line3")}</span>
+                  </>
+                ) : (
+                  link.title
+                )}
               </Link>
             </li>
           );

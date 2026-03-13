@@ -22,10 +22,12 @@
     "art_iconText": "Live Arts",
     "connect_iconText": "Workshops",
     "discover_button": "LEARN MORE",
-    "section2_lineRed": "\"Moving Forward Together\"",
-    "section2_lineOne": "affirms our collective commitment to progress. It means moving forward as Black communities, grounded in our history, strengths, and shared aspirations; moving forward alongside our allies who choose to stand with us in our ongoing struggle to eradicate racial discrimination; and moving forward in solidarity with all racialized communities—particularly Indigenous communities, whose leadership, presence, and sovereignty are essential in Winnipeg, across Manitoba, and beyond.",
-    "section2_lineTwo": "This commitment includes the intentional creation of a platform and engagement in meaningful dialogue with Indigenous communities, recognizing our shared experiences of the devastating impacts of colonization and the importance of working together toward justice, healing, and self-determination.",
-    "section2_lineThree": "",
+    "section2_lineRed": "\"Moving forward together\"",
+    "section2_lineOne": "expresses the collective commitment we must pursue in our determined march toward progress. Across Canada, communities of African descent are moving forward with determination in a struggle that has become unavoidable: the struggle to eradicate racial discrimination.",
+    "section2_lineTwo": "Carried out with pride, this effort is deeply rooted in our history, our shared aspirations, and the strength of our collective actions. Together, we are forging lasting alliances and broadening the scope of our initiatives in solidarity with all racialized communities.",
+    "section2_lineThree": "We also recognize with respect our Indigenous sisters and brothers. We salute their leadership, their presence, and their courageous quest for sovereignty in Winnipeg, across Manitoba, and far beyond. In this spirit, we are working to intentionally create a platform that promotes meaningful dialogue with First Nations, who also face persistent systemic racism and the profound consequences of colonization.",
+    "section2_lineFourA": "Moving forward together",
+    "section2_lineFourB": " toward justice also means embarking on paths of healing. It means strengthening our collective capacities for resistance, resilience, and self-determination.",
     "section2_button": "EXPLORE WINNIPEG",
     "ticket_registration": "Registration",
     "ticket_title": "NATIONAL BLACK CANADIANS SUMMIT 2026",
@@ -35,7 +37,6 @@
     "location_venue": "RBC Convention Centre Winnipeg",
     "location_address": "375 York Ave, Winnipeg, MB R3C 3J3, Canada"
   },
-
   "about": {
     "book_button": "Register here",
     "pretitle": "ABOUT THE NATIONAL BLACK CANADIANS SUMMIT",
@@ -106,7 +107,6 @@
     "day_1_program_6": "BREAKOUT SESSIONS",
     "day_1_time_7": "6:00 PM – 10:00 PM",
     "day_1_program_7": "SUMMIT OPENING GALA",
-
     "day_2_time_1": "7:30 AM – 8:30 AM",
     "day_2_program_1": "BREAKFAST",
     "day_2_time_2": "9:00 AM – 10:00 AM",
@@ -119,7 +119,6 @@
     "day_2_program_5": "BREAKOUT SESSIONS",
     "day_2_time_6": "5:30 PM",
     "day_2_program_6": "SPONSORS AND DISTINGUISHED|GUESTS RECEPTION (BY INVITATION ONLY)",
-
     "day_3_time_1": "7:30 AM - 8:30 AM",
     "day_3_program_1": "BREAKFAST",
     "day_3_time_2": "9:00 AM – 10:30 AM",
@@ -168,7 +167,19 @@
     "delta_description": "Delta Hotels by Marriott Winnipeg is a centrally located, modern hotel offering comfort, convenience, and a professional environment for Summit delegates traveling from across Canada.",
     "delta_description_two": "Situated in the heart of downtown Winnipeg, the hotel provides easy access to Summit venues, cultural landmarks, dining, and transit—making it an ideal home base throughout the event.",
     "delta_address_label": "Address:",
-    "delta_address": "350 St Mary Ave, Winnipeg, MB R3C 3J2"
+    "delta_address": "350 St Mary Ave, Winnipeg, MB R3C 3J2",
+    "porter_title": "FLY TO THE 2026 NBCS",
+    "porter_intro": "Porter Airlines is proud to offer up to 15% off available base fares (except for the lowest class fare during public seat sales) for travel to and from the 5th National Black Canadians Summit 2026 in Winnipeg.",
+    "porter_booking_period": "Booking period: February 25 – September 23, 2026",
+    "porter_travel_dates_label": "Travel dates:",
+    "porter_travel_to": "To Winnipeg (YWG): September 15–20, 2026",
+    "porter_travel_from": "From Winnipeg (YWG): September 18–23, 2026",
+    "porter_how_title": "How to book:",
+    "porter_online": "Online: Porter Airlines NBCS Booking",
+    "porter_agent": "Through a travel agent: Use promo code NBCS26",
+    "porter_body_one": "Porter Airlines is committed to effortless travel with elevated all-economy service, thoughtful amenities, and aircraft designed with the environment in mind. Since its first flight in 2006, Porter has delivered service with a smile, putting passengers first for a comfortable, stylish, and stress-free journey.",
+    "porter_body_two": "This promo code is exclusively for NBCS attendees and organizers. Porter's fare rules and conditions apply. For questions, call 1-888-619-8622.",
+    "porter_cta": "Book your flight today and save with Porter Airlines!"
   },
   "contact": {
     "book_button": "Register here",
@@ -227,6 +238,9 @@
     "partners": "PARTNERS",
     "media": "MEDIA",
     "info": "INFO",
+    "info_line1": "ACCOMMODATION",
+    "info_line2": "&",
+    "info_line3": "LOCATION",
     "contact": "CONTACT"
   },
   "footer": {

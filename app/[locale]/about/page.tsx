@@ -173,15 +173,15 @@ export default function Page() {
                 </a>
               </div>
               <div className="w-full h-[250px] sm:h-[300px] bg-white rounded-lg border border-[#D9D9D9] shadow-sm overflow-hidden">
-                <a 
-                  href="https://vimeo.com/1170002549?share=copy&fl=sv&fe=ci" 
-                  target="_blank" 
+                <a
+                  href="https://vimeo.com/1173038507?share=copy&fl=sv&fe=ci"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity"
                 >
-                  <img 
-                    src="/news-card-2.png" 
-                    alt="Recap: 4th National Black Canadians Summit" 
+                  <img
+                    src="/news-card-2.png"
+                    alt="Recap: 4th National Black Canadians Summit"
                     className="w-full h-full object-cover"
                   />
                 </a>

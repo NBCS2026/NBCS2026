@@ -18,11 +18,32 @@ import { useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 
+const SECTION2_EN = {
+  prefix: "The statement ",
+  quote: "\"Moving forward together\"",
+  p1: " expresses the collective commitment we must pursue in our determined march toward progress. Across Canada, communities of African descent are moving forward with determination in a struggle that has become unavoidable: the struggle to eradicate racial discrimination.",
+  p2: "Carried out with pride, this effort is deeply rooted in our history, our shared aspirations, and the strength of our collective actions. Together, we are forging lasting alliances and broadening the scope of our initiatives in solidarity with all racialized communities.",
+  p3: "We also recognize with respect our Indigenous sisters and brothers. We salute their leadership, their presence, and their courageous quest for sovereignty in Winnipeg, across Manitoba, and far beyond. In this spirit, we are working to intentionally create a platform that promotes meaningful dialogue with First Nations, who also face persistent systemic racism and the profound consequences of colonization.",
+  p4Quote: "Moving forward together",
+  p4Rest: " toward justice also means embarking on paths of healing. It means strengthening our collective capacities for resistance, resilience, and self-determination.",
+};
+
+const SECTION2_FR = {
+  prefix: "L'affirmation ",
+  quote: "« Ensemble, allons de l'avant »",
+  p1: " exprime l'engagement collectif que nous devons poursuivre dans notre marche résolue vers le progrès. À travers le Canada, les communautés afrodescendantes avancent avec détermination dans une lutte devenue incontournable : celle pour l'éradication de la discrimination raciale.",
+  p2: "Portée avec fierté, cette démarche s'inscrit profondément dans notre histoire, dans nos aspirations communes et dans la force de nos actions collectives. Ensemble, nous forgeons des alliances durables et élargissons le champ de nos initiatives en solidarité avec l'ensemble des communautés racialisées.",
+  p3: "Nous reconnaissons également avec respect nos sœurs et nos frères autochtones. Nous saluons leur leadership, leur présence et leur quête courageuse de souveraineté à Winnipeg, à travers le Manitoba et bien au-delà. Dans cet esprit, nous travaillons à la création intentionnelle d'une plateforme favorisant un dialogue significatif avec les Premières Nations, elles aussi confrontées à la persistance du racisme systémique et aux conséquences profondes de la colonisation.",
+  p4Quote: "Avancer ensemble",
+  p4Rest: " vers la justice, c'est aussi emprunter des chemins de guérison. C'est renforcer nos capacités collectives de résistance, de résilience et d'autodétermination.",
+};
+
 export default function Page() {
   const params = useParams<{ locale: string }>();
   const t = useTranslations("home");
   const { locale } = params;
   const router = useRouter();
+  const s2 = locale === "fr" ? SECTION2_FR : SECTION2_EN;
 
   return (
     <>
@@ -82,16 +103,18 @@ export default function Page() {
             <div className="space-y-4">
               <div className="space-y-4">
                 <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
-                  <span className="text-light-red font-semibold">
-                    {t("section2_lineRed")}
-                  </span>{" "}
-                  {t("section2_lineOne")}
+                  {s2.prefix}
+                  <span className="text-[#8C0C3A] font-semibold">{s2.quote}</span>
+                  {s2.p1}
                 </p>
                 <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
-                  {t("section2_lineTwo")}
+                  {s2.p2}
                 </p>
                 <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
-                  {t("section2_lineThree")}
+                  {s2.p3}
+                </p>
+                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
+                  {s2.p4Quote}{s2.p4Rest}
                 </p>
               </div>
               <Button
