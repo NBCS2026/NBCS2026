@@ -206,28 +206,38 @@ export default function Page() {
               {t("porter_title")}
             </h2>
             <div className="w-full flex flex-col gap-4 text-white">
-              <div className="w-full border border-[#8C0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10">
+              <div className="w-full border border-[#8C0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10 space-y-7">
                 <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
                   {t("porter_intro")}
                 </p>
-                <div className="space-y-1 text-[clamp(16px,1.8vw,20px)] opacity-90 mt-4">
+                <div className="space-y-1 text-[clamp(16px,1.8vw,20px)] opacity-90">
                   <p>{t("porter_booking_period")}</p>
                   <p className="mt-2 font-bold">{t("porter_travel_dates_label")}</p>
                   <p>{t("porter_travel_to")}</p>
                   <p>{t("porter_travel_from")}</p>
                 </div>
-                <div className="space-y-1 text-[clamp(16px,1.8vw,20px)] opacity-90 mt-4">
+                <div className="space-y-1 text-[clamp(16px,1.8vw,20px)] opacity-90">
                   <p className="font-bold">{t("porter_how_title")}</p>
-                  <p>{t("porter_online")}</p>
+                  <p>
+                    {t("porter_online_prefix")}
+                    <a
+                      href={locale === "fr" ? "https://www.flyporter.com/fr-ca/?promocode=NBCS26" : "https://www.flyporter.com/en-ca/?promocode=NBCS26"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2 text-white hover:opacity-90"
+                    >
+                      {t("porter_online_link")}
+                    </a>
+                  </p>
                   <p>{t("porter_agent")}</p>
                 </div>
-                <p className="text-[clamp(16px,1.8vw,20px)] opacity-90 mt-4">
+                <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
                   {t("porter_body_one")}
                 </p>
                 <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
                   {t("porter_body_two")}
                 </p>
-                <p className="text-[clamp(16px,1.8vw,20px)] opacity-90 font-semibold mt-2">
+                <p className="text-[clamp(16px,1.8vw,20px)] opacity-90 font-semibold">
                   {t("porter_cta")}
                 </p>
               </div>
