@@ -10,7 +10,7 @@ import ToggleMenu from "@/components/toggle-menu";
 
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import { useRouter } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 
 const BIZZABO_EVENT_ID = process.env.NEXT_PUBLIC_BIZZABO_EVENT_ID || "792278";
 
@@ -272,6 +272,44 @@ export default function Page() {
           </div>
         </section>
 
+        {/* Accommodation & Location CTA */}
+        <section className="bg-white py-10 sm:py-12 mt-16 mb-16">
+          <div className="max-w-[1568px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-5 2xl:px-8 text-center">
+            <p className="font-body text-[15px] lg:text-[22px] text-[#1E1E1EB2] font-medium leading-relaxed">
+              {locale === "fr" ? (
+                <>
+                  Consultez notre page{" "}
+                  <span className="text-[#8C0C3A] font-semibold">
+                    Hébergement et lieu
+                  </span>{" "}
+                  pour trouver des hôtels recommandés,
+                  <br />
+                  des conseils de voyage et tout ce dont vous avez besoin pour
+                  planifier votre séjour.
+                </>
+              ) : (
+                <>
+                  Explore our{" "}
+                  <span className="text-[#8C0C3A] font-semibold">
+                    Accommodation &amp; Location
+                  </span>{" "}
+                  page to find recommended hotels,
+                  <br />
+                  travel tips, and everything you need to plan your stay.
+                </>
+              )}
+            </p>
+
+            <div className="mt-6">
+              <Link
+                href="/info"
+                className="inline-flex items-center justify-center bg-[#8C0C3A] hover:bg-[#5D1831] text-white border border-[#8C0C3A] transition-colors cursor-pointer rounded-full h-[44px] sm:h-[50px] px-8 text-[18px] font-semibold w-full sm:w-[420px] max-w-[420px] mx-auto"
+              >
+                {locale === "fr" ? "Planifiez votre séjour" : "Plan Your Stay"}
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
       <Footer />
       <style jsx global>{`
