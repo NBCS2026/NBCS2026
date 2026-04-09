@@ -20,62 +20,38 @@ export default function Page() {
   const { locale } = params;
 
   useEffect(() => {
-    // Verify and set language parameter for Bizzabo (fallback check)
     const langValue = locale === "fr" ? "fr-ca" : "en";
     const url = new URL(window.location.href);
     const currentLang = url.searchParams.get("lang");
 
-    // Verify URL parameter is set correctly (defensive check)
     if (currentLang !== langValue) {
       url.searchParams.set("lang", langValue);
       window.history.replaceState({}, "", url.toString());
     }
 
-    // Cleanup function to remove existing Bizzabo elements
     const cleanup = () => {
-      // Remove all Bizzabo widgets
-      const existingWidgets = document.querySelectorAll(
-        ".bz-widget-tickets-inline, .bz-widget-popup"
-      );
+      const existingWidgets = document.querySelectorAll(".bz-widget-tickets-inline");
       existingWidgets.forEach((widget) => {
         widget.innerHTML = "";
       });
 
-      // Remove existing scripts if they exist
       const existingTicketsScript = document.getElementById(
         `bz-inline-registration-script-${BIZZABO_FLOW_ID}`
       );
-      const existingPopupScript = document.getElementById(
-        `bz-popup-registration-script-${BIZZABO_FLOW_ID}`
-      );
-
       if (existingTicketsScript) existingTicketsScript.remove();
-      if (existingPopupScript) existingPopupScript.remove();
 
-      // Remove any Bizzabo iframes or other elements
-      const bizzaboElements = document.querySelectorAll(
-        '[id*="bizzabo"], [class*="bz-"]'
-      );
-      bizzaboElements.forEach((el) => {
-        if (
-          el.tagName === "SCRIPT" ||
-          el.id.includes("bizzabo") ||
-          el.className.includes("bz-widget")
-        ) {
-          // Keep widget containers, only remove scripts and iframes
-          if (el.tagName === "SCRIPT" || el.tagName === "IFRAME") {
-            el.remove();
-          }
+      const iframes = document.querySelectorAll("iframe");
+      iframes.forEach((iframe) => {
+        const src = iframe.getAttribute("src") || "";
+        if (src.includes("bizzabo")) {
+          iframe.remove();
         }
       });
     };
 
-    // Clean up first
     cleanup();
 
-    // Load scripts when DOM is ready
     const loadScripts = () => {
-      // --- Inline Tickets Script ---
       const ticketsScript = document.createElement("script");
       ticketsScript.type = "text/javascript";
       ticketsScript.async = true;
@@ -85,38 +61,16 @@ export default function Page() {
       ticketsScript.className = "bz-inline-widget-script";
       ticketsScript.setAttribute("data-event-id", BIZZABO_EVENT_ID);
 
-      // Error handling for script loading
       ticketsScript.onerror = () => {
-        // Script loading error - handled silently
-      };
-
-      // --- Popup Registration Script ---
-      const popupScript = document.createElement("script");
-      popupScript.type = "text/javascript";
-      popupScript.async = true;
-      popupScript.src =
-        "https://organizer.bizzabo.com/widgets/flows/popup/registrationPopup.js";
-      popupScript.id = `bz-popup-registration-script-${BIZZABO_FLOW_ID}`;
-      popupScript.setAttribute("data-event-id", BIZZABO_EVENT_ID);
-      popupScript.setAttribute("data-registration-proxy", "true");
-      popupScript.setAttribute("data-unique-name", BIZZABO_EVENT_ID);
-      popupScript.setAttribute("data-flow-id", BIZZABO_FLOW_ID);
-      popupScript.setAttribute("data-inline-widget", "true");
-
-      // Error handling for script loading
-      popupScript.onerror = () => {
-        // Script loading error - handled silently
+        console.error("Bizzabo tickets script failed to load");
       };
 
       document.body.appendChild(ticketsScript);
-      document.body.appendChild(popupScript);
     };
 
-    // Load scripts when DOM is ready
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", loadScripts, { once: true });
     } else {
-      // DOM already ready, load immediately
       loadScripts();
     }
 
@@ -130,7 +84,6 @@ export default function Page() {
       <div className="min-h-screen">
         {/* Hero Section with Background Image and Gradient Overlay */}
         <section className="relative min-h-screen flex flex-col">
-          {/* Background Image with Gradient Overlay */}
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -138,9 +91,7 @@ export default function Page() {
             }}
           />
 
-          {/* Content */}
           <div className="relative z-10 flex-1 flex flex-col">
-            {/* Dark Header */}
             <header className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 w-full">
               <Logo />
               <NavLink className="hidden md:block flex-1 mx-8 3xl:mx-12 text-white" />
@@ -152,7 +103,6 @@ export default function Page() {
               <ToggleMenu local={locale as string} className="ml-auto md:ml-0" />
             </header>
 
-            {/* Hero Content */}
             <div className="flex-1 flex items-center justify-center">
               <div className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 text-center text-white w-full">
                 <p className="font-heading font-light text-[20px] tracking-[0.95em] mb-4 text-white">
@@ -165,27 +115,6 @@ export default function Page() {
             </div>
           </div>
         </section>
-
-        {/* French Warning Section */}
-        {locale === "fr" && (
-          <section className="w-full" style={{ backgroundColor: "#FFAC04" }}>
-            <div className="max-w-[1568px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-5 2xl:px-8 py-6 md:py-8">
-              <div className="flex items-start gap-3 mb-4">
-                <h3 className="text-[#1E1E1E] font-bold text-[clamp(20px,2.5vw,28px)] uppercase tracking-wide">
-                  AVIS
-                </h3>
-                <img
-                  src="/alert-triangle.png"
-                  alt="Alerte"
-                  className="w-[clamp(20px,2.5vw,28px)] h-[clamp(20px,2.5vw,28px)] object-contain"
-                />
-              </div>
-              <p className="text-[#1E1E1E] font-body text-[clamp(14px,1.8vw,18px)] leading-relaxed">
-                En raison d&apos;un problème technique, l&apos;inscription en français peut s&apos;afficher partiellement en anglais sur les navigateurs Chrome, Microsoft Edge, Safari, Opera et Vivaldi. Veuillez utiliser le navigateur Firefox pour accéder à la version complète en français.
-              </p>
-            </div>
-          </section>
-        )}
 
         {/* Registration Intro + Heading above Bizzabo */}
         <section className="bg-white py-8 sm:py-10 md:py-12">
@@ -211,7 +140,6 @@ export default function Page() {
         {/* Bizzabo Registration Widget */}
         <section className="bg-[#F5F5F5] py-8 sm:py-12 md:py-16">
           <div className="max-w-[1568px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-5 2xl:px-8">
-            {/* French Content - Only show for French locale */}
             {locale === "fr" && (
               <div className="mb-8 md:mb-12 text-center max-w-4xl mx-auto">
                 <p className="font-body text-[15px] lg:text-[22px] text-[#1e1e1eb2] font-medium mb-4 leading-relaxed">
@@ -223,7 +151,6 @@ export default function Page() {
               </div>
             )}
 
-            {/* Embedded Bizzabo widget for all locales */}
             <div
               className="flex flex-col items-start p-4 sm:p-6 md:p-8 lg:p-12 gap-6 md:gap-8 lg:gap-12 rounded-2xl sm:rounded-3xl lg:rounded-[40px]"
               style={{
@@ -232,7 +159,6 @@ export default function Page() {
                 border: "1px solid #5D1831",
               }}
             >
-              {/* Widget Container */}
               <div
                 className="flex flex-col justify-center items-start p-4 sm:p-5 md:p-6 gap-6 md:gap-8 lg:gap-12 w-full rounded-xl sm:rounded-2xl lg:rounded-[32px] relative"
                 style={{
@@ -241,7 +167,6 @@ export default function Page() {
                   border: "1px solid #8C0C3A",
                 }}
               >
-                {/* Bizzabo Widget */}
                 <div
                   className="w-full"
                   style={{ display: "inline-flex", width: "100%" }}
@@ -302,7 +227,6 @@ export default function Page() {
       </div>
       <Footer />
       <style jsx global>{`
-        /* Style Bizzabo Widget to match design */
         .bz-widget-tickets-inline {
           width: 100% !important;
         }
