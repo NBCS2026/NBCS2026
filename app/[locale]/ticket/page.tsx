@@ -11,7 +11,7 @@ import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 
-const BIZZABO_EVENT_ID = process.env.NEXT_PUBLIC_BIZZABO_EVENT_ID || "792278";
+const BIZZABO_EVENT_ID = "792278";
 const BIZZABO_FLOW_ID = "952c7914-98bb-4958-8add-066e946ee763";
 
 export default function Page() {
@@ -20,69 +20,37 @@ export default function Page() {
   const { locale } = params;
 
   useEffect(() => {
-    const langValue = locale === "fr" ? "fr-ca" : "en";
-    const url = new URL(window.location.href);
-    const currentLang = url.searchParams.get("lang");
+    const existingTicketsScript = document.getElementById(
+      `bz-inline-registration-script-${BIZZABO_FLOW_ID}`
+    );
+    if (existingTicketsScript) existingTicketsScript.remove();
 
-    if (currentLang !== langValue) {
-      url.searchParams.set("lang", langValue);
-      window.history.replaceState({}, "", url.toString());
-    }
+    const ticketsScript = document.createElement("script");
+    ticketsScript.type = "text/javascript";
+    ticketsScript.async = true;
+    ticketsScript.src =
+      "https://organizer.bizzabo.com/widgets/flows/tickets/ticketsSelect.js";
+    ticketsScript.id = `bz-inline-registration-script-${BIZZABO_FLOW_ID}`;
+    ticketsScript.className = "bz-inline-widget-script";
+    ticketsScript.setAttribute("data-event-id", BIZZABO_EVENT_ID);
 
-    const cleanup = () => {
-      const existingWidgets = document.querySelectorAll(".bz-widget-tickets-inline");
-      existingWidgets.forEach((widget) => {
-        widget.innerHTML = "";
-      });
-
-      const existingTicketsScript = document.getElementById(
-        `bz-inline-registration-script-${BIZZABO_FLOW_ID}`
-      );
-      if (existingTicketsScript) existingTicketsScript.remove();
-
-      const iframes = document.querySelectorAll("iframe");
-      iframes.forEach((iframe) => {
-        const src = iframe.getAttribute("src") || "";
-        if (src.includes("bizzabo")) {
-          iframe.remove();
-        }
-      });
+    ticketsScript.onerror = () => {
+      console.error("Bizzabo tickets script failed to load");
     };
 
-    cleanup();
-
-    const loadScripts = () => {
-      const ticketsScript = document.createElement("script");
-      ticketsScript.type = "text/javascript";
-      ticketsScript.async = true;
-      ticketsScript.src =
-        "https://organizer.bizzabo.com/widgets/flows/tickets/ticketsSelect.js";
-      ticketsScript.id = `bz-inline-registration-script-${BIZZABO_FLOW_ID}`;
-      ticketsScript.className = "bz-inline-widget-script";
-      ticketsScript.setAttribute("data-event-id", BIZZABO_EVENT_ID);
-
-      ticketsScript.onerror = () => {
-        console.error("Bizzabo tickets script failed to load");
-      };
-
-      document.body.appendChild(ticketsScript);
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", loadScripts, { once: true });
-    } else {
-      loadScripts();
-    }
+    document.body.appendChild(ticketsScript);
 
     return () => {
-      cleanup();
+      const script = document.getElementById(
+        `bz-inline-registration-script-${BIZZABO_FLOW_ID}`
+      );
+      if (script) script.remove();
     };
-  }, [locale]);
+  }, []);
 
   return (
     <>
       <div className="min-h-screen">
-        {/* Hero Section with Background Image and Gradient Overlay */}
         <section className="relative min-h-screen flex flex-col">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -116,7 +84,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Registration Intro + Heading above Bizzabo */}
         <section className="bg-white py-8 sm:py-10 md:py-12">
           <div className="max-w-[1568px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-5 2xl:px-8">
             <h2 className="text-center text-[clamp(24px,3vw,36px)] font-bold tracking-[0.2em] mb-6">
@@ -137,7 +104,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Bizzabo Registration Widget */}
         <section className="bg-[#F5F5F5] py-8 sm:py-12 md:py-16">
           <div className="max-w-[1568px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-5 2xl:px-8">
             {locale === "fr" && (
@@ -170,15 +136,12 @@ export default function Page() {
                 <div
                   className="w-full"
                   style={{ display: "inline-flex", width: "100%" }}
-                  key={`bizzabo-widget-${locale}`}
                 >
                   <div
                     className="bz-widget-tickets-inline w-full"
                     data-flow-id={BIZZABO_FLOW_ID}
                     data-event-id={BIZZABO_EVENT_ID}
                     data-registration-proxy="true"
-                    data-locale={locale === "fr" ? "fr-ca" : "en"}
-                    lang={locale === "fr" ? "fr-ca" : locale}
                   />
                 </div>
               </div>
@@ -186,7 +149,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Accommodation & Location CTA */}
         <section className="bg-white py-10 sm:py-12 mt-16 mb-16">
           <div className="max-w-[1568px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-5 2xl:px-8 text-center">
             <p className="font-body text-[15px] lg:text-[22px] text-[#1E1E1EB2] font-medium leading-relaxed">
@@ -233,40 +195,6 @@ export default function Page() {
         .bz-widget-tickets-inline * {
           color: #FAFAFA !important;
           font-family: 'Instrument Sans', sans-serif !important;
-        }
-        .bz-widget-tickets-inline button,
-        .bz-widget-tickets-inline .bz-button {
-          background: #8C0C3A !important;
-          border: 1px solid #8C0C3A !important;
-          border-radius: 12px !important;
-          color: #FFFFFF !important;
-          padding: 12px 24px !important;
-          font-weight: 600 !important;
-        }
-        .bz-widget-tickets-inline button:hover,
-        .bz-widget-tickets-inline .bz-button:hover {
-          background: #5D1831 !important;
-        }
-        .bz-widget-tickets-inline input,
-        .bz-widget-tickets-inline select {
-          background: radial-gradient(93.99% 52.1% at 14.02% 32.06%, rgba(140, 12, 58, 0.2) 0%, rgba(140, 12, 58, 0) 100%), rgba(10, 12, 17, 0.1) !important;
-          border: 1px solid rgba(140, 12, 58, 0.5) !important;
-          border-radius: 12px !important;
-          color: #FFFFFF !important;
-          padding: 12px !important;
-        }
-        .bz-widget-tickets-inline .bz-ticket-option {
-          background: transparent !important;
-          border: 2px solid #8C0C3A !important;
-          border-radius: 12px !important;
-          padding: 12px 24px !important;
-        }
-        .bz-widget-tickets-inline .bz-ticket-option.selected {
-          background: #8C0C3A !important;
-          border-color: #8C0C3A !important;
-        }
-        .bz-widget-tickets-inline label {
-          color: #FAFAFA !important;
         }
       `}</style>
     </>
