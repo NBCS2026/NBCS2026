@@ -5,58 +5,65 @@ import { Footer } from "@/components/footer";
 import { Logo } from "@/components/logo";
 import { NavLink } from "@/components/nav-link";
 import { LangSelect } from "@/components/lang-select";
-import { Button } from "@/components/ui/button";
 import ToggleMenu from "@/components/toggle-menu";
 
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import { Link, useRouter } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 
 const BIZZABO_EVENT_ID = process.env.NEXT_PUBLIC_BIZZABO_EVENT_ID || "792278";
+const BIZZABO_FLOW_ID = "952c7914-98bb-4958-8add-066e946ee763";
 
 export default function Page() {
   const params = useParams<{ locale: string }>();
   const t = useTranslations("home");
   const { locale } = params;
-  const router = useRouter();
 
   useEffect(() => {
     // Verify and set language parameter for Bizzabo (fallback check)
     const langValue = locale === "fr" ? "fr-ca" : "en";
     const url = new URL(window.location.href);
-    const currentLang = url.searchParams.get('lang');
-    
+    const currentLang = url.searchParams.get("lang");
+
     // Verify URL parameter is set correctly (defensive check)
     if (currentLang !== langValue) {
-      url.searchParams.set('lang', langValue);
-      window.history.replaceState({}, '', url.toString());
+      url.searchParams.set("lang", langValue);
+      window.history.replaceState({}, "", url.toString());
     }
 
     // Cleanup function to remove existing Bizzabo elements
     const cleanup = () => {
       // Remove all Bizzabo widgets
-      const existingWidgets = document.querySelectorAll('.bz-widget-tickets-inline, .bz-widget-popup');
-      existingWidgets.forEach(widget => {
-        widget.innerHTML = '';
+      const existingWidgets = document.querySelectorAll(
+        ".bz-widget-tickets-inline, .bz-widget-popup"
+      );
+      existingWidgets.forEach((widget) => {
+        widget.innerHTML = "";
       });
 
       // Remove existing scripts if they exist
       const existingTicketsScript = document.getElementById(
-        "bz-inline-registration-script-952c7914-98bb-4958-8add-066e946ee763"
+        `bz-inline-registration-script-${BIZZABO_FLOW_ID}`
       );
       const existingPopupScript = document.getElementById(
-        "bz-popup-registration-script-952c7914-98bb-4958-8add-066e946ee763"
+        `bz-popup-registration-script-${BIZZABO_FLOW_ID}`
       );
-      
+
       if (existingTicketsScript) existingTicketsScript.remove();
       if (existingPopupScript) existingPopupScript.remove();
 
       // Remove any Bizzabo iframes or other elements
-      const bizzaboElements = document.querySelectorAll('[id*="bizzabo"], [class*="bz-"]');
-      bizzaboElements.forEach(el => {
-        if (el.tagName === 'SCRIPT' || el.id.includes('bizzabo') || el.className.includes('bz-widget')) {
+      const bizzaboElements = document.querySelectorAll(
+        '[id*="bizzabo"], [class*="bz-"]'
+      );
+      bizzaboElements.forEach((el) => {
+        if (
+          el.tagName === "SCRIPT" ||
+          el.id.includes("bizzabo") ||
+          el.className.includes("bz-widget")
+        ) {
           // Keep widget containers, only remove scripts and iframes
-          if (el.tagName === 'SCRIPT' || el.tagName === 'IFRAME') {
+          if (el.tagName === "SCRIPT" || el.tagName === "IFRAME") {
             el.remove();
           }
         }
@@ -68,21 +75,16 @@ export default function Page() {
 
     // Load scripts when DOM is ready
     const loadScripts = () => {
-      // Determine language code for Bizzabo widget
-      const langCode = locale === "fr" ? "fr-ca" : "en";
-      const localeValue = locale === "fr" ? "fr-ca" : "en";
-      
       // --- Inline Tickets Script ---
       const ticketsScript = document.createElement("script");
       ticketsScript.type = "text/javascript";
       ticketsScript.async = true;
       ticketsScript.src =
-        `https://organizer.bizzabo.com/widgets/flows/tickets/ticketsSelect.js?lang=${langCode}`;
-      ticketsScript.id =
-        "bz-inline-registration-script-952c7914-98bb-4958-8add-066e946ee763";
+        "https://organizer.bizzabo.com/widgets/flows/tickets/ticketsSelect.js";
+      ticketsScript.id = `bz-inline-registration-script-${BIZZABO_FLOW_ID}`;
+      ticketsScript.className = "bz-inline-widget-script";
       ticketsScript.setAttribute("data-event-id", BIZZABO_EVENT_ID);
-      ticketsScript.setAttribute("data-locale", localeValue);
-      
+
       // Error handling for script loading
       ticketsScript.onerror = () => {
         // Script loading error - handled silently
@@ -93,19 +95,14 @@ export default function Page() {
       popupScript.type = "text/javascript";
       popupScript.async = true;
       popupScript.src =
-        `https://organizer.bizzabo.com/widgets/flows/popup/registrationPopup.js?lang=${langCode}`;
-      popupScript.id =
-        "bz-popup-registration-script-952c7914-98bb-4958-8add-066e946ee763";
+        "https://organizer.bizzabo.com/widgets/flows/popup/registrationPopup.js";
+      popupScript.id = `bz-popup-registration-script-${BIZZABO_FLOW_ID}`;
       popupScript.setAttribute("data-event-id", BIZZABO_EVENT_ID);
       popupScript.setAttribute("data-registration-proxy", "true");
       popupScript.setAttribute("data-unique-name", BIZZABO_EVENT_ID);
-      popupScript.setAttribute(
-        "data-flow-id",
-        "952c7914-98bb-4958-8add-066e946ee763"
-      );
+      popupScript.setAttribute("data-flow-id", BIZZABO_FLOW_ID);
       popupScript.setAttribute("data-inline-widget", "true");
-      popupScript.setAttribute("data-locale", localeValue);
-      
+
       // Error handling for script loading
       popupScript.onerror = () => {
         // Script loading error - handled silently
@@ -116,8 +113,8 @@ export default function Page() {
     };
 
     // Load scripts when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadScripts);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", loadScripts, { once: true });
     } else {
       // DOM already ready, load immediately
       loadScripts();
@@ -151,7 +148,6 @@ export default function Page() {
                 <li>
                   <LangSelect />
                 </li>
-
               </ul>
               <ToggleMenu local={locale as string} className="ml-auto md:ml-0" />
             </header>
@@ -159,21 +155,14 @@ export default function Page() {
             {/* Hero Content */}
             <div className="flex-1 flex items-center justify-center">
               <div className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 text-center text-white w-full">
-                <p
-                  className="font-heading font-light text-[20px] tracking-[0.95em] mb-4 text-white"
-                >
+                <p className="font-heading font-light text-[20px] tracking-[0.95em] mb-4 text-white">
                   {t("ticket_registration")}
                 </p>
-                <h1
-                  className="font-heading font-black text-[clamp(36px,5.5vw,85px)] tracking-[0.1em] leading-none mb-6 text-white"
-                >
+                <h1 className="font-heading font-black text-[clamp(36px,5.5vw,85px)] tracking-[0.1em] leading-none mb-6 text-white">
                   {t("ticket_title")}
                 </h1>
-
               </div>
             </div>
-
-
           </div>
         </section>
 
@@ -192,7 +181,7 @@ export default function Page() {
                 />
               </div>
               <p className="text-[#1E1E1E] font-body text-[clamp(14px,1.8vw,18px)] leading-relaxed">
-                En raison d'un problème technique, l'inscription en français peut s'afficher partiellement en anglais sur les navigateurs Chrome, Microsoft Edge, Safari, Opera et Vivaldi. Veuillez utiliser le navigateur Firefox pour accéder à la version complète en français.
+                En raison d&apos;un problème technique, l&apos;inscription en français peut s&apos;afficher partiellement en anglais sur les navigateurs Chrome, Microsoft Edge, Safari, Opera et Vivaldi. Veuillez utiliser le navigateur Firefox pour accéder à la version complète en français.
               </p>
             </div>
           </section>
@@ -226,49 +215,49 @@ export default function Page() {
             {locale === "fr" && (
               <div className="mb-8 md:mb-12 text-center max-w-4xl mx-auto">
                 <p className="font-body text-[15px] lg:text-[22px] text-[#1e1e1eb2] font-medium mb-4 leading-relaxed">
-                  Joignez-vous à des leaders, des artistes, des aînés, des jeunes, des décideurs politiques et des acteurs du changement de partout au Canada pour trois jours de rencontres, de dialogue, de créativité et d'action.
+                  Joignez-vous à des leaders, des artistes, des aînés, des jeunes, des décideurs politiques et des acteurs du changement de partout au Canada pour trois jours de rencontres, de dialogue, de créativité et d&apos;action.
                 </p>
                 <p className="font-body text-[15px] lg:text-[22px] text-[#1e1e1eb2] font-medium mb-8 leading-relaxed">
                   Le Sommet pancanadien des communautés noires rassemble les communautés pour célébrer la culture noire, amplifier les expériences vécues et façonner collectivement un avenir plus juste et plus inclusif pour un Canada meilleur.
                 </p>
               </div>
             )}
-            
+
             {/* Embedded Bizzabo widget for all locales */}
             <div
               className="flex flex-col items-start p-4 sm:p-6 md:p-8 lg:p-12 gap-6 md:gap-8 lg:gap-12 rounded-2xl sm:rounded-3xl lg:rounded-[40px]"
+              style={{
+                background:
+                  "linear-gradient(163.81deg, #5D1831 15.12%, #1C040D 88.75%)",
+                border: "1px solid #5D1831",
+              }}
+            >
+              {/* Widget Container */}
+              <div
+                className="flex flex-col justify-center items-start p-4 sm:p-5 md:p-6 gap-6 md:gap-8 lg:gap-12 w-full rounded-xl sm:rounded-2xl lg:rounded-[32px] relative"
                 style={{
                   background:
                     "linear-gradient(163.81deg, #5D1831 15.12%, #1C040D 88.75%)",
-                  border: "1px solid #5D1831",
+                  border: "1px solid #8C0C3A",
                 }}
               >
-                {/* Widget Container */}
+                {/* Bizzabo Widget */}
                 <div
-                  className="flex flex-col justify-center items-start p-4 sm:p-5 md:p-6 gap-6 md:gap-8 lg:gap-12 w-full rounded-xl sm:rounded-2xl lg:rounded-[32px] relative"
-                  style={{
-                    background:
-                      "linear-gradient(163.81deg, #5D1831 15.12%, #1C040D 88.75%)",
-                    border: "1px solid #8C0C3A",
-                  }}
+                  className="w-full"
+                  style={{ display: "inline-flex", width: "100%" }}
+                  key={`bizzabo-widget-${locale}`}
                 >
-                  {/* Bizzabo Widget */}
                   <div
-                    className="w-full"
-                    style={{ display: "inline-flex", width: "100%" }}
-                    key={`bizzabo-widget-${locale}`}
-                  >
-                    <div
-                      className="bz-widget-tickets-inline w-full"
-                      data-flow-id="952c7914-98bb-4958-8add-066e946ee763"
-                      data-event-id={BIZZABO_EVENT_ID}
-                      data-registration-proxy="true"
-                      data-locale={locale === "fr" ? "fr-ca" : "en"}
-                      lang={locale === "fr" ? "fr-ca" : locale}
-                    />
-                  </div>
+                    className="bz-widget-tickets-inline w-full"
+                    data-flow-id={BIZZABO_FLOW_ID}
+                    data-event-id={BIZZABO_EVENT_ID}
+                    data-registration-proxy="true"
+                    data-locale={locale === "fr" ? "fr-ca" : "en"}
+                    lang={locale === "fr" ? "fr-ca" : locale}
+                  />
                 </div>
               </div>
+            </div>
           </div>
         </section>
 
@@ -355,7 +344,6 @@ export default function Page() {
         .bz-widget-tickets-inline label {
           color: #FAFAFA !important;
         }
-
       `}</style>
     </>
   );
