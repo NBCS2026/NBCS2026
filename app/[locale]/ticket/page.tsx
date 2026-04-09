@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { Footer } from "@/components/footer";
 import { Logo } from "@/components/logo";
 import { NavLink } from "@/components/nav-link";
@@ -11,42 +10,12 @@ import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 
-const BIZZABO_EVENT_ID = "792278";
-const BIZZABO_FLOW_ID = "952c7914-98bb-4958-8add-066e946ee763";
+const BIZZABO_EVENT_URL = "https://events.bizzabo.com/792278";
 
 export default function Page() {
   const params = useParams<{ locale: string }>();
   const t = useTranslations("home");
   const { locale } = params;
-
-  useEffect(() => {
-    const existingTicketsScript = document.getElementById(
-      `bz-inline-registration-script-${BIZZABO_FLOW_ID}`
-    );
-    if (existingTicketsScript) existingTicketsScript.remove();
-
-    const ticketsScript = document.createElement("script");
-    ticketsScript.type = "text/javascript";
-    ticketsScript.async = true;
-    ticketsScript.src =
-      "https://organizer.bizzabo.com/widgets/flows/tickets/ticketsSelect.js";
-    ticketsScript.id = `bz-inline-registration-script-${BIZZABO_FLOW_ID}`;
-    ticketsScript.className = "bz-inline-widget-script";
-    ticketsScript.setAttribute("data-event-id", BIZZABO_EVENT_ID);
-
-    ticketsScript.onerror = () => {
-      console.error("Bizzabo tickets script failed to load");
-    };
-
-    document.body.appendChild(ticketsScript);
-
-    return () => {
-      const script = document.getElementById(
-        `bz-inline-registration-script-${BIZZABO_FLOW_ID}`
-      );
-      if (script) script.remove();
-    };
-  }, []);
 
   return (
     <>
@@ -133,16 +102,21 @@ export default function Page() {
                   border: "1px solid #8C0C3A",
                 }}
               >
-                <div
-                  className="w-full"
-                  style={{ display: "inline-flex", width: "100%" }}
-                >
-                  <div
-                    className="bz-widget-tickets-inline w-full"
-                    data-flow-id={BIZZABO_FLOW_ID}
-                    data-event-id={BIZZABO_EVENT_ID}
-                    data-registration-proxy="true"
-                  />
+                <div className="w-full text-center py-8 sm:py-12">
+                  <p className="font-body text-[15px] lg:text-[20px] text-[#FAFAFA] font-medium leading-relaxed text-center mb-6">
+                    {locale === "fr"
+                      ? "L’inscription s’ouvrira dans une nouvelle fenêtre sécurisée."
+                      : "Registration will open in a secure new window."}
+                  </p>
+
+                  <a
+                    href={BIZZABO_EVENT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-[#8C0C3A] hover:bg-[#5D1831] text-white border border-[#8C0C3A] transition-colors cursor-pointer rounded-full h-[50px] px-8 text-[18px] font-semibold"
+                  >
+                    {locale === "fr" ? "S’inscrire maintenant" : "Register Now"}
+                  </a>
                 </div>
               </div>
             </div>
@@ -188,15 +162,6 @@ export default function Page() {
         </section>
       </div>
       <Footer />
-      <style jsx global>{`
-        .bz-widget-tickets-inline {
-          width: 100% !important;
-        }
-        .bz-widget-tickets-inline * {
-          color: #FAFAFA !important;
-          font-family: 'Instrument Sans', sans-serif !important;
-        }
-      `}</style>
     </>
   );
 }
