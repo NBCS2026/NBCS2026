@@ -57,11 +57,11 @@ export default function page() {
         </section>
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-20 sm:mb-24 md:mb-32 lg:mb-40 xl:mb-48 space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-28">
           <div>
-            <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-[200px]">
+            <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-0">
               {t("text_eight")}
             </h1>
 
-            <div className="flex justify-center mt-[200px] mb-[200px]">
+            <div className="flex justify-center mt-[100px] mb-[200px]">
               <picture className="block w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px]">
                 <img src="/sponsor_1.png" alt="alt" className="w-full h-auto" />
               </picture>
