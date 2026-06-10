@@ -69,7 +69,7 @@ export default function page() {
           </div>
 
           <div className="-mb-6 sm:-mb-8 md:-mb-10 lg:-mb-14">
-            <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-[19px] md:mb-[27px]">
+            <h1 className="text-[clamp(28px,3.5vw,45px)] font-bold text-center mb-[12px] md:mb-[16px]">
               {t("text_nine")}
             </h1>
             <div className="flex justify-center my-8 sm:my-0">
