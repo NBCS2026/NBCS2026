@@ -1,4 +1,10 @@
-import { useday } from "@/app/[locale]/program/hooks/useday";
+"use client";
+
+import {
+  Day1ScheduleAccordion,
+  Day2ScheduleAccordion,
+  Day3ScheduleAccordion,
+} from "@/components/day1-schedule-accordion";
 import { _Translator } from "next-intl";
 import { useState } from "react";
 
@@ -7,23 +13,11 @@ interface EventProps {
   local: string;
 }
 
-interface EventItem {
-  time: string;
-  place: string;
-  program: string;
-  theme?: string;
-}
-
 export function Events({ t, local }: EventProps) {
   const [selectedDate, setSelectedDate] = useState("2026-09-18");
-  const { DAY_1, DAY_2, DAY_3 } = useday(t);
-
-  const EVENT_DAYS: Record<string, EventItem[]> = {
-    "2026-09-18": DAY_1,
-    "2026-09-19": DAY_2,
-    "2026-09-20": DAY_3,
-  };
-  const events = EVENT_DAYS[selectedDate] ?? [];
+  const isDay1 = selectedDate === "2026-09-18";
+  const isDay2 = selectedDate === "2026-09-19";
+  const isDay3 = selectedDate === "2026-09-20";
 
   return (
     <>
@@ -74,8 +68,8 @@ export function Events({ t, local }: EventProps) {
         <p className="tracking-[0.08em] max-w-[38ch] md:max-w-[68ch] mx-auto text-light-red font-medium text-[clamp(14px,1.43vw,22px)] leading-tight mb-12 ">
           {t("post_titleOne")} <br /> {t("post_titleTwo")}
         </p>
-        <div className="flex flex-col lg:flex-row gap-16 justify-center">
-          <div className="flex flex-row lg:flex-col gap-4 justify-center lg:justify-normal">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 justify-center">
+          <div className="flex flex-row lg:flex-col gap-4 justify-center lg:justify-normal lg:pt-2">
             <button
               className={`day-button-tooltip w-[clamp(108px,8.14vw,125px)] h-[clamp(108px,8.14vw,125px)] rounded-full border-2 ${
                 selectedDate == "2026-09-18"
@@ -83,13 +77,19 @@ export function Events({ t, local }: EventProps) {
                   : "border-light-red text-light-red hover:bg-[#a33d61] hover:text-white hover:border-[#a33d61]"
               } cursor-pointer  `}
               onClick={() => setSelectedDate("2026-09-18")}
-              data-tooltip={local == "en" ? "Click to view Day 1 schedule" : "Cliquez pour voir l'horaire du jour 1"}
+              data-tooltip={
+                local == "en"
+                  ? "Click to view Day 1 schedule"
+                  : "Cliquez pour voir l'horaire du jour 1"
+              }
             >
-            <p className="font-bold text-[21px] leading-tight">DAY 1</p>
-            <p className="font-medium text-[13px]">
-              {local == "en" ? "Friday, September 18" : "Vendredi 18 septembre"}
-            </p>
-          </button>
+              <p className="font-bold text-[21px] leading-tight">DAY 1</p>
+              <p className="font-medium text-[13px]">
+                {local == "en"
+                  ? "Friday, September 18"
+                  : "Vendredi 18 septembre"}
+              </p>
+            </button>
             <button
               className={`day-button-tooltip w-[clamp(108px,8.14vw,125px)] h-[clamp(108px,8.14vw,125px)] rounded-full border-2 ${
                 selectedDate == "2026-09-19"
@@ -97,13 +97,19 @@ export function Events({ t, local }: EventProps) {
                   : "border-light-red text-light-red hover:bg-[#a33d61] hover:text-white hover:border-[#a33d61]"
               } cursor-pointer `}
               onClick={() => setSelectedDate("2026-09-19")}
-              data-tooltip={local == "en" ? "Click to view Day 2 schedule" : "Cliquez pour voir l'horaire du jour 2"}
+              data-tooltip={
+                local == "en"
+                  ? "Click to view Day 2 schedule"
+                  : "Cliquez pour voir l'horaire du jour 2"
+              }
             >
-            <p className="font-bold text-[21px] leading-tight">DAY 2</p>
-            <p className="font-medium text-[13px]">
-              {local == "en" ? "Saturday, September 19" : "Samedi 19 septembre"}
-            </p>
-          </button>
+              <p className="font-bold text-[21px] leading-tight">DAY 2</p>
+              <p className="font-medium text-[13px]">
+                {local == "en"
+                  ? "Saturday, September 19"
+                  : "Samedi 19 septembre"}
+              </p>
+            </button>
             <button
               className={`day-button-tooltip w-[clamp(108px,8.14vw,125px)] h-[clamp(108px,8.14vw,125px)] rounded-full border-2 ${
                 selectedDate == "2026-09-20"
@@ -111,64 +117,30 @@ export function Events({ t, local }: EventProps) {
                   : "border-light-red text-light-red hover:bg-[#a33d61] hover:text-white hover:border-[#a33d61]"
               } cursor-pointer `}
               onClick={() => setSelectedDate("2026-09-20")}
-              data-tooltip={local == "en" ? "Click to view Day 3 schedule" : "Cliquez pour voir l'horaire du jour 3"}
+              data-tooltip={
+                local == "en"
+                  ? "Click to view Day 3 schedule"
+                  : "Cliquez pour voir l'horaire du jour 3"
+              }
             >
-            <p className="font-bold text-[21px] leading-tight">DAY 3</p>
-            <p className="font-medium text-[13px]">
-              {local == "en" ? "Sunday, September 20" : "Dimanche 20 septembre"}
-            </p>
+              <p className="font-bold text-[21px] leading-tight">DAY 3</p>
+              <p className="font-medium text-[13px]">
+                {local == "en"
+                  ? "Sunday, September 20"
+                  : "Dimanche 20 septembre"}
+              </p>
             </button>
           </div>
-        <div className="space-y-10 [&>div:not(:last-child)]:border-b">
-          {events.map((event, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col lg:flex-row gap-6 lg:gap-[60px] items-start pb-6 lg:pb-10"
-            >
-              <div className="lg:w-[220px] lg:flex-shrink-0">
-                <p className="text-light-red font-bold text-[22px]">
-                  {event.time}
-                </p>
-              </div>
-              <div className="flex-1">
-                <p className="font-semibold text-[21px]">
-                  {event.program.includes('(BY INVITATION ONLY)') ? (
-                    <>
-                      {event.program.replace(' (BY INVITATION ONLY)', '').split('|').map((part, idx, arr) => (
-                        <span key={idx}>
-                          {part}
-                          {idx < arr.length - 1 && <br />}
-                        </span>
-                      ))}
-                      <br />
-                      <span className="text-[16px]">(BY INVITATION ONLY)</span>
-                    </>
-                  ) : event.program.includes('(SUR INVITATION UNIQUEMENT)') ? (
-                    <>
-                      {event.program.replace(' (SUR INVITATION UNIQUEMENT)', '').split('|').map((part, idx, arr) => (
-                        <span key={idx}>
-                          {part}
-                          {idx < arr.length - 1 && <br />}
-                        </span>
-                      ))}
-                      <br />
-                      <span className="text-[16px]">(SUR INVITATION UNIQUEMENT)</span>
-                    </>
-                  ) : (
-                    event.program.split('|').map((part, idx, arr) => (
-                      <span key={idx}>
-                        {part}
-                        {idx < arr.length - 1 && <br />}
-                      </span>
-                    ))
-                  )}
-                </p>
-              </div>
-            </div>
-          ))}
+
+          {isDay1 ? (
+            <Day1ScheduleAccordion locale={local} />
+          ) : isDay2 ? (
+            <Day2ScheduleAccordion locale={local} />
+          ) : isDay3 ? (
+            <Day3ScheduleAccordion locale={local} />
+          ) : null}
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 }
