@@ -258,8 +258,10 @@
     "text_eight": "Presenting Sponsor",
     "text_nine": "Champion Sponsors",
     "text_ten": "Province of Manitoba",
-    "text_eleven": "Our partners",
-    "text_twelve": "Media Sponsor"
+    "text_eleven": "Our Partners",
+    "text_twelve": "Media Partner",
+    "youth_delegate_champion": "Youth\nDelegate\nChampion:\nJohn Beck",
+    "in_circle_sponsor": "In-Circle Women's\nGathering Sponsor:"
   },
   "navigation": {
     "home": "HOME",

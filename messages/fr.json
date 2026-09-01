@@ -252,8 +252,10 @@
     "text_eight": "Commanditaire principal",
     "text_nine": "Commanditaires de niveau Champion",
     "text_ten": "Province du Manitoba",
-    "text_eleven": "Nos partenaires",
-    "text_twelve": "Sponsor média"
+    "text_eleven": "Nos Partenaires",
+    "text_twelve": "Partenaire média",
+    "youth_delegate_champion": "Partenaire et\nchampion de\nla jeunesse:\nJohn Beck",
+    "in_circle_sponsor": "Commenditaire du\nCercle des femmes noires"
   },
   "navigation": {
     "home": "ACCUEIL",

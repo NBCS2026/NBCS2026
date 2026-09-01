@@ -368,22 +368,6 @@ function ScheduleDayAccordion({
 
   return (
     <div className="w-full max-w-3xl space-y-3">
-      <div
-        role="note"
-        className="rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] px-3.5 py-2.5 sm:px-4 sm:py-3"
-      >
-        <p className="text-[12px] sm:text-[13px] leading-relaxed text-[#5D1831]/80">
-          <span className="font-semibold text-[#8C0C3A]">
-            {isFr ? "Mise à jour à venir" : "Upcoming update"}
-          </span>
-          <span className="text-[#8C0C3A]/50 mx-1.5" aria-hidden="true">
-            ·
-          </span>
-          {isFr
-            ? "La version française de l’horaire est en cours de révision. Des mises à jour visant à corriger les incohérences linguistiques seront publiées sous peu."
-            : "The French version of the schedule is being refined. Updates to address language inconsistencies will be published shortly."}
-        </p>
-      </div>
       {blocks.map((block) => {
         if (block.compact) {
           return (
