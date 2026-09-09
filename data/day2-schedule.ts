@@ -288,6 +288,10 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
         number: 2,
         title: "Beyond the Seat: Leadership, Influence and Power",
         room: "Presentation Theatre",
+        presentedBy: {
+          name: "Canada Life",
+          logoUrl: "/sponsor_5.jpg",
+        },
         description:
           "This session explores how environmental racism disproportionately impacts Black communities, including exposure to harmful environments and resulting health disparities. It frames climate justice as a racial justice issue and highlights pathways for advocacy, policy reform, and community-led solutions.",
         people: [
@@ -340,13 +344,13 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
           {
             label: "moderator",
             names: [
-              "Alliance B. Daniel, Manager, Government Relations (Canada), ONE Campaign",
+              "Alliance Daniels, Manager, Government Relations (Canada), ONE Campaign",
             ],
           },
           {
             label: "panelists",
             names: [
-              "amanuel melles, Senior Nonprofit Sector Strategist, Mentor and Executive Director",
+              "amanuel melles, Senior Nonprofit Sector Strategist, Mentor and Executive Director of Network for the Advancement of Black Communities",
               "Richard Sharpe, Director, Black Equity Branch, Treasury Board Secretariat",
               "Nicholas Marcus Thompson, President and CEO of Black Class Action Secretariat and Human Rights Advocate",
               "Lerato Chondoma, Leader, Storyteller, and Board Secretary of the Canadian Black Policy Network",
@@ -387,7 +391,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
         room: "Millennium Suite",
         description:
           "How can we work together to ensure the next generation of artists doesn't just get by, but truly leads and owns their craft? For decades, Winnipeg's incredible creators—from jazz and blues pioneers to today's inspiring dancers and actors—have built this city into a heart of Canadian culture. While regulations since 1971 have aimed to protect Canadian music, we know that for many Black creators, these goals haven't always felt within reach. It's important to ask: do current mandates really support a Black playwright or ballerina in reaching their full potential? Maybe it's time to create a new path—one that focuses on providing the funding, recognition, and support Black creators deserve, right here in the heart of the continent.",
-        note: "Please note this panel will be in English.",
+        note: "Please note this panel will be in English. Simultaneous interpretation in French will be available.",
         people: [
           {
             label: "moderator",
@@ -412,6 +416,10 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
         title:
           "Pathways to Success: Employment and Entrepreneurship supports for Black Youth",
         room: "2G",
+        presentedBy: {
+          name: "Diversity Institute",
+          logoUrl: "/trsm-diversity-institute-logo.png",
+        },
         description:
           "The Halifax Declaration: Manifesto for the Eradication of Racial Discrimination calls for coordinated action to address structural inequities affecting Black youth in Canada, including high unemployment and barriers to meaningful work and entrepreneurship. Drawing on the State of Black Economics Report, this panel will explore practical pathways to employment and self-employment through skills development, work experience, professional networks, entrepreneurship training, and programs such as ADaPT. The discussion will also draw on DI's forthcoming study on Indigenous Peoples' experiences with employment, workplace discrimination, training, artificial intelligence, and career advancement. Panelists will examine similarities and differences between Black and Indigenous youth employment experiences and identify lessons from Truth and Reconciliation commitments for building more inclusive and equitable labour market systems.",
         people: [

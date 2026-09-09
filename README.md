@@ -74,6 +74,7 @@ Create a `.env.local` file in the root directory with the following variables:
 ```env
 # Resend API Key for contact form
 RESEND_API_KEY=your_resend_api_key
+FEEDBACK_RECIPIENT_EMAIL=your_feedback_recipient@example.com
 
 # Google Maps API Key (if using maps)
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_key

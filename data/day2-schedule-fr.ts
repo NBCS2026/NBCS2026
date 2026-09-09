@@ -290,6 +290,10 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
         number: 2,
         title: "Au-delà du siège : Leadership, influence et pouvoir",
         room: "Théâtre de présentation",
+        presentedBy: {
+          name: "Canada Vie",
+          logoUrl: "/sponsor_5.jpg",
+        },
         description:
           "Cette session explore comment le racisme environnemental touche de manière disproportionnée les communautés noires, y compris l'exposition à des environnements nuisibles et les disparités sanitaires qui en résultent. Elle présente la justice climatique comme une question de justice raciale et met en lumière les voies de plaidoyer, de réforme des politiques et de solutions portés par la communauté.",
         people: [
@@ -342,13 +346,13 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
           {
             label: "moderatrice",
             names: [
-              "Alliance B Daniel, directeur, Relations gouvernementales (Canada), ONE Campaign",
+              "Alliance Daniels, directeur, Relations gouvernementales (Canada), ONE Campaign",
             ],
           },
           {
             label: "panelists",
             names: [
-              "amanuel melles, stratège principal du secteur associatif (ONG), mentor et directeur général",
+              "amanuel melles, stratège principal du secteur associatif (ONG), mentor et directeur général du Network for the Advancement of Black Communities",
               "Richard Sharpe, directeur, Direction de l'équité pour les noirs, Secrétariat du Conseil du Trésor",
               "Nicholas Marcus Thompson, président et directeur général du Secrétariat des actions collectives noires et défenseur des droits de la personne",
               "Lerato Chondoma, leader, conteuse et secrétaire du conseil d'administration du Réseau canadien de politique noire",
@@ -387,7 +391,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
         room: "Millennium Suite",
         description:
           "Comment pouvons-nous travailler ensemble pour nous assurer que les artistes de demain font plus que s’en sortir et deviennent de véritables leaders dans leur art? Des décennies durant, les incroyables créateurs et créatrices de Winnipeg – des pionniers du jazz et du blues aux danseurs et acteurs qui sont aujourd’hui sous les projecteurs – ont fait entrer leur ville dans la culture canadienne. Bien que des lois visant à protéger la musique canadienne soient en place depuis 1971, nous savons que, pour bon nombre de créatrices et créateurs noirs, cet objectif a souvent semblé hors de portée. Dans cette optique, la question s’impose : la législation actuelle permet-elle vraiment à une danseuse de ballet ou à un dramaturge noirs de réaliser leur plein potentiel? Le temps est peut-être venu d’ouvrir une nouvelle voie, axée sur le financement, la reconnaissance et le soutien que méritent les créatrices et créateurs noirs, ici même au cœur de l’Amérique du Nord.",
-        note: "Veuillez prendre note que cette activité se déroulera en anglais.",
+        note: "Veuillez prendre note que cette activité se déroulera en anglais. L’interprétation simultanée en français sera offerte.",
         people: [
           {
             label: "moderator",
@@ -412,6 +416,10 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
         title:
           "Voies vers la réussite : soutien à l’emploi et à l’entrepreneuriat pour les jeunes noirs",
         room: "2G",
+        presentedBy: {
+          name: "Diversity Institute",
+          logoUrl: "/trsm-diversity-institute-logo.png",
+        },
         description:
           "La Déclaration d’Halifax : Manifeste pour l'éradication de la discrimination raciale appelle à une action concertée pour lutter contre les inégalités structurelles touchant la jeunesse noire au Canada, notamment le taux de chômage élevé et les obstacles à un emploi de qualité et à des possibilités réelles d’entrepreneuriat. S'appuyant sur le rapport sur l'état de l'économie noire, cette table ronde examinera des voies concrètes vers l'emploi et le travail autonome grâce au développement des compétences, à l'expérience professionnelle, aux réseaux professionnels, à la formation à l'entrepreneuriat et à des programmes tels que l'ADaPT. La discussion s'inspirera également de l’étude à paraître du Diversity Institute sur les expériences des peuples autochtones en matière d'emploi, de discrimination au travail, de formation, d'intelligence artificielle et de progression professionnelle. Les panélistes examineront les similitudes et les différences entre les expériences d'emploi des jeunes noirs et autochtones et dégageront les enseignements à tirer des engagements pris en matière de vérité et de réconciliation pour construire des marchés du travail plus inclusifs et équitables.",
         people: [

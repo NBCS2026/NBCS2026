@@ -123,6 +123,13 @@ type DisplayProfile = {
   bioEn?: string;
   bioFr?: string;
   imageUrl?: string;
+  fit?: "cover" | "contain";
+  imagePosition?: "center" | "slight-down";
+  subtitleEn?: string;
+  subtitleFr?: string;
+  resourceUrl?: string;
+  resourceLabelEn?: string;
+  resourceLabelFr?: string;
 };
 
 const PROGRAMME_MEDIA: Array<{
@@ -130,18 +137,26 @@ const PROGRAMME_MEDIA: Array<{
   nameEn: string;
   nameFr: string;
   imageUrl: string;
+  fit?: "cover" | "contain";
+  subtitleEn?: string;
+  subtitleFr?: string;
+  resourceUrl?: string;
+  resourceLabelEn?: string;
+  resourceLabelFr?: string;
 }> = [
   {
     matches: ["manito ahbee"],
     nameEn: "Manito Ahbee Festival",
     nameFr: "Festival Manito Ahbee",
     imageUrl: "/manito-ahbee.jpg",
+    fit: "contain",
   },
   {
     matches: ["acomi", "african communities of manitoba"],
     nameEn: "ACOMI and Drummers From Home",
     nameFr: "ACOMI et Drummers From Home",
     imageUrl: "/acomi.jpg",
+    fit: "contain",
   },
   {
     matches: ["dr. henry band", "dr henry band"],
@@ -158,6 +173,12 @@ const PROGRAMME_MEDIA: Array<{
     nameEn: "Summit Mass Choir, including Roots in Harmony Choir",
     nameFr: "Grande chorale du Sommet, avec Roots in Harmony",
     imageUrl: "/roots-in-harmony.webp",
+    subtitleEn: "Directed by Sonya Williams",
+    subtitleFr: "Sous la direction de Sonya Williams",
+    resourceUrl:
+      "https://drive.google.com/drive/folders/1lD8I6jPbW9WXT8tbA1PKCzLuipjTNYbR?usp=sharing",
+    resourceLabelEn: "Learning parts and scores",
+    resourceLabelFr: "Parties d’apprentissage et partitions",
   },
 ];
 
@@ -169,6 +190,12 @@ function getDisplayProfiles(text: string, isFr: boolean): DisplayProfile[] {
   ).map((item) => ({
     name: isFr ? item.nameFr : item.nameEn,
     imageUrl: item.imageUrl,
+    fit: item.fit,
+    subtitleEn: item.subtitleEn,
+    subtitleFr: item.subtitleFr,
+    resourceUrl: item.resourceUrl,
+    resourceLabelEn: item.resourceLabelEn,
+    resourceLabelFr: item.resourceLabelFr,
   }));
 
   return [...speakerProfiles, ...mediaProfiles].filter(
@@ -192,7 +219,14 @@ function ProfileImage({ profile }: { profile: DisplayProfile }) {
         alt={profile.name}
         loading="lazy"
         referrerPolicy="no-referrer"
-        className="absolute inset-0 size-full object-cover"
+        className={cn(
+          "absolute inset-0 size-full",
+          profile.fit === "contain"
+            ? "object-contain p-1.5"
+            : profile.imagePosition === "slight-down"
+              ? "object-cover object-[center_40%]"
+              : "object-cover object-center",
+        )}
         onError={() => setIsVisible(false)}
       />
     </div>
@@ -232,6 +266,21 @@ function ProfileCards({
               <p className="font-heading font-bold leading-snug text-[#5D1831]">
                 {profile.name}
               </p>
+              {(profile.subtitleEn || profile.subtitleFr) && (
+                <p className="mt-1 text-[13px] font-semibold leading-snug text-[#1E1E1E]/75">
+                  {isFr ? profile.subtitleFr : profile.subtitleEn}
+                </p>
+              )}
+              {profile.resourceUrl && (
+                <a
+                  href={profile.resourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-2 inline-flex rounded-full bg-[#8C0C3A] px-3 py-1.5 text-[12px] font-bold text-white transition-colors hover:bg-[#5D1831] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8C0C3A]"
+                >
+                  {isFr ? profile.resourceLabelFr : profile.resourceLabelEn}
+                </a>
+              )}
               {bio && (
                 <details className="group mt-1.5">
                   <summary className="cursor-pointer list-none text-[13px] font-semibold text-[#8C0C3A] underline underline-offset-2">
@@ -331,6 +380,19 @@ function SessionCard({
             <p className="font-body text-[14px] sm:text-[15px] text-[#1E1E1E]/85 leading-relaxed">
               {session.description}
             </p>
+            {session.presentedBy && (
+              <div className="inline-flex items-center gap-3 rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] px-4 py-3">
+                <span className="font-heading text-[12px] font-bold uppercase tracking-[0.12em] text-[#8C0C3A]">
+                  {isFr ? "Présenté par" : "Presented by"}
+                </span>
+                <img
+                  src={session.presentedBy.logoUrl}
+                  alt={session.presentedBy.name}
+                  loading="lazy"
+                  className="h-9 w-auto max-w-36 object-contain"
+                />
+              </div>
+            )}
             {session.note && (
               <p className="font-body text-[13px] sm:text-[14px] text-[#5D1831]/70 italic leading-relaxed">
                 {session.note}

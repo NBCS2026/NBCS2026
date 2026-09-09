@@ -39,8 +39,7 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
       "Nigerian-born, Winnipeg-based visual artist whose oil and acrylic figurative works explore community, identity, belonging and shared experience.",
     descriptionFr:
       "Artiste visuel né au Nigéria et établi à Winnipeg, dont les œuvres figuratives à l’huile et à l’acrylique explorent la communauté, l’identité, l’appartenance et les expériences partagées.",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1nvc2DKjrinsIqNklGNZ8nV9EKBFNdHaP&sz=w800",
+    imageUrl: "/exhibition-artists/andrew-idemudia.webp",
   },
   {
     name: "Anna Binta Diallo",
@@ -48,8 +47,7 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
       "Franco-Manitoban and Senegalese multidisciplinary artist exploring memory, migration, displacement, language and identity.",
     descriptionFr:
       "Artiste multidisciplinaire franco-manitobaine et sénégalaise qui explore la mémoire, la migration, le déplacement, la langue et l’identité.",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1uy_2yHu53OPEQVXH8cDZAL-XoLVB91FN&sz=w800",
+    imageUrl: "/exhibition-artists/anna-binta-diallo.webp",
   },
   {
     name: "Black Canadian Experience Centre",
@@ -57,8 +55,7 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
       "A Winnipeg community heritage initiative preserving and sharing the histories, stories and cultural heritage of Black communities in Manitoba and Canada.",
     descriptionFr:
       "Initiative patrimoniale communautaire de Winnipeg qui préserve et transmet les histoires, les récits et le patrimoine culturel des communautés noires du Manitoba et du Canada.",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1eqjyFAog_oxrhNnNq1FhRTYCAD5T5WvC&sz=w800",
+    imageUrl: "/black-canadian-experience-centre.webp",
   },
   {
     name: "Bria Fernandes",
@@ -66,8 +63,7 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
       "Canadian figurative painter working in oil and acrylic to explore race, identity, vulnerability, belonging and lived experience.",
     descriptionFr:
       "Peintre figurative canadienne qui utilise l’huile et l’acrylique pour explorer la race, l’identité, la vulnérabilité, l’appartenance et l’expérience vécue.",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1YbOqn-evzoBVmtEuWhZ7QKB8l_yWnBY1&sz=w800",
+    imageUrl: "/exhibition-artists/bria-fernandes.webp",
   },
   {
     name: "Ebunoluwa Akinbo",
@@ -75,8 +71,7 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
       "Nigerian lens-based visual artist in Canada whose photography, video and immersive work explore memory, identity and migration.",
     descriptionFr:
       "Artiste visuelle nigériane établie au Canada dont la photographie, la vidéo et les œuvres immersives explorent la mémoire, l’identité et la migration.",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1SQFkt6Q-h5K4r1HBX9DRDwSrPLaf4u0O&sz=w800",
+    imageUrl: "/exhibition-artists/ebunoluwa-akinbo.webp",
   },
   {
     name: "Habeeb Andu",
@@ -84,8 +79,7 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
       "Canada-based multidisciplinary artist using painting, mixed media, sculpture and installation to examine migration, inequality and social justice.",
     descriptionFr:
       "Artiste multidisciplinaire établi au Canada qui utilise la peinture, les techniques mixtes, la sculpture et l’installation pour examiner la migration, l’inégalité et la justice sociale.",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1vvUELW1pC-Ev9hlI--Nueg5m-_NRhP6c&sz=w800",
+    imageUrl: "/exhibition-artists/habeeb-andu.webp",
   },
   {
     name: "Melinda Clayton-Patterson",
@@ -93,8 +87,7 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
       "Nova Scotia-born, Manitoba-based quilter specializing in Underground Railroad secret-code quilts and culturally rooted storytelling.",
     descriptionFr:
       "Courtepointeuse née en Nouvelle-Écosse et établie au Manitoba, spécialisée dans les codes secrets du chemin de fer clandestin et les récits culturels.",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1II1UeH4e1-eZO38Ri8a-g1XkpMcMP1yX&sz=w800",
+    imageUrl: "/exhibition-artists/melinda-clayton-patterson.webp",
   },
   {
     name: "Olanrewaju Victor Abiola",
@@ -102,8 +95,7 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
       "Nigerian multidisciplinary visual artist and architectural designer exploring domestic life, social class, spirituality and shared spaces.",
     descriptionFr:
       "Artiste visuel multidisciplinaire et designer architectural nigérian qui explore la vie quotidienne, la classe sociale, la spiritualité et les espaces partagés.",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1kwJJBJEZR02koCWDb3O4eesFCDSKEyEz&sz=w800",
+    imageUrl: "/exhibition-artists/olanrewaju-victor-abiola.webp",
   },
   {
     name: "Opeyemi Matthew Olukotun",
@@ -111,8 +103,7 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
       "Nigerian-Canadian figurative painter whose expressive acrylic portraits explore identity, migration, resilience and belonging.",
     descriptionFr:
       "Peintre figuratif nigérian-canadien dont les portraits expressifs à l’acrylique explorent l’identité, la migration, la résilience et l’appartenance.",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1QXAfhr_1FxNns8MewNdPUWdBgVnOpNsG&sz=w800",
+    imageUrl: "/exhibition-artists/opeyemi-matthew-olukotun.webp",
   },
   {
     name: "PJ Anderson",
@@ -120,8 +111,7 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
       "Jamaican Canadian and Red River Métis ceramic artist whose internationally exhibited work connects material, culture and identity.",
     descriptionFr:
       "Artiste céramiste canado-jamaïcaine et métisse de la Rivière-Rouge dont le travail exposé à l’international relie matière, culture et identité.",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1eAMYC0PIOaK3Dwz5gARUWLPcah9fj4Pu&sz=w800",
+    imageUrl: "/exhibition-artists/pj-anderson.webp",
   },
 ];
 

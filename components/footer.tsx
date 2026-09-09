@@ -2,18 +2,19 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { SponsorDirectory } from "./sponsor-directory";
 import { Facebook } from "./svg/facebook";
 import { Foundation } from "./svg/foundation";
 import { Instagram } from "./svg/instagram";
 import { LinkedIn } from "./svg/LinkedIn";
 
-export function Footer() {
+export function Footer({ showSponsors = true }: { showSponsors?: boolean }) {
   const t = useTranslations("footer");
   const params = useParams<{ locale: string }>();
   const { locale } = params;
   return (
     <footer className="bg-[#5D1831]">
-      <SponsorFooterBand locale={locale} />
+      {showSponsors && <SponsorFooterBand locale={locale} />}
       <div className="pt-8 sm:pt-12 md:pt-16 lg:pt-[65px] pb-8 sm:pb-10 md:pb-12 lg:pb-[50px]">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] px-4 sm:px-5 2xl:px-8 3xl:px-16 4xl:px-24 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-9 2xl:gap-12 3xl:gap-16 4xl:gap-20">
           <div className="flex flex-col gap-6 sm:gap-8 justify-between md:gap-12 lg:gap-20">
@@ -71,8 +72,8 @@ export function Footer() {
           <div className="flex items-center justify-center order-first md:order-none">
             <div className="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[320px] aspect-[3.21/1]">
               <Image
-                src="/africandescent-emblem.jpg"
-                alt="International Decade for People of African Descent 2015-2024"
+                src="/africandescent-emblem.png"
+                alt="Second International Decade for People of African Descent 2025–2034"
                 fill
                 className="object-contain"
                 sizes="(max-width: 640px) 280px, (max-width: 768px) 300px, 320px"
@@ -138,141 +139,16 @@ export function Footer() {
 }
 
 function SponsorFooterBand({ locale }: { locale: string }) {
-  const partners = [
-    { src: "/sponsor_2.png", alt: "Travel Manitoba", className: "max-h-9" },
-    {
-      src: locale === "fr" ? "/sponsor_6.jpg" : "/sponsor_5.jpg",
-      alt: "Canada Life",
-      className: "max-h-11",
-    },
-    { src: "/sponsor_4.png", alt: "Tourism Winnipeg", className: "max-h-12" },
-    {
-      src: "/sponsor_3.png",
-      alt: "Economic Development Winnipeg",
-      className: "max-h-9",
-    },
-    {
-      src: "/manitoba-logo.png",
-      alt: "Province of Manitoba",
-      className: "max-h-9",
-    },
-    { src: "/porter-logo.png", alt: "Porter Airlines", className: "max-h-12" },
-    {
-      src: locale === "fr" ? "/sponsor_7.png" : "/encore-logo-en.png",
-      alt: "Encore",
-      className: "max-h-9",
-    },
-    {
-      src: "/crrf-logo.png",
-      alt: "Canadian Race Relations Foundation",
-      className: "max-h-10",
-    },
-    {
-      src: "/sponsor_8.png",
-      alt: "Delta Hotels Winnipeg",
-      className: "max-h-14",
-    },
-    {
-      src: "/asper-foundation-logo.png",
-      alt: "The Asper Foundation",
-      className: "max-h-10",
-    },
-    {
-      src: "/shelter-canadian-logo.png",
-      alt: "Shelter Canadian Properties Limited",
-      className: "max-h-8",
-    },
-    {
-      src: "/winnipeg-foundation-logo.png",
-      alt: "The Winnipeg Foundation",
-      className: "max-h-9",
-    },
-    {
-      src: "/trsm-diversity-institute-logo.png",
-      alt: "Diversity Institute",
-      className: "max-h-9",
-    },
-    {
-      src: "/black-manitoba-network-logo.png",
-      alt: "Black Manitoba Network",
-      className: "max-h-12",
-    },
-  ];
-
   return (
     <section
-      className="border-t border-[#E8D4DB] bg-white px-5 py-10 sm:py-12"
+      className="border-t border-[#E8D4DB] bg-[#FFFDFC] px-5 py-10 sm:px-8 sm:py-14"
       aria-label={
         locale === "fr"
           ? "Commanditaires et partenaires"
           : "Sponsors and partners"
       }
     >
-      <div className="mx-auto max-w-[1180px]">
-        <div className="mb-9 flex flex-col items-center gap-4 border-b border-[#E8D4DB] pb-9">
-          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#5D1831]">
-            {locale === "fr" ? "Commanditaire principal" : "Presenting Sponsor"}
-          </p>
-          <img
-            src="/sponsor_1.png"
-            alt="TD Bank Group"
-            className="h-24 w-28 object-contain"
-            loading="lazy"
-          />
-        </div>
-        <div className="mb-9 grid gap-4 border-b border-[#E8D4DB] pb-9 sm:grid-cols-3">
-          <div className="flex min-h-32 flex-col items-center justify-center gap-3 rounded-2xl bg-[#FAF6F7] p-5 text-center">
-            <p className="font-heading text-xs font-bold uppercase tracking-[0.12em] text-[#5D1831]">
-              {locale === "fr" ? "Partenaire média" : "Media Partner"}
-            </p>
-            <img
-              src="/cbc-logo.png"
-              alt="CBC"
-              className="max-h-10 max-w-[180px] object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div className="flex min-h-32 flex-col items-center justify-center gap-2 rounded-2xl bg-[#FAF6F7] p-5 text-center">
-            <p className="font-heading text-xs font-bold uppercase tracking-[0.12em] text-[#5D1831]">
-              {locale === "fr"
-                ? "Partenaire et champion de la jeunesse"
-                : "Youth Delegate Champion"}
-            </p>
-            <p className="font-heading text-xl font-black text-[#1E1E1E]">
-              John Beck
-            </p>
-          </div>
-          <div className="flex min-h-32 flex-col items-center justify-center gap-3 rounded-2xl bg-[#FAF6F7] p-5 text-center">
-            <p className="font-heading text-xs font-bold uppercase tracking-[0.12em] text-[#5D1831]">
-              {locale === "fr"
-                ? "Commanditaire du Cercle des femmes noires"
-                : "In-Circle Women’s Gathering Sponsor"}
-            </p>
-            <img
-              src="/walrus-logo.png"
-              alt="The Walrus"
-              className="max-h-8 max-w-[180px] object-contain"
-              loading="lazy"
-            />
-          </div>
-        </div>
-        <p className="mb-7 text-center font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#5D1831]">
-          {locale === "fr"
-            ? "Avec le soutien de nos partenaires"
-            : "With support from our partners"}
-        </p>
-        <div className="grid grid-cols-2 items-center justify-items-center gap-x-7 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {partners.map((partner) => (
-            <img
-              key={partner.alt}
-              src={partner.src}
-              alt={partner.alt}
-              className={`max-w-[150px] object-contain ${partner.className}`}
-              loading="lazy"
-            />
-          ))}
-        </div>
-      </div>
+      <SponsorDirectory locale={locale} compact />
     </section>
   );
 }

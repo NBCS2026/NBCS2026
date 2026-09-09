@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { AdvisorySubcommittee } from "@/components/advisory-subcommittee";
 import { Events } from "@/components/events";
 import { Footer } from "@/components/footer";
 import { LangSelect } from "@/components/lang-select";
@@ -35,7 +36,7 @@ export default function Page() {
           <p className="font-heading bold text-[clamp(14px,1.17vw,18px)] tracking-[0.96em] text-white max-w-[38ch] 3xl:max-w-[75ch] 4xl:max-w-[85ch] mx-auto md:max-w-full">
             {t("pretitle")}
           </p>
-          <h1 className="font-heading font-black text-[clamp(30px,5.53vw,85px)] tracking-[0.089em] text-white leading-tight">
+          <h1 className="whitespace-nowrap font-heading text-[clamp(16px,5.53vw,85px)] font-black leading-tight tracking-[0.04em] text-white sm:tracking-[0.089em]">
             {t("title")}
           </h1>
         </div>
@@ -98,6 +99,7 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <AdvisorySubcommittee locale={locale} />
       </main>
       <Footer />
     </>

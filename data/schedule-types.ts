@@ -29,6 +29,10 @@ export type ScheduleSession = {
   title: string;
   room: string;
   description: string;
+  presentedBy?: {
+    name: string;
+    logoUrl: string;
+  };
   note?: string;
   people?: SchedulePersonGroup[];
 };

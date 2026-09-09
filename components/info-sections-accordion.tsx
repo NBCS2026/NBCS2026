@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { type ReactNode, useCallback, useEffect, useState } from "react";
+import { AdditionalHotels } from "@/components/additional-hotels";
 import { cn } from "@/lib/utils";
 
 export type InfoSectionId =
@@ -428,6 +429,7 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
               </>
             )}
           </div>
+          <AdditionalHotels isFr={locale === "fr"} />
           <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 max-w-2xl mx-auto">
             {[1, 2, 3, 4, 5, 6].map((num) => (
               <div

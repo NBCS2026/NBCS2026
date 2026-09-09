@@ -65,6 +65,8 @@ export function FeedbackForm({ locale }: { locale: string }) {
       feedbackType,
       session:
         feedbackType === "session" ? String(formData.get("session") || "") : "",
+      topic:
+        feedbackType === "general" ? String(formData.get("topic") || "") : "",
       rating: String(formData.get("rating") || ""),
       comments: String(formData.get("comments") || ""),
       name: String(formData.get("name") || ""),
@@ -155,7 +157,9 @@ export function FeedbackForm({ locale }: { locale: string }) {
                   onChange={() => setFeedbackType("general")}
                 />
                 <span className="font-semibold">
-                  {isFr ? "Le Sommet en général" : "The Summit overall"}
+                  {isFr
+                    ? "Le Sommet ou un autre sujet"
+                    : "The Summit or another topic"}
                 </span>
               </label>
             </div>
@@ -179,6 +183,23 @@ export function FeedbackForm({ locale }: { locale: string }) {
                   </option>
                 ))}
               </select>
+            </label>
+          )}
+
+          {feedbackType === "general" && (
+            <label className="block font-semibold">
+              {isFr ? "Sujet (facultatif)" : "Topic (optional)"}
+              <input
+                name="topic"
+                type="text"
+                maxLength={180}
+                className={fieldClass}
+                placeholder={
+                  isFr
+                    ? "Ex. accessibilité, inscription, logistique"
+                    : "e.g. accessibility, registration, logistics"
+                }
+              />
             </label>
           )}
 

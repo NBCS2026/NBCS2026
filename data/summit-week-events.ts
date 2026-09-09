@@ -10,9 +10,10 @@ export type SummitWeekEvent = {
   hostEn: string;
   hostFr: string;
   venue: string;
+  venueFr?: string;
   address?: string;
-  accessEn: string;
-  accessFr: string;
+  accessEn?: string;
+  accessFr?: string;
   registrationUrl?: string;
   registrationLabelEn?: string;
   registrationLabelFr?: string;
@@ -109,8 +110,10 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     address: "85 Israel Asper Way, Winnipeg, MB R3C 0L5",
     accessEn: "Public — free; registration required",
     accessFr: "Public — gratuit; inscription requise",
-    noteEn: "Contact: alia.aluma@humanrights.ca",
-    noteFr: "Contact : alia.aluma@humanrights.ca",
+    registrationUrl:
+      "https://humanrights.ca/event/knees-our-ancestors-exhibit-opening",
+    registrationLabelEn: "Event details",
+    registrationLabelFr: "Détails de l’événement",
     image: "/summit-week-cmhr.jpg",
   },
   {
@@ -130,10 +133,10 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     address: "514 St Mary Avenue, Winnipeg, MB",
     accessEn: "Public — free",
     accessFr: "Public — gratuit",
-    noteEn: "RSVP link to come. Contact: ralphb@rainbowresourcecentre.org",
-    noteFr:
-      "Lien d’inscription à venir. Contact : ralphb@rainbowresourcecentre.org",
-    image: "/summit-week-rainbow.png",
+    registrationUrl: "https://rainbowresourcecentre.org/",
+    registrationLabelEn: "Visit Rainbow Resource Centre",
+    registrationLabelFr: "Visiter Rainbow Resource Centre",
+    image: "/rainbow-resource-centre.webp",
   },
   {
     id: "amfm-september-17",
@@ -172,10 +175,6 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     hostFr: "Chambre de commerce des Manitobains noirs",
     venue: "Memorial Garden",
     address: "799 Main Street, Winnipeg, MB",
-    accessEn: "Attendance by confirmation",
-    accessFr: "Présence sur confirmation",
-    noteEn: "Contact the host to confirm: info@bmbcc.ca",
-    noteFr: "Communiquez avec l’organisme hôte pour confirmer : info@bmbcc.ca",
     image: "/summit-week-bmcc.png",
   },
   {
@@ -202,6 +201,29 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     image: "/summit-week-amfm.webp",
   },
   {
+    id: "pegcity-steppers",
+    date: "2026-09-19",
+    startTime: "07:00",
+    endTime: "08:00",
+    titleEn: "Morning Movement & Wellness with Pegcity Steppers",
+    titleFr: "Mouvement et bien-être matinal avec Pegcity Steppers",
+    descriptionEn:
+      "Begin your Saturday with a session dedicated to vitality, rhythm and communal bonding. Led by Pegcity Steppers, this uplifting gathering welcomes delegates and residents of every ability to participate at a comfortable pace in a supportive, inclusive setting. A collective warm-up leads into a low-barrier circuit of bodyweight exercises, followed by mobility work, mindful stretching and quiet reflection. Set to a vibrant soundtrack, the session emphasizes health as a pillar of collective resilience and creates an informal space to build relationships through movement.",
+    descriptionFr:
+      "Commencez votre samedi par une séance consacrée à la vitalité, au rythme et aux liens communautaires. Animée par Pegcity Steppers, cette rencontre énergisante invite les personnes déléguées et les résidents de toutes capacités à participer à leur propre rythme dans un cadre accueillant et inclusif. Un échauffement collectif sera suivi d’un circuit accessible d’exercices au poids du corps, puis de mobilité, d’étirements conscients et d’un moment de réflexion. Portée par une trame sonore dynamique, la séance présente la santé comme un pilier de la résilience collective et crée un espace informel pour tisser des liens par le mouvement.",
+    hostEn: "Pegcity Steppers",
+    hostFr: "Pegcity Steppers",
+    venue: "The Forks — Winnipeg sign area (location to be confirmed)",
+    venueFr: "La Fourche — secteur de l’enseigne Winnipeg (lieu à confirmer)",
+    address: "The Forks, Winnipeg, MB",
+    accessEn: "Free — open to all fitness levels and abilities",
+    accessFr:
+      "Gratuit — ouvert à tous les niveaux de condition physique et à toutes les capacités",
+    noteEn: "Contact: info@pegcitysteppers.ca · 204-998-7371",
+    noteFr: "Contact : info@pegcitysteppers.ca · 204-998-7371",
+    image: "/summit-week-pegcity.jpg",
+  },
+  {
     id: "amfm-september-19",
     date: "2026-09-19",
     startTime: "12:00",
@@ -225,6 +247,31 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     image: "/summit-week-amfm.webp",
   },
   {
+    id: "patio-340-closing-party",
+    date: "2026-09-19",
+    startTime: "16:00",
+    titleEn:
+      "Patio 340 Closing Party by Centre culturel franco-manitobain (CCFM)",
+    titleFr:
+      "Fête de clôture du Patio 340 par le Centre culturel franco-manitobain (CCFM)",
+    descriptionEn:
+      "The summer season ends on a high note with a festive evening celebrating diversity, creativity and community connection. Kelly Bado will share music that transcends cultures and unites people in joy and hope. The Trois Mousquetaires — Antonio, Leonardo and Pablo Tapia-Tétreault — will bring an energetic rock performance, while Michline Marchidon will delight the audience with bold and humorous storytelling. Open to everyone, the closing party reflects Winnipeg’s multicultural heartbeat and the Summit’s spirit of creativity, inclusion and community celebration.",
+    descriptionFr:
+      "La saison estivale se termine en beauté avec une soirée festive célébrant la diversité, la créativité et les liens communautaires. Kelly Bado partagera une musique qui transcende les cultures et rassemble dans la joie et l’espoir. Les Trois Mousquetaires — Antonio, Leonardo et Pablo Tapia-Tétreault — feront vibrer le Patio 340 avec leur rock énergique, tandis que Michline Marchidon fera rire le public grâce à ses récits audacieux et humoristiques. Ouverte à toutes et à tous, cette fête de clôture reflète le cœur multiculturel de Winnipeg ainsi que l’esprit de créativité, d’inclusion et de célébration communautaire du Sommet.",
+    hostEn: "Centre culturel franco-manitobain (CCFM)",
+    hostFr: "Centre culturel franco-manitobain (CCFM)",
+    venue: "Patio 340 — Centre culturel franco-manitobain (CCFM)",
+    venueFr: "Patio 340 — Centre culturel franco-manitobain (CCFM)",
+    address: "340 Provencher Boulevard, Winnipeg, MB R2H 0G7",
+    accessEn: "Public — free",
+    accessFr: "Public — gratuit",
+    noteEn:
+      "Contacts: Nathalie Buors, Communications and Marketing Director — nbuors@ccfm.mb.ca; Daniel Girard, Programming Coordinator — dgirard@ccfm.mb.ca",
+    noteFr:
+      "Contacts : Nathalie Buors, directrice des communications et du marketing — nbuors@ccfm.mb.ca; Daniel Girard, coordonnateur de la programmation — dgirard@ccfm.mb.ca",
+    image: "/ccfm-logo.svg",
+  },
+  {
     id: "partners-reception",
     date: "2026-09-19",
     startTime: "17:00",
@@ -240,7 +287,7 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     venue: "Venue to be confirmed",
     accessEn: "By invitation only",
     accessFr: "Sur invitation seulement",
-    image: "/winnipeg-event-photographer-01.jpg",
+    image: "/manitoba-legislature.webp",
   },
   {
     id: "in-circle",
@@ -259,9 +306,7 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     address: "450 Broadway, Winnipeg, MB R3C 3L6",
     accessEn: "By invitation only",
     accessFr: "Sur invitation seulement",
-    noteEn: "Contact: jen@awlpartners.com",
-    noteFr: "Contact : jen@awlpartners.com",
-    image: "/winnipeg-event-photographer-01.jpg",
+    image: "/manitoba-legislature.webp",
   },
   {
     id: "bpm-wag",
@@ -311,19 +356,5 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     noteFr:
       "Laissez-passer pour les personnes déléguées : 30 $ (prix régulier de 60 $) avec le code NBCS2026.",
     image: "/summit-week-amfm.webp",
-  },
-  {
-    id: "pegcity-steppers",
-    titleEn: "Pegcity Steppers — details to come",
-    titleFr: "Pegcity Steppers — détails à venir",
-    descriptionEn: "Event details will be posted once confirmed.",
-    descriptionFr:
-      "Les détails de l’événement seront publiés dès qu’ils seront confirmés.",
-    hostEn: "Pegcity Steppers",
-    hostFr: "Pegcity Steppers",
-    venue: "To be confirmed",
-    accessEn: "To be confirmed",
-    accessFr: "À confirmer",
-    image: "/summit-week-pegcity.jpg",
   },
 ];

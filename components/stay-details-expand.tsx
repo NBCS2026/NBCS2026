@@ -2,6 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import { type ReactNode, useState } from "react";
+import { AdditionalHotels } from "@/components/additional-hotels";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
@@ -335,6 +336,10 @@ export function StayDetailsExpand({
                   </span>{" "}
                   BLC ({isFr ? "ou" : "or"} 1-800-268-1133)
                 </BodyText>
+                <AdditionalHotels
+                  isFr={isFr}
+                  tone={isDark ? "dark" : "light"}
+                />
                 <PageLink href="/info#accommodation" isDark={isDark}>
                   {isFr
                     ? "Voir la section complète sur la page Hébergement"

@@ -71,8 +71,8 @@ export function Events({ local }: EventProps) {
         </p>
         <p className="mx-auto mb-10 max-w-3xl rounded-2xl border border-[#E8D4DB] bg-[#FAF6F7] px-5 py-4 text-center font-body text-[15px] font-semibold leading-relaxed text-[#5D1831] sm:text-[17px]">
           {local === "fr"
-            ? "L’interprétation simultanée sera offerte pendant les plénières et certaines séances."
-            : "Simultaneous interpretation will be available during plenaries and selected sessions."}
+            ? "L’interprétation simultanée et le sous-titrage en direct seront offerts pour toutes les séances officielles."
+            : "Simultaneous interpretation and live captioning will be available for all formal sessions."}
         </p>
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 justify-center">
           <div className="flex flex-row lg:flex-col gap-4 justify-center lg:justify-normal lg:pt-2">

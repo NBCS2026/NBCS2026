@@ -14,7 +14,7 @@ export default function ExhibitorsPage() {
 
   return (
     <>
-      <div className="relative min-h-[72vh] bg-[linear-gradient(to_bottom,rgba(42,4,18,0.9),rgba(93,24,49,0.58)),url('/youth-art-exhibition.webp')] bg-cover bg-center">
+      <div className="relative min-h-[72vh] bg-[linear-gradient(to_bottom,rgba(42,4,18,0.9),rgba(93,24,49,0.58)),url('/about_main.webp')] bg-cover bg-center">
         <header className="mx-auto flex w-full max-w-[1440px] items-center px-8 pt-12 text-white md:px-12 lg:px-16 2xl:max-w-[1600px] 2xl:px-20 3xl:max-w-[1800px] 3xl:px-16 4xl:max-w-[2400px] 4xl:px-24">
           <Logo />
           <NavLink className="mx-8 hidden flex-1 xl:block 3xl:mx-8 4xl:mx-16" />

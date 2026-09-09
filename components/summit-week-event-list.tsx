@@ -1,6 +1,7 @@
 "use client";
 
 import { CalendarDays, MapPin, Ticket, UserRound } from "lucide-react";
+import { SummitWeekVenueMap } from "@/components/summit-week-venue-map";
 import { SUMMIT_WEEK_EVENTS } from "@/data/summit-week-events";
 
 function formatDate(date: string | undefined, locale: string) {
@@ -77,9 +78,10 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
               ? event.descriptionFr
               : event.descriptionEn;
             const host = isFr ? event.hostFr : event.hostEn;
+            const venue = isFr ? event.venueFr || event.venue : event.venue;
             const access = isFr ? event.accessFr : event.accessEn;
             const note = isFr ? event.noteFr : event.noteEn;
-            const directionsQuery = event.address || event.venue;
+            const directionsQuery = event.address || venue;
 
             return (
               <article
@@ -144,26 +146,30 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                           <span className="font-bold text-[#1E1E1E]">
                             {isFr ? "Lieu : " : "Venue: "}
                           </span>
-                          {event.venue}
+                          {venue}
                           {event.address && ` — ${event.address}`}
                         </dd>
                       </div>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <Ticket
-                        className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
-                        aria-hidden
-                      />
-                      <div>
-                        <dt className="sr-only">{isFr ? "Accès" : "Access"}</dt>
-                        <dd>
-                          <span className="font-bold text-[#1E1E1E]">
-                            {isFr ? "Accès : " : "Access: "}
-                          </span>
-                          {access}
-                        </dd>
+                    {access && (
+                      <div className="flex items-start gap-2">
+                        <Ticket
+                          className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
+                          aria-hidden
+                        />
+                        <div>
+                          <dt className="sr-only">
+                            {isFr ? "Accès" : "Access"}
+                          </dt>
+                          <dd>
+                            <span className="font-bold text-[#1E1E1E]">
+                              {isFr ? "Accès : " : "Access: "}
+                            </span>
+                            {access}
+                          </dd>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </dl>
                   {note && (
                     <p className="mt-5 rounded-xl bg-[#FAF6F7] px-4 py-3 text-sm font-semibold leading-relaxed text-[#5D1831]">
@@ -202,45 +208,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
         </div>
       </section>
 
-      <section className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
-        <div className="mx-auto grid max-w-[1180px] gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
-          <div className="overflow-hidden rounded-3xl border border-[#E8D4DB] bg-white shadow-sm">
-            <iframe
-              title={
-                isFr
-                  ? "Carte des lieux du Sommet à Winnipeg"
-                  : "Map of Summit locations in Winnipeg"
-              }
-              src="https://www.google.com/maps?q=RBC+Convention+Centre+Winnipeg&z=13&output=embed"
-              className="h-[420px] w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-          <div>
-            <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
-              {isFr ? "Se déplacer à Winnipeg" : "Getting around Winnipeg"}
-            </p>
-            <h2 className="mt-3 font-heading text-3xl font-black leading-tight text-[#5D1831] sm:text-4xl">
-              {isFr ? "Carte des lieux" : "Venue map"}
-            </h2>
-            <p className="mt-4 leading-relaxed text-[#1E1E1E]/75">
-              {isFr
-                ? "La carte est centrée sur le Centre des congrès RBC. Utilisez le bouton Itinéraire de chaque activité pour ouvrir son emplacement exact."
-                : "The map is centred on the RBC Convention Centre. Use each event’s Directions button to open its exact location."}
-            </p>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=RBC+Convention+Centre+Winnipeg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#5D1831] px-5 py-3 font-bold text-white"
-            >
-              <MapPin className="size-5" aria-hidden />
-              {isFr ? "Ouvrir la carte" : "Open map"}
-            </a>
-          </div>
-        </div>
-      </section>
+      <SummitWeekVenueMap locale={locale} />
     </>
   );
 }

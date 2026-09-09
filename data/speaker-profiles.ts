@@ -4,6 +4,7 @@ export type SpeakerProfile = {
   bioEn?: string;
   bioFr?: string;
   imageUrl?: string;
+  imagePosition?: "center" | "slight-down";
 };
 
 const rawProfiles: SpeakerProfile[] = [
@@ -35,9 +36,9 @@ const rawProfiles: SpeakerProfile[] = [
       "https://drive.google.com/thumbnail?id=1F7Pm9jqX7q4uiuAAnVezTS6u9t7jLJVH&sz=w600",
   },
   {
-    name: "Alliance",
+    name: "Alliance Daniels",
     displayLineEn:
-      "Alliance B. Daniel, Manager, Government Relations (Canada), ONE Campaign",
+      "Alliance Daniels, Manager, Government Relations (Canada), ONE Campaign",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1MMgQ9RNWCRqc38DhYY1IhjpEU8NVHClJ&sz=w600",
   },
@@ -376,13 +377,15 @@ const rawProfiles: SpeakerProfile[] = [
       "Laurene Williams is an Ontario lawyer and Program Manager at the Diversity Institute, where she leads employment and entrepreneurship initiatives advancing economic inclusion for diverse communities. She works with employers, community organizations, educational institutions and governments to strengthen workforce participation and equitable pathways to opportunity. She is pursuing an LLM at Osgoode Hall Law School and brings a background in law, human resources and alternative dispute resolution.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1pF1RNifIfQFoMtte4AT1Ol9TNIB_TBNV&sz=w600",
+    imagePosition: "slight-down",
   },
   {
-    name: "Lerato",
+    name: "Lerato Chondoma",
     displayLineEn:
       "Lerato Chondoma LL.B, MBA, Associate Vice-President Equity, Diversity, Inclusion and Anti-Racism, Acadia University and Commissioner, Nova Scotia Human Rights Commission.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=18rrvtncqhHa9oWe65norGQ3YxjZ0egfG&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Lisa Meeches",
@@ -439,7 +442,7 @@ const rawProfiles: SpeakerProfile[] = [
       "https://drive.google.com/thumbnail?id=1agpwupY47fEd8DTHKscCZNodPakKKdC2&sz=w600",
   },
   {
-    name: "Nicholas",
+    name: "Nicholas Marcus Thompson",
     displayLineEn:
       "Nicholas Marcus Thompson, President and CEO, Black Class Action Secretariat, and Co-Chair, National Employment Equity Council",
     imageUrl:
@@ -537,7 +540,7 @@ const rawProfiles: SpeakerProfile[] = [
       "https://drive.google.com/thumbnail?id=1ZrVGhrAgEHt4KqkuE9YkZlOUxqzLgbhb&sz=w600",
   },
   {
-    name: "Shauna",
+    name: "Shauna Bookal",
     displayLineEn:
       "Shauna Bookal, President and CEO, Inclusion in Canadian Sports Network (ICSN)",
     imageUrl:
@@ -622,6 +625,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Senator Paulette Senior has dedicated her career to breaking down systemic barriers and empowering women and girls. Her leadership has included serving as President and CEO of the Canadian Women’s Foundation and as CEO of YWCA Canada. She has received numerous awards for community service and leadership and brings extensive experience in gender equity, social justice and nonprofit leadership to the Senate.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1c7xBecwgkPNewYkxBs22ftinRLLILhP4&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "The Honourable Tony Ince",
