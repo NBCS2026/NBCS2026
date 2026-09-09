@@ -389,6 +389,10 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
         number: 6,
         title: "Arts et culture au Canada : de la survie à l’épanouissement",
         room: "Millennium Suite",
+        presentedBy: {
+          name: "CBC",
+          logoUrl: "/cbc-logo.png",
+        },
         description:
           "Comment pouvons-nous travailler ensemble pour nous assurer que les artistes de demain font plus que s’en sortir et deviennent de véritables leaders dans leur art? Des décennies durant, les incroyables créateurs et créatrices de Winnipeg – des pionniers du jazz et du blues aux danseurs et acteurs qui sont aujourd’hui sous les projecteurs – ont fait entrer leur ville dans la culture canadienne. Bien que des lois visant à protéger la musique canadienne soient en place depuis 1971, nous savons que, pour bon nombre de créatrices et créateurs noirs, cet objectif a souvent semblé hors de portée. Dans cette optique, la question s’impose : la législation actuelle permet-elle vraiment à une danseuse de ballet ou à un dramaturge noirs de réaliser leur plein potentiel? Le temps est peut-être venu d’ouvrir une nouvelle voie, axée sur le financement, la reconnaissance et le soutien que méritent les créatrices et créateurs noirs, ici même au cœur de l’Amérique du Nord.",
         note: "Veuillez prendre note que cette activité se déroulera en anglais. L’interprétation simultanée en français sera offerte.",

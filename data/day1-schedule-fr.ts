@@ -295,6 +295,10 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
         number: 6,
         title: "Votre feuille de route vers CBC : comment présenter une idée",
         room: "Théâtre de présentation",
+        presentedBy: {
+          name: "CBC",
+          logoUrl: "/cbc-logo.png",
+        },
         description:
           "La table ronde « En route vers CBC : comment présenter votre histoire » vise à aider les créateurs et créatrices, les artistes et les personnes engagées dans leur communauté à raconter leur histoire unique. Venez faire le plein de conseils pratiques sur la façon de mettre votre histoire en récit, de vous démarquer dans un paysage médiatique foisonnant, et de présenter votre projet à des producteurs et à des auditoires qui auront envie d'entendre votre histoire.",
         note: "Veuillez prendre note que cette activité se déroulera en anglais.",

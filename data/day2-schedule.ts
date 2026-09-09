@@ -389,6 +389,10 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
         title:
           "The Arts & Culture Scene in Canada: Shifting from Surviving to Thriving",
         room: "Millennium Suite",
+        presentedBy: {
+          name: "CBC",
+          logoUrl: "/cbc-logo.png",
+        },
         description:
           "How can we work together to ensure the next generation of artists doesn't just get by, but truly leads and owns their craft? For decades, Winnipeg's incredible creators—from jazz and blues pioneers to today's inspiring dancers and actors—have built this city into a heart of Canadian culture. While regulations since 1971 have aimed to protect Canadian music, we know that for many Black creators, these goals haven't always felt within reach. It's important to ask: do current mandates really support a Black playwright or ballerina in reaching their full potential? Maybe it's time to create a new path—one that focuses on providing the funding, recognition, and support Black creators deserve, right here in the heart of the continent.",
         note: "Please note this panel will be in English. Simultaneous interpretation in French will be available.",

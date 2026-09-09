@@ -300,6 +300,10 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
         number: 6,
         title: 'Your Roadmap to CBC: "How to Pitch" by CBC',
         room: "Presentation Theatre",
+        presentedBy: {
+          name: "CBC",
+          logoUrl: "/cbc-logo.png",
+        },
         description:
           '"How to Pitch" is designed to help creators, artists, and community builders who are ready to share their unique stories. Join this panel for practical, hands-on advice on crafting your story ideas, standing out in a crowded media landscape, and connecting your story with producers and the audiences who are waiting to hear it.',
         people: [
