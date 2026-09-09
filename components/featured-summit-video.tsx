@@ -14,11 +14,10 @@ export function FeaturedSummitVideo({ locale }: { locale: string }) {
         >
           <source src="/summit-2026-video.mp4" type="video/mp4" />
           <track
-            kind="captions"
+            kind="subtitles"
             src="/captions/summit-2026-fr.vtt"
             srcLang="fr"
-            label="Français"
-            default={isFr}
+            label="Français (traduction)"
           />
           {isFr
             ? "Votre navigateur ne prend pas en charge la lecture vidéo."

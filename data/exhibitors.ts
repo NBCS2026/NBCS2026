@@ -22,6 +22,7 @@ export type Exhibitor = {
   logoUrls?: string[];
   logoClassName?: string;
   textMark?: string;
+  darkLogoBackground?: boolean;
 };
 
 export const EXHIBITORS: Exhibitor[] = [
@@ -57,14 +58,12 @@ export const EXHIBITORS: Exhibitor[] = [
   },
   {
     name: "Inclusion in Canadian Sports",
-    logoUrls: ["/icsn-logo.svg"],
+    logoUrls: ["/exhibitor-icsn.svg"],
+    darkLogoBackground: true,
   },
   {
     name: "Canadian Labour Congress / CUPE",
-    logoUrls: [
-      "https://canadianlabour.ca/wp-content/themes/canadian-labour-congress/assets/img/clc-logo.svg",
-      "https://cupe.ca/sites/default/files/2025-05/CUPE-logo-EN.svg",
-    ],
+    logoUrls: ["/exhibitor-clc.png", "/exhibitor-cupe.svg"],
   },
   { name: "St-Aude Advocacy", textMark: "ST-AUDE ADVOCACY" },
   {

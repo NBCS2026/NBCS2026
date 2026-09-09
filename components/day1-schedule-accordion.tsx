@@ -380,12 +380,14 @@ function SessionCard({
   onToggle,
   labels,
   isFr,
+  powerOfYouth = false,
 }: {
   session: ScheduleSession;
   open: boolean;
   onToggle: () => void;
   labels: Labels;
   isFr: boolean;
+  powerOfYouth?: boolean;
 }) {
   return (
     <div className="rounded-xl border border-[#E8D4DB] bg-white overflow-hidden">
@@ -419,6 +421,7 @@ function SessionCard({
       >
         <div className="overflow-hidden">
           <div className="px-4 pb-4 pt-1 space-y-4 border-t border-[#E8D4DB]">
+            {powerOfYouth && <PowerOfYouthLogo />}
             <p className="font-body text-[14px] sm:text-[15px] text-[#1E1E1E]/85 leading-relaxed">
               {session.description}
             </p>
@@ -450,6 +453,19 @@ function SessionCard({
   );
 }
 
+function PowerOfYouthLogo() {
+  return (
+    <div className="relative h-20 w-52 shrink-0 overflow-hidden">
+      <img
+        src="/power-of-youth-logo.png"
+        alt="Power of Youth — Jeunesse au pouvoir"
+        loading="lazy"
+        className="absolute left-1/2 top-1/2 h-auto w-64 max-w-none -translate-x-1/2 -translate-y-1/2"
+      />
+    </div>
+  );
+}
+
 function BlockDetails({
   block,
   labels,
@@ -465,6 +481,7 @@ function BlockDetails({
 }) {
   return (
     <div className="space-y-5">
+      {block.seriesLogoUrl && <PowerOfYouthLogo />}
       {block.location && (
         <p className="inline-flex items-center rounded-full bg-[#FAF6F7] border border-[#E8D4DB] px-3 py-1 text-[13px] sm:text-[14px] font-semibold text-[#5D1831]">
           {labels.room}: {block.location}
@@ -485,17 +502,6 @@ function BlockDetails({
           {renderFormattedText(para)}
         </p>
       ))}
-
-      {block.seriesLogoUrl && (
-        <div className="flex justify-center rounded-2xl border border-[#E8D4DB] bg-white px-5 py-4">
-          <img
-            src={block.seriesLogoUrl}
-            alt={isFr ? "La jeunesse au pouvoir" : "Power of Youth"}
-            loading="lazy"
-            className="max-h-20 w-auto max-w-full object-contain"
-          />
-        </div>
-      )}
 
       {block.action && (
         <a
@@ -527,6 +533,7 @@ function BlockDetails({
               <SessionCard
                 key={session.id}
                 session={session}
+                powerOfYouth={Boolean(block.seriesLogoUrl)}
                 open={activeSession === session.id}
                 onToggle={() =>
                   setActiveSession(

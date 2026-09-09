@@ -183,7 +183,9 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                 key={exhibitor.name}
                 className="flex min-h-48 flex-col overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-3"
               >
-                <div className="flex min-h-28 flex-1 items-center justify-center gap-4 rounded-xl bg-white px-5 py-4">
+                <div
+                  className={`flex min-h-28 flex-1 items-center justify-center gap-4 rounded-xl px-5 py-4 ${exhibitor.darkLogoBackground ? "bg-[#161616]" : "bg-white"}`}
+                >
                   {exhibitor.logoUrls?.map((logoUrl) => (
                     <img
                       key={logoUrl}
@@ -191,7 +193,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                       alt=""
                       loading="lazy"
                       referrerPolicy="no-referrer"
-                      className={`max-h-20 w-auto object-contain ${exhibitor.logoUrls && exhibitor.logoUrls.length > 1 ? "max-w-[42%]" : "max-w-full"} ${exhibitor.logoClassName ?? ""}`}
+                      className={`h-20 w-auto ${exhibitor.logoUrls?.length === 1 ? "max-w-full" : "max-w-[45%]"} min-w-0 object-contain object-center ${exhibitor.logoClassName ?? ""}`}
                     />
                   ))}
                   {exhibitor.textMark && (
