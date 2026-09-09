@@ -333,6 +333,10 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
     title: "Opening Ceremony",
     location: "Hall C",
     description: "Opening Ceremony Program",
+    action: {
+      label: "RSVP for the Opening Ceremony Gala",
+      url: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=vB0PioNw9EiVbyINjkwTgYlai5JlZfBMpmSprhIBBrdUNFA1NUdUSEdFUlQ2OTRKMkNKOEhNUk0xSS4u&route=shorturl",
+    },
     segments: [
       {
         title: "Opening Ceremony Video",

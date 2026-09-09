@@ -28,7 +28,7 @@ const champions: SponsorEntry[] = [
     ],
   },
   {
-    name: "Canada Life / Power Core",
+    name: "Canada Life",
     logos: [
       {
         src: "/sponsor_5.jpg",
@@ -440,18 +440,24 @@ function SponsorCard({
           ))}
         </div>
       )}
-      <div>
-        <p
-          className={`font-heading font-bold leading-snug text-[#1E1E1E] ${prominence === "champion" && !compact ? "text-xl" : prominence === "paid" && !compact ? "text-base sm:text-lg" : "text-sm sm:text-base"}`}
-        >
-          {entry.name}
-        </p>
-        {role && (
-          <p className="mt-1.5 text-xs font-semibold uppercase tracking-[0.09em] text-[#8C0C3A]">
-            {role}
-          </p>
-        )}
-      </div>
+      {(!entry.logos || role) && (
+        <div>
+          {!entry.logos && (
+            <p
+              className={`font-heading font-bold leading-snug text-[#1E1E1E] ${prominence === "champion" && !compact ? "text-xl" : prominence === "paid" && !compact ? "text-base sm:text-lg" : "text-sm sm:text-base"}`}
+            >
+              {entry.name}
+            </p>
+          )}
+          {role && (
+            <p
+              className={`${entry.logos ? "" : "mt-1.5"} text-xs font-semibold uppercase tracking-[0.09em] text-[#8C0C3A]`}
+            >
+              {role}
+            </p>
+          )}
+        </div>
+      )}
     </article>
   );
 }
@@ -523,9 +529,6 @@ export function SponsorDirectory({
           className={`${compact ? "h-28 w-36" : "h-36 w-44 sm:h-44 sm:w-56"} object-contain`}
           loading="lazy"
         />
-        <p className="mt-6 font-heading text-lg font-black text-[#1E1E1E] sm:text-xl">
-          TD Bank Group
-        </p>
       </section>
 
       <Tier

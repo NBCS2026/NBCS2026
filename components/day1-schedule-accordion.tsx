@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { Check, ChevronDown, Copy, Share2 } from "lucide-react";
 import { useState } from "react";
 import { DAY1_SCHEDULE } from "@/data/day1-schedule";
 import { DAY1_SCHEDULE_FR } from "@/data/day1-schedule-fr";
@@ -450,6 +450,159 @@ function SessionCard({
   );
 }
 
+function DelegateConnect({ isFr }: { isFr: boolean }) {
+  const [name, setName] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [expertise, setExpertise] = useState("");
+  const [contribution, setContribution] = useState("");
+  const [contact, setContact] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  const introduction = isFr
+    ? [
+        `Bonjour, je m’appelle ${name || "…"}${organization ? ` — ${organization}` : ""}.`,
+        expertise ? `Mon expertise : ${expertise}` : "",
+        contribution ? `Ma contribution : ${contribution}` : "",
+        contact ? `Pour me joindre : ${contact}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n")
+    : [
+        `Hi, I’m ${name || "…"}${organization ? ` — ${organization}` : ""}.`,
+        expertise ? `My expertise: ${expertise}` : "",
+        contribution ? `I can contribute: ${contribution}` : "",
+        contact ? `Connect with me: ${contact}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n");
+
+  const copyIntroduction = async () => {
+    await navigator.clipboard.writeText(introduction);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1800);
+  };
+
+  const shareIntroduction = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: isFr ? "Ma présentation" : "My delegate introduction",
+          text: introduction,
+        });
+        return;
+      }
+      await copyIntroduction();
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      await copyIntroduction();
+    }
+  };
+
+  return (
+    <section className="rounded-2xl border border-[#D9B8C4] bg-[#FAF6F7] p-4 sm:p-5">
+      <div className="max-w-2xl">
+        <p className="font-heading text-xs font-bold uppercase tracking-[0.14em] text-[#8C0C3A]">
+          {isFr ? "Connexion entre délégué·e·s" : "Delegate Connect"}
+        </p>
+        <h3 className="mt-2 font-heading text-xl font-black text-[#5D1831]">
+          {isFr
+            ? "Créez une présentation rapide"
+            : "Create a quick introduction"}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-[#1E1E1E]/75">
+          {isFr
+            ? "Préparez une courte carte à montrer, copier ou partager avec les personnes que vous rencontrez. Vos renseignements restent sur votre appareil."
+            : "Prepare a short card to show, copy or share with people you meet. Your information stays on your device."}
+        </p>
+      </div>
+
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+        <label className="text-sm font-bold text-[#5D1831]">
+          {isFr ? "Nom" : "Name"}
+          <input
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            className="mt-1.5 w-full rounded-xl border border-[#D9B8C4] bg-white px-3 py-2.5 text-base font-normal text-[#1E1E1E] outline-none focus:border-[#8C0C3A] focus:ring-2 focus:ring-[#8C0C3A]/15"
+          />
+        </label>
+        <label className="text-sm font-bold text-[#5D1831]">
+          {isFr ? "Organisation ou communauté" : "Organization or community"}
+          <input
+            value={organization}
+            onChange={(event) => setOrganization(event.target.value)}
+            className="mt-1.5 w-full rounded-xl border border-[#D9B8C4] bg-white px-3 py-2.5 text-base font-normal text-[#1E1E1E] outline-none focus:border-[#8C0C3A] focus:ring-2 focus:ring-[#8C0C3A]/15"
+          />
+        </label>
+        <label className="text-sm font-bold text-[#5D1831]">
+          {isFr ? "Expertise" : "Expertise"}
+          <input
+            value={expertise}
+            onChange={(event) => setExpertise(event.target.value)}
+            placeholder={
+              isFr
+                ? "p. ex. politiques, arts, recherche"
+                : "e.g. policy, arts, research"
+            }
+            className="mt-1.5 w-full rounded-xl border border-[#D9B8C4] bg-white px-3 py-2.5 text-base font-normal text-[#1E1E1E] outline-none placeholder:text-[#1E1E1E]/40 focus:border-[#8C0C3A] focus:ring-2 focus:ring-[#8C0C3A]/15"
+          />
+        </label>
+        <label className="text-sm font-bold text-[#5D1831]">
+          {isFr ? "Ce que je peux apporter" : "What I can contribute"}
+          <input
+            value={contribution}
+            onChange={(event) => setContribution(event.target.value)}
+            className="mt-1.5 w-full rounded-xl border border-[#D9B8C4] bg-white px-3 py-2.5 text-base font-normal text-[#1E1E1E] outline-none focus:border-[#8C0C3A] focus:ring-2 focus:ring-[#8C0C3A]/15"
+          />
+        </label>
+        <label className="text-sm font-bold text-[#5D1831] sm:col-span-2">
+          {isFr
+            ? "Coordonnée à partager — courriel, LinkedIn ou site Web"
+            : "Contact to share — email, LinkedIn or website"}
+          <input
+            value={contact}
+            onChange={(event) => setContact(event.target.value)}
+            inputMode="url"
+            className="mt-1.5 w-full rounded-xl border border-[#D9B8C4] bg-white px-3 py-2.5 text-base font-normal text-[#1E1E1E] outline-none focus:border-[#8C0C3A] focus:ring-2 focus:ring-[#8C0C3A]/15"
+          />
+        </label>
+      </div>
+
+      {name && (
+        <div className="mt-5 rounded-2xl bg-[#5D1831] p-4 text-white">
+          <p className="whitespace-pre-line text-sm leading-relaxed">
+            {introduction}
+          </p>
+        </div>
+      )}
+
+      <div className="mt-4 flex flex-wrap gap-3">
+        <button
+          type="button"
+          onClick={shareIntroduction}
+          disabled={!name}
+          className="inline-flex items-center gap-2 rounded-full bg-[#8C0C3A] px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#5D1831] disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <Share2 className="size-4" aria-hidden />
+          {isFr ? "Partager ma présentation" : "Share my introduction"}
+        </button>
+        <button
+          type="button"
+          onClick={copyIntroduction}
+          disabled={!name}
+          className="inline-flex items-center gap-2 rounded-full border border-[#8C0C3A] bg-white px-4 py-2.5 text-sm font-bold text-[#5D1831] transition-colors hover:bg-[#F3E9EC] disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          {copied ? (
+            <Check className="size-4" aria-hidden />
+          ) : (
+            <Copy className="size-4" aria-hidden />
+          )}
+          {copied ? (isFr ? "Copié" : "Copied") : isFr ? "Copier" : "Copy"}
+        </button>
+      </div>
+    </section>
+  );
+}
+
 function BlockDetails({
   block,
   labels,
@@ -477,15 +630,27 @@ function BlockDetails({
         </p>
       )}
 
-      {block.description &&
-        block.description.split("\n\n").map((para) => (
-          <p
-            key={para.slice(0, 40)}
-            className="font-body text-[14px] sm:text-[16px] text-[#1E1E1E]/85 leading-relaxed"
-          >
-            {renderFormattedText(para)}
-          </p>
-        ))}
+      {block.description?.split("\n\n").map((para) => (
+        <p
+          key={para.slice(0, 40)}
+          className="font-body text-[14px] sm:text-[16px] text-[#1E1E1E]/85 leading-relaxed"
+        >
+          {renderFormattedText(para)}
+        </p>
+      ))}
+
+      {block.action && (
+        <a
+          href={block.action.url}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center rounded-full bg-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#5D1831] focus:outline-none focus:ring-2 focus:ring-[#8C0C3A]/30 focus:ring-offset-2"
+        >
+          {block.action.label}
+        </a>
+      )}
+
+      {block.id === "networking" && <DelegateConnect isFr={isFr} />}
 
       {block.people && (
         <PeopleList

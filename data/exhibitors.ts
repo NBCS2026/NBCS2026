@@ -13,24 +13,82 @@ export type MarketplaceVendor = {
   daysEn: string;
   daysFr: string;
   website?: string;
+  imageUrl?: string;
+  imageFit?: "cover" | "contain";
 };
 
-export const EXHIBITORS = [
-  "Michaëlle Jean Foundation",
-  "Zueike",
-  "SBCCI",
-  "Canadian Race Relations Foundation",
-  "Economic Development Winnipeg",
-  "MBERG — Government of Manitoba",
-  "Bilal Community Centre",
-  "Inclusion in Canadian Sports",
-  "Canadian Labour Congress / CUPE",
-  "St-Aude Advocacy",
-  "Diversity Institute",
-  "CBC",
-  "Communications Security Establishment",
-  "University of Manitoba, Faculty of Law",
-  "Canada Council for the Arts",
+export type Exhibitor = {
+  name: string;
+  logoUrls?: string[];
+  logoClassName?: string;
+  textMark?: string;
+};
+
+export const EXHIBITORS: Exhibitor[] = [
+  {
+    name: "Michaëlle Jean Foundation",
+    logoUrls: [
+      "https://drive.google.com/thumbnail?id=1s28LLzN-yF8tni_VBAxCJ33WZpWWyuom&sz=w800",
+    ],
+  },
+  { name: "Zueike", logoUrls: ["/zueike.webp"] },
+  {
+    name: "SBCCI",
+    logoUrls: ["https://sbcci.ca/images/sbcci-logo-new-w%402x.png"],
+    logoClassName: "brightness-0",
+  },
+  {
+    name: "Canadian Race Relations Foundation",
+    logoUrls: ["/crrf-logo.png"],
+  },
+  {
+    name: "Economic Development Winnipeg",
+    logoUrls: ["/sponsor_3.png"],
+  },
+  {
+    name: "MBERG — Government of Manitoba",
+    logoUrls: ["/manitoba-logo.png"],
+  },
+  {
+    name: "Bilal Community Centre",
+    logoUrls: [
+      "https://bilalcommunitycentre.ca/wp-content/uploads/2022/06/BCFC-logo.png",
+    ],
+  },
+  {
+    name: "Inclusion in Canadian Sports",
+    logoUrls: [
+      "https://inclusionincanadiansports.ca/wp-content/uploads/2018/10/ICSN-LOGO-full-blackout-2026.svg",
+    ],
+  },
+  {
+    name: "Canadian Labour Congress / CUPE",
+    logoUrls: [
+      "https://canadianlabour.ca/wp-content/themes/canadian-labour-congress/assets/img/clc-logo.svg",
+      "https://cupe.ca/sites/default/files/2025-05/CUPE-logo-EN.svg",
+    ],
+  },
+  { name: "St-Aude Advocacy", textMark: "ST-AUDE ADVOCACY" },
+  {
+    name: "Diversity Institute",
+    logoUrls: ["/trsm-diversity-institute-logo.png"],
+  },
+  { name: "CBC", logoUrls: ["/cbc-logo.png"] },
+  {
+    name: "Communications Security Establishment",
+    logoUrls: ["https://www.cse-cst.gc.ca/GCWeb/assets/sig-blk-en.svg"],
+  },
+  {
+    name: "University of Manitoba, Faculty of Law",
+    logoUrls: ["https://umanitoba.ca/themes/custom/umanitoba/images/logo.svg"],
+  },
+  {
+    name: "Canada Council for the Arts",
+    logoUrls: [
+      "https://canadacouncil.ca/-/media/Images/CCA/Design_Elements/Logos/new/CAC-lockup-EN-RGB-White.svg?h=58&w=306&hash=6E540D0A4787323429A3DC2D829C6AD8",
+    ],
+    logoClassName: "brightness-0",
+  },
 ];
 
 export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
@@ -119,6 +177,8 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Sunday",
     daysFr: "Vendredi–dimanche",
     website: "https://www.instagram.com/blackartistswpg/",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1PjiD_Nkl1hKnXL4u2bya-cNd64WKCseH&sz=w1000",
   },
   {
     name: "BintChem Products & Services",
@@ -129,6 +189,8 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
     website: "https://bintchem.square.site",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1tqRJMZQ-Lo5hvy6mXrbI_PHvjJAS1TH1&sz=w1000",
   },
   {
     name: "OVA AFRIQUE",
@@ -139,6 +201,8 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
     website: "https://www.ovaafrique.com/",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1mq0Fjk6tIT0y6iEJ_-yqGBCm17U7GLxZ&sz=w1000",
   },
   {
     name: "Shirom Arts Collections",
@@ -147,6 +211,9 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
       "Bijoux, accessoires et articles de collection faits à la main.",
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
+    website: "https://www.shiromarts.ca/",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1rmGDnOHd140sAbjOqDLeSqt-XsA7E7j3&sz=w1000",
   },
   {
     name: "KRISUT FASHION",
@@ -156,6 +223,9 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
       "Vêtements et accessoires africains contemporains pour adultes et enfants.",
     daysEn: "Saturday",
     daysFr: "Samedi",
+    website: "https://krisut.com/",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1z6lznj_ApB-WbI9Xj0EXrYTqMyn50kdI&sz=w1000",
   },
   {
     name: "Clothes by Gift",
@@ -166,6 +236,9 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Sunday",
     daysFr: "Vendredi–dimanche",
     website: "https://www.clothesbygift.com",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1wPrb2xr-vV_aZGT3QaeoeZq7tMABsMIv&sz=w1000",
+    imageFit: "contain",
   },
   {
     name: "Sankofa Afrikan Gifts",
@@ -174,6 +247,9 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
     website: "https://www.sankofagifts.ca",
+    imageUrl:
+      "https://images.squarespace-cdn.com/content/v1/5ee7dc402595620a0590b6cf/1592268823911-WMG01G7GPFXCKBEATQ6V/sankofa-gifts.png?format=1500w",
+    imageFit: "contain",
   },
   {
     name: "HEYRU",
@@ -184,15 +260,8 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
     website: "https://www.shopheyru.com",
-  },
-  {
-    name: "Infinite Custom Designs",
-    descriptionEn:
-      "Handmade custom gifts, including tumblers, bags, cutting boards, candles and body-care items.",
-    descriptionFr:
-      "Cadeaux personnalisés faits à la main, dont gobelets, sacs, planches à découper, bougies et soins pour le corps.",
-    daysEn: "Friday",
-    daysFr: "Vendredi",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1WGfuvRbzMjzuKDfC0wMYa0odYdUv2_8O&sz=w1000",
   },
   {
     name: "Sani Crochets",
@@ -203,13 +272,8 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Saturday–Sunday",
     daysFr: "Samedi–dimanche",
     website: "https://sanicrochets.com",
-  },
-  {
-    name: "Gracious Fashion Designs",
-    descriptionEn: "African-print clothing, jewelry and accessories.",
-    descriptionFr: "Vêtements à imprimés africains, bijoux et accessoires.",
-    daysEn: "Friday",
-    daysFr: "Vendredi",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1alOC_r63LsmCj7ZSID-IUx5bkUZpQ0se&sz=w1000",
   },
   {
     name: "Suzanna Creations",
@@ -217,6 +281,9 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     descriptionFr: "Peintures africaines originales sur toile à vendre.",
     daysEn: "Saturday",
     daysFr: "Samedi",
+    website: "https://www.instagram.com/suzieartgallery/?hl=en",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1S4MtJA-bjeOzP9ojrUluIJewXUL1UUa0&sz=w1000",
   },
   {
     name: "Koshé Inc",
@@ -227,6 +294,8 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Saturday",
     daysFr: "Samedi",
     website: "https://www.koshequickmart.com",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1boVapTTho3NJs62TEcKV99477IKxNMKO&sz=w1000",
   },
   {
     name: "West Natural Good",
@@ -235,6 +304,8 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday",
     daysFr: "Vendredi",
     website: "https://www.westnaturalgood.ca",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1MW8OXXM2W3-ro0pI8g31MT2e9NmBYCiG&sz=w1000",
   },
   {
     name: "Alat Food Services",
@@ -245,6 +316,8 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Saturday",
     daysFr: "Samedi",
     website: "https://alatservices.ca",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1CozhdoOp7pqTwTKNw6MjrRwZA2LbZ_vd&sz=w1000",
   },
   {
     name: "W. Enterprises",
@@ -255,5 +328,7 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Sunday",
     daysFr: "Vendredi–dimanche",
     website: "https://www.wokeapparel.shop",
+    imageUrl:
+      "https://drive.google.com/thumbnail?id=1haeFmMcC_Gh5kiYTEWrbo4BzZ786P7oE&sz=w1000",
   },
 ];

@@ -20,6 +20,18 @@ const INSTAGRAM_POSTS = [
     titleEn: "Learn more about NBCS 2026",
     titleFr: "Découvrez le SPCN 2026",
   },
+  {
+    url: "https://www.instagram.com/michaellej_fdn/reel/Db9EFGdkjBr/",
+    embedUrl: "https://www.instagram.com/michaellej_fdn/reel/Db9EFGdkjBr/embed",
+    titleEn: "Winnipeg is waiting — join the 2026 Summit",
+    titleFr: "Winnipeg vous attend — participez au Sommet 2026",
+  },
+  {
+    url: "https://www.instagram.com/michaellej_fdn/p/CrwOc-MJ1iC/",
+    embedUrl: "https://www.instagram.com/michaellej_fdn/p/CrwOc-MJ1iC/embed",
+    titleEn: "Why a National Black Canadians Summit?",
+    titleFr: "Pourquoi un Sommet pancanadien des communautés noires?",
+  },
 ];
 
 type CoverageItem = {
@@ -108,54 +120,6 @@ const PAST_COVERAGE: CoverageItem[] = [
   },
 ];
 
-const PHOTOS = [
-  {
-    src: "/media-gallery-youth.webp",
-    altEn: "Young delegates celebrating together at the Summit",
-    altFr: "Jeunes déléguées et délégués célébrant ensemble au Sommet",
-  },
-  {
-    src: "/nbcs-2025-jean-lafond.jpg",
-    altEn: "National Black Canadians Summit gathering",
-    altFr: "Rassemblement du Sommet pancanadien des communautés noires",
-  },
-  {
-    src: "/nbcs-2025-power-of-youth.jpg",
-    altEn: "Power of Youth participants",
-    altFr: "Personnes participantes à la Journée jeunesse au pouvoir",
-  },
-  {
-    src: "/nbcs-2025-speakers.jpg",
-    altEn: "Summit speakers on stage",
-    altFr: "Personnes conférencières sur scène",
-  },
-  {
-    src: "/nbcs-panel-discussion.jpg",
-    altEn: "Panel discussion at the Summit",
-    altFr: "Table ronde au Sommet",
-  },
-  {
-    src: "/nbcs-dancers.jpg",
-    altEn: "Dance performance at the Summit",
-    altFr: "Spectacle de danse au Sommet",
-  },
-  {
-    src: "/nbcs-musical-performance.jpg",
-    altEn: "Musical performance at the Summit",
-    altFr: "Prestation musicale au Sommet",
-  },
-  {
-    src: "/nbcs-gala-greeting.jpg",
-    altEn: "Delegates greeting each other at the Summit gala",
-    altFr: "Personnes déléguées au gala du Sommet",
-  },
-  {
-    src: "/nbcs-2025-speaker.jpg",
-    altEn: "Speaker addressing Summit delegates",
-    altFr: "Personne s’adressant aux déléguées et délégués du Sommet",
-  },
-];
-
 const SOCIALS = [
   {
     name: "Instagram",
@@ -191,8 +155,8 @@ export function MediaContent({ locale }: { locale: string }) {
           </h2>
           <p className="mt-4 leading-relaxed text-[#1E1E1E]/75 sm:text-lg">
             {isFr
-              ? "Découvrez les vidéos, les photos et les conversations qui relient la communauté du Sommet partout au Canada."
-              : "Explore video, photography and social conversations connecting the Summit community across Canada."}
+              ? "Découvrez les vidéos, les publications et les conversations qui relient la communauté du Sommet partout au Canada."
+              : "Explore videos, posts and social conversations connecting the Summit community across Canada."}
           </p>
         </div>
       </section>
@@ -286,34 +250,6 @@ export function MediaContent({ locale }: { locale: string }) {
         muted
       />
 
-      <section className="bg-[#5D1831] px-5 py-14 sm:py-20">
-        <div className="mx-auto max-w-[1180px]">
-          <div className="mb-8 max-w-3xl text-white">
-            <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#FFB6C8]">
-              {isFr ? "Galerie de photos" : "Photo gallery"}
-            </p>
-            <h2 className="mt-3 font-heading text-3xl font-black sm:text-4xl">
-              {isFr ? "Moments du Sommet" : "Summit moments"}
-            </h2>
-          </div>
-          <div className="grid auto-rows-[210px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {PHOTOS.map((photo, index) => (
-              <figure
-                key={photo.src}
-                className={`overflow-hidden rounded-2xl ${index === 0 || index === 5 ? "sm:col-span-2" : ""}`}
-              >
-                <img
-                  src={photo.src}
-                  alt={isFr ? photo.altFr : photo.altEn}
-                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                  loading="lazy"
-                />
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <MediaContributionForm locale={locale} />
     </>
   );
@@ -373,17 +309,6 @@ function CoverageSection({
             </a>
           ))}
         </div>
-        {muted && (
-          <a
-            href="https://fmjf.ca/en/category/summits/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#8C0C3A] px-5 py-3 text-sm font-bold text-white"
-          >
-            {isFr ? "Voir les archives du Sommet" : "View the Summit archive"}
-            <ExternalLink className="size-4" aria-hidden />
-          </a>
-        )}
       </div>
     </section>
   );

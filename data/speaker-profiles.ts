@@ -413,6 +413,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Lisa Meeches, C.M., O.M., Executive Director, Manito Ahbee Festival",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1fUADDRYvWnkc5p3frpz_MYz28iSvNzOa&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Mabel Adesopo",
@@ -516,7 +517,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Odario Williams est un animateur, artiste primé de hip-hop, acteur, DJ et raconteur canadien. Originaire du Guyana et ayant grandi à Winnipeg, il fait figure de pionnier dans le milieu du hip-hop de la ville. Il a étudié le cinéma et le théâtre à l’Université de Winnipeg et anime aujourd’hui l’émission hebdomadaire Afterdark sur CBC Music.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1op7RL4yCBqbJdUDjzK_P3QtHxCwbXtCE&sz=w600",
-    imagePosition: "slight-down",
+    imagePosition: "significant-down",
   },
   {
     name: "Oluwagbotemi Dada",
@@ -842,6 +843,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Dr. Tasha Spillett, award-winning author, educator and Indigenous scholar",
     imageUrl:
       "https://drive.google.com/thumbnail?id=16Pw1MRHMo9yRWNr__89xF0StS_EGGJPn&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "The Right Honourable Michaëlle Jean",

@@ -45,6 +45,10 @@ export type ScheduleBlock = {
   location?: string;
   description?: string;
   note?: string;
+  action?: {
+    label: string;
+    url: string;
+  };
   /** Simple blocks (e.g. breaks) — no expandable details needed */
   compact?: boolean;
   people?: SchedulePersonGroup[];

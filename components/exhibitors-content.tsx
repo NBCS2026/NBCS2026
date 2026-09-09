@@ -177,14 +177,33 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                 : "Meet participating organizations in the Hall D exhibitor area."
             }
           />
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {EXHIBITORS.map((exhibitor) => (
-              <div
-                key={exhibitor}
-                className="flex min-h-24 items-center rounded-2xl border border-white/20 bg-white/10 px-5 py-4 font-heading font-bold"
+              <article
+                key={exhibitor.name}
+                className="flex min-h-48 flex-col overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-3"
               >
-                {exhibitor}
-              </div>
+                <div className="flex min-h-28 flex-1 items-center justify-center gap-4 rounded-xl bg-white px-5 py-4">
+                  {exhibitor.logoUrls?.map((logoUrl) => (
+                    <img
+                      key={logoUrl}
+                      src={logoUrl}
+                      alt=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                      className={`max-h-20 min-w-0 flex-1 object-contain ${exhibitor.logoClassName ?? ""}`}
+                    />
+                  ))}
+                  {exhibitor.textMark && (
+                    <span className="font-heading text-xl font-black tracking-[0.08em] text-[#161616]">
+                      {exhibitor.textMark}
+                    </span>
+                  )}
+                </div>
+                <h3 className="px-2 pb-2 pt-3 text-center font-heading text-sm font-bold leading-snug text-white">
+                  {exhibitor.name}
+                </h3>
+              </article>
             ))}
           </div>
         </div>
@@ -205,29 +224,42 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
             {MARKETPLACE_VENDORS.map((vendor) => (
               <article
                 key={vendor.name}
-                className="flex h-full flex-col rounded-3xl border border-[#E8D4DB] bg-white p-6 shadow-sm"
+                className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#E8D4DB] bg-white shadow-sm"
               >
-                <h3 className="font-heading text-xl font-black text-[#5D1831]">
-                  {vendor.name}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E1E1E]/75">
-                  {isFr ? vendor.descriptionFr : vendor.descriptionEn}
-                </p>
-                <p className="mt-5 flex items-center gap-2 text-sm font-bold text-[#8C0C3A]">
-                  <CalendarDays className="size-4" aria-hidden />
-                  {isFr ? vendor.daysFr : vendor.daysEn}
-                </p>
-                {vendor.website && (
-                  <a
-                    href={vendor.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#5D1831] underline underline-offset-2"
-                  >
-                    {isFr ? "Visiter" : "Visit"}
-                    <ExternalLink className="size-4" aria-hidden />
-                  </a>
+                {vendor.imageUrl && (
+                  <div className="aspect-[16/10] overflow-hidden bg-[#F3E9EC]">
+                    <img
+                      src={vendor.imageUrl}
+                      alt={vendor.name}
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                      className={`size-full ${vendor.imageFit === "contain" ? "object-contain p-5" : "object-cover"}`}
+                    />
+                  </div>
                 )}
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-heading text-xl font-black text-[#5D1831]">
+                    {vendor.name}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E1E1E]/75">
+                    {isFr ? vendor.descriptionFr : vendor.descriptionEn}
+                  </p>
+                  <p className="mt-5 flex items-center gap-2 text-sm font-bold text-[#8C0C3A]">
+                    <CalendarDays className="size-4" aria-hidden />
+                    {isFr ? vendor.daysFr : vendor.daysEn}
+                  </p>
+                  {vendor.website && (
+                    <a
+                      href={vendor.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#5D1831] underline underline-offset-2"
+                    >
+                      {isFr ? "Visiter" : "Visit"}
+                      <ExternalLink className="size-4" aria-hidden />
+                    </a>
+                  )}
+                </div>
               </article>
             ))}
           </div>
