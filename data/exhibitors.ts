@@ -181,8 +181,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Sunday",
     daysFr: "Vendredi–dimanche",
     website: "https://www.instagram.com/blackartistswpg/",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1PjiD_Nkl1hKnXL4u2bya-cNd64WKCseH&sz=w1000",
   },
   {
     name: "BintChem Products & Services",
@@ -193,11 +191,11 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
     website: "https://bintchem.square.site",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1tqRJMZQ-Lo5hvy6mXrbI_PHvjJAS1TH1&sz=w1000",
   },
   {
     name: "OVA AFRIQUE",
+    imageUrl: "/marketplace-vendor-2.png",
+    imageFit: "contain",
     descriptionEn:
       "Handcrafted Afrocentric bags, accessories and natural shea-butter skincare.",
     descriptionFr:
@@ -205,8 +203,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
     website: "https://www.ovaafrique.com/",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1mq0Fjk6tIT0y6iEJ_-yqGBCm17U7GLxZ&sz=w1000",
   },
   {
     name: "Shirom Arts Collections",
@@ -216,11 +212,11 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
     website: "https://www.shiromarts.ca/",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1rmGDnOHd140sAbjOqDLeSqt-XsA7E7j3&sz=w1000",
   },
   {
     name: "KRISUT FASHION",
+    imageUrl: "/marketplace-vendor-4.png",
+    imageFit: "contain",
     descriptionEn:
       "Contemporary African clothing and accessories for adults and children.",
     descriptionFr:
@@ -228,8 +224,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Saturday",
     daysFr: "Samedi",
     website: "https://krisut.com/",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1z6lznj_ApB-WbI9Xj0EXrYTqMyn50kdI&sz=w1000",
   },
   {
     name: "Clothes by Gift",
@@ -240,9 +234,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Sunday",
     daysFr: "Vendredi–dimanche",
     website: "https://www.clothesbygift.com",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1wPrb2xr-vV_aZGT3QaeoeZq7tMABsMIv&sz=w1000",
-    imageFit: "contain",
   },
   {
     name: "Sankofa Afrikan Gifts",
@@ -251,9 +242,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
     website: "https://www.sankofagifts.ca",
-    imageUrl:
-      "https://images.squarespace-cdn.com/content/v1/5ee7dc402595620a0590b6cf/1592268823911-WMG01G7GPFXCKBEATQ6V/sankofa-gifts.png?format=1500w",
-    imageFit: "contain",
   },
   {
     name: "HEYRU",
@@ -264,8 +252,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
     website: "https://www.shopheyru.com",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1WGfuvRbzMjzuKDfC0wMYa0odYdUv2_8O&sz=w1000",
   },
   {
     name: "Sani Crochets",
@@ -276,8 +262,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Saturday–Sunday",
     daysFr: "Samedi–dimanche",
     website: "https://sanicrochets.com",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1alOC_r63LsmCj7ZSID-IUx5bkUZpQ0se&sz=w1000",
   },
   {
     name: "Suzanna Creations",
@@ -286,11 +270,11 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Saturday",
     daysFr: "Samedi",
     website: "https://www.instagram.com/suzieartgallery/?hl=en",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1S4MtJA-bjeOzP9ojrUluIJewXUL1UUa0&sz=w1000",
   },
   {
     name: "Koshé Inc",
+    imageUrl: "/marketplace-vendor-10.jpg",
+    imageFit: "contain",
     descriptionEn:
       "Manitoba-made Afro-fusion spices, marinades and oils inspired by Nigerian flavours.",
     descriptionFr:
@@ -298,8 +282,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Saturday",
     daysFr: "Samedi",
     website: "https://www.koshequickmart.com",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1boVapTTho3NJs62TEcKV99477IKxNMKO&sz=w1000",
   },
   {
     name: "West Natural Good",
@@ -308,8 +290,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday",
     daysFr: "Vendredi",
     website: "https://www.westnaturalgood.ca",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1MW8OXXM2W3-ro0pI8g31MT2e9NmBYCiG&sz=w1000",
   },
   {
     name: "Alat Food Services",
@@ -320,8 +300,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Saturday",
     daysFr: "Samedi",
     website: "https://alatservices.ca",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1CozhdoOp7pqTwTKNw6MjrRwZA2LbZ_vd&sz=w1000",
   },
   {
     name: "W. Enterprises",
@@ -332,7 +310,5 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     daysEn: "Friday–Sunday",
     daysFr: "Vendredi–dimanche",
     website: "https://www.wokeapparel.shop",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1haeFmMcC_Gh5kiYTEWrbo4BzZ786P7oE&sz=w1000",
   },
 ];
