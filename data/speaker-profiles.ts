@@ -1,3 +1,5 @@
+import { SPEAKER_PROFILE_SUPPLEMENTS } from "./speaker-profile-supplements";
+
 export type SpeakerProfile = {
   name: string;
   nameFr?: string;
@@ -1004,7 +1006,20 @@ function normalizeName(value: string) {
     .replace(/[^a-z0-9]/g, "");
 }
 
-export const SPEAKER_PROFILES = rawProfiles.map((profile) => ({
+const mergedProfiles = new Map(rawProfiles.map((profile) => [normalizeName(profile.name), profile]));
+for (const supplement of SPEAKER_PROFILE_SUPPLEMENTS) {
+  const key = normalizeName(supplement.name);
+  const existing = mergedProfiles.get(key);
+  mergedProfiles.set(key, {
+    ...supplement,
+    ...existing,
+    bioEn: existing?.bioEn || supplement.bioEn,
+    bioFr: existing?.bioFr || supplement.bioFr,
+    imageUrl: supplement.imageUrl || existing?.imageUrl,
+  });
+}
+
+export const SPEAKER_PROFILES = Array.from(mergedProfiles.values()).map((profile) => ({
   ...profile,
   normalizedName: normalizeName(profile.name),
   normalizedNameFr: profile.nameFr ? normalizeName(profile.nameFr) : undefined,
