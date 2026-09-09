@@ -471,4 +471,11 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
     description:
       "**Uniquement sur invitation.** Cette réception réunira partenaires, commanditaires et personnes invitées afin de resserrer les liens, de souligner les collaborations et de poursuivre les échanges dans une ambiance conviviale.",
   },
+  {
+    id: "in-circle",
+    time: "18 h 30 – 22 h 30",
+    title: "EN CERCLE : Femmes noires, fières et puissantes",
+    description:
+      "**Uniquement sur invitation.** Une rencontre intime consacrée à la conversation, aux liens, aux récits et à la réflexion entre femmes noires. Organisée par la très honorable Michaëlle Jean et l’honorable Marci Ien à l’Assemblée législative du Manitoba, 450 Broadway, Winnipeg.",
+  },
 ];
