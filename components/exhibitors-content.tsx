@@ -145,7 +145,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                     alt={artist.name}
                     loading="lazy"
                     referrerPolicy="no-referrer"
-                    className="size-full object-cover"
+                    className={`size-full ${artist.imageFit === "contain" ? "object-contain p-6" : "object-cover"}`}
                   />
                 </div>
                 <div className="p-5">

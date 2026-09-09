@@ -124,7 +124,15 @@ type DisplayProfile = {
   bioFr?: string;
   imageUrl?: string;
   fit?: "cover" | "contain";
-  imagePosition?: "center" | "slight-down";
+  imagePosition?: "center" | "slight-down" | "significant-down";
+  imageScale?:
+    | "slight"
+    | "medium"
+    | "large"
+    | "extra-large"
+    | "huge"
+    | "top-large";
+  imageOffsetY?: "slight-down";
   subtitleEn?: string;
   subtitleFr?: string;
   resourceUrl?: string;
@@ -143,6 +151,7 @@ const PROGRAMME_MEDIA: Array<{
   resourceUrl?: string;
   resourceLabelEn?: string;
   resourceLabelFr?: string;
+  resourceContextMatches?: string[];
 }> = [
   {
     matches: ["manito ahbee"],
@@ -150,6 +159,9 @@ const PROGRAMME_MEDIA: Array<{
     nameFr: "Festival Manito Ahbee",
     imageUrl: "/manito-ahbee.jpg",
     fit: "contain",
+    resourceUrl: "https://www.manitoahbee.com/",
+    resourceLabelEn: "Visit Manito Ahbee",
+    resourceLabelFr: "Visiter Manito Ahbee",
   },
   {
     matches: ["acomi", "african communities of manitoba"],
@@ -179,12 +191,18 @@ const PROGRAMME_MEDIA: Array<{
       "https://drive.google.com/drive/folders/1lD8I6jPbW9WXT8tbA1PKCzLuipjTNYbR?usp=sharing",
     resourceLabelEn: "Learning parts and scores",
     resourceLabelFr: "Parties d’apprentissage et partitions",
+    resourceContextMatches: ["rehearsal", "répétition"],
   },
 ];
 
-function getDisplayProfiles(text: string, isFr: boolean): DisplayProfile[] {
+function getDisplayProfiles(
+  text: string,
+  isFr: boolean,
+  resourceContext?: string,
+): DisplayProfile[] {
   const speakerProfiles = findSpeakerProfiles(text);
   const normalizedText = text.toLowerCase();
+  const normalizedContext = resourceContext?.toLowerCase() ?? "";
   const mediaProfiles = PROGRAMME_MEDIA.filter((item) =>
     item.matches.some((match) => normalizedText.includes(match)),
   ).map((item) => ({
@@ -193,7 +211,13 @@ function getDisplayProfiles(text: string, isFr: boolean): DisplayProfile[] {
     fit: item.fit,
     subtitleEn: item.subtitleEn,
     subtitleFr: item.subtitleFr,
-    resourceUrl: item.resourceUrl,
+    resourceUrl:
+      !item.resourceContextMatches ||
+      item.resourceContextMatches.some((match) =>
+        normalizedContext.includes(match),
+      )
+        ? item.resourceUrl
+        : undefined,
     resourceLabelEn: item.resourceLabelEn,
     resourceLabelFr: item.resourceLabelFr,
   }));
@@ -223,9 +247,18 @@ function ProfileImage({ profile }: { profile: DisplayProfile }) {
           "absolute inset-0 size-full",
           profile.fit === "contain"
             ? "object-contain p-1.5"
-            : profile.imagePosition === "slight-down"
-              ? "object-cover object-[center_40%]"
-              : "object-cover object-center",
+            : profile.imagePosition === "significant-down"
+              ? "object-cover object-[center_25%]"
+              : profile.imagePosition === "slight-down"
+                ? "object-cover object-[center_40%]"
+                : "object-cover object-center",
+          profile.imageScale === "slight" && "scale-[1.12]",
+          profile.imageScale === "medium" && "scale-[1.3]",
+          profile.imageScale === "large" && "scale-[1.55]",
+          profile.imageScale === "extra-large" && "scale-[1.8]",
+          profile.imageScale === "huge" && "scale-[3]",
+          profile.imageScale === "top-large" && "origin-top scale-[1.55]",
+          profile.imageOffsetY === "slight-down" && "translate-y-[6%]",
         )}
         onError={() => setIsVisible(false)}
       />
@@ -237,12 +270,14 @@ function ProfileCards({
   text,
   labels,
   isFr,
+  resourceContext,
 }: {
   text: string;
   labels: Labels;
   isFr: boolean;
+  resourceContext?: string;
 }) {
-  const profiles = getDisplayProfiles(text, isFr);
+  const profiles = getDisplayProfiles(text, isFr, resourceContext);
   const visibleProfiles = profiles.filter(
     (profile) => profile.imageUrl || profile.bioEn || profile.bioFr,
   );
@@ -303,10 +338,12 @@ function PeopleList({
   people,
   labels,
   isFr,
+  resourceContext,
 }: {
   people: SchedulePersonGroup[];
   labels: Labels;
   isFr: boolean;
+  resourceContext?: string;
 }) {
   return (
     <div className="space-y-4">
@@ -322,7 +359,12 @@ function PeopleList({
                 className="border-l-2 border-[#E8D4DB] pl-3 font-body text-[14px] leading-relaxed text-[#1E1E1E]/90 sm:text-[15px]"
               >
                 <p>{renderFormattedText(name)}</p>
-                <ProfileCards text={name} labels={labels} isFr={isFr} />
+                <ProfileCards
+                  text={name}
+                  labels={labels}
+                  isFr={isFr}
+                  resourceContext={resourceContext}
+                />
               </li>
             ))}
           </ul>
@@ -446,7 +488,12 @@ function BlockDetails({
         ))}
 
       {block.people && (
-        <PeopleList people={block.people} labels={labels} isFr={isFr} />
+        <PeopleList
+          people={block.people}
+          labels={labels}
+          isFr={isFr}
+          resourceContext={block.title}
+        />
       )}
 
       {block.sessions && block.sessions.length > 0 && (

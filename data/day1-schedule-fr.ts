@@ -197,7 +197,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
     sessions: [
       {
         id: "session-7",
-        number: 7,
+        number: 1,
         title: "L'art comme acte de résistance",
         room: "Suite Millennium",
         description:
@@ -213,7 +213,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
       },
       {
         id: "session-8",
-        number: 8,
+        number: 2,
         title: "Lutter contre le racisme : de la sensibilisation à l'action",
         room: "2E",
         description:
@@ -236,7 +236,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
       },
       {
         id: "session-9",
-        number: 9,
+        number: 3,
         title: "Guérir pour diriger : santé mentale et jeunesse noire",
         room: "2F",
         description:
@@ -253,7 +253,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
       },
       {
         id: "session-10",
-        number: 10,
+        number: 4,
         title: "Commencer dès aujourd'hui à bâtir son patrimoine",
         room: "2G",
         description:
@@ -269,7 +269,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
       },
       {
         id: "session-11",
-        number: 11,
+        number: 5,
         title: "Nos voix, d'une génération à l'autre",
         room: "2H",
         description:
@@ -292,7 +292,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
       },
       {
         id: "session-12",
-        number: 12,
+        number: 6,
         title: "Votre feuille de route vers CBC : comment présenter une idée",
         room: "Théâtre de présentation",
         description:
@@ -371,7 +371,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
         items: [
           "L'honorable Anita Neville, P.C., O.M., lieutenante-gouverneure du Manitoba",
           "Gouvernement du Manitoba",
-          "Le maire adjoint Marcus Chambers",
+          "Le maire adjoint Markus Chambers",
         ],
       },
       {

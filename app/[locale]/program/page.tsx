@@ -21,7 +21,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="h-screen relative bg-[url('/gradiant_hero_program.png'),url('/program-banner.jpg')] bg-cover bg-center">
+      <div className="h-screen relative bg-[url('/gradiant_hero_program.png'),url('/program-hero-394A4674.jpg')] bg-cover bg-center">
         <header className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 mb-18 md:mb-52 lg:mb-18 w-full">
           <Logo />
           <NavLink className="hidden xl:block flex-1 mx-8 3xl:mx-8 4xl:mx-16" />

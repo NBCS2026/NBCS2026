@@ -4,7 +4,15 @@ export type SpeakerProfile = {
   bioEn?: string;
   bioFr?: string;
   imageUrl?: string;
-  imagePosition?: "center" | "slight-down";
+  imagePosition?: "center" | "slight-down" | "significant-down";
+  imageScale?:
+    | "slight"
+    | "medium"
+    | "large"
+    | "extra-large"
+    | "huge"
+    | "top-large";
+  imageOffsetY?: "slight-down";
 };
 
 const rawProfiles: SpeakerProfile[] = [
@@ -74,6 +82,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Andre Smith is the founder of Flip & Floss, an AI-powered financial education platform helping families build generational wealth. After immigrating to Canada and transforming his own finances, he began teaching financial literacy in his community. Flip & Floss has since reached more than 30,000 students, parents and educators across North America and the Caribbean. He has been recognized among Canada’s Top 25 Immigrants and received the BMO Obsidi Entrepreneur of the Year – Technology Award.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1FztnhYih_j3iUjrHaNn8OgiX_Sj-AbNQ&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Angel Persaud",
@@ -93,6 +102,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Ashley Carruthers, Nurse Practitioner, University of Manitoba and Nurse Practitioner Association of Manitoba (NPAM)",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1LDpnGGXvqE980_b3ZY4O96nl7395s0Yn&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Babatamilore Ashofor",
@@ -183,6 +193,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Dr. Idrissa Beogo, Associate Professor, School of Nursing & Associate Director, Interdisciplinary Centre for Black Health, University of Ottawa",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1JXDmKdtBrzJjVixkB80I-9sTJV6TGDSh&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Dr. Josephine Etowa",
@@ -197,6 +208,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Dr. Jude Mary Cénat, Full Professor, School of Psychology & University Research Chair on Black Health, University of Ottawa",
     imageUrl:
       "https://drive.google.com/thumbnail?id=10oLouJbX8K0Hr0mqRqN6RDB_kK9E_Fq6&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Dr. Monnica Williams",
@@ -204,6 +216,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Dr. Monnica Williams, Professor and Canada Research Chair in Mental Health Innovation and Equity, University of Ottawa",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1ra0GKpnbZd2P3Kj4zj1lCWwRCxO1Cf6Z&sz=w600",
+    imageScale: "slight",
   },
   {
     name: "Dr. Warren Clarke",
@@ -211,6 +224,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Dr. Warren Clarke, Founder, Barbershop Talk; Founder & Director, Afro-Caribbean Mentorship Program",
     imageUrl:
       "https://drive.google.com/thumbnail?id=15Iv6oMz6VIpngNuBKajNDwBM4A_9L581&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Drayton Mulindabigwi",
@@ -244,6 +258,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Félicia Cá est une Québécoise métissée passionnée d’innovation et d’équité sociale, particulièrement par les démarches de recherche « par, pour et avec » les communautés. Récipiendaire de Jeunesse au Pouvoir 2025-2026, elle a mené The Black Sheep Project sur les réalités de jeunes métissés et noirs adoptés ayant grandi dans des familles blanches au Québec. Diplômée de McGill en développement international, science politique et entrepreneuriat social, elle poursuit un MBA à HEC Montréal et travaille comme coordonnatrice de projets et de recherche chez Relais-femmes.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1Rs6Y8nmA9zxaedUI5im2E5ZWxIZtZlSx&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Flowrish",
@@ -302,6 +317,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Isak Vaillancourt is an award-winning film director, multidisciplinary artist and community organizer of Somali-French ancestry. He is Co-Founder and Director of Black Lives Matter Sudbury. Through film, photography and multimedia installation, his work explores identity, Black healing, decolonization and cultural liberation. He holds an MA in Media Production from Toronto Metropolitan University, where his research focused on Black-Indigenous relations, immersive technologies and social justice.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1LpDpfybkM7FezwVuj4Rc7-uWmMjKSVFk&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Issac Carter",
@@ -322,6 +338,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Jaelyn Jarrett, Researcher and Advocate for Black and Inuit History",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1Zl-xVfkfuZCgPPa9uFBfokZ1MIbIJIaf&sz=w600",
+    imagePosition: "significant-down",
   },
   {
     name: "Jean-René Dominique Kwilu",
@@ -329,6 +346,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Jean-René Dominique Kwilu, Lawyer and President of Canadian Association of Black Lawyers, Manitoba Chapter",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1rH6-r35Dqwe17j-mRhorHe_xUu6ox3Hp&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Joy Loewen",
@@ -336,6 +354,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Joy Loewen, Vice-President, Industry Development, Canada Media Fund",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1AoQ1dEDOaVzi7fpfyfQTC-YhV3mG8pmS&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Judy Williams",
@@ -357,6 +376,7 @@ const rawProfiles: SpeakerProfile[] = [
       "STEMBOUD – Demilade Akinleye-Abraham and Kamsiyochi Onyekere",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1pR0NxnxehSSym3Y4bzGq3zv8zl9YdYu1&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Kelvin Doe",
@@ -399,6 +419,7 @@ const rawProfiles: SpeakerProfile[] = [
     displayLineEn: "LEAD-HER-SHIP – Mabel Adesopo and Asha Jama",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1jPbAVqd0JXOLOwVFoj6Q0_vFyumA1odr&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Mandela Kuet",
@@ -406,6 +427,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Mandela Kuet, PDG, Mark1T, Founder of Hoodfams, and Steering Committee member, Canada Black Justice Strategy",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1YeEbOqRGGSxBCgwyGqOJOT2W0QaGZIE3&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Mark Harrison",
@@ -494,6 +516,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Odario Williams est un animateur, artiste primé de hip-hop, acteur, DJ et raconteur canadien. Originaire du Guyana et ayant grandi à Winnipeg, il fait figure de pionnier dans le milieu du hip-hop de la ville. Il a étudié le cinéma et le théâtre à l’Université de Winnipeg et anime aujourd’hui l’émission hebdomadaire Afterdark sur CBC Music.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1op7RL4yCBqbJdUDjzK_P3QtHxCwbXtCE&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Oluwagbotemi Dada",
@@ -545,6 +568,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Shauna Bookal, President and CEO, Inclusion in Canadian Sports Network (ICSN)",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1rOkCCmXBkYOrvGfSJT05x5aKAlGK-MyA&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Sonya Williams",
@@ -569,6 +593,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Superintendent Darryl Dawkins, Director, Royal Canadian Mounted Police Anti-Racism, Equity, Diversity and Inclusion Secretariat, and Founder, Diverse and Inclusive Pre-Cadet Experience",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1zehwFxlN_a5FvTYRyzyHE0djIfdt23md&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Suzanne Obiorah",
@@ -605,6 +630,7 @@ const rawProfiles: SpeakerProfile[] = [
       "La sénatrice Amina Gerba est sénatrice indépendante du Québec (Rigaud), entrepreneure et spécialiste du marketing international et du développement des affaires. Avant sa nomination au Sénat en 2021, elle a consacré plus de 25 ans à l’entrepreneuriat et au renforcement des liens économiques entre le Canada et l’Afrique. Elle est coprésidente de l’Association parlementaire Canada-Afrique et s’investit en diplomatie parlementaire, en langues officielles et en commerce international.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1fblE1Ftv2sQklbrjlYfaFYZW3UQkZREN&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "The Honourable Bernadette Clement",
@@ -637,6 +663,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Tony Ince est un ancien député de l’Assemblée législative de la Nouvelle-Écosse et un défenseur de longue date de la justice sociale, de l’équité et de la diversité, particulièrement au sein des communautés afro-néo-écossaises. Il a occupé plusieurs portefeuilles ministériels, notamment les Affaires afro-néo-écossaises et la responsabilité des initiatives d’équité et de lutte contre le racisme. Il a cofondé le Congrès canadien des parlementaires noirs.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1DvRObHJ2Rhv2TTF1gZqgAPtzMTTEO3jY&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Tia Tom",
@@ -682,6 +709,7 @@ const rawProfiles: SpeakerProfile[] = [
     displayLineEn: "The Honourable Michael Coteau, Closing Ceremony speaker",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1LaaO6kFMalxlmkLls_1m2Eqdi0_q1zFm&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Edward Matwawana",
@@ -708,6 +736,7 @@ const rawProfiles: SpeakerProfile[] = [
     displayLineEn: "Patricia Bitu Tshikudi, Closing Ceremony Co-Host",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1Qo3lxqJzVGXDneGuG5sirgW8sVQI9Wzu&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Naomi Gichungu",
@@ -757,6 +786,7 @@ const rawProfiles: SpeakerProfile[] = [
       "Dr. Felicia Masenu, Program Director, Bilal Community Centre",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1O98Dks2D45qT_ERAoioFxe_L7hW8Zg0M&sz=w600",
+    imagePosition: "slight-down",
   },
   {
     name: "Measha Brueggergosman-Lee",
@@ -873,6 +903,7 @@ const rawProfiles: SpeakerProfile[] = [
   {
     name: "Alia Aluma",
     imageUrl: "/speakers/alia-aluma.webp",
+    imageScale: "extra-large",
   },
   {
     name: "Anita Neville",
@@ -909,22 +940,28 @@ const rawProfiles: SpeakerProfile[] = [
   {
     name: "Kerry-Ann Spencer-Williams",
     imageUrl: "/speakers/kerry-ann-spencer-williams.webp",
+    imageScale: "huge",
+    imageOffsetY: "slight-down",
   },
   {
     name: "Liza Arnason",
     imageUrl: "/speakers/liza-arnason.webp",
+    imageScale: "large",
   },
   {
-    name: "Marcus Chambers",
+    name: "Markus Chambers",
     imageUrl: "/speakers/marcus-chambers.webp",
+    imageScale: "large",
   },
   {
     name: "Moji Akande",
     imageUrl: "/speakers/moji-akande.webp",
+    imageScale: "medium",
   },
   {
     name: "Natalie Thiesen",
     imageUrl: "/speakers/natalie-thiesen.webp",
+    imagePosition: "slight-down",
   },
   {
     name: "Suze Youance",
@@ -933,6 +970,8 @@ const rawProfiles: SpeakerProfile[] = [
   {
     name: "Tony Muzira",
     imageUrl: "/speakers/tony-muzira.webp",
+    imageScale: "top-large",
+    imageOffsetY: "slight-down",
   },
 ];
 

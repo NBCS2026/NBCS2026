@@ -3,6 +3,7 @@ export type ExhibitionArtist = {
   descriptionEn: string;
   descriptionFr: string;
   imageUrl: string;
+  imageFit?: "cover" | "contain";
 };
 
 export type MarketplaceVendor = {
@@ -52,10 +53,11 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
   {
     name: "Black Canadian Experience Centre",
     descriptionEn:
-      "A Winnipeg community heritage initiative preserving and sharing the histories, stories and cultural heritage of Black communities in Manitoba and Canada.",
+      "A Winnipeg community heritage initiative preserving and sharing the histories, stories and cultural heritage of Black communities in Manitoba and Canada. The Centre’s exhibition contribution includes work by Nova Scotia-born, Manitoba-based quilter Melinda Clayton-Patterson, who specializes in Underground Railroad secret-code quilts and culturally rooted storytelling.",
     descriptionFr:
-      "Initiative patrimoniale communautaire de Winnipeg qui préserve et transmet les histoires, les récits et le patrimoine culturel des communautés noires du Manitoba et du Canada.",
+      "Initiative patrimoniale communautaire de Winnipeg qui préserve et transmet les histoires, les récits et le patrimoine culturel des communautés noires du Manitoba et du Canada. La contribution du Centre à l’exposition comprend le travail de Melinda Clayton-Patterson, courtepointeuse née en Nouvelle-Écosse et établie au Manitoba, spécialisée dans les courtepointes à codes secrets du chemin de fer clandestin et les récits ancrés dans la culture.",
     imageUrl: "/black-canadian-experience-centre.webp",
+    imageFit: "contain",
   },
   {
     name: "Bria Fernandes",
@@ -80,14 +82,6 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
     descriptionFr:
       "Artiste multidisciplinaire établi au Canada qui utilise la peinture, les techniques mixtes, la sculpture et l’installation pour examiner la migration, l’inégalité et la justice sociale.",
     imageUrl: "/exhibition-artists/habeeb-andu.webp",
-  },
-  {
-    name: "Melinda Clayton-Patterson",
-    descriptionEn:
-      "Nova Scotia-born, Manitoba-based quilter specializing in Underground Railroad secret-code quilts and culturally rooted storytelling.",
-    descriptionFr:
-      "Courtepointeuse née en Nouvelle-Écosse et établie au Manitoba, spécialisée dans les codes secrets du chemin de fer clandestin et les récits culturels.",
-    imageUrl: "/exhibition-artists/melinda-clayton-patterson.webp",
   },
   {
     name: "Olanrewaju Victor Abiola",

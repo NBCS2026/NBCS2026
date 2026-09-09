@@ -141,7 +141,6 @@ const partners: SponsorEntry[] = [
 ];
 
 const friends: SponsorEntry[] = [
-  { name: "Laidlaw Foundation" },
   {
     name: "Shelter Canadian Properties Limited",
     roleEn: "Mobilizer",
@@ -280,7 +279,7 @@ const communityPartners: SponsorEntry[] = [
       {
         src: "/federation-black-canadians.webp",
         alt: "Federation of Black Canadians",
-        className: "max-h-24 max-w-[220px]",
+        className: "max-h-28 max-w-[300px]",
       },
     ],
   },
@@ -554,6 +553,13 @@ export function SponsorDirectory({
         compact={compact}
       />
       <Tier
+        titleEn="Donors"
+        titleFr="Donateurs"
+        entries={donors}
+        locale={locale}
+        compact={compact}
+      />
+      <Tier
         titleEn="Partners"
         titleFr="Partenaires"
         entries={partners}
@@ -564,13 +570,6 @@ export function SponsorDirectory({
         titleEn="In-Circle Women’s Gathering Sponsor"
         titleFr="Commanditaire du rassemblement En Cercle des femmes"
         entries={inCircleSponsors}
-        locale={locale}
-        compact={compact}
-      />
-      <Tier
-        titleEn="Donors"
-        titleFr="Donateurs"
-        entries={donors}
         locale={locale}
         compact={compact}
       />

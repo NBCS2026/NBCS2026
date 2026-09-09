@@ -31,7 +31,7 @@ export default function Page() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('/ticket-hero-gradient.png'), url('/ticket-hero-image.png')`,
+              backgroundImage: `url('/ticket-hero-gradient.png'), url('/registration-hero-394A3206.jpg')`,
             }}
           />
 

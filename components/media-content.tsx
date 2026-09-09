@@ -1,6 +1,112 @@
 import { ExternalLink } from "lucide-react";
-import { FeaturedSummitVideo } from "@/components/featured-summit-video";
 import { MediaContributionForm } from "@/components/media-contribution-form";
+
+const INSTAGRAM_POSTS = [
+  {
+    url: "https://www.instagram.com/reel/DSYgt5mAP14/",
+    embedUrl: "https://www.instagram.com/reel/DSYgt5mAP14/embed",
+    titleEn: "One month to the 5th National Black Canadians Summit",
+    titleFr: "À un mois du 5e Sommet pancanadien des communautés noires",
+  },
+  {
+    url: "https://www.instagram.com/p/DSXmnsYEbTw/",
+    embedUrl: "https://www.instagram.com/p/DSXmnsYEbTw/embed",
+    titleEn: "Winnipeg welcomes the 2026 Summit",
+    titleFr: "Winnipeg accueille le Sommet 2026",
+  },
+  {
+    url: "https://www.instagram.com/reel/DV9ZiVYjj0D/",
+    embedUrl: "https://www.instagram.com/reel/DV9ZiVYjj0D/embed",
+    titleEn: "Learn more about NBCS 2026",
+    titleFr: "Découvrez le SPCN 2026",
+  },
+];
+
+type CoverageItem = {
+  title: string;
+  source: string;
+  date: string;
+  url: string;
+  summaryEn: string;
+  summaryFr: string;
+};
+
+const CURRENT_COVERAGE: CoverageItem[] = [
+  {
+    title: "Winnipeg Welcomes National Black Canadians Summit",
+    source: "The Caribbean Camera",
+    date: "September 2026",
+    url: "https://thecaribbeancamera.com/winnipeg-welcomes-national-black-canadians-summit/",
+    summaryEn:
+      "A preview of the fifth Summit and the Black leaders, youth and advocates gathering in Winnipeg.",
+    summaryFr:
+      "Un aperçu du cinquième Sommet et des leaders, jeunes et personnes militantes noires qui se réuniront à Winnipeg.",
+  },
+  {
+    title: "Join the National Black Canadians Summit 2026",
+    source: "Foundation for Black Communities",
+    date: "August 2026",
+    url: "https://www.fbec-cefn.ca/join-the-national-black-canadians-summit-2026/",
+    summaryEn:
+      "A national community invitation highlighting dialogue, collective action and the 2026 theme, Moving Forward Together.",
+    summaryFr:
+      "Une invitation communautaire nationale qui met en valeur le dialogue, l’action collective et le thème 2026, Ensemble, allons de l’avant.",
+  },
+  {
+    title: "Apply to Attend the National Black Canadians Summit",
+    source: "PSAC British Columbia",
+    date: "July 2026",
+    url: "https://psacbc.com/apply-to-attend-the-national-black-canadians-summit/",
+    summaryEn:
+      "Coverage of sponsored participation for Prairie-region labour activists attending the Winnipeg Summit.",
+    summaryFr:
+      "Présentation d’une initiative de participation commanditée destinée aux personnes militantes du mouvement syndical qui assisteront au Sommet de Winnipeg.",
+  },
+];
+
+const PAST_COVERAGE: CoverageItem[] = [
+  {
+    title:
+      "Black excellence celebrated at National Black Canadians Summit in Halifax",
+    source: "Global News",
+    date: "July 2022",
+    url: "https://globalnews.ca/news/9027149/national-black-canadians-summit-halifax/",
+    summaryEn:
+      "Reporting from the Halifax Summit, where more than 1,000 delegates gathered for panels, performances and workshops.",
+    summaryFr:
+      "Reportage sur le Sommet d’Halifax, qui a réuni plus de 1 000 personnes autour de tables rondes, de prestations et d’ateliers.",
+  },
+  {
+    title: "The National Black Canadians Summit",
+    source: "RGD Social Good Design Awards",
+    date: "2025",
+    url: "https://rgd.ca/hiring-designers/award-winners/2025-branding-award-winners/social-good-awards/the-national-black-canadians-summit",
+    summaryEn:
+      "A look at the award-winning visual identity created for the Montreal Summit and its focus on art and youth engagement.",
+    summaryFr:
+      "Présentation de l’identité visuelle primée du Sommet de Montréal et de son approche axée sur l’art et l’engagement des jeunes.",
+  },
+  {
+    title: "Eradicating structural racism for Black Canadians",
+    source: "Policy Options",
+    date: "April 2019",
+    url: "https://policyoptions.irpp.org/2019/04/eradicating-structural-racism-for-black-canadians/",
+    summaryEn:
+      "An examination of the national action agenda that emerged from early Summit organizing and community dialogue.",
+    summaryFr:
+      "Une analyse du programme d’action national issu des premiers Sommets et du dialogue communautaire.",
+  },
+  {
+    title: "Federation of Black Canadians launched at national summit",
+    source: "Ron Fanfair",
+    date: "December 2017",
+    url: "https://www.ronfanfair.com/home/2017/12/13/federation-of-black-canadians-launched-at-national-summit",
+    summaryEn:
+      "Coverage of the inaugural Summit and the launch of the Federation of Black Canadians.",
+    summaryFr:
+      "Reportage sur le Sommet inaugural et le lancement de la Fédération des Canadiens noirs.",
+  },
+];
 
 const PHOTOS = [
   {
@@ -91,7 +197,43 @@ export function MediaContent({ locale }: { locale: string }) {
         </div>
       </section>
 
-      <FeaturedSummitVideo locale={locale} />
+      <section className="px-5 py-14 sm:py-20">
+        <div className="mx-auto max-w-[1180px]">
+          <div className="mb-8 text-center">
+            <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+              {isFr ? "Publications récentes" : "Recent posts"}
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-black text-[#5D1831] sm:text-4xl">
+              Instagram
+            </h2>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {INSTAGRAM_POSTS.map((post) => (
+              <article
+                key={post.url}
+                className="overflow-hidden rounded-3xl border border-[#E8D4DB] bg-white shadow-sm"
+              >
+                <iframe
+                  src={post.embedUrl}
+                  title={isFr ? post.titleFr : post.titleEn}
+                  className="h-[600px] w-full border-0"
+                  loading="lazy"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                />
+                <a
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between gap-3 border-t border-[#E8D4DB] p-4 text-sm font-bold text-[#5D1831]"
+                >
+                  {isFr ? post.titleFr : post.titleEn}
+                  <ExternalLink className="size-4 shrink-0" aria-hidden />
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-[1180px]">
@@ -125,6 +267,25 @@ export function MediaContent({ locale }: { locale: string }) {
         </div>
       </section>
 
+      <CoverageSection
+        locale={locale}
+        eyebrowEn="NBCS 2026"
+        eyebrowFr="SPCN 2026"
+        titleEn="In the news"
+        titleFr="Dans l’actualité"
+        items={CURRENT_COVERAGE}
+      />
+
+      <CoverageSection
+        locale={locale}
+        eyebrowEn="Summit archive"
+        eyebrowFr="Archives du Sommet"
+        titleEn="Coverage from past Summits"
+        titleFr="Articles sur les Sommets précédents"
+        items={PAST_COVERAGE}
+        muted
+      />
+
       <section className="bg-[#5D1831] px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-[1180px]">
           <div className="mb-8 max-w-3xl text-white">
@@ -155,5 +316,75 @@ export function MediaContent({ locale }: { locale: string }) {
 
       <MediaContributionForm locale={locale} />
     </>
+  );
+}
+
+function CoverageSection({
+  locale,
+  eyebrowEn,
+  eyebrowFr,
+  titleEn,
+  titleFr,
+  items,
+  muted = false,
+}: {
+  locale: string;
+  eyebrowEn: string;
+  eyebrowFr: string;
+  titleEn: string;
+  titleFr: string;
+  items: CoverageItem[];
+  muted?: boolean;
+}) {
+  const isFr = locale === "fr";
+
+  return (
+    <section
+      className={`${muted ? "bg-[#FAF6F7]" : "bg-white"} px-5 py-14 sm:py-20`}
+    >
+      <div className="mx-auto max-w-[1180px]">
+        <div className="mb-8 max-w-3xl">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+            {isFr ? eyebrowFr : eyebrowEn}
+          </p>
+          <h2 className="mt-3 font-heading text-3xl font-black text-[#5D1831] sm:text-4xl">
+            {isFr ? titleFr : titleEn}
+          </h2>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          {items.map((item) => (
+            <a
+              key={item.url}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex h-full flex-col rounded-2xl border border-[#E8D4DB] bg-white p-6 shadow-sm transition-transform hover:-translate-y-0.5"
+            >
+              <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#8C0C3A]">
+                {item.source} · {item.date}
+              </span>
+              <span className="mt-3 flex items-start justify-between gap-4 font-heading text-xl font-black leading-snug text-[#5D1831]">
+                {item.title}
+                <ExternalLink className="mt-1 size-5 shrink-0" aria-hidden />
+              </span>
+              <span className="mt-3 text-sm leading-relaxed text-[#1E1E1E]/70">
+                {isFr ? item.summaryFr : item.summaryEn}
+              </span>
+            </a>
+          ))}
+        </div>
+        {muted && (
+          <a
+            href="https://fmjf.ca/en/category/summits/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#8C0C3A] px-5 py-3 text-sm font-bold text-white"
+          >
+            {isFr ? "Voir les archives du Sommet" : "View the Summit archive"}
+            <ExternalLink className="size-4" aria-hidden />
+          </a>
+        )}
+      </div>
+    </section>
   );
 }

@@ -202,7 +202,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
     sessions: [
       {
         id: "session-7",
-        number: 7,
+        number: 1,
         title: "Art as an Act of Resistance",
         room: "Millennium Suite",
         description:
@@ -218,7 +218,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
       },
       {
         id: "session-8",
-        number: 8,
+        number: 2,
         title: "Fighting Racism: From Awareness to Action",
         room: "2E",
         description:
@@ -241,7 +241,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
       },
       {
         id: "session-9",
-        number: 9,
+        number: 3,
         title: "Heal to Lead: Mental Health and Black Youth",
         room: "2F",
         description:
@@ -258,7 +258,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
       },
       {
         id: "session-10",
-        number: 10,
+        number: 4,
         title: "Building Wealth Starting Today",
         room: "2G",
         description:
@@ -274,7 +274,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
       },
       {
         id: "session-11",
-        number: 11,
+        number: 5,
         title: "Our Voices Across Time",
         room: "2H",
         description:
@@ -297,7 +297,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
       },
       {
         id: "session-12",
-        number: 12,
+        number: 6,
         title: 'Your Roadmap to CBC: "How to Pitch" by CBC',
         room: "Presentation Theatre",
         description:
@@ -373,7 +373,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
         items: [
           "The Honourable Anita Neville, P.C., O.M., Lieutenant Governor of Manitoba",
           "Province of Manitoba",
-          "Deputy Mayor Marcus Chambers",
+          "Deputy Mayor Markus Chambers",
         ],
       },
       {
