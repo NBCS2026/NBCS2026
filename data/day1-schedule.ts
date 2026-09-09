@@ -17,7 +17,6 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
   },
   {
     id: "opening-plenary",
-    seriesLogoUrl: "/power-of-youth-logo.png",
     time: "10:00 a.m. – 10:30 a.m.",
     title: "Power of Youth Day — Opening Plenary",
     description:
@@ -168,7 +167,6 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
   },
   {
     id: "plenary-afternoon",
-    seriesLogoUrl: "/power-of-youth-logo.png",
     time: "1:00 p.m. – 2:00 p.m.",
     title: "Plenary Session",
     subtitle:
@@ -200,7 +198,6 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
   },
   {
     id: "afternoon-sessions",
-    seriesLogoUrl: "/power-of-youth-logo.png",
     time: "2:30 p.m. – 4:00 p.m.",
     title: "Afternoon Breakout Sessions",
     sessions: [

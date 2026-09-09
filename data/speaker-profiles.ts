@@ -1,5 +1,6 @@
 export type SpeakerProfile = {
   name: string;
+  nameFr?: string;
   displayLineEn?: string;
   bioEn?: string;
   bioFr?: string;
@@ -13,6 +14,7 @@ export type SpeakerProfile = {
     | "huge"
     | "top-large";
   imageOffsetY?: "slight-down";
+  imageFramingFr?: { scale: number; offsetY?: number };
 };
 
 const rawProfiles: SpeakerProfile[] = [
@@ -197,6 +199,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "Dr. Josephine Etowa",
+    nameFr: "Dre Josephine Etowa",
     displayLineEn:
       "Dr. Josephine Etowa, Full Professor (Tier 1), Canada Research Chair in Black Women's Health, Scientific Lead of the Interdisciplinary Centre for Black Health, University of Ottawa — Founder and Director, Collaborative Critical Research for Equity and Transformation in Health -CO-CREATH Lab",
     imageUrl:
@@ -212,6 +215,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "Dr. Monnica Williams",
+    nameFr: "Dre Monnica Williams",
     displayLineEn:
       "Dr. Monnica Williams, Professor and Canada Research Chair in Mental Health Innovation and Equity, University of Ottawa",
     imageUrl:
@@ -220,6 +224,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "Dr. Warren Clarke",
+    nameFr: "Warren Clarke",
     displayLineEn:
       "Dr. Warren Clarke, Founder, Barbershop Talk; Founder & Director, Afro-Caribbean Mentorship Program",
     imageUrl:
@@ -321,6 +326,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "Issac Carter",
+    nameFr: "Isaac Carter",
     displayLineEn: "Issac Carter, DJ and Producer, Founder of BlkEq",
     imageUrl:
       "https://drive.google.com/thumbnail?id=16vsHJD0HS74OH_0bYgMa7scFMihaKN_X&sz=w600",
@@ -448,6 +454,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "Mohamed Elmi",
+    nameFr: "Mohamad Elmi",
     displayLineEn:
       "Mohamed Elmi, Executive Director, Diversity Institute, Ted Rogers School of Management",
     bioEn:
@@ -623,6 +630,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "The Honourable Amina Gerba",
+    nameFr: "L’honorable Amina Gerba",
     displayLineEn:
       "The Honourable Amina Gerba, Senator for Quebec (Rigaud); Entrepreneur; Co-Chair, Canada-Africa Parliamentary Association",
     bioEn:
@@ -635,6 +643,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "The Honourable Bernadette Clement",
+    nameFr: "L’honorable Bernadette Clement",
     displayLineEn:
       "The Honourable Bernadette Clement, Senator for Ontario; Member, Independent Senators Group; Former Mayor of Cornwall; First Black Woman to Serve as a Mayor in Ontario",
     bioEn:
@@ -646,6 +655,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "The Honourable Paulette Senior",
+    nameFr: "L’honorable Paulette Senior",
     displayLineEn:
       "The Honourable Paulette Senior, Senator for Ontario; Former President and CEO, Canadian Women’s Foundation",
     bioEn:
@@ -656,6 +666,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "The Honourable Tony Ince",
+    nameFr: "L’honorable Tony Ince",
     displayLineEn:
       "The Honourable Tony Ince, Senator for Nova Scotia; Former Member of the Nova Scotia Legislative Assembly; Former Minister of African Nova Scotian Affairs; Co-Founder, Canadian Congress of Black Parliamentarians",
     bioEn:
@@ -707,6 +718,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "The Honourable Michael Coteau",
+    nameFr: "L’honorable Michael Coteau",
     displayLineEn: "The Honourable Michael Coteau, Closing Ceremony speaker",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1LaaO6kFMalxlmkLls_1m2Eqdi0_q1zFm&sz=w600",
@@ -755,6 +767,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "Dr. Marlene Ruck",
+    nameFr: "Dre Marlene Ruck",
     displayLineEn:
       "Dr. Marlene Ruck, Executive Operations Manager, 902 ManUp Campus",
     imageUrl:
@@ -783,6 +796,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "Dr. Felicia Masenu",
+    nameFr: "Dre Felicia Masenu",
     displayLineEn:
       "Dr. Felicia Masenu, Program Director, Bilal Community Centre",
     imageUrl:
@@ -839,6 +853,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "Dr. Tasha Spillett",
+    nameFr: "Dre Tasha Spillett",
     displayLineEn:
       "Dr. Tasha Spillett, award-winning author, educator and Indigenous scholar",
     imageUrl:
@@ -847,6 +862,7 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "The Right Honourable Michaëlle Jean",
+    nameFr: "La très honorable Michaëlle Jean",
     displayLineEn:
       "The Right Honourable Michaëlle Jean, 27th Governor General and Commander-in-Chief of Canada",
     imageUrl:
@@ -901,6 +917,7 @@ const rawProfiles: SpeakerProfile[] = [
   {
     name: "Agapi Gessesse",
     imageUrl: "/speakers/agapi-gessesse.webp",
+    imageFramingFr: { scale: 2.2, offsetY: 16 },
   },
   {
     name: "Alia Aluma",
@@ -944,6 +961,7 @@ const rawProfiles: SpeakerProfile[] = [
     imageUrl: "/speakers/kerry-ann-spencer-williams.webp",
     imageScale: "huge",
     imageOffsetY: "slight-down",
+    imageFramingFr: { scale: 3.5 },
   },
   {
     name: "Liza Arnason",
@@ -974,6 +992,7 @@ const rawProfiles: SpeakerProfile[] = [
     imageUrl: "/speakers/tony-muzira.webp",
     imageScale: "top-large",
     imageOffsetY: "slight-down",
+    imageFramingFr: { scale: 3.5 },
   },
 ];
 
@@ -988,6 +1007,7 @@ function normalizeName(value: string) {
 export const SPEAKER_PROFILES = rawProfiles.map((profile) => ({
   ...profile,
   normalizedName: normalizeName(profile.name),
+  normalizedNameFr: profile.nameFr ? normalizeName(profile.nameFr) : undefined,
 }));
 
 export function findSpeakerProfiles(programmeLine: string) {
@@ -996,6 +1016,8 @@ export function findSpeakerProfiles(programmeLine: string) {
   return SPEAKER_PROFILES.filter(
     (profile) =>
       profile.normalizedName.length > 4 &&
-      normalizedLine.includes(profile.normalizedName),
+      (normalizedLine.includes(profile.normalizedName) ||
+        (profile.normalizedNameFr !== undefined &&
+          normalizedLine.includes(profile.normalizedNameFr))),
   );
 }

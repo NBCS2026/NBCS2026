@@ -133,6 +133,7 @@ type DisplayProfile = {
     | "huge"
     | "top-large";
   imageOffsetY?: "slight-down";
+  imageFraming?: { scale: number; offsetY?: number };
   subtitleEn?: string;
   subtitleFr?: string;
   resourceUrl?: string;
@@ -200,7 +201,11 @@ function getDisplayProfiles(
   isFr: boolean,
   resourceContext?: string,
 ): DisplayProfile[] {
-  const speakerProfiles = findSpeakerProfiles(text);
+  const speakerProfiles = findSpeakerProfiles(text).map((profile) => ({
+    ...profile,
+    name: isFr ? profile.nameFr ?? profile.name : profile.name,
+    imageFraming: isFr ? profile.imageFramingFr : undefined,
+  }));
   const normalizedText = text.toLowerCase();
   const normalizedContext = resourceContext?.toLowerCase() ?? "";
   const mediaProfiles = PROGRAMME_MEDIA.filter((item) =>
@@ -243,6 +248,11 @@ function ProfileImage({ profile }: { profile: DisplayProfile }) {
         alt={profile.name}
         loading="lazy"
         referrerPolicy="no-referrer"
+        style={profile.imageFraming ? {
+          scale: profile.imageFraming.scale,
+          translate: `0 ${profile.imageFraming.offsetY ?? 0}%`,
+          transformOrigin: "center",
+        } : undefined}
         className={cn(
           "absolute inset-0 size-full",
           profile.fit === "contain"
@@ -380,14 +390,12 @@ function SessionCard({
   onToggle,
   labels,
   isFr,
-  powerOfYouth = false,
 }: {
   session: ScheduleSession;
   open: boolean;
   onToggle: () => void;
   labels: Labels;
   isFr: boolean;
-  powerOfYouth?: boolean;
 }) {
   return (
     <div className="rounded-xl border border-[#E8D4DB] bg-white overflow-hidden">
@@ -421,7 +429,6 @@ function SessionCard({
       >
         <div className="overflow-hidden">
           <div className="px-4 pb-4 pt-1 space-y-4 border-t border-[#E8D4DB]">
-            {powerOfYouth && <PowerOfYouthLogo />}
             <p className="font-body text-[14px] sm:text-[15px] text-[#1E1E1E]/85 leading-relaxed">
               {session.description}
             </p>
@@ -444,7 +451,7 @@ function SessionCard({
               </p>
             )}
             {session.people && (
-              <PeopleList people={session.people} labels={labels} isFr={isFr} />
+              <PeopleList people={session.people} labels={labels} isFr={isFr} resourceContext={session.title} />
             )}
           </div>
         </div>
@@ -533,7 +540,6 @@ function BlockDetails({
               <SessionCard
                 key={session.id}
                 session={session}
-                powerOfYouth={Boolean(block.seriesLogoUrl)}
                 open={activeSession === session.id}
                 onToggle={() =>
                   setActiveSession(

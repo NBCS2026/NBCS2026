@@ -18,6 +18,7 @@ export function FeaturedSummitVideo({ locale }: { locale: string }) {
             src="/captions/summit-2026-fr.vtt"
             srcLang="fr"
             label="Français (traduction)"
+            default={isFr}
           />
           {isFr
             ? "Votre navigateur ne prend pas en charge la lecture vidéo."

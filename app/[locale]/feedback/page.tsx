@@ -28,7 +28,7 @@ export default function FeedbackPage() {
         </header>
         <div className="mx-auto flex min-h-[46vh] max-w-[1180px] flex-col items-center justify-center px-5 pb-16 pt-20 text-center text-white">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.4em] sm:text-base">
-            NBCS 2026 · SPCN 2026
+            {isFr ? "SPCN 2026" : "NBCS 2026"}
           </p>
           <h1 className="mt-5 font-heading text-[clamp(40px,6vw,82px)] font-black leading-[0.98] tracking-wide">
             {isFr ? "COMMENTAIRES" : "FEEDBACK"}

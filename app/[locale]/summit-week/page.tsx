@@ -27,7 +27,7 @@ export default function SummitWeekPage() {
         </header>
         <div className="mx-auto flex w-full max-w-[1180px] flex-1 flex-col items-center justify-center px-5 py-16 text-center text-white">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.4em] sm:text-base">
-            NBCS 2026 · SPCN 2026
+            {isFr ? "SPCN 2026" : "NBCS 2026"}
           </p>
           <h1 className="mt-5 font-heading text-[clamp(38px,6vw,82px)] font-black leading-[0.98] tracking-wide">
             {isFr ? "ÉVÉNEMENTS DE LA SEMAINE DU SOMMET" : "SUMMIT WEEK EVENTS"}
