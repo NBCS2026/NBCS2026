@@ -35,8 +35,6 @@ export default function Page() {
           </h1>
           <p className="tracking-widest max-w-[38ch] md:max-w-[86ch] mx-auto text-white text-[clamp(14px,1.43vw,22px)] mb-7">
             {t("post_titleOne")}
-            <br className="block md:hidden " />
-            <br className="block md:hidden " /> {t("post_titleTwo")}
           </p>
         </div>
       </div>
