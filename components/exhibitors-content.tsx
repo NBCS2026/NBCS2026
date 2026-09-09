@@ -228,17 +228,6 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                 key={vendor.name}
                 className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#E8D4DB] bg-white shadow-sm"
               >
-                {vendor.imageUrl && (
-                  <div className="aspect-[16/10] overflow-hidden bg-[#F3E9EC]">
-                    <img
-                      src={vendor.imageUrl}
-                      alt={vendor.name}
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                      className={`size-full ${vendor.imageFit === "contain" ? "object-contain p-5" : "object-cover"}`}
-                    />
-                  </div>
-                )}
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="font-heading text-xl font-black text-[#5D1831]">
                     {vendor.name}
