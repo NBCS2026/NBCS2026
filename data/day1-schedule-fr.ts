@@ -11,6 +11,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
   },
   {
     id: "opening-plenary",
+    seriesLogoUrl: "/power-of-youth-logo.png",
     time: "10 h 00 – 10 h 30",
     title: "La jeunesse au pouvoir – Plénière d'ouverture",
     description:
@@ -38,6 +39,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
   },
   {
     id: "morning-sessions",
+    seriesLogoUrl: "/power-of-youth-logo.png",
     time: "11 h 00 – 12 h 30",
     title:
       "Séances du matin — Projets communautaires de la jeunesse au pouvoir",
@@ -161,6 +163,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
   },
   {
     id: "plenary-afternoon",
+    seriesLogoUrl: "/power-of-youth-logo.png",
     time: "13 h 00 – 14 h 00",
     title: "Séance plénière",
     subtitle:
@@ -192,6 +195,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
   },
   {
     id: "afternoon-sessions",
+    seriesLogoUrl: "/power-of-youth-logo.png",
     time: "14 h 30 – 16 h 00",
     title: "Séances simultanées de l'après-midi",
     sessions: [

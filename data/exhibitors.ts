@@ -57,9 +57,7 @@ export const EXHIBITORS: Exhibitor[] = [
   },
   {
     name: "Inclusion in Canadian Sports",
-    logoUrls: [
-      "https://inclusionincanadiansports.ca/wp-content/uploads/2018/10/ICSN-LOGO-full-blackout-2026.svg",
-    ],
+    logoUrls: ["/icsn-logo.svg"],
   },
   {
     name: "Canadian Labour Congress / CUPE",

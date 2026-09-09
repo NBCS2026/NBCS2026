@@ -440,15 +440,13 @@ function SponsorCard({
           ))}
         </div>
       )}
-      {(!entry.logos || role) && (
+      {!entry.logos && (
         <div>
-          {!entry.logos && (
-            <p
-              className={`font-heading font-bold leading-snug text-[#1E1E1E] ${prominence === "champion" && !compact ? "text-xl" : prominence === "paid" && !compact ? "text-base sm:text-lg" : "text-sm sm:text-base"}`}
-            >
-              {entry.name}
-            </p>
-          )}
+          <p
+            className={`font-heading font-bold leading-snug text-[#1E1E1E] ${prominence === "champion" && !compact ? "text-xl" : prominence === "paid" && !compact ? "text-base sm:text-lg" : "text-sm sm:text-base"}`}
+          >
+            {entry.name}
+          </p>
           {role && (
             <p
               className={`${entry.logos ? "" : "mt-1.5"} text-xs font-semibold uppercase tracking-[0.09em] text-[#8C0C3A]`}

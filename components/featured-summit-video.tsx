@@ -15,13 +15,6 @@ export function FeaturedSummitVideo({ locale }: { locale: string }) {
           <source src="/summit-2026-video.mp4" type="video/mp4" />
           <track
             kind="captions"
-            src="/captions/summit-2026-en.vtt"
-            srcLang="en"
-            label="English"
-            default={!isFr}
-          />
-          <track
-            kind="captions"
             src="/captions/summit-2026-fr.vtt"
             srcLang="fr"
             label="Français"

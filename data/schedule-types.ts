@@ -41,6 +41,7 @@ export type ScheduleBlock = {
   id: string;
   time: string;
   title: string;
+  seriesLogoUrl?: string;
   subtitle?: string;
   location?: string;
   description?: string;

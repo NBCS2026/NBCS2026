@@ -89,16 +89,6 @@ const PAST_COVERAGE: CoverageItem[] = [
       "Reportage sur le Sommet d’Halifax, qui a réuni plus de 1 000 personnes autour de tables rondes, de prestations et d’ateliers.",
   },
   {
-    title: "The National Black Canadians Summit",
-    source: "RGD Social Good Design Awards",
-    date: "2025",
-    url: "https://rgd.ca/hiring-designers/award-winners/2025-branding-award-winners/social-good-awards/the-national-black-canadians-summit",
-    summaryEn:
-      "A look at the award-winning visual identity created for the Montreal Summit and its focus on art and youth engagement.",
-    summaryFr:
-      "Présentation de l’identité visuelle primée du Sommet de Montréal et de son approche axée sur l’art et l’engagement des jeunes.",
-  },
-  {
     title: "Eradicating structural racism for Black Canadians",
     source: "Policy Options",
     date: "April 2019",

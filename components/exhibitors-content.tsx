@@ -191,7 +191,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                       alt=""
                       loading="lazy"
                       referrerPolicy="no-referrer"
-                      className={`max-h-20 min-w-0 flex-1 object-contain ${exhibitor.logoClassName ?? ""}`}
+                      className={`max-h-20 w-auto object-contain ${exhibitor.logoUrls && exhibitor.logoUrls.length > 1 ? "max-w-[42%]" : "max-w-full"} ${exhibitor.logoClassName ?? ""}`}
                     />
                   ))}
                   {exhibitor.textMark && (

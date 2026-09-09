@@ -29,9 +29,10 @@ export default function Page() {
       <div className="min-h-screen">
         <section className="relative min-h-screen flex flex-col">
           <div
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover"
             style={{
               backgroundImage: `url('/ticket-hero-gradient.png'), url('/registration-hero-394A3185.jpg')`,
+              backgroundPosition: "center 35%",
             }}
           />
 
