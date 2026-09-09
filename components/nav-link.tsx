@@ -1,8 +1,8 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
-import { _Translator, useTranslations, useLocale } from "next-intl";
 
 interface NavLinKProps extends React.HTMLAttributes<HTMLElement> {
   onClose?: () => void;
@@ -22,12 +22,16 @@ export function NavLink({ className, onClick }: NavLinKProps) {
       url: "/program",
     },
     {
-      title: t("tickets"),
-      url: "/ticket",
+      title: t("summit_week"),
+      url: "/summit-week",
     },
     {
-      title: t("partners"),
-      url: "/partners",
+      title: t("exhibitors"),
+      url: "/exhibitors",
+    },
+    {
+      title: t("tickets"),
+      url: "/ticket",
     },
     {
       title: t("info"),
@@ -39,12 +43,10 @@ export function NavLink({ className, onClick }: NavLinKProps) {
     },
   ];
   const pathname = usePathname();
-  const isDarkTheme = pathname?.includes("/ticket");
   return (
     <nav className={cn(`${className}`)}>
-      <>
-        {locale === "fr" && (
-          <style jsx>{`
+      {locale === "fr" && (
+        <style jsx>{`
             @media (min-width: 932px) and (max-width: 1023px) {
               .french-nav-text {
                 font-size: 8px;
@@ -52,25 +54,28 @@ export function NavLink({ className, onClick }: NavLinKProps) {
               }
             }
           `}</style>
-        )}
-        <ul className={`flex flex-row gap-1.5 md:gap-2.5 lg:gap-6 2xl:gap-8 3xl:gap-10 justify-center font-medium text-xs md:text-sm lg:text-base 2xl:text-lg 3xl:text-xl ${
+      )}
+      <ul
+        className={`flex flex-row gap-1.5 md:gap-2.5 xl:gap-5 2xl:gap-7 3xl:gap-9 justify-center font-medium text-xs xl:text-sm 2xl:text-base 3xl:text-lg ${
           locale === "fr" ? "french-nav-text" : ""
         }`}
-        >
-        {Links.map((link, idx) => {
-          const isActive = pathname === link.url || pathname?.startsWith(link.url + "/");
+      >
+        {Links.map((link) => {
+          const isActive =
+            pathname === link.url || pathname?.startsWith(`${link.url}/`);
           const isInfoLink = link.url === "/info";
           return (
-            <li key={idx} onClick={onClick}>
+            <li key={link.url}>
               <Link
                 className={`${
-                  isInfoLink ? "flex flex-col items-center justify-center text-center leading-tight" : "whitespace-nowrap"
+                  isInfoLink
+                    ? "flex flex-col items-center justify-center text-center leading-tight"
+                    : "whitespace-nowrap"
                 } ${
-                  isActive 
-                    ? "border-b-2 border-white" 
-                    : ""
+                  isActive ? "border-b-2 border-white" : ""
                 } hover:border-b-2 hover:border-white`}
                 href={link.url}
+                onClick={onClick}
               >
                 {isInfoLink ? (
                   <>
@@ -85,8 +90,7 @@ export function NavLink({ className, onClick }: NavLinKProps) {
             </li>
           );
         })}
-        </ul>
-      </>
+      </ul>
     </nav>
   );
 }

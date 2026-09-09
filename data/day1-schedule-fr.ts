@@ -39,7 +39,8 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
   {
     id: "morning-sessions",
     time: "11 h 00 – 12 h 30",
-    title: "Séances du matin — Projets communautaires de la jeunesse au pouvoir",
+    title:
+      "Séances du matin — Projets communautaires de la jeunesse au pouvoir",
     note: "Le dîner sera servi à partir de 12 h 30.",
     description:
       "L'initiative La jeunesse au pouvoir est devenue l'un des programmes phares de la Fondation Michaëlle Jean. Elle est née des appels à l'action lancés par les jeunes lors du 3e Sommet pancanadien des communautés noires, tenu à Halifax en 2022. Ancrée dans la Déclaration d'Halifax, l'initiative a d'abord pris forme dans 35 projets dirigés par des jeunes, démontrant que la Déclaration n'est pas seulement une vision, mais un cadre vivant et concret pour faire progresser l'équité raciale. La Déclaration d'Halifax appelle à une mobilisation nationale contre la discrimination raciale et s'appuie sur l'élan des précédents Sommets pancanadiens des communautés noires (SPCN) organisés par la Fondation Michaëlle Jean lors de la première Décennie internationale pour les personnes d'ascendance africaine (2015–2024). L'initiative soutient aujourd'hui une deuxième cohorte de 25 projets, dirigés par des jeunes de partout au pays. Nous vous invitons à venir découvrir les séances qu'ils ont conçues ensemble, qui offrent un espace où présenter leur travail, réfléchir à leurs expériences et échanger un dialogue sur les enjeux qui façonnent leurs communautés et leur avenir.",
@@ -96,9 +97,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
         people: [
           {
             label: "facilitator",
-            names: [
-              "Drayton Mulindabigwi — Fondateur de The Novas Group",
-            ],
+            names: ["Drayton Mulindabigwi — Fondateur de The Novas Group"],
           },
           {
             label: "panelists",
@@ -197,14 +196,6 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
     title: "Séances simultanées de l'après-midi",
     sessions: [
       {
-        id: "session-6",
-        number: 6,
-        title: "Se construire pour bâtir son avenir",
-        room: "Pan Am",
-        description:
-          "Cette session explore le rôle déterminant des réseaux dans l'accès aux possibilités et le développement. Elle invite les participants à repenser le réseautage au-delà des transactions, en se concentrant plutôt sur l'authenticité, le développement de relations et la capacité d'évoluer avec assurance dans les milieux professionnels. En s'appuyant sur des expériences vécues et des conseils concrets, la conversation mettra en lumière comment des relations solides peuvent soutenir le développement personnel et professionnel à long terme.",
-      },
-      {
         id: "session-7",
         number: 7,
         title: "L'art comme acte de résistance",
@@ -237,7 +228,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
           {
             label: "panelists",
             names: [
-              "Isak Vaillaincourt, cinéaste, artiste multidisciplinaire et cofondateur et directeur de BLM Sudbury",
+              "Isak Vaillancourt, cinéaste, artiste multidisciplinaire, cofondateur et directeur de BLM Sudbury",
               "Nita Omokhose Badaiki, militante et animatrice chevronnée en matière d'anti-oppression",
             ],
           },
@@ -351,8 +342,15 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
         ],
       },
       {
+        title: "Coanimation",
+        items: [
+          "Patricia Bitu Tshikudi, directrice générale, Centre culturel franco-manitobain (CCFM)",
+        ],
+      },
+      {
         title:
           "Mot de bienvenue, reconnaissance du territoire, entrée officielle et prières d'ouverture",
+        items: ["Festival Manito Ahbee"],
       },
       {
         title: "Allocution",
@@ -363,16 +361,17 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
       {
         title: "Prestations",
         items: [
-          "Hymne national",
+          "Hymne national : Tori Taylor",
           "Hymne national noir (Lift Every Voice and Sing) — Ayosingz, chanteur, auteur-compositeur et producteur gospel canado-nigérian, et des artistes du programme Black Professionals in Music de Manitoba Music",
+          "Prestation traditionnelle de tambours et de danse africaine : African Communities of Manitoba Inc. (ACOMI) et Drummers From Home",
         ],
       },
       {
         title: "Bienvenue à Winnipeg, Manitoba",
         items: [
           "L'honorable Anita Neville, P.C., O.M., lieutenante-gouverneure du Manitoba",
-          "L'honorable Wab Kinew, premier ministre du Manitoba",
-          "Son Honneur le maire Scott Gillingham",
+          "Gouvernement du Manitoba",
+          "Le maire adjoint Marcus Chambers",
         ],
       },
       {

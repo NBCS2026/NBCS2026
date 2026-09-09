@@ -1,19 +1,20 @@
 "use client";
 
-import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
-import type {
-  ScheduleBlock,
-  SchedulePersonGroup,
-  ScheduleSession,
-} from "@/data/schedule-types";
+import { useState } from "react";
 import { DAY1_SCHEDULE } from "@/data/day1-schedule";
 import { DAY1_SCHEDULE_FR } from "@/data/day1-schedule-fr";
 import { DAY2_SCHEDULE } from "@/data/day2-schedule";
 import { DAY2_SCHEDULE_FR } from "@/data/day2-schedule-fr";
 import { DAY3_SCHEDULE } from "@/data/day3-schedule";
 import { DAY3_SCHEDULE_FR } from "@/data/day3-schedule-fr";
+import type {
+  ScheduleBlock,
+  SchedulePersonGroup,
+  ScheduleSession,
+} from "@/data/schedule-types";
+import { findSpeakerProfiles } from "@/data/speaker-profiles";
+import { cn } from "@/lib/utils";
 
 type Labels = {
   host: string;
@@ -32,25 +33,33 @@ type Labels = {
   remarks: string;
   motOuverture: string;
   allocution: string;
+  performances: string;
+  featured: string;
+  closing: string;
+  introduction: string;
   room: string;
   sessions: string;
   note: string;
+  biography: string;
 };
 
 /** Renders `**bold**` and `_italic_` markers in schedule copy. */
 function renderFormattedText(text: string) {
   const parts = text.split(/(\*\*[^*]+\*\*|_[^_]+_)/g);
-  return parts.map((part, index) => {
+  let offset = 0;
+  return parts.map((part) => {
+    const key = `${offset}:${part}`;
+    offset += part.length;
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
-        <strong key={index} className="font-semibold">
+        <strong key={key} className="font-semibold">
           {part.slice(2, -2)}
         </strong>
       );
     }
     if (part.startsWith("_") && part.endsWith("_")) {
       return (
-        <em key={index} className="italic">
+        <em key={key} className="italic">
           {part.slice(1, -1)}
         </em>
       );
@@ -61,7 +70,7 @@ function renderFormattedText(text: string) {
 
 function personLabel(
   label: SchedulePersonGroup["label"],
-  labels: Labels
+  labels: Labels,
 ): string {
   switch (label) {
     case "host":
@@ -96,17 +105,159 @@ function personLabel(
       return labels.motOuverture;
     case "allocution":
       return labels.allocution;
+    case "performances":
+      return labels.performances;
+    case "featured":
+      return labels.featured;
+    case "closing":
+      return labels.closing;
+    case "introduction":
+      return labels.introduction;
     default:
       return label;
   }
 }
 
+type DisplayProfile = {
+  name: string;
+  bioEn?: string;
+  bioFr?: string;
+  imageUrl?: string;
+};
+
+const PROGRAMME_MEDIA: Array<{
+  matches: string[];
+  nameEn: string;
+  nameFr: string;
+  imageUrl: string;
+}> = [
+  {
+    matches: ["manito ahbee"],
+    nameEn: "Manito Ahbee Festival",
+    nameFr: "Festival Manito Ahbee",
+    imageUrl: "/manito-ahbee.jpg",
+  },
+  {
+    matches: ["acomi", "african communities of manitoba"],
+    nameEn: "ACOMI and Drummers From Home",
+    nameFr: "ACOMI et Drummers From Home",
+    imageUrl: "/acomi.jpg",
+  },
+  {
+    matches: ["dr. henry band", "dr henry band"],
+    nameEn: "Dr. Henry Band",
+    nameFr: "Dr. Henry Band",
+    imageUrl: "/dr-henry-band.jpg",
+  },
+  {
+    matches: [
+      "roots in harmony",
+      "summit mass choir",
+      "grande chorale du sommet",
+    ],
+    nameEn: "Summit Mass Choir, including Roots in Harmony Choir",
+    nameFr: "Grande chorale du Sommet, avec Roots in Harmony",
+    imageUrl: "/roots-in-harmony.webp",
+  },
+];
+
+function getDisplayProfiles(text: string, isFr: boolean): DisplayProfile[] {
+  const speakerProfiles = findSpeakerProfiles(text);
+  const normalizedText = text.toLowerCase();
+  const mediaProfiles = PROGRAMME_MEDIA.filter((item) =>
+    item.matches.some((match) => normalizedText.includes(match)),
+  ).map((item) => ({
+    name: isFr ? item.nameFr : item.nameEn,
+    imageUrl: item.imageUrl,
+  }));
+
+  return [...speakerProfiles, ...mediaProfiles].filter(
+    (profile, index, profiles) =>
+      profiles.findIndex((candidate) => candidate.name === profile.name) ===
+      index,
+  );
+}
+
+function ProfileImage({ profile }: { profile: DisplayProfile }) {
+  const [isVisible, setIsVisible] = useState(true);
+
+  if (!profile.imageUrl || !isVisible) {
+    return null;
+  }
+
+  return (
+    <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-[#F7F3EF]">
+      <img
+        src={profile.imageUrl}
+        alt={profile.name}
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        className="absolute inset-0 size-full object-cover"
+        onError={() => setIsVisible(false)}
+      />
+    </div>
+  );
+}
+
+function ProfileCards({
+  text,
+  labels,
+  isFr,
+}: {
+  text: string;
+  labels: Labels;
+  isFr: boolean;
+}) {
+  const profiles = getDisplayProfiles(text, isFr);
+  const visibleProfiles = profiles.filter(
+    (profile) => profile.imageUrl || profile.bioEn || profile.bioFr,
+  );
+
+  if (visibleProfiles.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="mt-3 grid gap-3 sm:grid-cols-2">
+      {visibleProfiles.map((profile) => {
+        const bio = isFr ? profile.bioFr || profile.bioEn : profile.bioEn;
+
+        return (
+          <article
+            key={profile.name}
+            className="flex gap-3 rounded-xl border border-[#E8D4DB] bg-white p-3"
+          >
+            <ProfileImage profile={profile} />
+            <div className="min-w-0 flex-1">
+              <p className="font-heading font-bold leading-snug text-[#5D1831]">
+                {profile.name}
+              </p>
+              {bio && (
+                <details className="group mt-1.5">
+                  <summary className="cursor-pointer list-none text-[13px] font-semibold text-[#8C0C3A] underline underline-offset-2">
+                    {labels.biography}
+                  </summary>
+                  <p className="mt-2 text-[13px] leading-relaxed text-[#1E1E1E]/80">
+                    {bio}
+                  </p>
+                </details>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
 function PeopleList({
   people,
   labels,
+  isFr,
 }: {
   people: SchedulePersonGroup[];
   labels: Labels;
+  isFr: boolean;
 }) {
   return (
     <div className="space-y-4">
@@ -117,13 +268,14 @@ function PeopleList({
           </p>
           <ul className="space-y-1.5">
             {group.names.map((name) => (
-                <li
-                  key={name}
-                  className="font-body text-[14px] sm:text-[15px] text-[#1E1E1E]/90 leading-relaxed pl-3 border-l-2 border-[#E8D4DB]"
-                >
-                  <span>{renderFormattedText(name)}</span>
-                </li>
-              ))}
+              <li
+                key={name}
+                className="border-l-2 border-[#E8D4DB] pl-3 font-body text-[14px] leading-relaxed text-[#1E1E1E]/90 sm:text-[15px]"
+              >
+                <p>{renderFormattedText(name)}</p>
+                <ProfileCards text={name} labels={labels} isFr={isFr} />
+              </li>
+            ))}
           </ul>
         </div>
       ))}
@@ -136,11 +288,13 @@ function SessionCard({
   open,
   onToggle,
   labels,
+  isFr,
 }: {
   session: ScheduleSession;
   open: boolean;
   onToggle: () => void;
   labels: Labels;
+  isFr: boolean;
 }) {
   return (
     <div className="rounded-xl border border-[#E8D4DB] bg-white overflow-hidden">
@@ -162,14 +316,14 @@ function SessionCard({
         <ChevronDown
           className={cn(
             "size-5 shrink-0 mt-0.5 text-[#8C0C3A] transition-transform duration-200",
-            open && "rotate-180"
+            open && "rotate-180",
           )}
         />
       </button>
       <div
         className={cn(
           "grid transition-[grid-template-rows] duration-300 ease-out",
-          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
       >
         <div className="overflow-hidden">
@@ -183,7 +337,7 @@ function SessionCard({
               </p>
             )}
             {session.people && (
-              <PeopleList people={session.people} labels={labels} />
+              <PeopleList people={session.people} labels={labels} isFr={isFr} />
             )}
           </div>
         </div>
@@ -197,11 +351,13 @@ function BlockDetails({
   labels,
   activeSession,
   setActiveSession,
+  isFr,
 }: {
   block: ScheduleBlock;
   labels: Labels;
   activeSession: string | null;
   setActiveSession: (id: string | null) => void;
+  isFr: boolean;
 }) {
   return (
     <div className="space-y-5">
@@ -227,7 +383,9 @@ function BlockDetails({
           </p>
         ))}
 
-      {block.people && <PeopleList people={block.people} labels={labels} />}
+      {block.people && (
+        <PeopleList people={block.people} labels={labels} isFr={isFr} />
+      )}
 
       {block.sessions && block.sessions.length > 0 && (
         <div className="space-y-3">
@@ -242,10 +400,11 @@ function BlockDetails({
                 open={activeSession === session.id}
                 onToggle={() =>
                   setActiveSession(
-                    activeSession === session.id ? null : session.id
+                    activeSession === session.id ? null : session.id,
                   )
                 }
                 labels={labels}
+                isFr={isFr}
               />
             ))}
           </div>
@@ -267,6 +426,15 @@ function BlockDetails({
                   {segment.body}
                 </p>
               )}
+              {segment.people && (
+                <div className="mt-3">
+                  <PeopleList
+                    people={segment.people}
+                    labels={labels}
+                    isFr={isFr}
+                  />
+                </div>
+              )}
               {segment.items && (
                 <ul className="mt-2 space-y-1.5">
                   {segment.items.map((item) => (
@@ -275,6 +443,7 @@ function BlockDetails({
                       className="font-body text-[14px] sm:text-[15px] text-[#1E1E1E]/85 leading-relaxed pl-3 border-l-2 border-[#E8D4DB]"
                     >
                       {renderFormattedText(item)}
+                      <ProfileCards text={item} labels={labels} isFr={isFr} />
                     </li>
                   ))}
                 </ul>
@@ -324,9 +493,14 @@ function ScheduleDayAccordion({
         remarks: "Remarques",
         motOuverture: "Mot d'ouverture",
         allocution: "Allocution",
+        performances: "Prestations",
+        featured: "Prestation vedette",
+        closing: "Clôture",
+        introduction: "Présentation",
         room: "Salle",
         sessions: "Séances",
         note: "Note",
+        biography: "Biographie",
       }
     : {
         host: "Host",
@@ -345,9 +519,14 @@ function ScheduleDayAccordion({
         remarks: "Remarks",
         motOuverture: "Opening remarks",
         allocution: "Remarks",
+        performances: "Performances",
+        featured: "Featured performance",
+        closing: "Closing",
+        introduction: "Introduction",
         room: "Room",
         sessions: "Sessions",
         note: "Note",
+        biography: "Biography",
       };
 
   const toggleBlock = (id: string) => {
@@ -418,7 +597,7 @@ function ScheduleDayAccordion({
               <ChevronDown
                 className={cn(
                   "size-5 sm:size-6 shrink-0 mt-1 text-[#8C0C3A] transition-transform duration-200",
-                  open && "rotate-180"
+                  open && "rotate-180",
                 )}
               />
             </button>
@@ -426,7 +605,7 @@ function ScheduleDayAccordion({
             <div
               className={cn(
                 "grid transition-[grid-template-rows] duration-300 ease-out",
-                open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
               )}
             >
               <div className="overflow-hidden">
@@ -436,6 +615,7 @@ function ScheduleDayAccordion({
                     labels={labels}
                     activeSession={activeSession}
                     setActiveSession={setActiveSession}
+                    isFr={isFr}
                   />
                 </div>
               </div>

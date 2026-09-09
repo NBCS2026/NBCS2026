@@ -13,16 +13,15 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
     id: "opening-plenary",
     time: "10:00 a.m. – 10:30 a.m.",
     title: "Opening Plenary",
-    subtitle: "Canada and the Second International Decade for People of African Descent",
+    subtitle:
+      "Canada and the Second International Decade for People of African Descent",
     location: "Hall C",
     description:
       "The Second International Decade for People of African Descent provides a renewed opportunity to connect Canada's international commitments with meaningful action at home. Drawing on Canada's engagement with the United Nations Permanent Forum on People of African Descent, this session will explore how international priorities can inform anti-racism policy, public memory, institutional accountability and sustained partnership with Black communities and young people.",
     people: [
       {
         label: "keynote",
-        names: [
-          "Andrew Brown, Associate Deputy Minister, Canadian Heritage",
-        ],
+        names: ["Andrew Brown, Associate Deputy Minister, Canadian Heritage"],
       },
     ],
   },
@@ -75,9 +74,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
         people: [
           {
             label: "moderator",
-            names: [
-              "Dr. Tasha Spillett, Author, Educator and Researcher",
-            ],
+            names: ["Dr. Tasha Spillett, Author, Educator and Researcher"],
           },
           {
             label: "panelists",
@@ -180,9 +177,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
         people: [
           {
             label: "moderator",
-            names: [
-              "Hafiz Jatto, Director of Programs, SERC MB",
-            ],
+            names: ["Hafiz Jatto, Director of Programs, SERC MB"],
           },
           {
             label: "panelists",
@@ -281,7 +276,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
           {
             label: "panelists",
             names: [
-              'Sylvia Parris, Leader, Educator and CEO, Delmore "Buddy" Daye Learning Institute; President, SVPARRIS CONSULTING',
+              'Sylvia Parris-Drummond, Leader, Educator and CEO, Delmore "Buddy" Daye Learning Institute; President, SVPARRIS CONSULTING',
               "Michelle Jean-Paul, Educational Leader and Community Advocate",
               "Xavier McLaughlin, Operations Manager and Education Systems Navigator, Parents for Black Children",
             ],
@@ -363,7 +358,8 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
       {
         id: "d2-pm-5",
         number: 5,
-        title: "Anti-racism in sport: Equity, Representation and Accountability",
+        title:
+          "Anti-racism in sport: Equity, Representation and Accountability",
         room: "Pan Am Room",
         description:
           "This session examines how anti-Black racism manifests within sports systems, from grassroots to professional levels — through unequal access to opportunities, racial stereotyping, underrepresentation in leadership, and systemic barriers embedded in institutions. It will explore how racism impacts athletes both on and off the field, including experiences of discrimination, exploitation, and exclusion.",
@@ -432,6 +428,23 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
               "Laurene Williams, Program Manager, Diversity Institute, Ted Rogers School of Management",
               "Nancy Mitchell, Director of Research Special Projects, Diversity Institute, Ted Rogers School of Management",
             ],
+          },
+        ],
+      },
+      {
+        id: "summit-mass-choir-rehearsal",
+        title: "Summit Mass Choir Rehearsal",
+        room: "Hall C",
+        description:
+          "2:30 p.m. – 3:30 p.m. Rehearsal for the Summit Mass Choir in preparation for the closing ceremony, with the participation of Roots in Harmony Choir.",
+        people: [
+          {
+            label: "facilitator",
+            names: ["Sonya Williams, Choir Director"],
+          },
+          {
+            label: "performances",
+            names: ["Summit Mass Choir, including Roots in Harmony Choir"],
           },
         ],
       },

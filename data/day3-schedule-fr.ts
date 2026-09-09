@@ -12,6 +12,7 @@ export const DAY3_SCHEDULE_FR: ScheduleBlock[] = [
         title: "Animation",
         items: [
           "Odario Williams, animateur d'_Afterdark_ à CBC, artiste hip-hop, acteur, DJ et raconteur",
+          "Patricia Bitu Tshikudi, directrice générale, Centre culturel franco-manitobain (CCFM)",
         ],
       },
       {
@@ -28,12 +29,6 @@ export const DAY3_SCHEDULE_FR: ScheduleBlock[] = [
         ],
       },
       {
-        title: "Passage du flambeau à Calgary",
-        items: [
-          "Dr Charles Odame-Ankrah, directeur général, Calgary African Community Collective",
-        ],
-      },
-      {
         title: "Mot de clôture",
         items: [
           "La très honorable Michaëlle Jean, 27e gouverneure générale et commandante en chef du Canada (2005–2010)",
@@ -42,7 +37,7 @@ export const DAY3_SCHEDULE_FR: ScheduleBlock[] = [
       {
         title: "Prestation",
         items: [
-          "Measha Brueggergosman-Lee et la grande chorale du Sommet, dirigée par Sonya Williams",
+          "Measha Brueggergosman-Lee et la grande chorale du Sommet, avec la participation de la chorale Roots in Harmony, sous la direction de Sonya Williams",
         ],
       },
       {

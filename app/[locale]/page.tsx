@@ -1,31 +1,33 @@
 "use client";
 
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Arrow } from "@/components/arrow";
+import { CollagePlaceholder } from "@/components/collage-placeholder";
 import { CountDown } from "@/components/countdown";
+import { FeaturedSummitVideo } from "@/components/featured-summit-video";
 import { Footer } from "@/components/footer";
+import { HomeCollage } from "@/components/home-collage";
 import { LangSelect } from "@/components/lang-select";
 import { Logo } from "@/components/logo";
 import { NavLink } from "@/components/nav-link";
 import { Art } from "@/components/svg/art";
-import { CollagePlaceholder } from "@/components/collage-placeholder";
-import { HomeCollage } from "@/components/home-collage";
 import Meet from "@/components/svg/meet";
 import { Mic } from "@/components/svg/mic";
 import { Workshop } from "@/components/svg/workshop";
 import ToggleMenu from "@/components/toggle-menu";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
 
 const SECTION2_EN = {
   prefix: "The statement ",
-  quote: "\"Moving forward together\"",
+  quote: '"Moving forward together"',
   p1: " expresses the collective commitment we must pursue in our determined march toward progress. Across Canada, communities of African descent are moving forward with determination in a struggle that has become unavoidable: the struggle to eradicate racial discrimination.",
   p2: "Carried out with pride, this effort is deeply rooted in our history, our shared aspirations, and the strength of our collective actions. Together, we are forging lasting alliances and broadening the scope of our initiatives in solidarity with all racialized communities.",
   p3: "We also recognize with respect our Indigenous sisters and brothers. We salute their leadership, their presence, and their courageous quest for sovereignty in Winnipeg, across Manitoba, and far beyond. In this spirit, we are working to intentionally create a platform that promotes meaningful dialogue with First Nations, who also face persistent systemic racism and the profound consequences of colonization.",
   p4Quote: "Moving forward together",
-  p4Rest: " toward justice also means embarking on paths of healing. It means strengthening our collective capacities for resistance, resilience, and self-determination.",
+  p4Rest:
+    " toward justice also means embarking on paths of healing. It means strengthening our collective capacities for resistance, resilience, and self-determination.",
 };
 
 const SECTION2_FR = {
@@ -35,7 +37,8 @@ const SECTION2_FR = {
   p2: "Portée avec fierté, cette démarche s'inscrit profondément dans notre histoire, dans nos aspirations communes et dans la force de nos actions collectives. Ensemble, nous forgeons des alliances durables et élargissons le champ de nos initiatives en solidarité avec l'ensemble des communautés racialisées.",
   p3: "Nous reconnaissons également avec respect nos sœurs et nos frères autochtones. Nous saluons leur leadership, leur présence et leur quête courageuse de souveraineté à Winnipeg, à travers le Manitoba et bien au-delà. Dans cet esprit, nous travaillons à la création intentionnelle d'une plateforme favorisant un dialogue significatif avec les Premières Nations, elles aussi confrontées à la persistance du racisme systémique et aux conséquences profondes de la colonisation.",
   p4Quote: "Avancer ensemble",
-  p4Rest: " vers la justice, c'est aussi emprunter des chemins de guérison. C'est renforcer nos capacités collectives de résistance, de résilience et d'autodétermination.",
+  p4Rest:
+    " vers la justice, c'est aussi emprunter des chemins de guérison. C'est renforcer nos capacités collectives de résistance, de résilience et d'autodétermination.",
 };
 
 export default function Page() {
@@ -48,31 +51,31 @@ export default function Page() {
   return (
     <>
       <div className="min-h-screen relative bg-[url('/rectangle-2.png'),url('/rectangle-3.png')] bg-cover bg-center pb-20">
-
-        <header
-          className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 mb-18 md:mb-52 lg:mb-18 w-full"
-        >
+        <header className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 mb-18 md:mb-52 lg:mb-18 w-full">
           <Logo />
-          <NavLink className="hidden md:block flex-1 mx-8 3xl:mx-8 4xl:mx-16" />
-          <ul className="md:flex gap-5 items-center hidden ml-auto md:mr-8 lg:mr-12 2xl:mr-20 3xl:mr-16 4xl:mr-24">
+          <NavLink className="hidden xl:block flex-1 mx-8 3xl:mx-8 4xl:mx-16" />
+          <ul className="xl:flex gap-5 items-center hidden ml-auto xl:mr-8 2xl:mr-20 3xl:mr-16 4xl:mr-24">
             <li>
               <LangSelect />
             </li>
-
           </ul>
-          <ToggleMenu local={locale} className="ml-auto md:ml-0" />
+          <ToggleMenu local={locale} className="ml-auto xl:ml-0" />
         </header>
         <div className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] px-5 2xl:px-8 3xl:px-16 4xl:px-24 text-center mx-auto mt-12 sm:mt-20 md:mt-32 lg:mt-40 xl:mt-48 hero-content">
           <p
             className={`font-heading font-light text-[clamp(12px,1.2vw,22px)] tracking-[0.95em] bg-gradient-to-t from-gray-400 to-white bg-clip-text text-transparent mb-4 ${
-              locale === "en" ? "max-w-[38ch] 3xl:max-w-[75ch] 4xl:max-w-[85ch]" : ""
+              locale === "en"
+                ? "max-w-[38ch] 3xl:max-w-[75ch] 4xl:max-w-[85ch]"
+                : ""
             } mx-auto md:max-w-full`}
           >
             {t("pretitle")}
           </p>
           <h1
             className={`font-heading font-black text-[clamp(28px,4vw,85px)] tracking-[0.1em] bg-gradient-to-t from-gray-400 to-white bg-clip-text text-transparent leading-none mb-4 lg:mb-5 3xl:max-w-[90ch] 4xl:max-w-[100ch] mx-auto ${
-              locale === "fr" ? "lg:text-[clamp(28px,3.5vw,75px)] xl:text-[clamp(28px,3.2vw,68px)]" : ""
+              locale === "fr"
+                ? "lg:text-[clamp(28px,3.5vw,75px)] xl:text-[clamp(28px,3.2vw,68px)]"
+                : ""
             }`}
           >
             {t("title")}
@@ -98,13 +101,16 @@ export default function Page() {
           </div>
           <CountDown t={t} />
         </section>
+        <FeaturedSummitVideo locale={locale} />
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-16 sm:mb-24 md:mb-32">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-14 2xl:gap-16 3xl:gap-16 4xl:gap-20">
             <div className="space-y-4">
               <div className="space-y-4">
                 <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
                   {s2.prefix}
-                  <span className="text-[#8C0C3A] font-semibold">{s2.quote}</span>
+                  <span className="text-[#8C0C3A] font-semibold">
+                    {s2.quote}
+                  </span>
                   {s2.p1}
                 </p>
                 <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
@@ -114,12 +120,15 @@ export default function Page() {
                   {s2.p3}
                 </p>
                 <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
-                  {s2.p4Quote}{s2.p4Rest}
+                  {s2.p4Quote}
+                  {s2.p4Rest}
                 </p>
               </div>
               <Button
                 className="text-black bg-transparent border hover:bg-transparent cursor-pointer rounded-full px-7 text-[16px] h-14 font-semibold"
-                onClick={() => window.open("https://www.tourismwinnipeg.com/", "_blank")}
+                onClick={() =>
+                  window.open("https://www.tourismwinnipeg.com/", "_blank")
+                }
               >
                 {t("section2_button")}
                 <Arrow className="text-black h-7 w-7" />

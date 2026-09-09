@@ -21,9 +21,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
     people: [
       {
         label: "keynote",
-        names: [
-          "Andrew Brown, sous-ministre adjoint, Patrimoine canadien",
-        ],
+        names: ["Andrew Brown, sous-ministre adjoint, Patrimoine canadien"],
       },
     ],
   },
@@ -76,9 +74,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
         people: [
           {
             label: "moderatrice",
-            names: [
-              "Dre Tasha Spillett, auteure, éducatrice et chercheuse",
-            ],
+            names: ["Dre Tasha Spillett, auteure, éducatrice et chercheuse"],
           },
           {
             label: "panelists",
@@ -181,9 +177,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
         people: [
           {
             label: "moderator",
-            names: [
-              "Hafiz Jatto, directeur des programmes, SERC MB",
-            ],
+            names: ["Hafiz Jatto, directeur des programmes, SERC MB"],
           },
           {
             label: "panelists",
@@ -284,7 +278,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
           {
             label: "panelists",
             names: [
-              "Sylvia Parris, leader, éducatrice et PDG du Delmore « Buddy » Daye Learning Institute",
+              "Sylvia Parris-Drummond, leader, éducatrice et PDG du Delmore « Buddy » Daye Learning Institute",
               "Michelle Jean-Paul, leader en éducation et militante communautaire",
               "Xavier McLaughlin, gestionnaire des opérations et navigateur des systèmes d’éducation, Parents for Black Children",
             ],
@@ -389,8 +383,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
       {
         id: "d2-pm-6",
         number: 6,
-        title:
-          "Arts et culture au Canada : de la survie à l’épanouissement",
+        title: "Arts et culture au Canada : de la survie à l’épanouissement",
         room: "Millennium Suite",
         description:
           "Comment pouvons-nous travailler ensemble pour nous assurer que les artistes de demain font plus que s’en sortir et deviennent de véritables leaders dans leur art? Des décennies durant, les incroyables créateurs et créatrices de Winnipeg – des pionniers du jazz et du blues aux danseurs et acteurs qui sont aujourd’hui sous les projecteurs – ont fait entrer leur ville dans la culture canadienne. Bien que des lois visant à protéger la musique canadienne soient en place depuis 1971, nous savons que, pour bon nombre de créatrices et créateurs noirs, cet objectif a souvent semblé hors de portée. Dans cette optique, la question s’impose : la législation actuelle permet-elle vraiment à une danseuse de ballet ou à un dramaturge noirs de réaliser leur plein potentiel? Le temps est peut-être venu d’ouvrir une nouvelle voie, axée sur le financement, la reconnaissance et le soutien que méritent les créatrices et créateurs noirs, ici même au cœur de l’Amérique du Nord.",
@@ -434,6 +427,25 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
               "Mohamad Elmi, directeur exécutif, Diversity Institute, Ted Rogers School of Management",
               "Laurene Williams, responsable de programme, Diversity Institute, Ted Rogers School of Management",
               "Nancy Mitchell, directrice des projets spéciaux de recherche, Diversity Institute, Ted Rogers School of Management",
+            ],
+          },
+        ],
+      },
+      {
+        id: "summit-mass-choir-rehearsal",
+        title: "Répétition de la grande chorale du Sommet",
+        room: "Hall C",
+        description:
+          "14 h 30 – 15 h 30. Répétition de la grande chorale du Sommet en vue de la cérémonie de clôture, avec la participation de la chorale Roots in Harmony.",
+        people: [
+          {
+            label: "facilitator",
+            names: ["Sonya Williams, cheffe de chœur"],
+          },
+          {
+            label: "performances",
+            names: [
+              "Grande chorale du Sommet, avec la participation de la chorale Roots in Harmony",
             ],
           },
         ],

@@ -1,17 +1,12 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
+import { type ReactNode, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 type StayTone = "light" | "dark";
-type SectionId =
-  | "accommodation"
-  | "porter"
-  | "via"
-  | "westjet"
-  | "venue";
+type SectionId = "accommodation" | "porter" | "via" | "westjet" | "venue";
 
 type StayDetailsExpandProps = {
   isFr: boolean;
@@ -21,8 +16,6 @@ type StayDetailsExpandProps = {
   showHeading?: boolean;
 };
 
-const HOTEL_BOOK_URL =
-  "https://www.marriott.com/event-reservations/reservation-link.mi?id=1747239523588&key=GRP&guestreslink2=true&app=resvlink";
 const PORTER_URL_EN = "https://www.flyporter.com/en-ca/?promocode=NBCS26";
 const PORTER_URL_FR = "https://www.flyporter.com/fr-ca/?promocode=NBCS26";
 const VIA_URL = "https://www.viarail.ca/en";
@@ -46,7 +39,7 @@ function CtaButton({
     "inline-flex items-center justify-center rounded-full h-11 px-6 text-[15px] sm:text-[16px] font-semibold transition-colors cursor-pointer w-full sm:w-auto",
     isDark
       ? "bg-white text-[#5D1831] hover:bg-[#F5E9EE] border border-white"
-      : "bg-[#8C0C3A] text-white hover:bg-[#5D1831] border border-[#8C0C3A]"
+      : "bg-[#8C0C3A] text-white hover:bg-[#5D1831] border border-[#8C0C3A]",
   );
 
   if (external) {
@@ -88,7 +81,7 @@ function SectionCard({
     <div
       className={cn(
         "rounded-xl border overflow-hidden",
-        isDark ? "border-white/20 bg-white/5" : "border-[#E8D4DB] bg-white"
+        isDark ? "border-white/20 bg-white/5" : "border-[#E8D4DB] bg-white",
       )}
     >
       <button
@@ -99,28 +92,28 @@ function SectionCard({
           "w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left font-heading font-bold text-[15px] sm:text-[17px] tracking-wide cursor-pointer transition-colors",
           isDark
             ? "text-[#FFD6E0] hover:bg-white/5"
-            : "text-[#5D1831] hover:bg-[#FAF6F7]"
+            : "text-[#5D1831] hover:bg-[#FAF6F7]",
         )}
       >
         <span>{title}</span>
         <ChevronDown
           className={cn(
             "size-5 shrink-0 transition-transform duration-200",
-            open && "rotate-180"
+            open && "rotate-180",
           )}
         />
       </button>
       <div
         className={cn(
           "grid transition-[grid-template-rows] duration-300 ease-out",
-          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
       >
         <div className="overflow-hidden">
           <div
             className={cn(
               "px-4 pb-4 pt-1 space-y-3 border-t",
-              isDark ? "border-white/15" : "border-[#E8D4DB]"
+              isDark ? "border-white/15" : "border-[#E8D4DB]",
             )}
           >
             {children}
@@ -142,7 +135,7 @@ function BodyText({
     <p
       className={cn(
         "font-body text-[14px] sm:text-[15px] font-medium leading-relaxed",
-        isDark ? "text-[#F5E9EE]" : "text-[#1E1E1EB2]"
+        isDark ? "text-[#F5E9EE]" : "text-[#1E1E1EB2]",
       )}
     >
       {children}
@@ -164,7 +157,7 @@ function PageLink({
       href={href}
       className={cn(
         "inline-block underline underline-offset-2 font-semibold text-[13px] sm:text-[14px]",
-        isDark ? "text-[#FFB6C8]" : "text-[#8C0C3A]"
+        isDark ? "text-[#FFB6C8]" : "text-[#8C0C3A]",
       )}
     >
       {children}
@@ -181,7 +174,7 @@ export function StayDetailsExpand({
 }: StayDetailsExpandProps) {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId | null>(
-    "accommodation"
+    "accommodation",
   );
   const isDark = tone === "dark";
   const textAlign = align === "left" ? "lg:text-left" : "text-center";
@@ -198,7 +191,7 @@ export function StayDetailsExpand({
           className={cn(
             "font-heading text-[18px] sm:text-[22px] font-bold tracking-wide",
             isDark ? "text-[#FFD6E0]" : "text-[#5D1831]",
-            textAlign
+            textAlign,
           )}
         >
           {isFr ? "Hébergement et lieu" : "Accommodation & Location"}
@@ -211,7 +204,7 @@ export function StayDetailsExpand({
           isDark
             ? "text-[#F8F0F3] [&>span]:text-[#FFB6C8]"
             : "text-[#1E1E1EB2] [&>span]:text-[#8C0C3A]",
-          textAlign
+          textAlign,
         )}
       >
         {isFr ? (
@@ -240,7 +233,7 @@ export function StayDetailsExpand({
           onClick={() => setOpen((prev) => !prev)}
           className={cn(
             "inline-flex items-center justify-center gap-2 font-semibold underline underline-offset-4 transition-opacity hover:opacity-80 cursor-pointer text-[15px] lg:text-[17px]",
-            isDark ? "text-[#FFB6C8]" : "text-[#8C0C3A]"
+            isDark ? "text-[#FFB6C8]" : "text-[#8C0C3A]",
           )}
         >
           {open
@@ -253,7 +246,7 @@ export function StayDetailsExpand({
           <ChevronDown
             className={cn(
               "size-5 transition-transform duration-200",
-              open && "rotate-180"
+              open && "rotate-180",
             )}
           />
         </button>
@@ -261,7 +254,7 @@ export function StayDetailsExpand({
         <div
           className={cn(
             "grid w-full transition-[grid-template-rows] duration-300 ease-out",
-            open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
           )}
         >
           <div className="overflow-hidden">
@@ -270,18 +263,18 @@ export function StayDetailsExpand({
                 "mt-2 space-y-3 rounded-xl px-3 sm:px-4 py-4 text-left",
                 isDark
                   ? "bg-white/10 border border-white/20"
-                  : "bg-[#FAF6F7] border border-[#E8D4DB]"
+                  : "bg-[#FAF6F7] border border-[#E8D4DB]",
               )}
             >
               <p
                 className={cn(
                   "font-body text-[13px] sm:text-[14px] font-medium px-1",
-                  isDark ? "text-[#FFD6E0]" : "text-[#5D1831]"
+                  isDark ? "text-[#FFD6E0]" : "text-[#5D1831]",
                 )}
               >
                 {isFr
-                  ? "Choisissez une section pour voir les détails et réserver :"
-                  : "Choose a section to view details and book:"}
+                  ? "Choisissez une section pour consulter les détails :"
+                  : "Choose a section to view details:"}
               </p>
 
               {/* Accommodation */}
@@ -301,6 +294,18 @@ export function StayDetailsExpand({
                     ? "Hôtel officiel du 5e Sommet pancanadien des communautés noires, au centre-ville de Winnipeg, à quelques pas des activités du Sommet."
                     : "Official supporting hotel for the 5th National Black Canadians Summit — downtown Winnipeg, steps from Summit activities."}
                 </BodyText>
+                <p
+                  className={cn(
+                    "rounded-lg border px-3 py-2 text-[14px] sm:text-[15px] font-bold",
+                    isDark
+                      ? "border-white/40 bg-white text-[#5D1831]"
+                      : "border-[#8C0C3A]/30 bg-[#F5E9EE] text-[#5D1831]",
+                  )}
+                >
+                  {isFr
+                    ? "Complet — le bloc de chambres du SPCN est entièrement réservé."
+                    : "Sold out — the NBCS room block is fully booked."}
+                </p>
                 <BodyText isDark={isDark}>
                   <span className="font-bold">
                     {isFr ? "Adresse :" : "Address:"}
@@ -316,7 +321,9 @@ export function StayDetailsExpand({
                   <span className="font-bold">
                     {isFr ? "Dates du séjour :" : "Stay dates:"}
                   </span>{" "}
-                  {isFr ? "du 15 au 22 septembre 2026" : "September 15–22, 2026"}
+                  {isFr
+                    ? "du 15 au 22 septembre 2026"
+                    : "September 15–22, 2026"}
                   <br />
                   <span className="font-bold">
                     {isFr ? "Date limite :" : "Booking deadline:"}
@@ -328,11 +335,6 @@ export function StayDetailsExpand({
                   </span>{" "}
                   BLC ({isFr ? "ou" : "or"} 1-800-268-1133)
                 </BodyText>
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-1">
-                  <CtaButton href={HOTEL_BOOK_URL} isDark={isDark}>
-                    {isFr ? "Réserver l'hôtel" : "Book hotel"}
-                  </CtaButton>
-                </div>
                 <PageLink href="/info#accommodation" isDark={isDark}>
                   {isFr
                     ? "Voir la section complète sur la page Hébergement"
@@ -368,12 +370,16 @@ export function StayDetailsExpand({
                   <span className="font-bold">
                     {isFr ? "Vers Winnipeg (YWG) :" : "To Winnipeg (YWG):"}
                   </span>{" "}
-                  {isFr ? "du 15 au 20 septembre 2026" : "September 15–20, 2026"}
+                  {isFr
+                    ? "du 15 au 20 septembre 2026"
+                    : "September 15–20, 2026"}
                   <br />
                   <span className="font-bold">
                     {isFr ? "Depuis Winnipeg (YWG) :" : "From Winnipeg (YWG):"}
                   </span>{" "}
-                  {isFr ? "du 18 au 23 septembre 2026" : "September 18–23, 2026"}
+                  {isFr
+                    ? "du 18 au 23 septembre 2026"
+                    : "September 18–23, 2026"}
                   <br />
                   <span className="font-bold">
                     {isFr ? "Code promo :" : "Promo code:"}
@@ -544,9 +550,7 @@ export function StayDetailsExpand({
                   <span className="font-bold">
                     {isFr ? "Dates :" : "Date:"}
                   </span>{" "}
-                  {isFr
-                    ? "18 – 20 septembre 2026"
-                    : "September 18 – 20, 2026"}
+                  {isFr ? "18 – 20 septembre 2026" : "September 18 – 20, 2026"}
                 </BodyText>
                 <BodyText isDark={isDark}>
                   <span className="font-bold">

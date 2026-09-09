@@ -1,22 +1,19 @@
 "use client";
 
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
 import { Footer } from "@/components/footer";
 import { LangSelect } from "@/components/lang-select";
 import { Logo } from "@/components/logo";
 import { NavLink } from "@/components/nav-link";
 import ToggleMenu from "@/components/toggle-menu";
-import { Button } from "@/components/ui/button";
-
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
 
 export default function Page() {
   const params = useParams<{ locale: string }>();
   const t = useTranslations("contact");
   const { locale } = params;
-  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -53,7 +50,8 @@ export default function Page() {
       if (response.ok && result.message) {
         setSubmitStatus({
           type: "success",
-          message: "Message sent successfully! We'll get back to you within 2-3 business days.",
+          message:
+            "Message sent successfully! We'll get back to you within 2-3 business days.",
         });
         // Reset form if it still exists
         if (form) {
@@ -69,7 +67,10 @@ export default function Page() {
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: error instanceof Error ? error.message : "An error occurred. Please try again later.",
+        message:
+          error instanceof Error
+            ? error.message
+            : "An error occurred. Please try again later.",
       });
     } finally {
       setIsSubmitting(false);
@@ -78,23 +79,18 @@ export default function Page() {
   return (
     <>
       <div className="h-screen relative bg-[linear-gradient(to_bottom,rgba(93,4,36,0.9)_10%,rgba(115,10,47,0.7)_42%,rgba(102,9,42,0.5)_76%,rgba(89,8,37,0.3)_110%),url('/contact_main.webp')] bg-cover bg-center">
-        <header
-          className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 mb-18 md:mb-52 lg:mb-18 w-full"
-        >
+        <header className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 mb-18 md:mb-52 lg:mb-18 w-full">
           <Logo />
-          <NavLink className="hidden md:block flex-1 mx-8 3xl:mx-8 4xl:mx-16" />
-          <ul className="md:flex gap-5 items-center hidden ml-auto md:mr-8 lg:mr-12 2xl:mr-20 3xl:mr-16 4xl:mr-24">
+          <NavLink className="hidden xl:block flex-1 mx-8 3xl:mx-8 4xl:mx-16" />
+          <ul className="xl:flex gap-5 items-center hidden ml-auto xl:mr-8 2xl:mr-20 3xl:mr-16 4xl:mr-24">
             <li>
               <LangSelect />
             </li>
-
           </ul>
-          <ToggleMenu local={locale} className="ml-auto md:ml-0" />
+          <ToggleMenu local={locale} className="ml-auto xl:ml-0" />
         </header>
         <div className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 text-center">
-          <p
-            className="font-heading bold text-[clamp(14px,1.82vw,28px)] tracking-[0.40em] text-white max-w-[38ch] mx-auto md:max-w-full mb-5"
-          >
+          <p className="font-heading bold text-[clamp(14px,1.82vw,28px)] tracking-[0.40em] text-white max-w-[38ch] mx-auto md:max-w-full mb-5">
             {t("pretitle")}
           </p>
           <h1
@@ -122,12 +118,15 @@ export default function Page() {
                 {t("text_three")}
               </p>
             </div>
-            
+
             {/* Right Side - Contact Form */}
             <div className="space-y-6">
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
-                  <label htmlFor="name" className="block font-medium text-[14px] mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block font-medium text-[14px] mb-2"
+                  >
                     {t("text_four")}
                   </label>
                   <input
@@ -139,9 +138,12 @@ export default function Page() {
                     disabled={isSubmitting}
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block font-medium text-[14px] mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block font-medium text-[14px] mb-2"
+                  >
                     {t("text_five")}
                   </label>
                   <input
@@ -153,9 +155,12 @@ export default function Page() {
                     disabled={isSubmitting}
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="message" className="block font-medium text-[14px] mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block font-medium text-[14px] mb-2"
+                  >
                     {t("text_six")}
                   </label>
                   <textarea
@@ -167,7 +172,7 @@ export default function Page() {
                     disabled={isSubmitting}
                   ></textarea>
                 </div>
-                
+
                 {submitStatus.type && (
                   <div
                     className={`p-3 rounded-lg text-sm ${
@@ -179,7 +184,7 @@ export default function Page() {
                     {submitStatus.message}
                   </div>
                 )}
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -188,14 +193,14 @@ export default function Page() {
                   {isSubmitting ? "Sending..." : t("text_eight")}
                 </button>
               </form>
-              
+
               <p className="text-[12px] md:text-[14px] text-gray-500 text-center">
                 {t("text_seven")}
               </p>
             </div>
           </div>
         </section>
-        
+
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 space-y-6 md:space-y-9 mb-16 lg:mb-[142px]">
           <h1 className="font-bold text-[24px] lg:text-[43px] text-center">
             {t("text_nine")}{" "}

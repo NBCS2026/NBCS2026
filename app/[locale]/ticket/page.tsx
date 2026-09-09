@@ -1,15 +1,14 @@
 "use client";
 
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { BizzaboRegistrationWidget } from "@/components/bizzabo-registration-widget";
 import { Footer } from "@/components/footer";
+import { LangSelect } from "@/components/lang-select";
 import { Logo } from "@/components/logo";
 import { NavLink } from "@/components/nav-link";
-import { LangSelect } from "@/components/lang-select";
 import { StayDetailsExpand } from "@/components/stay-details-expand";
 import ToggleMenu from "@/components/toggle-menu";
-
-import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 
 const GRADIENT_BG =
@@ -39,13 +38,16 @@ export default function Page() {
           <div className="relative z-10 flex-1 flex flex-col">
             <header className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 w-full">
               <Logo />
-              <NavLink className="hidden md:block flex-1 mx-8 3xl:mx-12 text-white" />
-              <ul className="md:flex gap-5 items-center hidden ml-auto md:mr-8 lg:mr-12 2xl:mr-20 3xl:mr-32">
+              <NavLink className="hidden xl:block flex-1 mx-8 3xl:mx-12 text-white" />
+              <ul className="xl:flex gap-5 items-center hidden ml-auto xl:mr-8 2xl:mr-20 3xl:mr-32">
                 <li>
                   <LangSelect />
                 </li>
               </ul>
-              <ToggleMenu local={locale as string} className="ml-auto md:ml-0" />
+              <ToggleMenu
+                local={locale as string}
+                className="ml-auto xl:ml-0"
+              />
             </header>
 
             <div className="flex-1 flex items-center justify-center">
@@ -64,17 +66,26 @@ export default function Page() {
         <section className="bg-white py-8 sm:py-10 md:py-12">
           <div className="max-w-[1568px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-5 2xl:px-8">
             <h2 className="text-center text-[clamp(24px,3vw,36px)] font-bold tracking-[0.2em] mb-6">
-              <span className="uppercase text-[#1E1E1E]">{t("seat_title_part1")} </span>
-              <span className="uppercase text-[#8C0C3A]">{t("seat_title_part2")}</span>
+              <span className="uppercase text-[#1E1E1E]">
+                {t("seat_title_part1")}{" "}
+              </span>
+              <span className="uppercase text-[#8C0C3A]">
+                {t("seat_title_part2")}
+              </span>
             </h2>
 
             {locale !== "fr" && (
               <div className="max-w-3xl mx-auto space-y-4 text-center">
                 <p className="font-body text-[15px] lg:text-[22px] text-[#1E1E1EB2] font-medium leading-relaxed">
-                  Join leaders, artists, elders, youth, policymakers, and change-makers from across Canada for three days of connection, dialogue, creativity, and action.
+                  Join leaders, artists, elders, youth, policymakers, and
+                  change-makers from across Canada for three days of connection,
+                  dialogue, creativity, and action.
                 </p>
                 <p className="font-body text-[15px] lg:text-[22px] text-[#1E1E1EB2] font-medium leading-relaxed">
-                  The National Black Canadians Summit brings communities together to celebrate Black culture, amplify lived experiences, and collectively shape a more just and inclusive future for a better Canada.
+                  The National Black Canadians Summit brings communities
+                  together to celebrate Black culture, amplify lived
+                  experiences, and collectively shape a more just and inclusive
+                  future for a better Canada.
                 </p>
               </div>
             )}
@@ -86,10 +97,16 @@ export default function Page() {
             {locale === "fr" && (
               <div className="mb-8 md:mb-12 text-center max-w-4xl mx-auto">
                 <p className="font-body text-[15px] lg:text-[22px] text-[#1e1e1eb2] font-medium mb-4 leading-relaxed">
-                  Joignez-vous à des leaders, des artistes, des aînés, des jeunes, des décideurs politiques et des acteurs du changement de partout au Canada pour trois jours de rencontres, de dialogue, de créativité et d&apos;action.
+                  Joignez-vous à des leaders, des artistes, des aînés, des
+                  jeunes, des décideurs politiques et des acteurs du changement
+                  de partout au Canada pour trois jours de rencontres, de
+                  dialogue, de créativité et d&apos;action.
                 </p>
                 <p className="font-body text-[15px] lg:text-[22px] text-[#1e1e1eb2] font-medium mb-8 leading-relaxed">
-                  Le Sommet pancanadien des communautés noires rassemble les communautés pour célébrer la culture noire, amplifier les expériences vécues et façonner collectivement un avenir plus juste et plus inclusif pour un Canada meilleur.
+                  Le Sommet pancanadien des communautés noires rassemble les
+                  communautés pour célébrer la culture noire, amplifier les
+                  expériences vécues et façonner collectivement un avenir plus
+                  juste et plus inclusif pour un Canada meilleur.
                 </p>
               </div>
             )}
@@ -121,7 +138,9 @@ export default function Page() {
             <h2 className="text-center text-[clamp(24px,3vw,36px)] font-bold tracking-[0.2em] mb-6 sm:mb-8">
               {isFr ? (
                 <>
-                  <span className="uppercase text-[#1E1E1E]">Soutenir l&apos;accès au</span>
+                  <span className="uppercase text-[#1E1E1E]">
+                    Soutenir l&apos;accès au
+                  </span>
                   <br />
                   <span className="uppercase text-[#8C0C3A]">
                     Sommet pancanadien des communautés noires
@@ -144,11 +163,11 @@ export default function Page() {
               {isFr ? (
                 <>
                   <p className="font-body text-[15px] lg:text-[22px] text-[#1E1E1EB2] font-medium leading-relaxed">
-                    Le Sommet pancanadien des communautés noires est un événement
-                    subventionné à 90&nbsp;%. L&apos;inscription comprend
-                    l&apos;accès à toutes les sessions du Sommet, aux repas, aux
-                    cérémonies d&apos;ouverture et de clôture, ainsi qu&apos;à
-                    des occasions de réseautage.
+                    Le Sommet pancanadien des communautés noires est un
+                    événement subventionné à 90&nbsp;%. L&apos;inscription
+                    comprend l&apos;accès à toutes les sessions du Sommet, aux
+                    repas, aux cérémonies d&apos;ouverture et de clôture, ainsi
+                    qu&apos;à des occasions de réseautage.
                   </p>
                   <p className="font-body text-[15px] lg:text-[22px] text-[#1E1E1EB2] font-medium leading-relaxed">
                     Nous tenons à remercier chaleureusement nos partenaires,

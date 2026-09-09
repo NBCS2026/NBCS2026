@@ -9,28 +9,21 @@ export const DAY3_SCHEDULE: ScheduleBlock[] = [
     description: "Closing Ceremony Program",
     segments: [
       {
-        title: "Host",
+        title: "Co-Hosts",
         items: [
           "Odario Williams, Host of CBC's _Afterdark_, Hip-Hop Artist, Actor, DJ and Storyteller",
+          "Patricia Bitu Tshikudi, Executive Director, Centre Culturel Franco-Manitobain (CCFM)",
         ],
       },
       {
         title: "Summary of Summit Resolutions",
-        items: [
-          "Angela Cassie, Chair, 2026 National Black Canadians Summit",
-        ],
+        items: ["Angela Cassie, Chair, 2026 National Black Canadians Summit"],
       },
       {
         title: "Remarks",
         items: [
           "The Honourable Michael Coteau, Member of Parliament",
           "Edward Matwawana, Executive Director, Michaëlle Jean Foundation",
-        ],
-      },
-      {
-        title: "Passing of the Baton to Calgary",
-        items: [
-          "Dr. Charles Odame-Ankrah, Executive Director, Calgary African Community Collective",
         ],
       },
       {
@@ -42,7 +35,7 @@ export const DAY3_SCHEDULE: ScheduleBlock[] = [
       {
         title: "Performance",
         items: [
-          "Measha Brueggergosman-Lee and Summit Mass Choir, Directed by Sonya Williams",
+          "Measha Brueggergosman-Lee and the Summit Mass Choir, including Roots in Harmony Choir, directed by Sonya Williams",
         ],
       },
       {

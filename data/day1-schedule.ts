@@ -3,6 +3,7 @@ export type {
   SchedulePersonGroup,
   ScheduleSession,
 } from "./schedule-types";
+
 import type { ScheduleBlock } from "./schedule-types";
 
 export const DAY1_SCHEDULE: ScheduleBlock[] = [
@@ -101,9 +102,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
         people: [
           {
             label: "facilitator",
-            names: [
-              "Drayton Mulindabigwi, Founder, The Novas Group",
-            ],
+            names: ["Drayton Mulindabigwi, Founder, The Novas Group"],
           },
           {
             label: "panelists",
@@ -202,14 +201,6 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
     title: "Afternoon Breakout Sessions",
     sessions: [
       {
-        id: "session-6",
-        number: 6,
-        title: "Build yourself, Build your future",
-        room: "Pan Am",
-        description:
-          "This session explores the power of networks as a key driver of opportunity, growth, and access. It invites participants to rethink networking beyond transactions, focusing instead on authenticity, relationship-building, and navigating professional spaces with confidence. Through shared experiences and practical insights, the conversation will highlight how meaningful connections can support long-term personal and professional development.",
-      },
-      {
         id: "session-7",
         number: 7,
         title: "Art as an Act of Resistance",
@@ -242,7 +233,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
           {
             label: "panelists",
             names: [
-              "Isak Vaillaincourt, Filmmaker, multidisciplinary Artist and Co-founder and Director of BLM Sudbury",
+              "Isak Vaillancourt, Filmmaker, Multidisciplinary Artist and Co-founder and Director of BLM Sudbury",
               "Nita Omokhose Badaiki, Activist, Trained & Experienced Anti-Oppression Facilitator",
             ],
           },
@@ -334,13 +325,13 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
     id: "networking",
     time: "6:00 p.m. – 7:00 p.m.",
     title: "Delegate Networking Hour",
-    description:
-      "Connect with fellow delegates before the Opening Ceremony.",
+    description: "Connect with fellow delegates before the Opening Ceremony.",
   },
   {
     id: "opening-ceremony",
     time: "Starting at 7:00 p.m.",
     title: "Opening Ceremony",
+    location: "Hall C",
     description: "Opening Ceremony Program",
     segments: [
       {
@@ -361,6 +352,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
       },
       {
         title: "Welcome, Land Acknowledgement, Grand Entry and Opening Prayers",
+        items: ["Manito Ahbee Festival"],
       },
       {
         title: "Remarks",
@@ -371,16 +363,17 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
       {
         title: "Performances",
         items: [
-          "National Anthem",
+          "National Anthem: Tori Taylor",
           "Black National Anthem: Ayosingz, Nigerian-Canadian Gospel Singer, Songwriter, Producer and Black Professionals in Music Artist at Manitoba Music",
+          "Traditional African drum and dance performance: African Communities of Manitoba Inc. (ACOMI) and Drummers From Home",
         ],
       },
       {
         title: "Welcome to Winnipeg, Manitoba",
         items: [
           "The Honourable Anita Neville, P.C., O.M., Lieutenant Governor of Manitoba",
-          "The Honourable Wab Kinew, Premier of Manitoba",
-          "His Worship Scott Gillingham, Mayor of Winnipeg",
+          "Province of Manitoba",
+          "Deputy Mayor Marcus Chambers",
         ],
       },
       {

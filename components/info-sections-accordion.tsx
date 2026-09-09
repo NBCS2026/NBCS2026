@@ -1,10 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
+import { type ReactNode, useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export type InfoSectionId =
@@ -68,32 +67,31 @@ function AccordionSection({
           <ChevronDown
             className={cn(
               "size-7 sm:size-8 shrink-0 text-white transition-transform duration-300",
-              open && "rotate-180"
+              open && "rotate-180",
             )}
             aria-hidden
           />
         </button>
 
-        <div
+        <section
           id={`${id}-panel`}
-          role="region"
           aria-labelledby={`${id}-trigger`}
           className={cn(
             "grid transition-[grid-template-rows] duration-300 ease-out",
-            open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
           )}
         >
           <div className="overflow-hidden">
             <div
               className={cn(
                 "px-4 sm:px-6 md:px-8 lg:px-12 pb-6 sm:pb-8 md:pb-10 lg:pb-12 pt-1",
-                contentClassName
+                contentClassName,
               )}
             >
               {children}
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </section>
   );
@@ -205,7 +203,7 @@ function VenuePanel({ open }: { open: boolean }) {
         <div
           className={cn(
             "transition-opacity duration-500 ease-out",
-            open ? "opacity-100" : "opacity-0"
+            open ? "opacity-100" : "opacity-0",
           )}
         >
           <LocationCard />
@@ -213,7 +211,7 @@ function VenuePanel({ open }: { open: boolean }) {
         <div
           className={cn(
             "transition-opacity duration-700 ease-out delay-300",
-            animateIn ? "opacity-100" : "opacity-0"
+            animateIn ? "opacity-100" : "opacity-0",
           )}
         >
           <VenueDetails />
@@ -226,7 +224,7 @@ function VenuePanel({ open }: { open: boolean }) {
           <div
             className={cn(
               "transition-opacity duration-700 ease-out delay-[450ms]",
-              animateIn ? "opacity-100" : "opacity-0"
+              animateIn ? "opacity-100" : "opacity-0",
             )}
           >
             <VenueDetails />
@@ -241,7 +239,7 @@ function VenuePanel({ open }: { open: boolean }) {
             "absolute top-0 left-0 w-[calc(50%-0.75rem)] lg:w-[calc(50%-1.25rem)] 2xl:w-[calc(50%-1.5rem)] transition-all duration-700 ease-out",
             animateIn
               ? "translate-x-[calc(100%+1.5rem)] lg:translate-x-[calc(100%+2.5rem)] 2xl:translate-x-[calc(100%+3rem)]"
-              : "translate-x-0"
+              : "translate-x-0",
           )}
         >
           <LocationCard />
@@ -254,7 +252,7 @@ function VenuePanel({ open }: { open: boolean }) {
 export function InfoSectionsAccordion({ locale }: { locale: string }) {
   const t = useTranslations("info");
   const [activeSection, setActiveSection] = useState<InfoSectionId | null>(
-    null
+    null,
   );
 
   const scrollSectionIntoView = useCallback((id: InfoSectionId) => {
@@ -344,6 +342,10 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
                   activités du Sommet. Rejoignez-nous dans ce cadre idéal pour
                   rencontrer les autres participants tout au long de la semaine.
                 </p>
+                <p className="rounded-2xl border border-white/50 bg-white px-4 py-3 text-[clamp(16px,1.8vw,20px)] font-bold text-[#5D1831]">
+                  Complet — le bloc de chambres du SPCN au Delta Hotels Winnipeg
+                  est maintenant entièrement réservé.
+                </p>
                 <div className="mt-4">
                   <h3 className="font-heading text-[clamp(20px,2.5vw,28px)] font-bold mb-2">
                     Adresse de l&apos;hôtel :
@@ -359,9 +361,9 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
                     Tarif de groupe préférentiel
                   </h3>
                   <p className="text-[clamp(16px,1.8vw,20px)] opacity-90 mb-2">
-                    Un tarif de groupe spécial est proposé exclusivement aux
-                    participants au Sommet, dans la limite des chambres
-                    disponibles.
+                    Le tarif de groupe du Sommet est indiqué ci-dessous à titre
+                    informatif; aucune chambre n&apos;est actuellement
+                    disponible dans ce bloc.
                   </p>
                   <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
                     <span className="font-bold">Tarif de groupe :</span>{" "}
@@ -374,28 +376,6 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
                       Date limite de réservation :
                     </span>{" "}
                     vendredi 21 août 2026
-                  </p>
-                  <p className="text-[clamp(16px,1.8vw,20px)] opacity-90 mt-4">
-                    Nous encourageons nos clients à réserver tôt afin de
-                    profiter de ce tarif spécial et de séjourner au cœur de
-                    l&apos;expérience du Sommet.
-                  </p>
-                </div>
-                <div className="mt-6 flex flex-col items-start gap-3">
-                  <Button
-                    onClick={() =>
-                      window.open(
-                        "https://www.marriott.com/event-reservations/reservation-link.mi?id=1747239523588&key=GRP&guestreslink2=true&app=resvlink",
-                        "_blank"
-                      )
-                    }
-                    className="bg-[#8C0C3A] hover:bg-[#5D1831] text-white border border-[#8C0C3A] transition-colors cursor-pointer rounded-full h-[50px] px-8 py-6 text-[18px] font-semibold"
-                  >
-                    Réservez ici
-                  </Button>
-                  <p className="text-white text-[14px] opacity-90">
-                    ou composez le 1-800-268-1133 et mentionnez le code de
-                    bloc&nbsp;: BLC
                   </p>
                 </div>
               </>
@@ -412,6 +392,10 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
                   Summit activities. Join us in this ideal setting to connect
                   with fellow attendees throughout the week.
                 </p>
+                <p className="rounded-2xl border border-white/50 bg-white px-4 py-3 text-[clamp(16px,1.8vw,20px)] font-bold text-[#5D1831]">
+                  Sold out — the NBCS room block at Delta Hotels Winnipeg is now
+                  fully booked.
+                </p>
                 <div className="mt-4">
                   <h3 className="font-heading text-[clamp(20px,2.5vw,28px)] font-bold mb-2">
                     Hotel Address:
@@ -427,8 +411,8 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
                     Preferred Group Rate
                   </h3>
                   <p className="text-[clamp(16px,1.8vw,20px)] opacity-90 mb-2">
-                    A special group rate is available exclusively for Summit
-                    participants, while rooms last.
+                    The Summit group rate is shown below for reference; there
+                    are currently no rooms available in this block.
                   </p>
                   <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
                     <span className="font-bold">Group rate:</span> $229 CAD per
@@ -439,27 +423,6 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
                     <br />
                     <span className="font-bold">Booking deadline:</span> Friday,
                     August 21, 2026
-                  </p>
-                  <p className="text-[clamp(16px,1.8vw,20px)] opacity-90 mt-4">
-                    We encourage our guests to book early to take advantage of
-                    this special rate and to stay close to the heart of the
-                    Summit experience.
-                  </p>
-                </div>
-                <div className="mt-6 flex flex-col items-start gap-3">
-                  <Button
-                    onClick={() =>
-                      window.open(
-                        "https://www.marriott.com/event-reservations/reservation-link.mi?id=1747239523588&key=GRP&guestreslink2=true&app=resvlink",
-                        "_blank"
-                      )
-                    }
-                    className="bg-[#8C0C3A] hover:bg-[#5D1831] text-white border border-[#8C0C3A] transition-colors cursor-pointer rounded-full h-[50px] px-8 py-6 text-[18px] font-semibold"
-                  >
-                    Book Now
-                  </Button>
-                  <p className="text-white text-[14px] opacity-90">
-                    or call 1-800-268-1133 and reference block code: BLC
                   </p>
                 </div>
               </>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -7,28 +8,27 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Toggle } from "./svg/toggle";
-import { NavLink } from "./nav-link";
 import { LangSelect } from "./lang-select";
-import { Button } from "./ui/button";
-import { useState } from "react";
-import { useRouter } from "@/i18n/navigation";
+import { NavLink } from "./nav-link";
+import { Toggle } from "./svg/toggle";
 
 interface ToggleMenuProps {
   local: string;
   className?: string;
 }
 
-export default function ToggleMenu({ local, className }: ToggleMenuProps) {
+export default function ToggleMenu({
+  local: _local,
+  className,
+}: ToggleMenuProps) {
   const [toggle, setToggle] = useState(false);
-  const router = useRouter();
 
   const handleToggle = () => {
     setToggle(!toggle);
   };
   return (
     <Sheet open={toggle} onOpenChange={handleToggle}>
-      <SheetTrigger className={`md:hidden ${className ?? ""}`}>
+      <SheetTrigger className={`xl:hidden ${className ?? ""}`}>
         <Toggle />
       </SheetTrigger>
       <SheetContent className="w-full px-8 pt-10">
@@ -42,7 +42,6 @@ export default function ToggleMenu({ local, className }: ToggleMenuProps) {
             <li>
               <LangSelect className="data-placeholder:text-black [&_svg]:text-black" />
             </li>
-
           </ul>
         </SheetHeader>
       </SheetContent>
