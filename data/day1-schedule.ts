@@ -376,9 +376,9 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
       {
         title: "Performances",
         items: [
+          "Traditional African drum and dance performance: African Communities of Manitoba Inc. (ACOMI) and Drummers From Home",
           "National Anthem: Tori Taylor",
           "Black National Anthem: Ayosingz, Nigerian-Canadian Gospel Singer, Songwriter, Producer and Black Professionals in Music Artist at Manitoba Music",
-          "Traditional African drum and dance performance: African Communities of Manitoba Inc. (ACOMI) and Drummers From Home",
         ],
       },
       {

@@ -374,9 +374,9 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
       {
         title: "Prestations",
         items: [
+          "Prestation traditionnelle de tambours et de danse africaine : African Communities of Manitoba Inc. (ACOMI) et Drummers From Home",
           "Hymne national : Tori Taylor",
           "Hymne national noir (Lift Every Voice and Sing) — Ayosingz, chanteur, auteur-compositeur et producteur gospel canado-nigérian, et des artistes du programme Black Professionals in Music de Manitoba Music",
-          "Prestation traditionnelle de tambours et de danse africaine : African Communities of Manitoba Inc. (ACOMI) et Drummers From Home",
         ],
       },
       {
