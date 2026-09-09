@@ -34,6 +34,10 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
           "Candies Kotchapaw, Founder, Organization for Economic Development and Diplomacy (OEDD)",
         ],
       },
+      {
+        label: "performances",
+        names: ["Samiha Issak and Thandi Vera — poetic performance"],
+      },
     ],
   },
   {
@@ -348,7 +352,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
         body: "Filmed by Joye Social House and Produced by 9:16 Stories",
       },
       {
-        title: "Host",
+        title: "Co-Host",
         items: [
           "Odario Williams, host of CBC's _Afterdark_, hip-hop artist, actor, DJ, and storyteller",
         ],
@@ -382,13 +386,13 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
         items: [
           "The Honourable Anita Neville, P.C., O.M., Lieutenant Governor of Manitoba",
           "Province of Manitoba",
-          "Deputy Mayor Markus Chambers",
+          "Markus Chambers, City Councillor and Deputy Mayor of Winnipeg",
         ],
       },
       {
         title: "Poetry and Dance Performance",
         items: [
-          "Chimwemwe Undi, Canada's Parliamentary Poet Laureate and Former Poet Laureate of Winnipeg; Poet, Writer and Editor",
+          "Chimwemwe Undi, Canada's Parliamentary Poet Laureate and Former Poet Laureate of Winnipeg; Poet, Writer, Editor and Lawyer at Thompson Dorfman Sweatman (TDS) LLP",
           "Elsie Rweyemamu, Dancer and Senior-Level Student, Royal Winnipeg Ballet School — Choreography by Nicole Kepp, Principal, Recreational Division, Canada's Royal Winnipeg Ballet School",
           "Kamil Jones Strachan, Award-winning Classical Pianist",
         ],

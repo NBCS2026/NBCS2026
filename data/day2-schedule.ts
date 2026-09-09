@@ -73,6 +73,10 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
           "This session explores how storytelling, art, and cultural production serve as tools for preservation, resistance, and identity. It examines the importance of building sustainable cultural infrastructure and ensuring that Black narratives remain visible, self-determined, and enduring.",
         people: [
           {
+            label: "allocution",
+            names: ["The Honourable Nellie Kennedy, Manitoba Minister of Sport, Culture, Heritage and Tourism"],
+          },
+          {
             label: "moderator",
             names: ["Dr. Tasha Spillett, Author, Educator and Researcher"],
           },
@@ -279,6 +283,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
               'Sylvia Parris-Drummond, Leader, Educator and CEO, Delmore "Buddy" Daye Learning Institute; President, SVPARRIS CONSULTING',
               "Michelle Jean-Paul, Educational Leader and Community Advocate",
               "Xavier McLaughlin, Operations Manager and Education Systems Navigator, Parents for Black Children",
+              "Harley Gervais, Founder and Principal of The G-Eight and Former Justice of the Peace",
             ],
           },
         ],
@@ -295,6 +300,10 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
         description:
           "This session explores how environmental racism disproportionately impacts Black communities, including exposure to harmful environments and resulting health disparities. It frames climate justice as a racial justice issue and highlights pathways for advocacy, policy reform, and community-led solutions.",
         people: [
+          {
+            label: "moderator",
+            names: ["Harun Kibirige, Assistant Vice-President, Investment Operations, Canada Life"],
+          },
           {
             label: "panelists",
             names: [
@@ -467,7 +476,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
     time: "5:00 p.m. – 7:00 p.m.",
     title: "Sponsors & Partners Reception",
     description:
-      "**By invitation only.** An evening reception bringing together partners, sponsors and speakers to strengthen relationships, celebrate collaboration, and continue conversations in an informal setting.",
+      "**By invitation only.** An evening reception bringing together partners and sponsors to strengthen relationships, celebrate collaboration, and continue conversations in an informal setting.",
   },
   {
     id: "in-circle",

@@ -28,6 +28,10 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
           "Candies Kotchapaw, fondatrice de l'Organization for Economic Development and Diplomacy (OEDD)",
         ],
       },
+      {
+        label: "performances",
+        names: ["Samiha Issak et Thandi Vera — prestation poétique"],
+      },
     ],
   },
   {
@@ -52,7 +56,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
         title: "Leadership et gouvernance",
         room: "2E",
         description:
-          "Cette séance explore la manière dont les jeunes Noirs agissent comme moteurs de changement au sein de leurs communautés par leur leadership, leur action de sensibilisation et leur engagement dans la gouvernance. Les échanges porteront sur l'engagement civique, la représentation, la responsabilisation communautaire et les nombreuses façons dont le leadership est redéfini selon leurs propre conceptions et priorités.",
+          "Cette séance explore comment les jeunes Noirs renforcent leurs communautés par leur leadership, leur action de sensibilisation et leur engagement dans la gouvernance. Elle ouvrira des discussions sur l'engagement civique, la représentation, la responsabilisation communautaire et les nombreuses façons dont le leadership est redéfini selon leurs propres critères.",
         people: [
           {
             label: "panelists",
@@ -294,7 +298,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
       {
         id: "session-12",
         number: 6,
-        title: "Votre feuille de route vers CBC : comment présenter une idée",
+        title: "En route vers CBC : comment présenter votre histoire",
         room: "Théâtre de présentation",
         presentedBy: {
           name: "CBC",
@@ -345,9 +349,9 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
           "Vidéo d'ouverture du Sommet — Réalisée par Joye Social House et produite par 9:16 Stories",
       },
       {
-        title: "Animation",
+        title: "Coanimation",
         items: [
-          "Odario Williams, animateur radio, musicien et animateur de l'émission Afterdark sur CBC Music",
+          "Odario Williams, animateur de l'émission _Afterdark_ à CBC, artiste hip-hop, acteur, DJ et conteur",
         ],
       },
       {
@@ -380,13 +384,13 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
         items: [
           "L'honorable Anita Neville, P.C., O.M., lieutenante-gouverneure du Manitoba",
           "Gouvernement du Manitoba",
-          "Le maire adjoint Markus Chambers",
+          "Markus Chambers, conseiller municipal et adjoint au maire de Winnipeg",
         ],
       },
       {
         title: "Poésie et prestation de danse",
         items: [
-          "Chimwemwe Undi, poète lauréat parlementaire du Canada et ancien poète officiel de Winnipeg; poète, écrivain et rédacteur",
+          "Chimwemwe Undi, Poète lauréat parlementaire du Canada et ancien poète officiel de Winnipeg; poète, écrivaine, éditrice et avocate chez Thompson Dorfman Sweatman (TDS) LLP",
           "Elsie Rweyemamu, danseuse et élève de la division récréative de l'école Royal Winnipeg Ballet — Chorégraphie par Nicole Kepp, directrice de la division récréative de la Royal Winnipeg Ballet School du Canada",
           "Kamil Jones Strachan, pianiste classique primé",
         ],

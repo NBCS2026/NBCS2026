@@ -73,6 +73,10 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
           "Cette session explore comment la narration, l'art et la production culturelle contribuent à préserver la mémoire, à résister aux effacements et à affirmer les identités. Elle examine l'importance d’édifier des infrastructures culturelles durables et de garantir que les récits des communautés noires demeurent visibles, autonomes et pérennes.",
         people: [
           {
+            label: "allocution",
+            names: ["L’honorable Nellie Kennedy, ministre du Sport, de la Culture, du Patrimoine et du Tourisme du Manitoba"],
+          },
+          {
             label: "moderatrice",
             names: ["Dre Tasha Spillett, auteure, éducatrice et chercheuse"],
           },
@@ -125,7 +129,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
           {
             label: "moderatrice",
             names: [
-              "Harley Gervais, fondateur et directeur de The G-Eight et ancien juge de paix",
+              "Harley Gervais, fondatrice et directrice de The G-Eight et ancienne juge de paix",
             ],
           },
           {
@@ -281,6 +285,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
               "Sylvia Parris-Drummond, leader, éducatrice et PDG du Delmore « Buddy » Daye Learning Institute",
               "Michelle Jean-Paul, leader en éducation et militante communautaire",
               "Xavier McLaughlin, gestionnaire des opérations et navigateur des systèmes d’éducation, Parents for Black Children",
+              "Harley Gervais, fondatrice et directrice de The G-Eight et ancienne juge de paix",
             ],
           },
         ],
@@ -297,6 +302,10 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
         description:
           "Cette session explore comment le racisme environnemental touche de manière disproportionnée les communautés noires, y compris l'exposition à des environnements nuisibles et les disparités sanitaires qui en résultent. Elle présente la justice climatique comme une question de justice raciale et met en lumière les voies de plaidoyer, de réforme des politiques et de solutions portés par la communauté.",
         people: [
+          {
+            label: "moderator",
+            names: ["Harun Kibirige, vice-président adjoint, Opérations de placement, Canada Vie"],
+          },
           {
             label: "panelists",
             names: [
@@ -387,7 +396,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
       {
         id: "d2-pm-6",
         number: 6,
-        title: "Arts et culture au Canada : de la survie à l’épanouissement",
+        title: "La scène culturelle canadienne : de la simple survie à la réussite",
         room: "Millennium Suite",
         presentedBy: {
           name: "CBC",
