@@ -9,6 +9,8 @@ type SponsorEntry = {
   roleEn?: string;
   roleFr?: string;
   logos?: SponsorLogo[];
+  website?: string;
+  showRole?: boolean;
 };
 
 const champions: SponsorEntry[] = [
@@ -33,7 +35,7 @@ const champions: SponsorEntry[] = [
       {
         src: "/sponsor_5.jpg",
         alt: "Canada Life",
-        className: "max-h-20 max-w-[260px]",
+        className: "max-h-36 max-w-[280px] w-full",
       },
     ],
   },
@@ -65,21 +67,13 @@ const advocates: SponsorEntry[] = [
       },
     ],
   },
-  {
-    name: "The Winnipeg Foundation",
-    logos: [
-      {
-        src: "/winnipeg-foundation-logo.png",
-        alt: "The Winnipeg Foundation",
-        className: "max-h-16 max-w-[250px]",
-      },
-    ],
-  },
 ];
 
 const partners: SponsorEntry[] = [
   {
     name: "CBC",
+    website: "https://www.cbc.ca/",
+    showRole: true,
     roleEn: "Media Partner",
     roleFr: "Partenaire média",
     logos: [
@@ -213,6 +207,17 @@ const donors: SponsorEntry[] = [
 ];
 
 const communityPartners: SponsorEntry[] = [
+  {
+    name: "The Winnipeg Foundation",
+    logos: [
+      {
+        src: "/winnipeg-foundation-logo.png",
+        alt: "The Winnipeg Foundation",
+        className: "max-h-16 max-w-[250px]",
+      },
+    ],
+  },
+
   {
     name: "Manito Ahbee Festival",
     logos: [
@@ -425,7 +430,7 @@ function SponsorCard({
 
   return (
     <article
-      className={`flex ${height} w-full flex-col items-center justify-center gap-4 rounded-2xl border border-[#E8D4DB] bg-white text-center shadow-[0_10px_35px_rgba(93,24,49,0.06)] ${prominence === "champion" || prominence === "paid" ? "p-6 [&_img]:scale-[1.06]" : "p-5"}`}
+      className={`flex ${height} w-full ${entry.name === "CBC" ? "flex-row flex-wrap" : "flex-col"} items-center justify-center gap-4 rounded-2xl border border-[#E8D4DB] bg-white text-center shadow-[0_10px_35px_rgba(93,24,49,0.06)] ${prominence === "champion" || prominence === "paid" ? "p-6 [&_img]:scale-[1.06]" : "p-5"}`}
     >
       {entry.logos && (
         <div className="flex min-h-16 flex-wrap items-center justify-center gap-4">
@@ -434,11 +439,18 @@ function SponsorCard({
               key={logo.src}
               src={logo.src}
               alt={logo.alt}
-              className={`h-auto w-auto object-contain ${logo.className || "max-h-16 max-w-[240px]"}`}
+              className={`h-auto w-auto max-w-full object-contain ${entry.name === "CBC" ? "max-h-14 max-w-[80px]" : logo.className || "max-h-16 max-w-[240px]"}`}
               loading="lazy"
             />
           ))}
         </div>
+      )}
+      {entry.showRole && role && (
+        entry.website ? (
+          <a href={entry.website} target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#8C0C3A] underline underline-offset-4">
+            {role}
+          </a>
+        ) : <p className="text-sm font-bold text-[#8C0C3A]">{role}</p>
       )}
       {!entry.logos && (
         <div>
@@ -571,6 +583,13 @@ export function SponsorDirectory({
         titleEn="In-Circle Women’s Gathering Sponsor"
         titleFr="Commanditaire du rassemblement En Cercle des femmes"
         entries={inCircleSponsors}
+        locale={locale}
+        compact={compact}
+      />
+      <Tier
+        titleEn="In-Circle Women’s Gathering Host"
+        titleFr="Hôte du rassemblement En Cercle des femmes"
+        entries={[{ name: "Province of Manitoba", logos: [{ src: "/manitoba-logo.png", alt: locale === "fr" ? "Province du Manitoba" : "Province of Manitoba", className: "max-h-20 max-w-[240px]" }] }]}
         locale={locale}
         compact={compact}
       />

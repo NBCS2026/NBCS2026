@@ -133,6 +133,12 @@ export function MediaContent({ locale }: { locale: string }) {
 
   return (
     <>
+      <section aria-label={isFr ? "Partenaire média officiel" : "Official Media Partner"} className="px-5 pt-12">
+        <a href="https://www.cbc.ca/" target="_blank" rel="noopener noreferrer" className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-6 rounded-2xl border border-[#E8D4DB] bg-white px-6 py-8 text-[#5D1831]">
+          <img src="/cbc-logo.png" alt="CBC" className="h-16 w-auto max-w-[180px] object-contain" />
+          <span className="font-heading text-lg font-bold underline underline-offset-4">{isFr ? "Partenaire média officiel" : "Official Media Partner"}</span>
+        </a>
+      </section>
       <section className="px-5 pb-4 pt-14 text-center sm:pt-20">
         <div className="mx-auto max-w-3xl">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">

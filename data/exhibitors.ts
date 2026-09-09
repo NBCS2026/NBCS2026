@@ -19,6 +19,9 @@ export type MarketplaceVendor = {
 
 export type Exhibitor = {
   name: string;
+  nameFr?: string;
+  logoAlt?: string;
+  logoAltFr?: string;
   logoUrls?: string[];
   logoClassName?: string;
   textMark?: string;
@@ -26,6 +29,8 @@ export type Exhibitor = {
 };
 
 export const EXHIBITORS: Exhibitor[] = [
+  { name: "CBC", logoUrls: ["/cbc-logo.png"] },
+
   {
     name: "Michaëlle Jean Foundation",
     logoUrls: [
@@ -34,9 +39,11 @@ export const EXHIBITORS: Exhibitor[] = [
   },
   { name: "Zueike", logoUrls: ["/zueike.webp"] },
   {
-    name: "SBCCI",
-    logoUrls: ["https://sbcci.ca/images/sbcci-logo-new-w%402x.png"],
-    logoClassName: "brightness-0",
+    name: "Supporting Black Canadian Communities Initiative",
+    nameFr: "Initiative Appuyer les communautés noires du Canada",
+    logoUrls: ["/government-canada-wordmark.svg"],
+    logoAlt: "Government of Canada",
+    logoAltFr: "Gouvernement du Canada",
   },
   {
     name: "Canadian Race Relations Foundation",
@@ -65,12 +72,12 @@ export const EXHIBITORS: Exhibitor[] = [
     name: "Canadian Labour Congress / CUPE",
     logoUrls: ["/exhibitor-clc.png", "/exhibitor-cupe.svg"],
   },
+  { name: "Federation of Black Canadians", logoUrls: ["/federation-black-canadians.webp"] },
   { name: "St-Aude Advocacy", textMark: "ST-AUDE ADVOCACY" },
   {
     name: "Diversity Institute",
     logoUrls: ["/trsm-diversity-institute-logo.png"],
   },
-  { name: "CBC", logoUrls: ["/cbc-logo.png"] },
   {
     name: "Communications Security Establishment",
     logoUrls: ["https://www.cse-cst.gc.ca/GCWeb/assets/sig-blk-en.svg"],

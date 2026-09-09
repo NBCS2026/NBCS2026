@@ -190,7 +190,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                     <img
                       key={logoUrl}
                       src={logoUrl}
-                      alt=""
+                      alt={isFr ? exhibitor.logoAltFr ?? exhibitor.logoAlt ?? "" : exhibitor.logoAlt ?? ""}
                       loading="lazy"
                       referrerPolicy="no-referrer"
                       className={`h-20 w-auto ${exhibitor.logoUrls?.length === 1 ? "max-w-full" : "max-w-[45%]"} min-w-0 object-contain object-center ${exhibitor.logoClassName ?? ""}`}
@@ -203,7 +203,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                   )}
                 </div>
                 <h3 className="px-2 pb-2 pt-3 text-center font-heading text-sm font-bold leading-snug text-white">
-                  {exhibitor.name}
+                  {isFr ? exhibitor.nameFr ?? exhibitor.name : exhibitor.name}
                 </h3>
               </article>
             ))}
