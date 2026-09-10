@@ -122,12 +122,12 @@ export default function Page() {
                   <p className="font-body text-[15px] lg:text-[18px] text-[#1E1E1EB2] font-medium leading-relaxed text-center">
                     {registerHint}
                   </p>
+                  <BizzaboRegistrationWidget key={`bizzabo-${locale}`} />
                   <aside aria-label={isFr ? "Liste d’attente jeunesse" : "Youth ticket waitlist"} className="rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] p-5 text-center sm:p-6">
                     <h3 className="font-heading text-lg font-bold text-[#5D1831]">{isFr ? "Les billets jeunesse sont épuisés" : "Youth tickets are sold out"}</h3>
                     <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-[#1E1E1E]/75">{isFr ? "Inscrivez-vous sur la liste d’attente pour être contacté·e si un billet se libère. L’inscription ne garantit pas un billet." : "Join the waitlist to be contacted if a ticket becomes available. Joining does not guarantee a ticket."}</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-4DhY8etnlxSWOKabEUVeDZjlP0uw1cjGan-91o0dQMWH5g/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-[#8C0C3A] px-6 py-3 text-sm font-bold text-white hover:bg-[#5D1831]">{isFr ? "Rejoindre la liste d’attente jeunesse" : "Join the youth waitlist"}</a>
                   </aside>
-                  <BizzaboRegistrationWidget key={`bizzabo-${locale}`} />
                 </div>
                 <div className="rounded-xl sm:rounded-2xl lg:rounded-[28px] border border-[#E8D4DB] bg-[#FAF6F7] px-5 sm:px-8 py-6 sm:py-8 space-y-4">
                   <p className="font-heading text-[16px] sm:text-[20px] font-bold tracking-[0.12em] uppercase text-[#8C0C3A] text-center">
