@@ -1,17 +1,14 @@
 "use client";
 
-import { useRef } from "react";
 import { Foundation } from "@/components/svg/foundation";
 import { ChevronDown } from "lucide-react";
 import { WELCOME_MESSAGES } from "@/data/welcome-messages";
 
 export function WelcomeMessages({ locale }: { locale: string }) {
   const isFr = locale === "fr";
-  const messagesRef = useRef<HTMLElement>(null);
-  const setAllOpen = (open: boolean) => { messagesRef.current?.querySelectorAll("details").forEach(message => { message.open = open; }); };
 
   return (
-    <section id="welcome-messages" ref={messagesRef} className="scroll-mt-36 bg-[#FAF6F7] px-5 py-14 sm:py-20">
+    <section id="welcome-messages" className="scroll-mt-36 bg-[#FAF6F7] px-5 py-14 sm:py-20">
       <div className="mx-auto max-w-[1180px]">
         <div className="mb-9 max-w-3xl">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
@@ -27,10 +24,6 @@ export function WelcomeMessages({ locale }: { locale: string }) {
           </p>
         </div>
 
-        <div className="mb-5 flex flex-wrap gap-3">
-          <button type="button" onClick={() => setAllOpen(true)} className="rounded-full border border-[#E8D4DB] bg-white px-4 py-2 text-sm font-semibold text-[#8C0C3A]">{isFr ? "Tout ouvrir" : "Expand all messages"}</button>
-          <button type="button" onClick={() => setAllOpen(false)} className="rounded-full border border-[#E8D4DB] bg-white px-4 py-2 text-sm font-semibold text-[#8C0C3A]">{isFr ? "Tout fermer" : "Collapse all messages"}</button>
-        </div>
         <div className="space-y-4">
           {WELCOME_MESSAGES.map((message) => {
             const paragraphs = isFr
