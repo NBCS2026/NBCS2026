@@ -331,6 +331,18 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
     ],
   },
   {
+  "id": "exhibition-artists-meet-greet",
+  "time": "6:00 p.m. – 6:30 p.m.",
+  "title": "Exhibition Artists’ Meet & Greet",
+  "location": "Hall D",
+  "description": "Meet the artists behind Together in Motion 2026 and discover the ideas and stories behind the exhibition. This gathering also marks the opening of Culture Days, the annual pan-Canadian celebration of arts, culture and heritage.",
+  "note": "Open to the public — no Summit registration required.",
+  "action": {
+    "label": "About Culture Days",
+    "url": "https://culturedays.ca/en"
+  }
+},
+  {
     id: "networking",
     time: "6:00 p.m. – 7:00 p.m.",
     title: "Delegate Networking Hour",

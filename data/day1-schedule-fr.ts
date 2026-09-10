@@ -327,6 +327,18 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
     ],
   },
   {
+  "id": "exhibition-artists-meet-greet",
+  "time": "18 h – 18 h 30",
+  "title": "Rencontre avec les artistes de l’exposition",
+  "location": "Hall D",
+  "description": "Rencontrez les artistes de l’exposition Together in Motion 2026 et découvrez les idées et les récits qui inspirent leurs œuvres. Cette rencontre marque aussi le début de la Fête de la culture, la célébration annuelle pancanadienne des arts, de la culture et du patrimoine.",
+  "note": "Ouvert au public — aucune inscription au Sommet requise.",
+  "action": {
+    "label": "Découvrir la Fête de la culture",
+    "url": "https://culturedays.ca/fr"
+  }
+},
+  {
     id: "networking",
     time: "18 h – 19 h",
     title: "Période de réseautage des personnes délégué·e·s",
