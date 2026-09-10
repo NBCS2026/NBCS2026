@@ -13,7 +13,7 @@ export function AboutSpeakersCollage({ locale = "en", placement = "beside" }: { 
     return (
       <figure key={item.src}>
         <img src={item.src} alt={caption} className="h-auto w-full rounded-xl" loading="lazy" />
-        <figcaption className="mt-2 text-xs italic leading-relaxed text-[#5D1831]">{caption}</figcaption>
+        {index !== 4 && <figcaption className="mt-2 text-xs italic leading-relaxed text-[#5D1831]">{caption}</figcaption>}
       </figure>
     );
   };
