@@ -186,8 +186,8 @@ const friends: SponsorEntry[] = [
 const inCircleSponsors: SponsorEntry[] = [
   {
     name: "The Walrus",
-    roleEn: "In-Circle Women’s Gathering Sponsor",
-    roleFr: "Commanditaire du rassemblement En Cercle des femmes",
+    roleEn: "In-Circle Women’s Gathering",
+    roleFr: "Rassemblement En Cercle des femmes",
     logos: [
       {
         src: "/walrus-logo.png",
@@ -532,7 +532,7 @@ export function SponsorDirectory({
         className={`flex flex-col items-center justify-center rounded-[2rem] border-2 border-[#8C0C3A]/20 bg-[#FAF6F7] px-6 text-center shadow-[0_18px_60px_rgba(93,24,49,0.09)] ${compact ? "mb-14 py-10" : "mb-20 py-16 sm:mb-24 sm:py-20"}`}
       >
         <h2 className="mb-7 font-heading text-sm font-black uppercase tracking-[0.18em] text-[#5D1831] sm:text-base">
-          {locale === "fr" ? "Commanditaire principal" : "Presenting Sponsor"}
+          {locale === "fr" ? "Présenté par" : "Presented by"}
         </h2>
         <img
           src="/sponsor_1.png"
@@ -543,16 +543,16 @@ export function SponsorDirectory({
       </section>
 
       <Tier
-        titleEn="Champion Sponsors"
-        titleFr="Commanditaires de niveau Champion"
+        titleEn="Champions"
+        titleFr="Champions"
         entries={champions}
         locale={locale}
         prominence="champion"
         compact={compact}
       />
       <Tier
-        titleEn="Advocate Sponsors"
-        titleFr="Commanditaires de niveau Défenseur"
+        titleEn="Advocates"
+        titleFr="Défenseurs"
         entries={advocates}
         locale={locale}
         prominence="paid"
@@ -581,8 +581,8 @@ export function SponsorDirectory({
         compact={compact}
       />
       <Tier
-        titleEn="In-Circle Women’s Gathering Sponsor"
-        titleFr="Commanditaire du rassemblement En Cercle des femmes"
+        titleEn="In-Circle Women’s Gathering"
+        titleFr="Rassemblement En Cercle des femmes"
         entries={inCircleSponsors}
         locale={locale}
         compact={compact}

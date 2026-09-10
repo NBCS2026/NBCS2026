@@ -218,7 +218,7 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
   "registrationUrl": "https://culturedays.ca/en",
   "registrationLabelEn": "About Culture Days",
   "registrationLabelFr": "Découvrir la Fête de la culture",
-  "image": "/about_main.webp"
+  "image": "/graffiti-art-programming-logo.jpg"
 },
   {
     id: "pegcity-steppers",
@@ -285,10 +285,6 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     address: "340 Provencher Boulevard, Winnipeg, MB R2H 0G7",
     accessEn: "Public — free",
     accessFr: "Public — gratuit",
-    noteEn:
-      "Contacts: Nathalie Buors, Communications and Marketing Director — nbuors@ccfm.mb.ca; Daniel Girard, Programming Coordinator — dgirard@ccfm.mb.ca",
-    noteFr:
-      "Contacts : Nathalie Buors, directrice des communications et du marketing — nbuors@ccfm.mb.ca; Daniel Girard, coordonnateur de la programmation — dgirard@ccfm.mb.ca",
     image: "/ccfm-logo.svg",
   },
   {

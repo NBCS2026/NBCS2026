@@ -1,5 +1,6 @@
 "use client";
 
+import { ExhibitionTitleText } from "./exhibition-title-text";
 import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
 import {
   EXHIBITION_ARTISTS,
@@ -56,7 +57,7 @@ function SectionHeading({
       <p
         className={`mt-4 text-base leading-relaxed sm:text-lg ${dark ? "text-white/80" : "text-[#1E1E1E]/75"}`}
       >
-        {description}
+        <ExhibitionTitleText text={description} />
       </p>
     </div>
   );
@@ -95,9 +96,9 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                 Graffiti Art Programming Inc.
               </h3>
               <p className="mt-3 leading-relaxed text-[#1E1E1E]/75">
-                {isFr
+                <ExhibitionTitleText text={isFr
                   ? "Graffiti Art Programming accompagne l’équipe de commissariat et de production de l’exposition En mouvement ensemble 2026."
-                  : "Graffiti Art Programming supports the curatorial and production team behind the Together in Motion 2026 exhibition."}
+                  : "Graffiti Art Programming supports the curatorial and production team behind the Together in Motion 2026 exhibition."} />
               </p>
             </div>
           </div>
@@ -118,7 +119,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                     {curator.name}
                   </h3>
                   <p className="mt-1 text-sm font-bold text-[#8C0C3A]">
-                    {isFr ? curator.roleFr : curator.roleEn}
+                    <ExhibitionTitleText text={isFr ? curator.roleFr : curator.roleEn} />
                   </p>
                   <details className="mt-3">
                     <summary className="cursor-pointer text-sm font-bold text-[#5D1831] underline underline-offset-2">

@@ -75,11 +75,11 @@ const VENUES: Venue[] = [
   },
   {
     id: 8,
-    name: "Sleeping Car Porters Memorial Garden",
-    address: "799 Main Street",
-    query: "Order of Sleeping Car Porters Memorial Winnipeg",
+    name: "Order of Sleeping Car Porters — Memorial Garden",
+    address: "799 Main Street, Winnipeg, MB",
+    query: "Memorial Garden, 799 Main Street, Winnipeg, MB",
     position: "left-[61%] top-[17%]",
-    coordinates: { lat: 49.9088, lng: -97.1322 },
+    coordinates: { lat: 49.907121560004, lng: -97.133690816295 },
   },
   {
     id: 9,
@@ -100,7 +100,7 @@ const VENUES: Venue[] = [
 ];
 
 const ALL_VENUES_URL =
-  "https://www.google.com/maps/dir/?api=1&origin=RBC+Convention+Centre+Winnipeg&destination=University+of+Manitoba+Fort+Garry+Campus&waypoints=Manitoba+Legislative+Assembly+Winnipeg%7CWAG-Qaumajuq+Winnipeg%7CRainbow+Resource+Centre+Winnipeg%7CCanadian+Museum+for+Human+Rights+Winnipeg%7COrder+of+Sleeping+Car+Porters+Memorial+Winnipeg%7CCentre+culturel+franco-manitobain+Winnipeg%7CUniversit%C3%A9+de+Saint-Boniface+Winnipeg%7CWinnipeg+sign+The+Forks&travelmode=driving";
+  "https://www.google.com/maps/dir/?api=1&origin=RBC+Convention+Centre+Winnipeg&destination=University+of+Manitoba+Fort+Garry+Campus&waypoints=Manitoba+Legislative+Assembly+Winnipeg%7CWAG-Qaumajuq+Winnipeg%7CRainbow+Resource+Centre+Winnipeg%7CCanadian+Museum+for+Human+Rights+Winnipeg%7CMemorial+Garden+799+Main+Street+Winnipeg+MB%7CCentre+culturel+franco-manitobain+Winnipeg%7CUniversit%C3%A9+de+Saint-Boniface+Winnipeg%7CWinnipeg+sign+The+Forks&travelmode=driving";
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
 function mapsUrl(query: string) {

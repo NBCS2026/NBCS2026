@@ -1,5 +1,6 @@
 "use client";
 
+import { ExhibitionTitleText } from "./exhibition-title-text";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { DAY1_SCHEDULE } from "@/data/day1-schedule";
@@ -64,7 +65,7 @@ function renderFormattedText(text: string) {
         </em>
       );
     }
-    return part;
+    return <ExhibitionTitleText key={key} text={part} />;
   });
 }
 

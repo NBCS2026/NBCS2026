@@ -1,5 +1,6 @@
 "use client";
 
+import { ExhibitionTitleText } from "./exhibition-title-text";
 import { CalendarDays, MapPin, Ticket, UserRound } from "lucide-react";
 import { SummitWeekVenueMap } from "@/components/summit-week-venue-map";
 import { SUMMIT_WEEK_EVENTS } from "@/data/summit-week-events";
@@ -115,7 +116,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                     {title}
                   </h3>
                   <p className="mt-4 text-[15px] leading-relaxed text-[#1E1E1E]/78">
-                    {description}
+                    <ExhibitionTitleText text={description} />
                   </p>
                   <dl className="mt-5 space-y-3 text-sm text-[#1E1E1E]/78">
                     <div className="flex items-start gap-2">

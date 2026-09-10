@@ -94,7 +94,7 @@ export default function Page() {
         </div>
       </div>
       <main className="bg-white rounded-t-2xl pt-14">
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] px-5 2xl:px-8 3xl:px-16 4xl:px-24 mx-auto justify-between items-center mb-16 sm:mb-24 md:mb-32 lg:mb-36 gap-6 md:gap-8 2xl:gap-12 3xl:gap-16 4xl:gap-20">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] px-5 2xl:px-8 3xl:px-16 4xl:px-24 mx-auto justify-between items-center mb-16 sm:mb-24 md:mb-4 lg:mb-4 gap-6 md:gap-8 2xl:gap-12 3xl:gap-16 4xl:gap-20">
           <div className="text-[clamp(16px,1.82vw,28px)] text-center xl:text-start text-light-gray ">
             <p className="text-light-red font-bold">{t("count_lineOne")}</p>
             <p className="leading-[1.10]">{t("count_lineTwo")}</p>

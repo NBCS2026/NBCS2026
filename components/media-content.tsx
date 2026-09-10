@@ -22,13 +22,13 @@ const INSTAGRAM_POSTS = [
   },
   {
     url: "https://www.instagram.com/michaellej_fdn/reel/Db9EFGdkjBr/",
-    embedUrl: "https://www.instagram.com/michaellej_fdn/reel/Db9EFGdkjBr/embed",
+    embedUrl: "https://www.instagram.com/reel/Db9EFGdkjBr/embed/",
     titleEn: "Winnipeg is waiting — join the 2026 Summit",
     titleFr: "Winnipeg vous attend — participez au Sommet 2026",
   },
   {
     url: "https://www.instagram.com/michaellej_fdn/p/CrwOc-MJ1iC/",
-    embedUrl: "https://www.instagram.com/michaellej_fdn/p/CrwOc-MJ1iC/embed",
+    embedUrl: "https://www.instagram.com/p/CrwOc-MJ1iC/embed/",
     titleEn: "Why a National Black Canadians Summit?",
     titleFr: "Pourquoi un Sommet pancanadien des communautés noires?",
   },
@@ -44,6 +44,14 @@ type CoverageItem = {
 };
 
 const CURRENT_COVERAGE: CoverageItem[] = [
+{
+  "title": "National Black Canadians Summit 2026",
+  "source": "CBC Manitoba",
+  "date": "2026",
+  "url": "https://www.cbc.ca/news/canada/manitoba/community/national-black-canadians-summit-2026-9.7307806",
+  "summaryEn": "Read CBC Manitoba’s coverage of the 2026 Summit.",
+  "summaryFr": "Découvrez la couverture du Sommet 2026 par CBC Manitoba."
+},
   {
     title: "Winnipeg Welcomes National Black Canadians Summit",
     source: "The Caribbean Camera",
@@ -77,17 +85,30 @@ const CURRENT_COVERAGE: CoverageItem[] = [
 ];
 
 const PAST_COVERAGE: CoverageItem[] = [
-  {
-    title:
-      "Black excellence celebrated at National Black Canadians Summit in Halifax",
-    source: "Global News",
-    date: "July 2022",
-    url: "https://globalnews.ca/news/9027149/national-black-canadians-summit-halifax/",
-    summaryEn:
-      "Reporting from the Halifax Summit, where more than 1,000 delegates gathered for panels, performances and workshops.",
-    summaryFr:
-      "Reportage sur le Sommet d’Halifax, qui a réuni plus de 1 000 personnes autour de tables rondes, de prestations et d’ateliers.",
-  },
+{
+  "title": "Black summit in Halifax connects communities across Canada",
+  "source": "CBC News",
+  "date": "2022",
+  "url": "https://www.cbc.ca/news/canada/nova-scotia/black-summit-in-halifax-connects-communities-across-canada-1.6537390",
+  "summaryEn": "CBC coverage of the Halifax Summit and connections across Black communities in Canada.",
+  "summaryFr": "La couverture de CBC sur le Sommet d’Halifax et les liens entre les communautés noires du Canada."
+},
+{
+  "title": "The Halifax Declaration at the conclusion of the Black summit",
+  "source": "CBC News",
+  "date": "2022",
+  "url": "https://www.cbc.ca/news/canada/nova-scotia/black-summit-halifax-declaration-conclusion-1.6537820",
+  "summaryEn": "Read CBC’s coverage of the Halifax Declaration and the conclusion of the Summit.",
+  "summaryFr": "Découvrez la couverture de CBC sur la Déclaration d’Halifax et la conclusion du Sommet."
+},
+{
+  "title": "Representation matters: Black youth and the power of connection",
+  "source": "CBC Nova Scotia",
+  "date": "2022",
+  "url": "https://www.cbc.ca/news/canada/nova-scotia/community/representation-matters-black-youth-power-of-connection-1.6577664",
+  "summaryEn": "A CBC feature on representation, Black youth and the power of connection.",
+  "summaryFr": "Un article de CBC sur la représentation, les jeunes Noirs et le pouvoir des liens."
+},
   {
     title: "Eradicating structural racism for Black Canadians",
     source: "Policy Options",
