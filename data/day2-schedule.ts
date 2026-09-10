@@ -480,9 +480,9 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
   },
   {
     id: "in-circle",
-    time: "6:30 p.m. – 10:30 p.m.",
+    time: "6:30 p.m. – 10:30 p.m. · By invitation only.",
     title: "IN CIRCLE: Black Women Proudly Powerful",
     description:
-      "**By invitation only.** An intimate evening gathering centred on conversation, connection, storytelling and reflection among Black women. Hosted by the Right Honourable Michaëlle Jean and the Honourable Marci Ien at the Manitoba Legislative Assembly, 450 Broadway, Winnipeg.",
+      "An intimate evening gathering centred on conversation, connection, storytelling and reflection among Black women. Hosted by the Right Honourable Michaëlle Jean and the Honourable Marci Ien at the Manitoba Legislative Assembly, 450 Broadway, Winnipeg.",
   },
 ];
