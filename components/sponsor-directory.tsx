@@ -341,7 +341,7 @@ const communityPartners: SponsorEntry[] = [
       {
         src: "/all-women-lead.webp",
         alt: "All Women L.E.A.D.",
-        className: "max-h-24 max-w-[200px]",
+        className: "max-h-28 max-w-[230px]",
       },
     ],
   },
