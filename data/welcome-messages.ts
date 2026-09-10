@@ -134,6 +134,10 @@ export const WELCOME_MESSAGES: WelcomeMessage[] = [
   },
   {
     id: "province",
+    image: "https://www.gov.mb.ca/legislature/img/mla/moses.jpg",
+    portrait: true,
+    imageAltEn: "Minister Jamie Moses",
+    imageAltFr: "Le ministre Jamie Moses",
     logo: "/manitoba-logo.png",
     logoAltEn: "Province of Manitoba",
     logoAltFr: "Province du Manitoba",

@@ -34,7 +34,7 @@ function MessageCard({ message, isFr }: { message: WelcomeMessage; isFr: boolean
     <article ref={cardRef} aria-labelledby={`${id}-title`} className="scroll-mt-36 overflow-hidden rounded-3xl border border-[#E8D4DB] bg-white p-6 shadow-[0_12px_40px_rgba(93,24,49,0.06)] sm:p-8">
       <header className="mb-5 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
         {message.image && (
-          <img src={message.image} alt={(isFr ? message.imageAltFr : message.imageAltEn) || ""} className={`${message.portrait ? "aspect-square w-28 sm:w-36" : "aspect-[3/2] w-48 sm:w-56"} shrink-0 rounded-2xl object-cover shadow-sm`} loading="lazy" />
+          <img src={message.image} alt={(isFr ? message.imageAltFr : message.imageAltEn) || ""} className={`${message.portrait ? "aspect-square w-28 sm:w-36" : "aspect-[3/2] w-48 sm:w-56"} shrink-0 rounded-2xl object-cover shadow-sm ${message.id === "province" ? "object-top" : ""}`} loading="lazy" />
         )}
         <div className="min-w-0">
           {message.id === "cofounders" && <p className="text-xs font-bold uppercase tracking-[0.13em] text-[#8C0C3A]">{isFr ? message.labelFr : message.labelEn}</p>}
