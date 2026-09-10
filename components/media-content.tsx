@@ -178,8 +178,8 @@ export function MediaContent({ locale }: { locale: string }) {
           </h2>
           <p className="mt-4 leading-relaxed text-[#1E1E1E]/75 sm:text-lg">
             {isFr
-              ? "Découvrez les vidéos, les publications et les conversations qui relient la communauté du Sommet partout au Canada."
-              : "Explore videos, posts and social conversations connecting the Summit community across Canada."}
+              ? "Découvrez les conversations qui relient la communauté du Sommet partout au Canada."
+              : "Explore conversations connecting the Summit community across Canada."}
           </p>
         </div>
       </section>

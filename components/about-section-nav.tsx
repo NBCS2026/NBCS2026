@@ -12,7 +12,7 @@ export function AboutSectionNav({ sections, label }: { sections: string[][]; lab
     let frame = 0;
     const update = () => {
       frame = 0;
-      const threshold = Math.max(160, (linksRef.current?.closest("nav")?.getBoundingClientRect().bottom || 0) + 40);
+      const threshold = Math.max(160, (linksRef.current?.closest("nav")?.getBoundingClientRect().bottom || 0) + 64);
       const current = elements.filter(el => el.getBoundingClientRect().top <= threshold).at(-1) || elements[0];
       if (current) setActive(current.id);
     };
