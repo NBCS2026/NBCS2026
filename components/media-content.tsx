@@ -9,6 +9,12 @@ const INSTAGRAM_POSTS = [
     "titleFr": "À un mois du 5e Sommet pancanadien des communautés noires — @uzomachioma"
   },
   {
+    "url": "https://www.instagram.com/reel/DV9ZiVYjj0D/",
+    "embedUrl": "https://www.instagram.com/reel/DV9ZiVYjj0D/embed/",
+    "titleEn": "Learn more about NBCS 2026",
+    "titleFr": "Découvrez le SPCN 2026"
+  },
+  {
     "url": "https://www.instagram.com/p/DdFmiF5DHlZ/",
     "embedUrl": "https://www.instagram.com/p/DdFmiF5DHlZ/embed/",
     "titleEn": "View post on Instagram",
@@ -29,12 +35,6 @@ const INSTAGRAM_POSTS = [
   {
     "url": "https://www.instagram.com/p/DbTvLAUmqk9/",
     "embedUrl": "https://www.instagram.com/p/DbTvLAUmqk9/embed/",
-    "titleEn": "View post on Instagram",
-    "titleFr": "Voir la publication sur Instagram"
-  },
-  {
-    "url": "https://www.instagram.com/p/Dbv7hFSkdqu/",
-    "embedUrl": "https://www.instagram.com/p/Dbv7hFSkdqu/embed/",
     "titleEn": "View post on Instagram",
     "titleFr": "Voir la publication sur Instagram"
   }
