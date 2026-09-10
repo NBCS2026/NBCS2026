@@ -218,16 +218,6 @@ const donors: SponsorEntry[] = [
 
 const communityPartners: SponsorEntry[] = [
   {
-    name: "Organization for Economic Development and Diplomacy (OEDD)",
-    website: "https://oedd.ca/",
-    logos: [{ src: "/oedd-logo.svg", alt: "Organization for Economic Development and Diplomacy (OEDD)", className: "max-h-28 max-w-[260px]" }],
-  },
-  {
-    name: "African Nova Scotian Decade for People of African Descent Coalition (ANSDPAD)",
-    website: "https://ansdpad.ca/",
-    logos: [{ src: "/ansdpad-logo.png", alt: "African Nova Scotian Decade for People of African Descent Coalition (ANSDPAD)", className: "max-h-28 max-w-[260px]" }],
-  },
-  {
     name: "Côte-des-Neiges Black Community Association (CDNBCA)",
     website: "https://www.cdnbca.org/",
     logos: [{ src: "/cdnbca-logo.png", alt: "Côte-des-Neiges Black Community Association (CDNBCA)", className: "max-h-28 max-w-[260px]" }],
@@ -446,6 +436,16 @@ const communityPartners: SponsorEntry[] = [
         className: "max-h-16 max-w-[250px]",
       },
     ],
+  },
+  {
+    name: "Organization for Economic Development and Diplomacy (OEDD)",
+    website: "https://oedd.ca/",
+    logos: [{ src: "/oedd-logo.svg", alt: "Organization for Economic Development and Diplomacy (OEDD)", className: "max-h-28 max-w-[260px]" }],
+  },
+  {
+    name: "African Nova Scotian Decade for People of African Descent Coalition (ANSDPAD)",
+    website: "https://ansdpad.ca/",
+    logos: [{ src: "/ansdpad-logo.png", alt: "African Nova Scotian Decade for People of African Descent Coalition (ANSDPAD)", className: "max-h-28 max-w-[260px]" }],
   },
 ];
 
