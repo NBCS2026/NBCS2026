@@ -1,5 +1,6 @@
 "use client";
 
+import { AboutSectionNav } from "./about-section-nav";
 import { BiographyDisclosure } from "./biography-disclosure";
 import { ExhibitionTitleText } from "./exhibition-title-text";
 import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
@@ -69,7 +70,14 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
 
   return (
     <>
-      <section id="youth-art-exhibition" className="px-5 py-14 sm:py-20">
+      <AboutSectionNav label={isFr ? "Navigation des expositions et du marché" : "Exhibitors and marketplace navigation"} sections={[
+        ["youth-art-exhibition", isFr ? "Exposition d’art jeunesse" : "Youth Art Exhibition"],
+        ["curators", isFr ? "Commissariat" : "Curators"],
+        ["exhibition-artists", isFr ? "Artistes" : "Artists"],
+        ["exhibitors", isFr ? "Exposants" : "Exhibitors"],
+        ["marketplace", isFr ? "Marché" : "Marketplace"],
+      ]} />
+      <section tabIndex={-1} id="youth-art-exhibition" className="px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-[1180px]">
           <SectionHeading
             eyebrow={isFr ? "Première partie" : "Part one"}
@@ -104,7 +112,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
             </div>
           </div>
 
-          <div className="mb-12 grid gap-6 md:grid-cols-2">
+          <div id="curators" tabIndex={-1} className="mb-12 grid gap-6 md:grid-cols-2">
             {CURATORS.map((curator) => (
               <article
                 key={curator.name}
@@ -128,7 +136,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
             ))}
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div id="exhibition-artists" tabIndex={-1} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {EXHIBITION_ARTISTS.map((artist) => (
               <article
                 key={artist.name}
@@ -159,6 +167,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
 
       <section
         id="exhibitors"
+        tabIndex={-1}
         className="bg-[#5D1831] px-5 py-14 text-white sm:py-20"
       >
         <div className="mx-auto max-w-[1180px]">
@@ -206,7 +215,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
         </div>
       </section>
 
-      <section id="marketplace" className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
+      <section tabIndex={-1} id="marketplace" className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-[1180px]">
           <SectionHeading
             eyebrow={isFr ? "Troisième partie" : "Part three"}

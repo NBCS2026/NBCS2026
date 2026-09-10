@@ -54,7 +54,10 @@ function dateAndTime(
 
 export function SummitWeekEventList({ locale }: { locale: string }) {
   const isFr = locale === "fr";
-  const dates = [...new Set(SUMMIT_WEEK_EVENTS.map(event => event.date))];
+  const festivalEvents = SUMMIT_WEEK_EVENTS.filter(event => event.id.startsWith("amfm-"));
+  const events = SUMMIT_WEEK_EVENTS.filter(event => !event.id.startsWith("amfm-"));
+  const festival = festivalEvents[0];
+  const dates = [...new Set(events.map(event => event.date))];
 
   return (
     <>
@@ -75,9 +78,32 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
           </p>
         </div>
 
-        <AboutSectionNav label={isFr ? "Dates des événements" : "Event dates"} sections={dates.map(date => [`week-${date || "tbc"}`, formatDate(date, locale)])} />
+        <AboutSectionNav label={isFr ? "Dates des événements" : "Event dates"} sections={[["week-amfm", "AM-FM 2026"], ...dates.map(date => [`week-${date || "tbc"}`, formatDate(date, locale)])]} />
+
+        <article id="week-amfm" aria-labelledby="week-amfm-title" className="my-8 overflow-hidden rounded-2xl border border-[#E8D4DB] bg-white">
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="bg-[#FAF6F7] p-6 sm:p-8">
+              <img src={festival.image} alt="" className="mb-6 max-h-28 max-w-full object-contain" loading="lazy" />
+              <h2 id="week-amfm-title" className="font-heading text-2xl font-black leading-tight text-[#5D1831]">{isFr ? festival.titleFr : festival.titleEn}</h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-[#1E1E1E]/78">{isFr ? festival.descriptionFr : festival.descriptionEn}</p>
+              <p className="mt-5 text-sm text-[#1E1E1E]/78"><span className="font-bold">{isFr ? "Accès : " : "Access: "}</span>{isFr ? festival.accessFr : festival.accessEn}</p>
+              <p className="mt-4 text-sm font-semibold leading-relaxed text-[#5D1831]">{isFr ? festival.noteFr : festival.noteEn}</p>
+              <a href={festival.registrationUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#5D1831]">{isFr ? festival.registrationLabelFr : festival.registrationLabelEn}</a>
+            </div>
+            <ul className="divide-y divide-[#E8D4DB] px-6 sm:px-8">
+              {festivalEvents.map(event => {
+                const venue = isFr ? event.venueFr || event.venue : event.venue;
+                return <li id={event.id} key={event.id} className="py-5">
+                  <h3 className="font-heading text-base font-bold text-[#8C0C3A]">{dateAndTime(event.date, event.startTime, event.endTime, locale)}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-[#1E1E1E]">{venue}{event.address && ` — ${event.address}`}</p>
+                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.address || venue)}`} target="_blank" rel="noopener noreferrer" aria-label={`${isFr ? "Itinéraire" : "Directions"} — ${formatDate(event.date, locale)} — ${venue}`} className="mt-1 inline-flex min-h-11 items-center text-sm font-semibold text-[#8C0C3A] underline underline-offset-4">{isFr ? "Itinéraire" : "Directions"}</a>
+                </li>;
+              })}
+            </ul>
+          </div>
+        </article>
         <div className="grid gap-6 lg:grid-cols-2">
-          {SUMMIT_WEEK_EVENTS.map((event, index) => {
+          {events.map((event, index) => {
             const title = isFr ? event.titleFr : event.titleEn;
             const description = isFr
               ? event.descriptionFr
@@ -90,7 +116,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
 
             return (
               <Fragment key={event.id}>
-              {(index === 0 || SUMMIT_WEEK_EVENTS[index - 1].date !== event.date) && <h2 id={`week-${event.date || "tbc"}`} className="scroll-mt-44 pt-8 font-heading text-xl font-bold text-[#5D1831] lg:col-span-2">{formatDate(event.date, locale)}</h2>}
+              {(index === 0 || events[index - 1].date !== event.date) && <h2 id={`week-${event.date || "tbc"}`} className="scroll-mt-44 pt-8 font-heading text-xl font-bold text-[#5D1831] lg:col-span-2">{formatDate(event.date, locale)}</h2>}
               <article
                 key={event.id}
                 className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#E8D4DB] bg-white shadow-sm"
