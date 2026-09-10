@@ -1,5 +1,7 @@
 "use client";
 
+import { Fragment } from "react";
+import { AboutSectionNav } from "./about-section-nav";
 import { ExhibitionTitleText } from "./exhibition-title-text";
 import { CalendarDays, MapPin, Ticket, UserRound } from "lucide-react";
 import { SummitWeekVenueMap } from "@/components/summit-week-venue-map";
@@ -52,6 +54,7 @@ function dateAndTime(
 
 export function SummitWeekEventList({ locale }: { locale: string }) {
   const isFr = locale === "fr";
+  const dates = [...new Set(SUMMIT_WEEK_EVENTS.map(event => event.date))];
 
   return (
     <>
@@ -72,8 +75,9 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
           </p>
         </div>
 
+        <AboutSectionNav label={isFr ? "Dates des événements" : "Event dates"} sections={dates.map(date => [`week-${date || "tbc"}`, formatDate(date, locale)])} />
         <div className="grid gap-6 lg:grid-cols-2">
-          {SUMMIT_WEEK_EVENTS.map((event) => {
+          {SUMMIT_WEEK_EVENTS.map((event, index) => {
             const title = isFr ? event.titleFr : event.titleEn;
             const description = isFr
               ? event.descriptionFr
@@ -85,15 +89,17 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
             const directionsQuery = event.address || venue;
 
             return (
+              <Fragment key={event.id}>
+              {(index === 0 || SUMMIT_WEEK_EVENTS[index - 1].date !== event.date) && <h2 id={`week-${event.date || "tbc"}`} className="scroll-mt-44 pt-8 font-heading text-xl font-bold text-[#5D1831] lg:col-span-2">{formatDate(event.date, locale)}</h2>}
               <article
                 key={event.id}
-                className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#E8D4DB] bg-white shadow-[0_16px_45px_rgba(93,24,49,0.08)]"
+                className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#E8D4DB] bg-white shadow-sm"
               >
-                <div className="flex min-h-52 items-center justify-center bg-[#FAF6F7] p-7">
+                <div className="flex min-h-40 items-center justify-center bg-[#FAF6F7] p-7">
                   <img
                     src={event.image}
                     alt={host}
-                    className="max-h-40 max-w-[85%] object-contain"
+                    className="max-h-28 max-w-[85%] object-contain"
                     loading="lazy"
                   />
                 </div>
@@ -204,6 +210,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                   </div>
                 </div>
               </article>
+              </Fragment>
             );
           })}
         </div>

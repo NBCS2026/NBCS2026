@@ -21,7 +21,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="h-screen relative bg-[url('/gradiant_hero_program.png'),url('/program-hero-394A4674.jpg')] bg-cover bg-center">
+      <div className="site-hero min-h-[100svh] flex flex-col relative bg-[url('/gradiant_hero_program.png'),url('/program-hero-394A4674.jpg')] bg-cover bg-center">
         <header className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 mb-18 md:mb-52 lg:mb-18 w-full">
           <Logo />
           <NavLink className="hidden xl:block flex-1 mx-8 3xl:mx-8 4xl:mx-16" />
@@ -36,12 +36,12 @@ export default function Page() {
           <p className="font-heading bold text-[clamp(14px,1.17vw,18px)] tracking-[0.96em] text-white max-w-[38ch] 3xl:max-w-[75ch] 4xl:max-w-[85ch] mx-auto md:max-w-full">
             {t("pretitle")}
           </p>
-          <h1 className="whitespace-nowrap font-heading text-[clamp(16px,5.53vw,85px)] font-black leading-tight tracking-[0.04em] text-white sm:tracking-[0.089em]">
+          <h1 className="font-heading text-[clamp(30px,5.53vw,85px)] font-black leading-tight tracking-[0.04em] text-white sm:tracking-[0.089em]">
             {t("title")}
           </h1>
         </div>
       </div>
-      <main className="bg-white rounded-t-2xl pt-14">
+      <main id="main-content" tabIndex={-1} className="bg-white rounded-t-2xl pt-14">
         <Events local={locale} />
         <section className="mx-auto mb-14 max-w-[1180px] px-5 sm:mb-20">
           <div className="flex flex-col items-center justify-between gap-5 rounded-3xl bg-[#5D1831] px-6 py-8 text-center text-white sm:px-10 md:flex-row md:text-left">

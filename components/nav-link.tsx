@@ -48,7 +48,7 @@ export function NavLink({ className, onClick }: NavLinKProps) {
   ];
   const pathname = usePathname();
   return (
-    <nav className={cn(`${className}`)}>
+    <nav aria-label={locale === "fr" ? "Navigation principale" : "Main navigation"} className={cn(`${className}`)}>
       {locale === "fr" && (
         <style jsx>{`
             @media (min-width: 932px) and (max-width: 1023px) {
@@ -76,8 +76,9 @@ export function NavLink({ className, onClick }: NavLinKProps) {
                     ? "flex flex-col items-center justify-center text-center leading-tight"
                     : "whitespace-nowrap"
                 } ${
-                  isActive ? "border-b-2 border-white" : ""
-                } hover:border-b-2 hover:border-white`}
+                  isActive ? "border-b-2 border-current" : "border-b-2 border-transparent"
+                } inline-flex min-h-11 items-center hover:border-current`}
+                aria-current={isActive ? "page" : undefined}
                 href={link.url}
                 onClick={onClick}
               >

@@ -27,16 +27,16 @@ export default function ToggleMenu({
     setToggle(!toggle);
   };
   return (
-    <Sheet open={toggle} onOpenChange={handleToggle}>
-      <SheetTrigger className={`xl:hidden ${className ?? ""}`}>
+    <Sheet open={toggle} onOpenChange={setToggle}>
+      <SheetTrigger aria-label={_local === "fr" ? "Ouvrir le menu" : "Open menu"} className={`inline-flex min-h-11 min-w-11 items-center justify-center xl:hidden ${className ?? ""}`}>
         <Toggle />
       </SheetTrigger>
-      <SheetContent className="w-full px-8 pt-10">
+      <SheetContent className="w-full overflow-y-auto px-4 pt-12 pb-8 sm:px-6">
         <SheetHeader>
-          <SheetTitle className="hidden">Menu</SheetTitle>
+          <SheetTitle className="sr-only">Menu</SheetTitle>
           <NavLink
             onClick={handleToggle}
-            className="mb-6 [&_ul]:flex-col [&_ul]:items-start [&_ul]:gap-6 [&_ul]:justify-start"
+            className="mb-6 [&_ul]:flex-col [&_ul]:items-start [&_ul]:gap-2 [&_a]:text-base [&_a]:w-full [&_ul]:justify-start"
           />
           <ul className="flex flex-col gap-6">
             <li>

@@ -42,7 +42,7 @@ export function AdvisorySubcommittee({ locale }: { locale: string }) {
               >
                 <span className="font-bold text-[#5D1831]">{member.name}</span>
                 <span className="text-sm leading-relaxed text-[#1E1E1E]/75 sm:text-base">
-                  {member.organization || "—"}
+                  {member.organization}
                 </span>
               </li>
             ))}

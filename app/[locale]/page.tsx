@@ -93,7 +93,7 @@ export default function Page() {
           </Button>
         </div>
       </div>
-      <main className="bg-white rounded-t-2xl pt-14">
+      <main id="main-content" tabIndex={-1} className="bg-white rounded-t-2xl pt-14">
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] px-5 2xl:px-8 3xl:px-16 4xl:px-24 mx-auto justify-between items-center mb-16 sm:mb-24 md:mb-4 lg:mb-4 gap-6 md:gap-8 2xl:gap-12 3xl:gap-16 4xl:gap-20">
           <div className="text-[clamp(16px,1.82vw,28px)] text-center xl:text-start text-light-gray ">
             <p className="text-light-red font-bold">{t("count_lineOne")}</p>
@@ -106,20 +106,20 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-14 2xl:gap-16 3xl:gap-16 4xl:gap-20">
             <div className="space-y-4">
               <div className="space-y-4">
-                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
+                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-relaxed">
                   {s2.prefix}
                   <span className="text-[#8C0C3A] font-semibold">
                     {s2.quote}
                   </span>
                   {s2.p1}
                 </p>
-                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
+                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-relaxed">
                   {s2.p2}
                 </p>
-                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
+                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-relaxed">
                   {s2.p3}
                 </p>
-                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
+                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-relaxed">
                   {s2.p4Quote}
                   {s2.p4Rest}
                 </p>
@@ -146,16 +146,16 @@ export default function Page() {
             </div>
             <div className="space-y-8 md:space-y-12 lg:space-y-16">
               <div className="space-y-4">
-                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
+                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-relaxed">
                   <span className="text-light-red font-semibold">
                     {t("about_lineRed")}
                   </span>{" "}
                   {t("about_lineOne")}
                 </p>
-                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
+                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-relaxed">
                   {t("about_lineTwo")}
                 </p>
-                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-tight">
+                <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-relaxed">
                   {t("about_lineThree")}
                 </p>
               </div>

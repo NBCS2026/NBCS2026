@@ -12,7 +12,11 @@ export function AboutSpeakersCollage({ locale = "en", placement = "beside" }: { 
     const caption = locale === "fr" ? item.fr : item.en;
     return (
       <figure key={item.src}>
-        <img src={item.src} alt={caption} className="h-auto w-full rounded-xl" loading="lazy" />
+        {index === 4 ? (
+          <div className="overflow-hidden rounded-xl" style={{ aspectRatio: "472 / 201.6" }}>
+            <img src={item.src} alt={caption} className="h-full w-full object-cover object-center" loading="lazy" />
+          </div>
+        ) : <img src={item.src} alt={caption} className="h-auto w-full rounded-xl" loading="lazy" />}
         {index !== 4 && <figcaption className="mt-2 text-xs italic leading-relaxed text-[#5D1831]">{caption}</figcaption>}
       </figure>
     );

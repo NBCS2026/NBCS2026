@@ -64,6 +64,7 @@ export default function Page() {
           </div>
         </section>
 
+        <main id="main-content" tabIndex={-1}>
         <section className="bg-white py-8 sm:py-10 md:py-12">
           <div className="max-w-[1568px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-5 2xl:px-8">
             <h2 className="text-center text-[clamp(24px,3vw,36px)] font-bold tracking-[0.2em] mb-6">
@@ -239,6 +240,7 @@ export default function Page() {
             </div>
           </div>
         </section>
+        </main>
       </div>
       <Footer />
     </>

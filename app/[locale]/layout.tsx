@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "../globals.css";
+import "../refinements.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
+import { SiteNavigationDock } from "@/components/site-navigation-dock";
 import { ViewportProvider } from "@/components/viewport-provider";
 
 export const metadata: Metadata = {
@@ -74,6 +76,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       <body className={`${montserrat.variable} font-body`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ViewportProvider>
+            <SiteNavigationDock />
             {children}
           </ViewportProvider>
         </NextIntlClientProvider>

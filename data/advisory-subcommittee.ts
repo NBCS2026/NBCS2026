@@ -6,7 +6,7 @@ export type AdvisoryMember = {
 export const ADVISORY_SUBCOMMITTEE: AdvisoryMember[] = [
   { name: "Alia Aluma", organization: "Canadian Museum for Human Rights" },
   {
-    name: "Amanuel Melles",
+    name: "amanuel melles",
     organization: "Network for the Advancement of Black Communities (NABC)",
   },
   { name: "Angela Cassie", organization: "Michaëlle Jean Foundation" },
@@ -113,7 +113,7 @@ export const ADVISORY_SUBCOMMITTEE: AdvisoryMember[] = [
   { name: "Sarah Schwendemann", organization: "The Human Rights Museum" },
   {
     name: "Sean Foyn",
-    organization: "Principal, AFRICANADIAN SEARCHERS",
+    organization: "AFRICANADIAN SEARCHERS",
   },
   { name: "Shana Goodridge", organization: "Pegcity Steppers" },
   { name: "Stephen Wilson", organization: "Graffiti Gallery" },

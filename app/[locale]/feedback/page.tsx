@@ -35,7 +35,7 @@ export default function FeedbackPage() {
           </h1>
         </div>
       </div>
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <FeedbackForm locale={locale} />
         <DelegateSurvey locale={locale} />
       </main>

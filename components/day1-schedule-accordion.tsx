@@ -1,8 +1,9 @@
 "use client";
 
+import { BiographyDisclosure } from "./biography-disclosure";
 import { ExhibitionTitleText } from "./exhibition-title-text";
 import { ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { DAY1_SCHEDULE } from "@/data/day1-schedule";
 import { DAY1_SCHEDULE_FR } from "@/data/day1-schedule-fr";
 import { DAY2_SCHEDULE } from "@/data/day2-schedule";
@@ -305,7 +306,7 @@ function ProfileCards({
         return (
           <article
             key={profile.name}
-            className="flex gap-3 rounded-xl border border-[#E8D4DB] bg-white p-3"
+            className="flex flex-wrap sm:flex-nowrap gap-3 rounded-xl border border-[#E8D4DB] bg-white p-3"
           >
             <ProfileImage profile={profile} />
             <div className="min-w-0 flex-1">
@@ -328,14 +329,7 @@ function ProfileCards({
                 </a>
               )}
               {bio && (
-                <details className="group mt-1.5">
-                  <summary className="cursor-pointer list-none text-[13px] font-semibold text-[#8C0C3A] underline underline-offset-2">
-                    {labels.biography}
-                  </summary>
-                  <p className="mt-2 text-[13px] leading-relaxed text-[#1E1E1E]/80">
-                    {bio}
-                  </p>
-                </details>
+                <BiographyDisclosure label={labels.biography} text={bio} name={profile.name} />
               )}
             </div>
           </article>
@@ -367,7 +361,7 @@ function PeopleList({
             {group.names.map((name) => (
               <li
                 key={name}
-                className="border-l-2 border-[#E8D4DB] pl-3 font-body text-[14px] leading-relaxed text-[#1E1E1E]/90 sm:text-[15px]"
+                className="sm:border-l-2 border-[#E8D4DB] sm:pl-3 font-body text-[14px] leading-relaxed text-[#1E1E1E]/90 sm:text-[15px]"
               >
                 <p>{renderFormattedText(name)}</p>
                 <ProfileCards
@@ -398,11 +392,13 @@ function SessionCard({
   labels: Labels;
   isFr: boolean;
 }) {
+  const panelId = useId();
   return (
     <div className="rounded-xl border border-[#E8D4DB] bg-white overflow-hidden">
       <button
         type="button"
         aria-expanded={open}
+        aria-controls={panelId}
         onClick={onToggle}
         className="w-full flex items-start justify-between gap-3 px-4 py-3.5 text-left cursor-pointer hover:bg-[#FAF6F7] transition-colors"
       >
@@ -423,8 +419,11 @@ function SessionCard({
         />
       </button>
       <div
+        id={panelId}
+        inert={!open}
+        aria-hidden={!open}
         className={cn(
-          "grid transition-[grid-template-rows] duration-300 ease-out",
+          "grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none",
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
       >
@@ -536,7 +535,7 @@ function BlockDetails({
           <p className="font-heading font-bold text-[14px] sm:text-[15px] text-[#8C0C3A] tracking-wide uppercase">
             {labels.sessions}
           </p>
-          <div className="space-y-2">
+          <div className="grid items-start gap-3 xl:grid-cols-2">
             {block.sessions.map((session) => (
               <SessionCard
                 key={session.id}
@@ -557,9 +556,9 @@ function BlockDetails({
 
       {block.segments && (
         <div className="space-y-4">
-          {block.segments.map((segment) => (
+          {block.segments.map((segment, segmentIndex) => (
             <div
-              key={segment.title}
+              key={`${segmentIndex}-${segment.title}`}
               className="rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] px-4 py-3.5"
             >
               <p className="font-heading font-bold text-[15px] sm:text-[16px] text-[#5D1831] mb-1">
@@ -673,13 +672,19 @@ function ScheduleDayAccordion({
         biography: "Biography",
       };
 
+  useEffect(() => {
+    const target = window.location.hash.slice(1);
+    const block = blocks.find(item => `${idPrefix}-${item.id}` === target);
+    if (block) setActiveBlock(block.id);
+  }, [blocks, idPrefix]);
+
   const toggleBlock = (id: string) => {
     setActiveBlock((prev) => {
       const next = prev === id ? null : id;
       if (next) {
         window.setTimeout(() => {
           document.getElementById(`${idPrefix}-${next}`)?.scrollIntoView({
-            behavior: "smooth",
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
             block: "nearest",
           });
         }, 280);
@@ -690,7 +695,7 @@ function ScheduleDayAccordion({
   };
 
   return (
-    <div className="w-full max-w-3xl space-y-3">
+    <div className="w-full space-y-3">
       {blocks.map((block) => {
         if (block.compact) {
           return (
@@ -720,6 +725,7 @@ function ScheduleDayAccordion({
             <button
               type="button"
               aria-expanded={open}
+              aria-controls={`${idPrefix}-${block.id}-panel`}
               onClick={() => toggleBlock(block.id)}
               className="w-full flex items-start justify-between gap-4 px-4 sm:px-5 py-4 text-left cursor-pointer hover:bg-[#FAF6F7] transition-colors"
             >
@@ -747,6 +753,9 @@ function ScheduleDayAccordion({
             </button>
 
             <div
+              id={`${idPrefix}-${block.id}-panel`}
+              inert={!open}
+              aria-hidden={!open}
               className={cn(
                 "grid transition-[grid-template-rows] duration-300 ease-out",
                 open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",

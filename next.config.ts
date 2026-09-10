@@ -8,7 +8,7 @@ const projectRoot = path.resolve(__dirname);
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    qualities: [100, 75],
+    qualities: [100, 90, 75],
   },
   webpack: (config, { dir }) => {
     // Ensure webpack resolves from the project directory, not parent directories

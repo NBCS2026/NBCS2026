@@ -34,7 +34,7 @@ export default function SummitWeekPage() {
           </h1>
         </div>
       </div>
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <SummitWeekEventList locale={locale} />
       </main>
       <Footer />

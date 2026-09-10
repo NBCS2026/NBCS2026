@@ -38,7 +38,7 @@ export default function Page() {
           </p>
         </div>
       </div>
-      <main className="bg-white">
+      <main id="main-content" tabIndex={-1} className="bg-white">
         <MediaContent locale={locale} />
       </main>
       <Footer />

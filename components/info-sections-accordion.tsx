@@ -76,6 +76,8 @@ function AccordionSection({
 
         <section
           id={`${id}-panel`}
+          inert={!open}
+          aria-hidden={!open}
           aria-labelledby={`${id}-trigger`}
           className={cn(
             "grid transition-[grid-template-rows] duration-300 ease-out",

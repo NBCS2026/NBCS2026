@@ -17,13 +17,17 @@ export function LangSelect({ className }: React.HTMLAttributes<HTMLElement>) {
 
   const switchLang = (newLocale: string) => {
     if (newLocale !== local) {
-      router.replace(pathname, { locale: newLocale });
+      const params = new URLSearchParams(window.location.search);
+      params.delete("lang");
+      const query = params.toString();
+      router.replace(`${pathname}${query ? `?${query}` : ""}${window.location.hash}`, { locale: newLocale });
       router.refresh();
     }
   };
   return (
     <Select defaultValue={local} onValueChange={(value) => switchLang(value)}>
       <SelectTrigger
+        aria-label={local === "fr" ? "Choisir la langue" : "Choose language"}
         className={cn(`px-1 md:px-2 lg:px-4 xl:px-5 2xl:px-6 3xl:px-8 h-[32px] md:h-[34px] lg:h-[46px] xl:h-[50px] 2xl:h-[54px] 3xl:h-[60px] rounded-full font-medium text-[10px] md:text-[10px] lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl ${className}`)}
       >
         <SelectValue placeholder={local} />

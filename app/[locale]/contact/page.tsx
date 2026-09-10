@@ -78,7 +78,7 @@ export default function Page() {
   };
   return (
     <>
-      <div className="h-screen relative bg-[linear-gradient(to_bottom,rgba(93,4,36,0.9)_10%,rgba(115,10,47,0.7)_42%,rgba(102,9,42,0.5)_76%,rgba(89,8,37,0.3)_110%),url('/contact-hero-394A4321.jpg')] bg-cover bg-center">
+      <div className="site-hero min-h-[100svh] flex flex-col relative bg-[linear-gradient(to_bottom,rgba(93,4,36,0.9)_10%,rgba(115,10,47,0.7)_42%,rgba(102,9,42,0.5)_76%,rgba(89,8,37,0.3)_110%),url('/contact-hero-394A4321.jpg')] bg-cover bg-center">
         <header className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 mb-18 md:mb-52 lg:mb-18 w-full">
           <Logo />
           <NavLink className="hidden xl:block flex-1 mx-8 3xl:mx-8 4xl:mx-16" />
@@ -104,7 +104,7 @@ export default function Page() {
           </h1>
         </div>
       </div>
-      <main className="bg-white rounded-t-2xl pt-14">
+      <main id="main-content" tabIndex={-1} className="bg-white rounded-t-2xl pt-14">
         {/* Contact Form Section */}
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[142px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-start">
@@ -175,6 +175,7 @@ export default function Page() {
 
                 {submitStatus.type && (
                   <div
+                    role={submitStatus.type === "error" ? "alert" : "status"}
                     className={`p-3 rounded-lg text-sm ${
                       submitStatus.type === "success"
                         ? "bg-green-50 text-green-800 border border-green-200"
@@ -202,10 +203,10 @@ export default function Page() {
         </section>
 
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 space-y-6 md:space-y-9 mb-16 lg:mb-[142px]">
-          <h1 className="font-bold text-[24px] lg:text-[43px] text-center">
+          <h2 className="font-bold text-[24px] lg:text-[43px] text-center">
             {t("text_nine")}{" "}
             <span className="text-light-red">{t("text_ten")}</span>
-          </h1>
+          </h2>
 
           <p className="tracking-widest mx-auto text-light-red font-medium text-[clamp(14px,1.43vw,22px)] mb-7">
             {t("post_title")}
@@ -224,10 +225,10 @@ export default function Page() {
           </p>
         </section>
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 space-y-6 md:space-y-9 mb-16 lg:mb-[142px]">
-          <h1 className="font-bold text-[24px] lg:text-[43px] text-center text-light-red">
+          <h2 className="font-bold text-[24px] lg:text-[43px] text-center text-light-red">
             {t("text_fifteen")}{" "}
             <span className="text-black">{t("text_sixteen")}</span>
-          </h1>
+          </h2>
           <p className="font-medium text-[14px] md:text-[21px] text-light-red">
             {t("text_seventeen")}
           </p>

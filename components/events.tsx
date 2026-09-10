@@ -1,70 +1,45 @@
 "use client";
-
 import { useTranslations } from "next-intl";
-import { useState } from "react";
-import {
-  Day1ScheduleAccordion,
-  Day2ScheduleAccordion,
-  Day3ScheduleAccordion,
-} from "@/components/day1-schedule-accordion";
+import { useEffect, useRef, useState } from "react";
+import { Day1ScheduleAccordion, Day2ScheduleAccordion, Day3ScheduleAccordion } from "@/components/day1-schedule-accordion";
 
-interface EventProps {
-  local: string;
-}
-
-export function Events({ local }: EventProps) {
+export function Events({ local }: { local: string }) {
   const t = useTranslations("program");
-  const [selectedDate, setSelectedDate] = useState("2026-09-18");
-  const isDay1 = selectedDate === "2026-09-18";
-  const isDay2 = selectedDate === "2026-09-19";
-  const isDay3 = selectedDate === "2026-09-20";
-
+  const [day, setDay] = useState(1);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const sync = () => {
+      const url = new URL(window.location.href);
+      const requested = Number(url.searchParams.get("day") || url.hash.match(/^#day([123])/)?.[1] || 1);
+      if ([1, 2, 3].includes(requested)) setDay(requested);
+    };
+    sync(); window.addEventListener("popstate", sync); window.addEventListener("hashchange", sync);
+    return () => { window.removeEventListener("popstate", sync); window.removeEventListener("hashchange", sync); };
+  }, []);
+  const days = [
+    { day: 1, label: local === "fr" ? "JOUR 1" : "DAY 1", date: local === "en" ? "Friday, September 18" : "Vendredi 18 septembre", hint: local === "en" ? "Click to view Day 1 schedule" : "Cliquez pour voir l'horaire du jour 1" },
+    { day: 2, label: local === "fr" ? "JOUR 2" : "DAY 2", date: local === "en" ? "Saturday, September 19" : "Samedi 19 septembre", hint: local === "en" ? "Click to view Day 2 schedule" : "Cliquez pour voir l'horaire du jour 2" },
+    { day: 3, label: local === "fr" ? "JOUR 3" : "DAY 3", date: local === "en" ? "Sunday, September 20" : "Dimanche 20 septembre", hint: local === "en" ? "Click to view Day 3 schedule" : "Cliquez pour voir l'horaire du jour 3" },
+  ];
+  function selectDay(next: number) {
+    setDay(next);
+    const url = new URL(window.location.href); url.searchParams.set("day", String(next)); url.hash = "";
+    window.history.replaceState(null, "", url);
+    requestAnimationFrame(() => {
+      const panel = panelRef.current;
+      if (panel) {
+        panel.style.scrollMarginTop = `${(tabsRef.current?.offsetHeight || 114) + 88}px`;
+        panel.scrollIntoView({ block: "start", behavior: "instant" });
+      }
+    });
+  }
   return (
-    <>
-      <style jsx>{`
-        .day-button-tooltip {
-          position: relative;
-        }
-        .day-button-tooltip::before {
-          content: attr(data-tooltip);
-          position: absolute;
-          bottom: calc(100% + 8px);
-          left: 50%;
-          transform: translateX(-50%);
-          background-color: rgba(0, 0, 0, 0.85);
-          color: white;
-          padding: 6px 10px;
-          border-radius: 4px;
-          font-size: 12px;
-          white-space: nowrap;
-          opacity: 0;
-          pointer-events: none;
-          transition: opacity 0.1s ease-in-out;
-          z-index: 10;
-        }
-        .day-button-tooltip::after {
-          content: "";
-          position: absolute;
-          bottom: calc(100% + 2px);
-          left: 50%;
-          transform: translateX(-50%);
-          border: 4px solid transparent;
-          border-top-color: rgba(0, 0, 0, 0.85);
-          opacity: 0;
-          pointer-events: none;
-          transition: opacity 0.1s ease-in-out;
-          z-index: 10;
-        }
-        .day-button-tooltip:hover::before,
-        .day-button-tooltip:hover::after {
-          opacity: 1;
-        }
-      `}</style>
-      <section className="max-w-[1440px] mx-auto px-5 mb-12 md:mb-32 ">
-        <p className="font-bold text-[24px] lg:text-[43px] text-center mb-8">
+      <section className="program-guide mx-auto max-w-[1180px] px-4 sm:px-6 mb-14 sm:mb-20">
+        <h2 className="font-bold text-[24px] lg:text-[43px] text-center mb-8">
           {t("text_one")}{" "}
           <span className="text-light-red">{t("text_two")}</span>
-        </p>
+        </h2>
 
         <p className="tracking-[0.08em] max-w-[38ch] md:max-w-[68ch] mx-auto text-light-red font-medium text-[clamp(14px,1.43vw,22px)] leading-tight mb-12 ">
           {t("post_titleOne")} <br /> {t("post_titleTwo")}
@@ -74,88 +49,23 @@ export function Events({ local }: EventProps) {
             ? "L’interprétation simultanée et le sous-titrage en direct seront offerts pour toutes les séances officielles."
             : "Simultaneous interpretation and live captioning will be available for all formal sessions."}
         </p>
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 justify-center">
-          <div className="flex flex-row lg:flex-col gap-4 justify-center lg:justify-normal lg:pt-2">
-            <button
-              type="button"
-              className={`day-button-tooltip w-[clamp(108px,8.14vw,125px)] h-[clamp(108px,8.14vw,125px)] rounded-full border-2 ${
-                selectedDate === "2026-09-18"
-                  ? "bg-light-red text-white"
-                  : "border-light-red text-light-red hover:bg-[#a33d61] hover:text-white hover:border-[#a33d61]"
-              } cursor-pointer  `}
-              onClick={() => setSelectedDate("2026-09-18")}
-              data-tooltip={
-                local === "en"
-                  ? "Click to view Day 1 schedule"
-                  : "Cliquez pour voir l'horaire du jour 1"
-              }
-            >
-              <p className="font-bold text-[21px] leading-tight">
-                {local === "fr" ? "JOUR 1" : "DAY 1"}
-              </p>
-              <p className="font-medium text-[13px]">
-                {local === "en"
-                  ? "Friday, September 18"
-                  : "Vendredi 18 septembre"}
-              </p>
+        <div ref={tabsRef} role="tablist" aria-label={local === "fr" ? "Jours du programme" : "Program days"} className="program-days sticky z-30 mb-5 grid grid-cols-3 gap-2 border-b border-[#E8D4DB] bg-white py-3">
+          {days.map(item => (
+            <button key={item.day} role="tab" type="button" id={`program-day-${item.day}-tab`} aria-selected={day === item.day} aria-controls="program-day-panel" tabIndex={day === item.day ? 0 : -1} title={item.hint}
+              onClick={() => selectDay(item.day)}
+              onKeyDown={event => {
+                const next = event.key === "ArrowRight" ? item.day % 3 + 1 : event.key === "ArrowLeft" ? (item.day + 1) % 3 + 1 : event.key === "Home" ? 1 : event.key === "End" ? 3 : null;
+                if (next) { event.preventDefault(); selectDay(next); document.getElementById(`program-day-${next}-tab`)?.focus(); }
+              }}
+              className={`min-w-0 rounded-xl border-2 px-2 py-3 text-center transition-colors ${day === item.day ? "border-[#8C0C3A] bg-[#8C0C3A] text-white" : "border-[#E8D4DB] text-[#8C0C3A] hover:bg-[#FAF6F7]"}`}>
+              <span className="block font-heading text-base font-bold sm:text-xl">{item.label}</span>
+              <span className="mt-1 block text-xs leading-snug sm:text-sm">{item.date}</span>
             </button>
-            <button
-              type="button"
-              className={`day-button-tooltip w-[clamp(108px,8.14vw,125px)] h-[clamp(108px,8.14vw,125px)] rounded-full border-2 ${
-                selectedDate === "2026-09-19"
-                  ? "bg-light-red text-white"
-                  : "border-light-red text-light-red hover:bg-[#a33d61] hover:text-white hover:border-[#a33d61]"
-              } cursor-pointer `}
-              onClick={() => setSelectedDate("2026-09-19")}
-              data-tooltip={
-                local === "en"
-                  ? "Click to view Day 2 schedule"
-                  : "Cliquez pour voir l'horaire du jour 2"
-              }
-            >
-              <p className="font-bold text-[21px] leading-tight">
-                {local === "fr" ? "JOUR 2" : "DAY 2"}
-              </p>
-              <p className="font-medium text-[13px]">
-                {local === "en"
-                  ? "Saturday, September 19"
-                  : "Samedi 19 septembre"}
-              </p>
-            </button>
-            <button
-              type="button"
-              className={`day-button-tooltip w-[clamp(108px,8.14vw,125px)] h-[clamp(108px,8.14vw,125px)] rounded-full border-2 ${
-                selectedDate === "2026-09-20"
-                  ? "bg-light-red text-white"
-                  : "border-light-red text-light-red hover:bg-[#a33d61] hover:text-white hover:border-[#a33d61]"
-              } cursor-pointer `}
-              onClick={() => setSelectedDate("2026-09-20")}
-              data-tooltip={
-                local === "en"
-                  ? "Click to view Day 3 schedule"
-                  : "Cliquez pour voir l'horaire du jour 3"
-              }
-            >
-              <p className="font-bold text-[21px] leading-tight">
-                {local === "fr" ? "JOUR 3" : "DAY 3"}
-              </p>
-              <p className="font-medium text-[13px]">
-                {local === "en"
-                  ? "Sunday, September 20"
-                  : "Dimanche 20 septembre"}
-              </p>
-            </button>
-          </div>
-
-          {isDay1 ? (
-            <Day1ScheduleAccordion locale={local} />
-          ) : isDay2 ? (
-            <Day2ScheduleAccordion locale={local} />
-          ) : isDay3 ? (
-            <Day3ScheduleAccordion locale={local} />
-          ) : null}
+          ))}
+        </div>
+        <div ref={panelRef} role="tabpanel" tabIndex={0} id="program-day-panel" aria-labelledby={`program-day-${day}-tab`}>
+          {day === 1 ? <Day1ScheduleAccordion locale={local} /> : day === 2 ? <Day2ScheduleAccordion locale={local} /> : <Day3ScheduleAccordion locale={local} />}
         </div>
       </section>
-    </>
   );
 }

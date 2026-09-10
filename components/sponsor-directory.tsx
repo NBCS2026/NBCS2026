@@ -573,7 +573,7 @@ export function SponsorDirectory({
   compact?: boolean;
 }) {
   return (
-    <div className="mx-auto w-full max-w-[1180px]">
+    <div data-sponsor-directory className="mx-auto w-full max-w-[1180px]">
       <section
         className={`flex flex-col items-center justify-center rounded-[2rem] border-2 border-[#8C0C3A]/20 bg-[#FAF6F7] px-6 text-center shadow-[0_18px_60px_rgba(93,24,49,0.09)] ${compact ? "mb-14 py-10" : "mb-20 py-16 sm:mb-24 sm:py-20"}`}
       >

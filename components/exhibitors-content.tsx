@@ -1,5 +1,6 @@
 "use client";
 
+import { BiographyDisclosure } from "./biography-disclosure";
 import { ExhibitionTitleText } from "./exhibition-title-text";
 import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
 import {
@@ -121,14 +122,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                   <p className="mt-1 text-sm font-bold text-[#8C0C3A]">
                     <ExhibitionTitleText text={isFr ? curator.roleFr : curator.roleEn} />
                   </p>
-                  <details className="mt-3">
-                    <summary className="cursor-pointer text-sm font-bold text-[#5D1831] underline underline-offset-2">
-                      {isFr ? "Lire la biographie" : "Read biography"}
-                    </summary>
-                    <p className="mt-3 text-sm leading-relaxed text-[#1E1E1E]/75">
-                      {isFr ? curator.bioFr : curator.bioEn}
-                    </p>
-                  </details>
+                  <BiographyDisclosure label={isFr ? "Lire la biographie" : "Read biography"} text={isFr ? curator.bioFr : curator.bioEn} name={curator.name} />
                 </div>
               </article>
             ))}

@@ -35,11 +35,11 @@ export default function Page() {
           </h1>
         </div>
       </div>
-      <main className="rounded-t-2xl bg-[#FFFDFC] px-5 pb-20 pt-14 sm:px-8 sm:pb-28">
+      <main id="main-content" tabIndex={-1} className="rounded-t-2xl bg-[#FFFDFC] px-5 pb-20 pt-14 sm:px-8 sm:pb-28">
         <section className="mx-auto mb-12 max-w-4xl text-center">
-          <h1 className="text-[clamp(24px,4vw,62px)] font-bold">
+          <h2 className="text-[clamp(24px,4vw,62px)] font-bold">
             {t("text_seven")}
-          </h1>
+          </h2>
           <div className="mt-4 space-y-4 font-medium text-light-red">
             <p className="mx-auto max-w-[62ch] text-[clamp(16px,1.5vw,24px)] leading-tight">
               <span>{t("text_four")}</span> {t("text_five")}
