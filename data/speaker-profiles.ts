@@ -527,6 +527,8 @@ const rawProfiles: SpeakerProfile[] = [
     imageUrl:
       "https://drive.google.com/thumbnail?id=1op7RL4yCBqbJdUDjzK_P3QtHxCwbXtCE&sz=w600",
     imagePosition: "significant-down",
+    imageScale: "top-large",
+    imageOffsetY: "slight-down",
   },
   {
     name: "Oluwagbotemi Dada",

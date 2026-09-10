@@ -37,7 +37,7 @@ function MessageCard({ message, isFr }: { message: WelcomeMessage; isFr: boolean
           <img src={message.image} alt={(isFr ? message.imageAltFr : message.imageAltEn) || ""} className={`${message.portrait ? "aspect-square w-28 sm:w-36" : "aspect-[3/2] w-48 sm:w-56"} shrink-0 rounded-2xl object-cover shadow-sm`} loading="lazy" />
         )}
         <div className="min-w-0">
-          <p className="text-xs font-bold uppercase tracking-[0.13em] text-[#8C0C3A]">{isFr ? message.labelFr : message.labelEn}</p>
+          {message.id === "cofounders" && <p className="text-xs font-bold uppercase tracking-[0.13em] text-[#8C0C3A]">{isFr ? message.labelFr : message.labelEn}</p>}
           <h3 id={`${id}-title`} className="mt-2 font-heading text-xl font-black leading-tight text-[#5D1831] sm:text-2xl">{title}</h3>
           <div className="mt-3 space-y-1 text-sm leading-relaxed text-[#5D1831]">
             {signature.map((line, index) => <p key={line} className={index === 0 ? "font-semibold" : ""}>{line}</p>)}
@@ -48,7 +48,7 @@ function MessageCard({ message, isFr }: { message: WelcomeMessage; isFr: boolean
       <div className="relative overflow-hidden transition-[height] duration-500 ease-in-out motion-reduce:transition-none" style={{ height: expanded ? contentHeight : 112 }}>
         {!expanded && (
           <div className="absolute inset-0 text-[15px] leading-7 text-[#1E1E1E]/80 sm:text-base">
-            <p className="line-clamp-4">{paragraphs.slice(0, 2).join(" ")}</p>
+            <div className="line-clamp-4 space-y-2">{paragraphs.slice(0, 2).map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
             <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white to-transparent" />
           </div>
         )}
