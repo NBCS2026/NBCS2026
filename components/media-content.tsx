@@ -3,35 +3,41 @@ import { MediaContributionForm } from "@/components/media-contribution-form";
 
 const INSTAGRAM_POSTS = [
   {
-    url: "https://www.instagram.com/reel/DSYgt5mAP14/",
-    embedUrl: "https://www.instagram.com/reel/DSYgt5mAP14/embed",
-    titleEn: "One month to the 5th National Black Canadians Summit",
-    titleFr: "À un mois du 5e Sommet pancanadien des communautés noires",
+    "url": "https://www.instagram.com/p/DdFmiF5DHlZ/",
+    "embedUrl": "https://www.instagram.com/p/DdFmiF5DHlZ/embed/",
+    "titleEn": "View post on Instagram",
+    "titleFr": "Voir la publication sur Instagram"
   },
   {
-    url: "https://www.instagram.com/p/DSXmnsYEbTw/",
-    embedUrl: "https://www.instagram.com/p/DSXmnsYEbTw/embed",
-    titleEn: "Winnipeg welcomes the 2026 Summit",
-    titleFr: "Winnipeg accueille le Sommet 2026",
+    "url": "https://www.instagram.com/p/DchYoAJI0EI/",
+    "embedUrl": "https://www.instagram.com/p/DchYoAJI0EI/embed/",
+    "titleEn": "View post on Instagram",
+    "titleFr": "Voir la publication sur Instagram"
   },
   {
-    url: "https://www.instagram.com/reel/DV9ZiVYjj0D/",
-    embedUrl: "https://www.instagram.com/reel/DV9ZiVYjj0D/embed",
-    titleEn: "Learn more about NBCS 2026",
-    titleFr: "Découvrez le SPCN 2026",
+    "url": "https://www.instagram.com/p/DbHKH1Ukbp_/",
+    "embedUrl": "https://www.instagram.com/p/DbHKH1Ukbp_/embed/",
+    "titleEn": "View post on Instagram",
+    "titleFr": "Voir la publication sur Instagram"
   },
   {
-    url: "https://www.instagram.com/michaellej_fdn/reel/Db9EFGdkjBr/",
-    embedUrl: "https://www.instagram.com/reel/Db9EFGdkjBr/embed/",
-    titleEn: "Winnipeg is waiting — join the 2026 Summit",
-    titleFr: "Winnipeg vous attend — participez au Sommet 2026",
+    "url": "https://www.instagram.com/p/DbTvLAUmqk9/",
+    "embedUrl": "https://www.instagram.com/p/DbTvLAUmqk9/embed/",
+    "titleEn": "View post on Instagram",
+    "titleFr": "Voir la publication sur Instagram"
   },
   {
-    url: "https://www.instagram.com/michaellej_fdn/p/CrwOc-MJ1iC/",
-    embedUrl: "https://www.instagram.com/p/CrwOc-MJ1iC/embed/",
-    titleEn: "Why a National Black Canadians Summit?",
-    titleFr: "Pourquoi un Sommet pancanadien des communautés noires?",
+    "url": "https://www.instagram.com/p/Dbv7hFSkdqu/",
+    "embedUrl": "https://www.instagram.com/p/Dbv7hFSkdqu/embed/",
+    "titleEn": "View post on Instagram",
+    "titleFr": "Voir la publication sur Instagram"
   },
+  {
+    "url": "https://www.instagram.com/p/DbVlsceEWvZ/",
+    "embedUrl": "https://www.instagram.com/p/DbVlsceEWvZ/embed/",
+    "titleEn": "View post on Instagram",
+    "titleFr": "Voir la publication sur Instagram"
+  }
 ];
 
 type CoverageItem = {
@@ -182,7 +188,7 @@ export function MediaContent({ locale }: { locale: string }) {
         <div className="mx-auto max-w-[1180px]">
           <div className="mb-8 text-center">
             <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
-              {isFr ? "Publications récentes" : "Recent posts"}
+              {isFr ? "Publications à découvrir" : "Featured posts"}
             </p>
             <h2 className="mt-3 font-heading text-3xl font-black text-[#5D1831] sm:text-4xl">
               Instagram
