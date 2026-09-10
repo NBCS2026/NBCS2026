@@ -41,6 +41,7 @@ export function NavLink({ className, onClick }: NavLinKProps) {
       title: t("info"),
       url: "/info",
     },
+    { title: locale === "fr" ? "COMMANDITAIRES" : "SPONSORS", url: "#sponsors" },
     {
       title: t("contact"),
       url: "/contact",
@@ -67,10 +68,11 @@ export function NavLink({ className, onClick }: NavLinKProps) {
         {Links.map((link) => {
           const isActive =
             pathname === link.url || pathname?.startsWith(`${link.url}/`);
+          const LinkComponent = link.url.startsWith("#") ? "a" : Link;
           const isInfoLink = link.url === "/info";
           return (
             <li key={link.url}>
-              <Link
+              <LinkComponent
                 className={`${
                   isInfoLink
                     ? "flex flex-col items-center justify-center text-center leading-tight"
@@ -91,7 +93,7 @@ export function NavLink({ className, onClick }: NavLinKProps) {
                 ) : (
                   link.title
                 )}
-              </Link>
+              </LinkComponent>
             </li>
           );
         })}

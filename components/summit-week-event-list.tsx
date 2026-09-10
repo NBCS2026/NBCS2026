@@ -96,6 +96,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                 return <li id={event.id} key={event.id} className="py-5">
                   <h3 className="font-heading text-base font-bold text-[#8C0C3A]">{dateAndTime(event.date, event.startTime, event.endTime, locale)}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-[#1E1E1E]">{venue}{event.address && ` — ${event.address}`}</p>
+                  {event.id === "amfm-september-20" && <p className="mt-2 text-sm font-semibold leading-relaxed text-[#5D1831]">{isFr ? "Les personnes déléguées peuvent y assister après la cérémonie de clôture du Sommet, qui se termine à midi." : "Summit delegates can attend after the closing ceremony ends at noon."}</p>}
                   <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.address || venue)}`} target="_blank" rel="noopener noreferrer" aria-label={`${isFr ? "Itinéraire" : "Directions"} — ${formatDate(event.date, locale)} — ${venue}`} className="mt-1 inline-flex min-h-11 items-center text-sm font-semibold text-[#8C0C3A] underline underline-offset-4">{isFr ? "Itinéraire" : "Directions"}</a>
                 </li>;
               })}

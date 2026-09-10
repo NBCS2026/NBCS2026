@@ -1,3 +1,4 @@
+import { ArticlePreviewCard } from "./article-preview-card";
 import { ExternalLink } from "lucide-react";
 import { MediaContributionForm } from "@/components/media-contribution-form";
 
@@ -265,8 +266,6 @@ export function MediaContent({ locale }: { locale: string }) {
 
       <CoverageSection
         locale={locale}
-        eyebrowEn="Summit archive"
-        eyebrowFr="Archives du Sommet"
         titleEn="Coverage from past Summits"
         titleFr="Articles sur les Sommets précédents"
         items={PAST_COVERAGE}
@@ -288,8 +287,8 @@ function CoverageSection({
   muted = false,
 }: {
   locale: string;
-  eyebrowEn: string;
-  eyebrowFr: string;
+  eyebrowEn?: string;
+  eyebrowFr?: string;
   titleEn: string;
   titleFr: string;
   items: CoverageItem[];
@@ -303,33 +302,16 @@ function CoverageSection({
     >
       <div className="mx-auto max-w-[1180px]">
         <div className="mb-8 max-w-3xl">
-          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+          {(isFr ? eyebrowFr : eyebrowEn) && <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
             {isFr ? eyebrowFr : eyebrowEn}
-          </p>
+          </p>}
           <h2 className="mt-3 font-heading text-3xl font-black text-[#5D1831] sm:text-4xl">
             {isFr ? titleFr : titleEn}
           </h2>
         </div>
         <div className="grid gap-5 md:grid-cols-2">
           {items.map((item) => (
-            <a
-              key={item.url}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex h-full flex-col rounded-2xl border border-[#E8D4DB] bg-white p-6 shadow-sm transition-transform hover:-translate-y-0.5"
-            >
-              <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#8C0C3A]">
-                {item.source} · {item.date}
-              </span>
-              <span className="mt-3 flex items-start justify-between gap-4 font-heading text-xl font-black leading-snug text-[#5D1831]">
-                {item.title}
-                <ExternalLink className="mt-1 size-5 shrink-0" aria-hidden />
-              </span>
-              <span className="mt-3 text-sm leading-relaxed text-[#1E1E1E]/70">
-                {isFr ? item.summaryFr : item.summaryEn}
-              </span>
-            </a>
+            <ArticlePreviewCard key={item.url} item={item} locale={locale} />
           ))}
         </div>
       </div>

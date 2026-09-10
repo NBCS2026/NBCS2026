@@ -34,25 +34,18 @@ const CURATORS = [
 ];
 
 function SectionHeading({
-  eyebrow,
   title,
   description,
   dark = false,
 }: {
-  eyebrow: string;
   title: string;
   description: string;
   dark?: boolean;
 }) {
   return (
     <div className="mx-auto mb-10 max-w-3xl text-center">
-      <p
-        className={`font-heading text-sm font-bold uppercase tracking-[0.16em] ${dark ? "text-[#FFB6C8]" : "text-[#8C0C3A]"}`}
-      >
-        {eyebrow}
-      </p>
       <h2
-        className={`mt-3 font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight ${dark ? "text-white" : "text-[#5D1831]"}`}
+        className={`font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight ${dark ? "text-white" : "text-[#5D1831]"}`}
       >
         {title}
       </h2>
@@ -72,15 +65,12 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
     <>
       <AboutSectionNav label={isFr ? "Navigation des expositions et du marché" : "Exhibitors and marketplace navigation"} sections={[
         ["youth-art-exhibition", isFr ? "Exposition d’art jeunesse" : "Youth Art Exhibition"],
-        ["curators", isFr ? "Commissariat" : "Curators"],
-        ["exhibition-artists", isFr ? "Artistes" : "Artists"],
         ["exhibitors", isFr ? "Exposants" : "Exhibitors"],
         ["marketplace", isFr ? "Marché" : "Marketplace"],
       ]} />
       <section tabIndex={-1} id="youth-art-exhibition" className="px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-[1180px]">
           <SectionHeading
-            eyebrow={isFr ? "Première partie" : "Part one"}
             title={isFr ? "Exposition d’art jeunesse" : "Youth Art Exhibition"}
             description={
               isFr
@@ -172,7 +162,6 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
       >
         <div className="mx-auto max-w-[1180px]">
           <SectionHeading
-            eyebrow={isFr ? "Deuxième partie" : "Part two"}
             title={isFr ? "Exposants" : "Exhibitors"}
             dark
             description={
@@ -218,7 +207,6 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
       <section tabIndex={-1} id="marketplace" className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-[1180px]">
           <SectionHeading
-            eyebrow={isFr ? "Troisième partie" : "Part three"}
             title={isFr ? "Marché des entreprises" : "Marketplace Vendors"}
             description={
               isFr
