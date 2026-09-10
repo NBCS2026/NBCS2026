@@ -38,7 +38,7 @@ export function NavLink({ className, onClick }: NavLinKProps) {
       url: "/ticket",
     },
     {
-      title: t("info"),
+      title: locale === "fr" ? "PLANIFIER" : "PLAN",
       url: "/info",
     },
     { title: locale === "fr" ? "PARTENAIRES" : "PARTNERS", url: "/partners" },
@@ -68,30 +68,17 @@ export function NavLink({ className, onClick }: NavLinKProps) {
         {Links.map((link) => {
           const isActive =
             pathname === link.url || pathname?.startsWith(`${link.url}/`);
-          const isInfoLink = link.url === "/info";
           return (
             <li key={link.url}>
               <Link
-                className={`${
-                  isInfoLink
-                    ? "flex flex-col items-center justify-center text-center leading-tight"
-                    : "whitespace-nowrap"
-                } ${
+                className={`whitespace-nowrap ${
                   isActive ? "border-b-2 border-current" : "border-b-2 border-transparent"
                 } inline-flex min-h-11 items-center hover:border-current`}
                 aria-current={isActive ? "page" : undefined}
                 href={link.url}
                 onClick={onClick}
               >
-                {isInfoLink ? (
-                  <>
-                    <span>{t("info_line1")}</span>
-                    <span>{t("info_line2")}</span>
-                    <span>{t("info_line3")}</span>
-                  </>
-                ) : (
-                  link.title
-                )}
+                {link.title}
               </Link>
             </li>
           );
