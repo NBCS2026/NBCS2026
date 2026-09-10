@@ -39,7 +39,7 @@ function MessageCard({ message, isFr }: { message: WelcomeMessage; isFr: boolean
         <div className="min-w-0">
           {message.id === "cofounders" && <p className="text-xs font-bold uppercase tracking-[0.13em] text-[#8C0C3A]">{isFr ? message.labelFr : message.labelEn}</p>}
           <h3 id={`${id}-title`} className="mt-2 font-heading text-xl font-black leading-tight text-[#5D1831] sm:text-2xl">{title}</h3>
-          {message.id !== "mayor" && (
+          {message.id !== "mayor" && message.id !== "province" && (
           <div className="mt-3 space-y-1 text-sm leading-relaxed text-[#5D1831]">
             {signature.map((line, index) => <p key={line} className={index === 0 ? "font-semibold" : ""}>{line}</p>)}
           </div>
