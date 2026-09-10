@@ -256,6 +256,18 @@ const communityPartners: SponsorEntry[] = [
 
 
   {
+    name: "ACOMI (African Communities of Manitoba Inc.)",
+    roleEn: "Community Partner",
+    roleFr: "Partenaire communautaire",
+    logos: [
+      {
+        src: "/acomi.jpg",
+        alt: "ACOMI — African Communities of Manitoba Inc.",
+        className: "max-h-16 max-w-[250px]",
+      },
+    ],
+  },
+  {
     name: "Manito Ahbee Festival",
     logos: [
       {
@@ -422,18 +434,6 @@ const communityPartners: SponsorEntry[] = [
         src: "/summit-week-amfm.webp",
         alt: "African Movie Festival in Manitoba",
         className: "max-h-20 max-w-[240px]",
-      },
-    ],
-  },
-  {
-    name: "ACOMI (African Communities of Manitoba Inc.)",
-    roleEn: "Community Partner",
-    roleFr: "Partenaire communautaire",
-    logos: [
-      {
-        src: "/acomi.jpg",
-        alt: "ACOMI — African Communities of Manitoba Inc.",
-        className: "max-h-16 max-w-[250px]",
       },
     ],
   },
