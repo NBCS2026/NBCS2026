@@ -69,6 +69,7 @@ export default function Page() {
                 {history.slice(1).map(paragraph => <p key={paragraph}>{paragraph}</p>)}
               </div>
             </div>
+            <AboutSpeakersCollage locale={locale} placement="additional" />
           </details>
           <AboutSpeakersCollage locale={locale} placement="below" />
         </section>
