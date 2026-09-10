@@ -311,7 +311,7 @@ const communityPartners: SponsorEntry[] = [
       {
         src: "/dbdli.webp",
         alt: "Delmore Buddy Daye Learning Institute",
-        className: "max-h-24 max-w-[290px]",
+        className: "max-h-28 max-w-[300px]",
       },
     ],
   },
