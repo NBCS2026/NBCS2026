@@ -58,6 +58,16 @@ const champions: SponsorEntry[] = [
 
 const advocates: SponsorEntry[] = [
   {
+    name: "The Winnipeg Foundation",
+    logos: [
+      {
+        src: "/winnipeg-foundation-logo.png",
+        alt: "The Winnipeg Foundation",
+        className: "max-h-16 max-w-[250px]",
+      },
+    ],
+  },
+  {
     name: "Canadian Race Relations Foundation",
     logos: [
       {
@@ -207,16 +217,7 @@ const donors: SponsorEntry[] = [
 ];
 
 const communityPartners: SponsorEntry[] = [
-  {
-    name: "The Winnipeg Foundation",
-    logos: [
-      {
-        src: "/winnipeg-foundation-logo.png",
-        alt: "The Winnipeg Foundation",
-        className: "max-h-16 max-w-[250px]",
-      },
-    ],
-  },
+
 
   {
     name: "Manito Ahbee Festival",

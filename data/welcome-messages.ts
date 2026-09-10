@@ -60,7 +60,7 @@ export const WELCOME_MESSAGES: WelcomeMessage[] = [
       "La très honorable Michaëlle Jean et Jean-Daniel Lafond",
       "Cofondateurs et coprésidents de la Fondation Michaëlle Jean",
     ],
-    image: "/cofounders-message.webp",
+    image: "/cofounders-DSC03857.webp",
     imageAltEn:
       "Michaëlle Jean and Jean-Daniel Lafond together at the National Black Canadians Summit",
     imageAltFr:
