@@ -6,7 +6,7 @@ const photos = [
   { src: "/Panel discussion at the 2025 NBCS with community leaders on stage.jpg", en: "Community dialogue at the Summit, 2025", fr: "Dialogue communautaire au Sommet, 2025" },
   { src: "/Members of the public actively participating during a speech delivered at the 2025 SPCN.jpg", en: "Making space for community voices, 2025", fr: "Faire place aux voix de la communauté, 2025" },
 ];
-export function AboutSpeakersCollage({ locale = "en" }: { locale?: string }) {
+export function AboutSpeakersCollage({ locale = "en", placement = "beside" }: { locale?: string; placement?: "beside" | "below" }) {
   const photo = (index: number) => {
     const item = photos[index];
     const caption = locale === "fr" ? item.fr : item.en;
@@ -17,6 +17,9 @@ export function AboutSpeakersCollage({ locale = "en" }: { locale?: string }) {
       </figure>
     );
   };
+  if (placement === "below") {
+    return <div className="mt-8 grid grid-cols-1 items-start gap-6 sm:grid-cols-2">{photo(4)}{photo(5)}</div>;
+  }
   return (
     <div className="mx-auto w-full max-w-[550px] space-y-6">
       <div className="grid grid-cols-2 items-center gap-4 sm:gap-6">
@@ -24,8 +27,6 @@ export function AboutSpeakersCollage({ locale = "en" }: { locale?: string }) {
         {photo(2)}
       </div>
       {photo(3)}
-      {photo(4)}
-      {photo(5)}
     </div>
   );
 }

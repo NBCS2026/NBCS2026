@@ -1,13 +1,17 @@
 "use client";
 
+import { useRef } from "react";
+import { Foundation } from "@/components/svg/foundation";
 import { ChevronDown } from "lucide-react";
 import { WELCOME_MESSAGES } from "@/data/welcome-messages";
 
 export function WelcomeMessages({ locale }: { locale: string }) {
   const isFr = locale === "fr";
+  const messagesRef = useRef<HTMLElement>(null);
+  const setAllOpen = (open: boolean) => { messagesRef.current?.querySelectorAll("details").forEach(message => { message.open = open; }); };
 
   return (
-    <section className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
+    <section id="welcome-messages" ref={messagesRef} className="scroll-mt-36 bg-[#FAF6F7] px-5 py-14 sm:py-20">
       <div className="mx-auto max-w-[1180px]">
         <div className="mb-9 max-w-3xl">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
@@ -23,8 +27,12 @@ export function WelcomeMessages({ locale }: { locale: string }) {
           </p>
         </div>
 
+        <div className="mb-5 flex flex-wrap gap-3">
+          <button type="button" onClick={() => setAllOpen(true)} className="rounded-full border border-[#E8D4DB] bg-white px-4 py-2 text-sm font-semibold text-[#8C0C3A]">{isFr ? "Tout ouvrir" : "Expand all messages"}</button>
+          <button type="button" onClick={() => setAllOpen(false)} className="rounded-full border border-[#E8D4DB] bg-white px-4 py-2 text-sm font-semibold text-[#8C0C3A]">{isFr ? "Tout fermer" : "Collapse all messages"}</button>
+        </div>
         <div className="space-y-4">
-          {WELCOME_MESSAGES.map((message, index) => {
+          {WELCOME_MESSAGES.map((message) => {
             const paragraphs = isFr
               ? message.paragraphsFr
               : message.paragraphsEn;
@@ -36,7 +44,6 @@ export function WelcomeMessages({ locale }: { locale: string }) {
             return (
               <details
                 key={message.id}
-                open={index === 0}
                 className="group overflow-hidden rounded-3xl border border-[#E8D4DB] bg-white shadow-[0_12px_40px_rgba(93,24,49,0.06)]"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-6 py-5 marker:content-none sm:px-8 sm:py-6">
@@ -57,19 +64,13 @@ export function WelcomeMessages({ locale }: { locale: string }) {
                 </summary>
 
                 <div className="border-t border-[#E8D4DB] px-6 py-7 sm:px-8 sm:py-9">
-                  <div
-                    className={
-                      message.image
-                        ? "grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-12"
-                        : "mx-auto max-w-4xl"
-                    }
-                  >
+                  <div className="flow-root">
                     {message.image && (
-                      <figure className="lg:sticky lg:top-6 lg:self-start">
+                      <figure className={`mx-auto mb-6 sm:float-left sm:mr-7 sm:mb-5 ${message.portrait ? "w-full max-w-[250px] sm:w-[32%]" : "w-full sm:w-[43%] sm:max-w-[420px]"}`}>
                         <img
                           src={message.image}
                           alt={imageAlt || ""}
-                          className="aspect-[3/2] w-full rounded-2xl object-cover shadow-sm"
+                          className={`${message.portrait ? "aspect-square" : "aspect-[3/2]"} w-full rounded-2xl object-cover shadow-sm`}
                           loading="lazy"
                         />
                         <figcaption className="mt-3 text-sm font-semibold leading-relaxed text-[#5D1831]">
@@ -83,7 +84,7 @@ export function WelcomeMessages({ locale }: { locale: string }) {
                           <p key={paragraph}>{paragraph}</p>
                         ))}
                       </div>
-                      <div className="mt-8 border-l-4 border-[#8C0C3A] pl-4 text-sm leading-relaxed text-[#5D1831] sm:text-base">
+                      <div className="clear-both mt-8 border-l-4 border-[#8C0C3A] pl-4 text-sm leading-relaxed text-[#5D1831] sm:text-base">
                         {signature.map((line, signatureIndex) => (
                           <p
                             key={line}
@@ -93,6 +94,15 @@ export function WelcomeMessages({ locale }: { locale: string }) {
                           </p>
                         ))}
                       </div>
+                      {message.logo && (
+                        <div className="clear-both mt-6">
+                          {message.logo === "foundation" ? (
+                            <Foundation role="img" aria-label={isFr ? "Fondation Michaëlle Jean" : "Michaëlle Jean Foundation"} className="h-auto w-[270px] max-w-full [&_path]:fill-[#5D1831]" />
+                          ) : (
+                            <img src={message.logo} alt={(isFr ? message.logoAltFr : message.logoAltEn) || ""} className="h-auto max-h-24 w-auto max-w-[240px] object-contain" loading="lazy" />
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

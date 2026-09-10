@@ -9,6 +9,10 @@ export type WelcomeMessage = {
   signatureEn: string[];
   signatureFr: string[];
   image?: string;
+  portrait?: boolean;
+  logo?: string;
+  logoAltEn?: string;
+  logoAltFr?: string;
   imageAltEn?: string;
   imageAltFr?: string;
 };
@@ -16,6 +20,7 @@ export type WelcomeMessage = {
 export const WELCOME_MESSAGES: WelcomeMessage[] = [
   {
     id: "cofounders",
+    logo: "foundation",
     labelEn: "A message from the Co-founders",
     labelFr: "Un mot des cofondateurs",
     titleEn: "Coming Together, Stronger Than Ever",
@@ -68,6 +73,10 @@ export const WELCOME_MESSAGES: WelcomeMessage[] = [
   },
   {
     id: "host-committee-chair",
+    image: "/angela-cassie.jpg",
+    portrait: true,
+    imageAltEn: "Angela Cassie",
+    imageAltFr: "Angela Cassie",
     labelEn: "A message from the Summit Chair",
     labelFr: "Un mot de la présidente du Sommet",
     titleEn:
@@ -99,6 +108,13 @@ export const WELCOME_MESSAGES: WelcomeMessage[] = [
   },
   {
     id: "mayor",
+    image: "/mayor-scott-gillingham.png",
+    portrait: true,
+    imageAltEn: "Mayor Scott Gillingham",
+    imageAltFr: "Le maire Scott Gillingham",
+    logo: "/city-winnipeg-logo.jpg",
+    logoAltEn: "City of Winnipeg",
+    logoAltFr: "Ville de Winnipeg",
     labelEn: "A message from the Mayor of Winnipeg",
     labelFr: "Un mot du maire de Winnipeg",
     titleEn: "A Message from the Mayor of Winnipeg",
@@ -118,6 +134,9 @@ export const WELCOME_MESSAGES: WelcomeMessage[] = [
   },
   {
     id: "province",
+    logo: "/manitoba-logo.png",
+    logoAltEn: "Province of Manitoba",
+    logoAltFr: "Province du Manitoba",
     labelEn: "A message from the Province of Manitoba",
     labelFr: "Un mot de la Province du Manitoba",
     titleEn: "A Message on Behalf of the Province of Manitoba",

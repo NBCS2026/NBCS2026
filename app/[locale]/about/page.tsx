@@ -17,6 +17,9 @@ export default function Page() {
   const params = useParams<{ locale: string }>();
   const t = useTranslations("about");
   const { locale } = params;
+  const isFr = locale === "fr";
+  const history = isFr ? SUMMIT_HISTORY.fr : SUMMIT_HISTORY.en;
+  const sections = [["summit-history", isFr ? "Histoire" : "History"], ["summit-timeline", isFr ? "Chronologie" : "Timeline"], ["welcome-messages", isFr ? "Messages" : "Messages"], ["summit-voices", isFr ? "Témoignages" : "Voices"], ["summit-highlights", isFr ? "Faits saillants" : "Highlights"]];
 
   return (
     <>
@@ -40,30 +43,36 @@ export default function Page() {
           </h1>
         </div>
       </div>
-      <main className="bg-white rounded-t-2xl pt-14">
-        <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[87px]">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] items-start gap-8 lg:gap-12">
-            <div className="space-y-8 [&>p]:leading-tight">
-              <div className="text-center lg:text-start">
-                <p className="text-[clamp(16px,1.82vw,22px)] font-medium text-light-red">
-                  {t("text_one")}
-                </p>
-                <p className="text-[clamp(24px,2.79vw,43px)] text-black font-bold">
-                  {locale === "fr" ? "Histoire du Sommet" : "Summit History"}
-                </p>
-              </div>
-              {(locale === "fr" ? SUMMIT_HISTORY.fr : SUMMIT_HISTORY.en).map((paragraph) => (
-                <p key={paragraph} className="text-base leading-relaxed text-[#1E1E1E]/80 sm:text-lg">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-            <div className="w-full min-w-0 lg:sticky lg:top-8 lg:self-start">
-              <AboutSpeakersCollage locale={locale} />
-            </div>
+      <main className="bg-white rounded-t-2xl">
+        <nav aria-label={isFr ? "Sur cette page" : "On this page"} className="sticky top-0 z-30 mb-10 border-b border-[#E8D4DB] bg-white/95 px-5 py-3 backdrop-blur">
+          <div className="mx-auto flex max-w-[1180px] flex-wrap items-center gap-2">
+            <span className="mr-2 text-xs font-bold uppercase tracking-wider text-[#5D1831]">{isFr ? "Sur cette page" : "On this page"}</span>
+            {sections.map(([id, label]) => <a key={id} href={`#${id}`} className="rounded-full border border-[#E8D4DB] px-3 py-2 text-sm font-semibold text-[#5D1831] transition hover:bg-[#FAF6F7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8C0C3A]">{label}</a>)}
           </div>
+        </nav>
+        <section id="summit-history" className="scroll-mt-36 max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[87px]">
+          <div className="mb-6 text-center lg:text-start">
+            <p className="text-[clamp(16px,1.82vw,22px)] font-medium text-light-red">{t("text_one")}</p>
+            <h2 className="text-[clamp(24px,2.79vw,43px)] font-bold text-black">{isFr ? "Histoire du Sommet" : "Summit History"}</h2>
+          </div>
+          <p className="max-w-4xl text-base leading-relaxed text-[#1E1E1E]/80 sm:text-lg">{history[0]}</p>
+          <details className="group mt-5">
+            <summary className="w-fit cursor-pointer rounded-full border border-[#E8D4DB] px-5 py-3 text-sm font-bold text-[#8C0C3A] focus-visible:outline-2 focus-visible:outline-offset-2">
+              <span className="group-open:hidden">{isFr ? "Lire toute l’histoire" : "Read the full history"}</span>
+              <span className="hidden group-open:inline">{isFr ? "Réduire l’histoire" : "Show less history"}</span>
+            </summary>
+            <div className="mt-6 flow-root">
+              <div className="mb-8 w-full lg:float-right lg:mb-6 lg:ml-10 lg:w-[43%]">
+                <AboutSpeakersCollage locale={locale} />
+              </div>
+              <div className="space-y-6 text-base leading-relaxed text-[#1E1E1E]/80 sm:text-lg">
+                {history.slice(1).map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+              </div>
+            </div>
+          </details>
+          <AboutSpeakersCollage locale={locale} placement="below" />
         </section>
-        <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[87px]">
+        <section id="summit-timeline" className="scroll-mt-36 max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[87px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-10 lg:gap-14">
             <div className="w-full min-w-0 lg:sticky lg:top-8 lg:self-start">
               <AboutCollage locale={locale} />
@@ -75,7 +84,7 @@ export default function Page() {
         <WelcomeMessages locale={locale} />
 
         {/* Testimonial Section */}
-        <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-32">
+        <section id="summit-voices" className="scroll-mt-36 max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-32">
           <div className="text-center lg:text-start mb-16">
             <p className="text-[clamp(16px,1.82vw,22px)] font-medium text-light-red">
               {t("testimonial_title")}
@@ -145,7 +154,7 @@ export default function Page() {
         </section>
 
         {/* News Section */}
-        <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-32">
+        <section id="summit-highlights" className="scroll-mt-36 max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-32">
           <div className="text-center lg:text-start mb-16">
             <p className="text-[clamp(16px,1.82vw,22px)] font-medium text-light-red">
               {t("news_title")}
