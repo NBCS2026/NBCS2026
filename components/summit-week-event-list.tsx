@@ -1,7 +1,6 @@
 "use client";
 
 import { Fragment } from "react";
-import { AboutSectionNav } from "./about-section-nav";
 import { ExhibitionTitleText } from "./exhibition-title-text";
 import { CalendarDays, MapPin, Ticket, UserRound } from "lucide-react";
 import { SummitWeekVenueMap } from "@/components/summit-week-venue-map";
@@ -57,7 +56,6 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
   const festivalEvents = SUMMIT_WEEK_EVENTS.filter(event => event.id.startsWith("amfm-"));
   const events = SUMMIT_WEEK_EVENTS.filter(event => !event.id.startsWith("amfm-"));
   const festival = festivalEvents[0];
-  const dates = [...new Set(events.map(event => event.date))];
 
   return (
     <>
@@ -77,8 +75,6 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
               : "Explore community, arts and cultural events taking place before and during the Summit. Start and end times are shown together to make planning easier."}
           </p>
         </div>
-
-        <AboutSectionNav label={isFr ? "Dates des événements" : "Event dates"} sections={[["week-amfm", "AM-FM 2026"], ...dates.map(date => [`week-${date || "tbc"}`, formatDate(date, locale)])]} />
 
         <article id="week-amfm" aria-labelledby="week-amfm-title" className="my-8 overflow-hidden rounded-2xl border border-[#E8D4DB] bg-white">
           <div className="grid lg:grid-cols-[0.85fr_1.15fr]">

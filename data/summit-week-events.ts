@@ -97,7 +97,8 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
   {
     id: "ancestors-exhibit-opening",
     date: "2026-09-17",
-    startTime: "11:00",
+    startTime: "14:00",
+    endTime: "17:00",
     titleEn: "At the Knees of Our Ancestors — Exhibit Opening",
     titleFr: "Aux pieds de nos ancêtres — ouverture de l’exposition",
     descriptionEn:
@@ -161,6 +162,7 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
       "Laissez-passer pour les personnes déléguées : 30 $ (prix régulier de 60 $) avec le code NBCS2026.",
     image: "/summit-week-amfm.webp",
   },
+
   {
     id: "sleeping-car-porters-memorial",
     date: "2026-09-18",
