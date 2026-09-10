@@ -1,0 +1,101 @@
+.page main > section {
+  scroll-margin-top: 6rem;
+}
+.section {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  margin-block: 0;
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+.section + .section {
+  border-top: 1px solid #E8D4DB;
+}
+.section h2 {
+  line-height: 1.15;
+  margin-top: .6rem;
+}
+.history > p {
+  max-width: 72ch;
+  line-height: 1.8;
+}
+.history details p {
+  line-height: 1.8;
+}
+.history > div:last-child {
+  max-width: 960px;
+  margin-top: 2.5rem;
+}
+.page :global(#welcome-messages) article {
+  border-radius: 1rem;
+  box-shadow: none;
+}
+.page :global(#welcome-messages) article:first-child header img {
+  width: min(100%, 280px);
+}
+.page :global(#welcome-messages) [role="region"] {
+  max-width: 76ch;
+}
+.page :global(#welcome-messages) article > div > div:first-child:not([role]) {
+  max-width: 76ch;
+}
+.voices > div:first-child,
+.highlights > div:first-child {
+  margin-bottom: 2.5rem;
+}
+.quotes {
+  display: grid;
+  gap: 2.5rem;
+}
+.quote {
+  border-left: 2px solid #E8D4DB;
+  padding-left: 1.5rem;
+  min-width: 0;
+}
+.quote blockquote {
+  color: #5D0424;
+  font-weight: 600;
+  line-height: 1.65;
+  font-size: 1rem;
+}
+.quote:first-child blockquote {
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+}
+.quote figcaption {
+  color: #5D1831;
+  font-size: .875rem;
+  line-height: 1.6;
+  margin-top: 1.25rem;
+}
+.page footer > section > div > section {
+  margin-bottom: 3rem;
+}
+.page footer > section article {
+  box-shadow: none;
+  border-color: transparent;
+  border-radius: .625rem;
+  padding-inline: 1rem;
+}
+.page footer > section article > div {
+  max-width: 100%;
+  min-width: 0;
+}
+.page footer > section article img {
+  max-width: 100%;
+}
+@media (min-width: 768px) {
+  .section { padding-inline: 2rem; }
+  .quotes { grid-template-columns: 1.1fr 1fr; column-gap: 4rem; }
+  .quote:first-child { grid-row: span 3; padding-left: 2rem; border-left-color: #8C0C3A; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page *, .page *::before, .page *::after { scroll-behavior: auto; }
+}
+/* Keep the About page's sticky elements attached to the viewport. */
+:global(body):has(.page) {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+.history details p {
+  max-width: 72ch;
+}
