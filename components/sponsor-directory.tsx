@@ -291,7 +291,7 @@ const communityPartners: SponsorEntry[] = [
       {
         src: "/nabc.webp",
         alt: "Network for the Advancement of Black Communities",
-        className: "max-h-28 max-w-[290px]",
+        className: "!h-[100px] !w-[300px] !max-h-none max-w-full !object-cover",
       },
     ],
   },
