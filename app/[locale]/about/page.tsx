@@ -114,9 +114,7 @@ export default function Page() {
         {/* News Section */}
         <section id="summit-highlights" className={`${styles.section} ${styles.highlights}`}>
           <div className="text-center lg:text-start mb-16">
-            <p className="text-[clamp(16px,1.82vw,22px)] font-medium text-light-red">
-              {t("news_title")}
-            </p>
+
             <h2 className="text-[clamp(24px,2.79vw,43px)] text-black font-bold">
               {t("news_subtitle")}
             </h2>
