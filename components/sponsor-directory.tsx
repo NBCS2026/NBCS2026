@@ -138,7 +138,7 @@ const partners: SponsorEntry[] = [
       {
         src: "/zueike.webp",
         alt: "Zueike",
-        className: "max-h-20 max-w-[210px]",
+        className: "max-h-24 max-w-[240px]",
       },
     ],
   },
@@ -217,6 +217,52 @@ const donors: SponsorEntry[] = [
 ];
 
 const communityPartners: SponsorEntry[] = [
+  {
+    name: "Organization for Economic Development and Diplomacy (OEDD)",
+    website: "https://oedd.ca/",
+    logos: [{ src: "/oedd-logo.svg", alt: "Organization for Economic Development and Diplomacy (OEDD)", className: "max-h-28 max-w-[260px]" }],
+  },
+  {
+    name: "African Nova Scotian Decade for People of African Descent Coalition (ANSDPAD)",
+    website: "https://ansdpad.ca/",
+    logos: [{ src: "/ansdpad-logo.png", alt: "African Nova Scotian Decade for People of African Descent Coalition (ANSDPAD)", className: "max-h-28 max-w-[260px]" }],
+  },
+  {
+    name: "Côte-des-Neiges Black Community Association (CDNBCA)",
+    website: "https://www.cdnbca.org/",
+    logos: [{ src: "/cdnbca-logo.png", alt: "Côte-des-Neiges Black Community Association (CDNBCA)", className: "max-h-28 max-w-[260px]" }],
+  },
+  {
+    name: "Afro-Caribbean Association of Manitoba",
+    website: "https://afrocaribbean.org/",
+    logos: [{ src: "/acam-logo.png", alt: "Afro-Caribbean Association of Manitoba", className: "max-h-28 max-w-[260px]" }],
+  },
+  {
+    name: "Sexuality Education Resource Centre MB",
+    website: "https://serc.mb.ca/",
+    logos: [{ src: "/serc-logo.svg", alt: "Sexuality Education Resource Centre MB", className: "max-h-28 max-w-[260px]" }],
+  },
+  {
+    name: "Black Artists Winnipeg",
+    logos: [{ src: "/black-artists-winnipeg.jpg", alt: "Black Artists Winnipeg", className: "max-h-28 max-w-[260px]" }],
+  },
+  {
+    name: "AFRICANADIAN SEARCHERS",
+  },
+  {
+    name: "Regroupement des Haïtiens du Manitoba (RDHM)",
+  },
+  {
+    name: "Congress of Black Women of Manitoba",
+    website: "https://cobwmanitoba.com/",
+    logos: [{ src: "/congress-black-women-logo.jpg", alt: "Congress of Black Women of Manitoba", className: "max-h-28 max-w-[260px]" }],
+  },
+
+  {
+    name: "Black Cultural Centre for Nova Scotia (BCC)",
+    website: "https://bccns.com/",
+    logos: [{ src: "/bcc-logo.jpg", alt: "Black Cultural Centre for Nova Scotia", className: "max-h-28 max-w-[185px]" }],
+  },
 
 
   {
@@ -245,7 +291,7 @@ const communityPartners: SponsorEntry[] = [
       {
         src: "/nabc.webp",
         alt: "Network for the Advancement of Black Communities",
-        className: "max-h-20 max-w-[260px]",
+        className: "max-h-28 max-w-[290px]",
       },
     ],
   },
@@ -265,7 +311,7 @@ const communityPartners: SponsorEntry[] = [
       {
         src: "/dbdli.webp",
         alt: "Delmore Buddy Daye Learning Institute",
-        className: "max-h-20 max-w-[270px]",
+        className: "max-h-24 max-w-[290px]",
       },
     ],
   },
@@ -273,9 +319,9 @@ const communityPartners: SponsorEntry[] = [
     name: "Nigerian Association of Manitoba",
     logos: [
       {
-        src: "/nigerian-association-manitoba.webp",
+        src: "/nigerian-association-manitoba-white.webp",
         alt: "Nigerian Association of Manitoba",
-        className: "max-h-24 max-w-[220px]",
+        className: "max-h-32 max-w-[280px]",
       },
     ],
   },
@@ -373,9 +419,9 @@ const communityPartners: SponsorEntry[] = [
     name: "Black Manitobans Chamber of Commerce",
     logos: [
       {
-        src: "/summit-week-bmcc.png",
+        src: "/bmcc-logo-white.webp",
         alt: "Black Manitobans Chamber of Commerce",
-        className: "max-h-24 max-w-[220px]",
+        className: "max-h-32 max-w-[280px]",
       },
     ],
   },

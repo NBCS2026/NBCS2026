@@ -29,6 +29,7 @@ export type Exhibitor = {
 };
 
 export const EXHIBITORS: Exhibitor[] = [
+  { name: "Black Cultural Centre for Nova Scotia (BCC)", logoUrls: ["/bcc-logo.jpg"] },
   { name: "CBC", logoUrls: ["/cbc-logo.png"] },
 
   {

@@ -14,10 +14,6 @@ export const ADVISORY_SUBCOMMITTEE: AdvisoryMember[] = [
     name: "Anita Chambers",
     organization: "Afro-Caribbean Association of Winnipeg",
   },
-  {
-    name: "Anmol Singh",
-    organization: "Black Manitoba Chamber of Commerce",
-  },
   { name: "Audrey Dwyer", organization: "Manitoba Arts Council" },
   {
     name: "Ayanna Alleyne",
@@ -114,7 +110,6 @@ export const ADVISORY_SUBCOMMITTEE: AdvisoryMember[] = [
     organization: "Rainbow Resource Centre and the Love Notes Campaign",
   },
   { name: "Randi Su", organization: "Unified Veterans Manitoba" },
-  { name: "Randy Joynt", organization: "Manitoba Arts Council" },
   { name: "Sarah Schwendemann", organization: "The Human Rights Museum" },
   {
     name: "Sean Foyn",
