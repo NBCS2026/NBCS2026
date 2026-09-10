@@ -58,7 +58,7 @@ export default function Page() {
           <p className="max-w-4xl text-base leading-relaxed text-[#1E1E1E]/80 sm:text-lg">{history[0]}</p>
           <details className="group mt-5">
             <summary className="w-fit cursor-pointer rounded-full border border-[#E8D4DB] px-5 py-3 text-sm font-bold text-[#8C0C3A] focus-visible:outline-2 focus-visible:outline-offset-2">
-              <span className="group-open:hidden">{isFr ? "Lire toute l’histoire" : "Read the full history"}</span>
+              <span className="group-open:hidden">{isFr ? "Lire la suite" : "Read more"}</span>
               <span className="hidden group-open:inline">{isFr ? "Réduire l’histoire" : "Show less history"}</span>
             </summary>
             <div className="mt-6 flow-root">
