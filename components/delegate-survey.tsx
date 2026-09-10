@@ -33,7 +33,7 @@ const CONTRIBUTIONS = [
     "Deepen research and evidence",
     "Approfondir la recherche et les données probantes",
   ],
-  ["Community validation", "Validation communautaire"],
+  ["Community involvement", "Participation communautaire"],
   ["Policy recommendations", "Recommandations de politiques publiques"],
   ["Framework and tool development", "Élaboration de cadres et d’outils"],
   ["Future Summit planning", "Planification des prochains Sommets"],
@@ -76,7 +76,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
       expertise: formData.getAll("expertise").map(String),
       otherExpertise: String(formData.get("otherExpertise") || ""),
       contributions: formData.getAll("contributions").map(String),
-      futureRole: String(formData.get("futureRole") || ""),
+      otherContribution: String(formData.get("otherContribution") || ""),
       insights: String(formData.get("insights") || ""),
       projects: String(formData.get("projects") || ""),
       contactConsent: formData.get("contactConsent") === "yes",
@@ -145,18 +145,20 @@ export function DelegateSurvey({ locale }: { locale: string }) {
             </legend>
             <p className="mt-2 text-sm leading-relaxed text-[#1E1E1E]/65">
               {isFr
-                ? "Ces renseignements sont facultatifs, sauf indication contraire."
-                : "These details are optional unless marked otherwise."}
+                ? "Le nom, le courriel et la ville avec la province ou le territoire sont obligatoires."
+                : "Name, email, and city with province or territory are required."}
             </p>
             <div className="mt-5 grid gap-5 sm:grid-cols-2">
               <label className="block font-semibold">
-                {isFr ? "Nom" : "Name"}
-                <input name="name" maxLength={120} className={fieldClass} />
+                {isFr ? "Nom (obligatoire)" : "Name (required)"}
+                <input required autoComplete="name" name="name" maxLength={120} className={fieldClass} />
               </label>
               <label className="block font-semibold">
-                {isFr ? "Courriel" : "Email"}
+                {isFr ? "Courriel (obligatoire)" : "Email (required)"}
                 <input
                   name="email"
+                  required
+                  autoComplete="email"
                   type="email"
                   maxLength={200}
                   className={fieldClass}
@@ -164,9 +166,9 @@ export function DelegateSurvey({ locale }: { locale: string }) {
               </label>
               <label className="block font-semibold">
                 {isFr
-                  ? "Ville, province ou territoire"
-                  : "City, province or territory"}
-                <input name="location" maxLength={160} className={fieldClass} />
+                  ? "Ville, province ou territoire (obligatoire)"
+                  : "City, province or territory (required)"}
+                <input required name="location" maxLength={160} className={fieldClass} />
               </label>
               <label className="block font-semibold">
                 {isFr
@@ -220,74 +222,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
             </label>
           </fieldset>
 
-          <fieldset>
-            <legend className="font-heading text-xl font-black text-[#5D1831] sm:text-2xl">
-              {isFr
-                ? "Comment aimeriez-vous contribuer?"
-                : "How would you like to contribute?"}
-            </legend>
-            <p className="mt-2 text-sm text-[#1E1E1E]/65">
-              {isFr
-                ? "Sélectionnez tout ce qui s’applique."
-                : "Select all that apply."}
-            </p>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              {CONTRIBUTIONS.map(([en, fr]) => (
-                <label
-                  key={en}
-                  className="flex cursor-pointer items-start gap-3 rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] p-3.5 text-sm font-semibold"
-                >
-                  <input
-                    type="checkbox"
-                    name="contributions"
-                    value={en}
-                    className="mt-0.5"
-                  />
-                  <span>{isFr ? fr : en}</span>
-                </label>
-              ))}
-            </div>
-            <label className="mt-5 block font-semibold">
-              {isFr
-                ? "Niveau de participation souhaité"
-                : "Preferred level of involvement"}
-              <select
-                name="futureRole"
-                required
-                defaultValue=""
-                className={fieldClass}
-              >
-                <option value="" disabled>
-                  {isFr ? "Choisir une option" : "Choose an option"}
-                </option>
-                <option value="One-time conversation or consultation">
-                  {isFr
-                    ? "Conversation ou consultation ponctuelle"
-                    : "One-time conversation or consultation"}
-                </option>
-                <option value="Occasional review or advice">
-                  {isFr
-                    ? "Examen ou conseils occasionnels"
-                    : "Occasional review or advice"}
-                </option>
-                <option value="Working group participation">
-                  {isFr
-                    ? "Participation à un groupe de travail"
-                    : "Working group participation"}
-                </option>
-                <option value="Lead or co-lead a workstream">
-                  {isFr
-                    ? "Diriger ou codiriger un chantier"
-                    : "Lead or co-lead a workstream"}
-                </option>
-                <option value="Organizational partnership or resourcing">
-                  {isFr
-                    ? "Partenariat organisationnel ou ressources"
-                    : "Organizational partnership or resourcing"}
-                </option>
-              </select>
-            </label>
-          </fieldset>
+
 
           <fieldset className="space-y-5">
             <legend className="font-heading text-xl font-black text-[#5D1831] sm:text-2xl">
@@ -321,6 +256,39 @@ export function DelegateSurvey({ locale }: { locale: string }) {
             </label>
           </fieldset>
 
+          <fieldset>
+            <legend className="font-heading text-xl font-black text-[#5D1831] sm:text-2xl">
+              {isFr
+                ? "Comment aimeriez-vous vous impliquer davantage?"
+                : "How would you like to get more involved?"}
+            </legend>
+            <p className="mt-2 text-sm text-[#1E1E1E]/65">
+              {isFr
+                ? "Sélectionnez tout ce qui s’applique."
+                : "Select all that apply."}
+            </p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {CONTRIBUTIONS.map(([en, fr]) => (
+                <label
+                  key={en}
+                  className="flex cursor-pointer items-start gap-3 rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] p-3.5 text-sm font-semibold"
+                >
+                  <input
+                    type="checkbox"
+                    name="contributions"
+                    value={en}
+                    className="mt-0.5"
+                  />
+                  <span>{isFr ? fr : en}</span>
+                </label>
+              ))}
+            </div>
+            <label className="mt-5 block font-semibold">
+              {isFr ? "Autre — précisez" : "Other — please specify"}
+              <input name="otherContribution" type="text" maxLength={240} className={fieldClass} />
+            </label>
+          </fieldset>
+
           <div className="space-y-3 rounded-2xl bg-[#FAF6F7] p-5 text-sm leading-relaxed">
             <label className="flex items-start gap-3 font-semibold">
               <input
@@ -347,6 +315,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
                 {isFr
                   ? "J’accepte que mes réponses soient regroupées et utilisées sous forme anonymisée pour l’évaluation, la recherche, la validation communautaire et la planification future."
                   : "I agree that my responses may be aggregated and used anonymously for evaluation, research, community validation and future planning."}
+                <span className="ml-1">{isFr ? "(obligatoire)" : "(required)"}</span>
               </span>
             </label>
             <p className="text-[#1E1E1E]/65">

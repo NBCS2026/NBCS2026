@@ -71,6 +71,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
       comments: String(formData.get("comments") || ""),
       name: String(formData.get("name") || ""),
       email: String(formData.get("email") || ""),
+      anonymous: formData.get("anonymous") === "on",
       locale,
     };
 
@@ -114,16 +115,14 @@ export function FeedbackForm({ locale }: { locale: string }) {
     <section className="px-5 py-14 sm:py-20">
       <div className="mx-auto grid max-w-[1060px] gap-10 lg:grid-cols-[0.7fr_1.3fr]">
         <div>
-          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+          <h2 className="font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#5D1831]">
             {isFr ? "Votre voix compte" : "Your voice matters"}
-          </p>
-          <h2 className="mt-3 font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#5D1831]">
-            {isFr ? "Aidez-nous à nous améliorer" : "Help us improve"}
           </h2>
+
           <p className="mt-4 leading-relaxed text-[#1E1E1E]/75">
             {isFr
-              ? "Partagez vos commentaires sur une séance en particulier ou sur l’expérience globale du Sommet. Le nom et l’adresse courriel sont facultatifs."
-              : "Share feedback about a specific session or your overall Summit experience. Your name and email are optional."}
+              ? "Réagissez à une séance ou à un sujet en particulier. Nous voulons vous entendre."
+              : "Respond to a specific session or topic. We want to hear from you."}
           </p>
         </div>
 
@@ -158,8 +157,8 @@ export function FeedbackForm({ locale }: { locale: string }) {
                 />
                 <span className="font-semibold">
                   {isFr
-                    ? "Le Sommet ou un autre sujet"
-                    : "The Summit or another topic"}
+                    ? "Un sujet ou une idée"
+                    : "A topic or idea"}
                 </span>
               </label>
             </div>
@@ -196,15 +195,19 @@ export function FeedbackForm({ locale }: { locale: string }) {
                 className={fieldClass}
                 placeholder={
                   isFr
-                    ? "Ex. accessibilité, inscription, logistique"
-                    : "e.g. accessibility, registration, logistics"
+                    ? "Ex. justice, santé, leadership des jeunes"
+                    : "e.g. justice, health, youth leadership"
                 }
               />
             </label>
           )}
 
+          <p className="text-sm text-[#1E1E1E]/70">
+            {isFr ? "Vous pouvez aussi commenter l’accessibilité ou l’organisation en choisissant un sujet." : "You can also comment on accessibility or event organization by choosing a topic."}
+          </p>
+
           <label className="block font-semibold">
-            {isFr ? "Évaluation" : "Rating"}
+            {isFr ? "Pertinence du contenu" : "Content relevance"}
             <select
               name="rating"
               required
@@ -225,7 +228,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
           </label>
 
           <label className="block font-semibold">
-            {isFr ? "Commentaires" : "Comments"}
+            {isFr ? "Réflexions, questions et idées" : "Reflections, questions and ideas"}
             <textarea
               name="comments"
               required
@@ -234,31 +237,45 @@ export function FeedbackForm({ locale }: { locale: string }) {
               className={fieldClass}
               placeholder={
                 isFr
-                  ? "Qu’avez-vous apprécié? Que pourrions-nous améliorer?"
-                  : "What worked well? What could we improve?"
+                  ? "Quelles idées vous ont marqué? Quelles perspectives manquent? Quelles questions ou actions souhaitez-vous approfondir?"
+                  : "What ideas stood out? What perspectives were missing? What questions or actions would you like to explore further?"
               }
             />
           </label>
 
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="block font-semibold">
-              {isFr ? "Nom (facultatif)" : "Name (optional)"}
+              {isFr ? "Nom (obligatoire)" : "Name (required)"}
               <input
                 name="name"
+                required
+                autoComplete="name"
                 type="text"
                 maxLength={120}
                 className={fieldClass}
               />
             </label>
             <label className="block font-semibold">
-              {isFr ? "Courriel (facultatif)" : "Email (optional)"}
+              {isFr ? "Courriel (obligatoire)" : "Email (required)"}
               <input
                 name="email"
+                required
+                autoComplete="email"
                 type="email"
                 maxLength={200}
                 className={fieldClass}
               />
             </label>
+          </div>
+
+          <div className="space-y-2">
+            <label className="flex items-start gap-3 font-semibold">
+              <input type="checkbox" name="anonymous" className="mt-1" />
+              <span>{isFr ? "Je souhaite que ma réponse soit anonyme." : "I wish my response to be anonymous."}</span>
+            </label>
+            <p className="text-sm leading-relaxed text-[#1E1E1E]/70">
+              {isFr ? "Le nom et le courriel sont obligatoires pour envoyer le formulaire. Si vous choisissez l’anonymat, ils ne seront pas inclus dans les commentaires transmis à l’équipe du Sommet." : "Name and email are required to submit. If you choose anonymity, they will not be included in the feedback sent to the Summit team."}
+            </p>
           </div>
 
           {status.type && (

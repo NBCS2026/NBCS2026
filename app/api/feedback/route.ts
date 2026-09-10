@@ -111,7 +111,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (body.submissionKind === "survey") {
-      const name = String(body.name || "Anonymous")
+      const name = String(body.name || "")
         .trim()
         .slice(0, 120);
       const email = String(body.email || "")
@@ -135,9 +135,9 @@ export async function POST(request: NextRequest) {
       const contributions = Array.isArray(body.contributions)
         ? body.contributions.map(String).slice(0, 20)
         : [];
-      const futureRole = String(body.futureRole || "")
+      const otherContribution = String(body.otherContribution || "")
         .trim()
-        .slice(0, 180);
+        .slice(0, 240);
       const insights = String(body.insights || "")
         .trim()
         .slice(0, 5000);
@@ -148,9 +148,11 @@ export async function POST(request: NextRequest) {
       const anonymizedConsent = body.anonymizedConsent === true;
 
       if (
+        !name ||
+        !email ||
+        !location ||
         (!expertise.length && !otherExpertise) ||
-        !contributions.length ||
-        !futureRole ||
+        (!contributions.length && !otherContribution) ||
         insights.length < 20 ||
         !anonymizedConsent ||
         (contactConsent && !email)
@@ -159,8 +161,8 @@ export async function POST(request: NextRequest) {
           {
             error:
               locale === "fr"
-                ? "Veuillez remplir les champs obligatoires et fournir un courriel si vous acceptez un suivi."
-                : "Please complete the required fields and provide an email if you consent to follow-up.",
+                ? "Veuillez remplir les champs obligatoires, y compris le nom, le courriel et la ville avec la province ou le territoire."
+                : "Please complete the required fields, including name, email, and city with province or territory.",
           },
           { status: 400 },
         );
@@ -196,13 +198,13 @@ export async function POST(request: NextRequest) {
       const expertiseText = [...expertise, otherExpertise]
         .filter(Boolean)
         .join(", ");
-      const contributionsText = contributions.join(", ");
+      const contributionsText = [...contributions, otherContribution].filter(Boolean).join(", ");
       const result = await resend.emails.send({
         from: "NBCS 2026 Delegate Survey <onboarding@resend.dev>",
         to: recipient,
         ...(email ? { reply_to: email } : {}),
         subject: `NBCS Moving Forward Together survey: ${name || "Anonymous"}`,
-        text: `Name: ${name}\nEmail: ${email || "Not provided"}\nLocation: ${location || "Not provided"}\nOrganization/community: ${organization || "Not provided"}\nRole: ${role || "Not provided"}\n\nExpertise: ${expertiseText}\n\nContribution interests: ${contributionsText}\nPreferred involvement: ${futureRole}\nContact consent: ${contactConsent ? "Yes" : "No"}\nAnonymized-use consent: Yes\n\nPriorities, gaps and knowledge:\n${insights}\n\nProjects, networks and resources:\n${projects || "Not provided"}`,
+        text: `Name: ${name}\nEmail: ${email || "Not provided"}\nLocation: ${location || "Not provided"}\nOrganization/community: ${organization || "Not provided"}\nRole: ${role || "Not provided"}\n\nExpertise: ${expertiseText}\n\nContribution interests: ${contributionsText}\nContact consent: ${contactConsent ? "Yes" : "No"}\nAnonymized-use consent: Yes\n\nPriorities, gaps and knowledge:\n${insights}\n\nProjects, networks and resources:\n${projects || "Not provided"}`,
         html: `
           <h2>NBCS 2026 — Moving Forward Together delegate survey</h2>
           <p><strong>Name:</strong> ${escapeHtml(name)}</p>
@@ -212,7 +214,6 @@ export async function POST(request: NextRequest) {
           <p><strong>Role:</strong> ${escapeHtml(role || "Not provided")}</p>
           <p><strong>Expertise:</strong> ${escapeHtml(expertiseText)}</p>
           <p><strong>Contribution interests:</strong> ${escapeHtml(contributionsText)}</p>
-          <p><strong>Preferred involvement:</strong> ${escapeHtml(futureRole)}</p>
           <p><strong>Contact consent:</strong> ${contactConsent ? "Yes" : "No"}</p>
           <p><strong>Anonymized-use consent:</strong> Yes</p>
           <h3>Priorities, gaps and knowledge</h3>
@@ -245,13 +246,16 @@ export async function POST(request: NextRequest) {
       .slice(0, 180);
     const rating = String(body.rating || "").trim();
     const comments = String(body.comments || "").trim();
-    const name = String(body.name || "Anonymous")
+    const name = String(body.name || "")
       .trim()
       .slice(0, 120);
     const email = String(body.email || "")
       .trim()
       .slice(0, 200);
+    const anonymous = body.anonymous === true;
     if (
+      !name ||
+      !email ||
       !["1", "2", "3", "4", "5"].includes(rating) ||
       comments.length < 2 ||
       comments.length > 4000 ||
@@ -300,20 +304,23 @@ export async function POST(request: NextRequest) {
         ? session.replace(/[\r\n]+/g, " ").slice(0, 140)
         : topic.replace(/[\r\n]+/g, " ").slice(0, 140) ||
           "General Summit feedback";
+    const responseName = anonymous ? "Anonymous" : name;
+    const responseEmail = anonymous ? "Not disclosed" : email;
     const result = await resend.emails.send({
       from: "NBCS 2026 Feedback <onboarding@resend.dev>",
       to: recipient,
-      ...(email ? { reply_to: email } : {}),
+      ...(!anonymous ? { reply_to: email } : {}),
       subject: `NBCS feedback (${rating}/5): ${subjectTarget}`,
-      text: `Type: ${feedbackType}\nSession: ${session || "N/A"}\nTopic: ${topic || "N/A"}\nRating: ${rating}/5\nName: ${name}\nEmail: ${email || "Not provided"}\n\nComments:\n${comments}`,
+      text: `Type: ${feedbackType}\nSession: ${session || "N/A"}\nTopic: ${topic || "N/A"}\nRating: ${rating}/5\nAnonymous response: ${anonymous ? "Yes" : "No"}\nName: ${responseName}\nEmail: ${responseEmail}\n\nComments:\n${comments}`,
       html: `
         <h2>NBCS 2026 feedback</h2>
         <p><strong>Type:</strong> ${escapeHtml(feedbackType)}</p>
         <p><strong>Session:</strong> ${escapeHtml(session || "N/A")}</p>
         <p><strong>Topic:</strong> ${escapeHtml(topic || "N/A")}</p>
         <p><strong>Rating:</strong> ${escapeHtml(rating)}/5</p>
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email || "Not provided")}</p>
+        <p><strong>Anonymous response:</strong> ${anonymous ? "Yes" : "No"}</p>
+        <p><strong>Name:</strong> ${escapeHtml(responseName)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(responseEmail)}</p>
         <p><strong>Comments:</strong></p>
         <p>${escapeHtml(comments).replaceAll("\n", "<br>")}</p>
       `,

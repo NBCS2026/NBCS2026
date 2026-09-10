@@ -53,8 +53,8 @@ export default function Page() {
               </h2>
               <p className="mt-2 max-w-2xl text-white/80">
                 {locale === "fr"
-                  ? "Évaluez une séance en particulier ou l’expérience globale du Sommet."
-                  : "Rate a specific session or tell us about your overall Summit experience."}
+                  ? "Réagissez à une séance ou à un sujet en particulier. Nous voulons vous entendre."
+                  : "Respond to a specific session or topic. We want to hear from you."}
               </p>
             </div>
             <Button

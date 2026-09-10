@@ -10,6 +10,7 @@ import { Logo } from "@/components/logo";
 import { NavLink } from "@/components/nav-link";
 import ToggleMenu from "@/components/toggle-menu";
 import { WelcomeMessages } from "@/components/welcome-messages";
+import { SUMMIT_HISTORY } from "@/data/summit-history";
 import { Timeline } from "./components/timeline";
 
 export default function Page() {
@@ -41,36 +42,31 @@ export default function Page() {
       </div>
       <main className="bg-white rounded-t-2xl pt-14">
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[87px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 3xl:gap-16 4xl:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] items-start gap-8 lg:gap-12">
             <div className="space-y-8 [&>p]:leading-tight">
               <div className="text-center lg:text-start">
                 <p className="text-[clamp(16px,1.82vw,22px)] font-medium text-light-red">
                   {t("text_one")}
                 </p>
                 <p className="text-[clamp(24px,2.79vw,43px)] text-black font-bold">
-                  {t("text_two")}
+                  {locale === "fr" ? "Histoire du Sommet" : "Summit History"}
                 </p>
               </div>
-              <p className="medium-text">
-                <span className="text-light-red font-medium">
-                  {t("text_three")}
-                </span>{" "}
-                {t("text_four")}
-              </p>
-
-              <p className="medium-text">{t("text_five")}</p>
-
-              <p className="medium-text">{t("text_six")}</p>
+              {(locale === "fr" ? SUMMIT_HISTORY.fr : SUMMIT_HISTORY.en).map((paragraph) => (
+                <p key={paragraph} className="text-base leading-relaxed text-[#1E1E1E]/80 sm:text-lg">
+                  {paragraph}
+                </p>
+              ))}
             </div>
-            <div className="justify-self-center">
-              <AboutSpeakersCollage />
+            <div className="w-full min-w-0 lg:sticky lg:top-8 lg:self-start">
+              <AboutSpeakersCollage locale={locale} />
             </div>
           </div>
         </section>
         <section className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[87px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-center gap-8 md:gap-10 lg:gap-12 3xl:gap-16 4xl:gap-20">
-            <div className="justify-self-center">
-              <AboutCollage />
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-10 lg:gap-14">
+            <div className="w-full min-w-0 lg:sticky lg:top-8 lg:self-start">
+              <AboutCollage locale={locale} />
             </div>
             <Timeline t={t} />
           </div>
