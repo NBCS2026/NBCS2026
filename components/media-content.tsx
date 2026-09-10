@@ -3,6 +3,12 @@ import { MediaContributionForm } from "@/components/media-contribution-form";
 
 const INSTAGRAM_POSTS = [
   {
+    "url": "https://www.instagram.com/reel/DSYgt5mAP14/",
+    "embedUrl": "https://www.instagram.com/reel/DSYgt5mAP14/embed/",
+    "titleEn": "One month to the 5th National Black Canadians Summit — @uzomachioma",
+    "titleFr": "À un mois du 5e Sommet pancanadien des communautés noires — @uzomachioma"
+  },
+  {
     "url": "https://www.instagram.com/p/DdFmiF5DHlZ/",
     "embedUrl": "https://www.instagram.com/p/DdFmiF5DHlZ/embed/",
     "titleEn": "View post on Instagram",
@@ -29,12 +35,6 @@ const INSTAGRAM_POSTS = [
   {
     "url": "https://www.instagram.com/p/Dbv7hFSkdqu/",
     "embedUrl": "https://www.instagram.com/p/Dbv7hFSkdqu/embed/",
-    "titleEn": "View post on Instagram",
-    "titleFr": "Voir la publication sur Instagram"
-  },
-  {
-    "url": "https://www.instagram.com/p/DbVlsceEWvZ/",
-    "embedUrl": "https://www.instagram.com/p/DbVlsceEWvZ/embed/",
     "titleEn": "View post on Instagram",
     "titleFr": "Voir la publication sur Instagram"
   }
