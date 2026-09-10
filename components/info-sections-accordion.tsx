@@ -5,9 +5,11 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { type ReactNode, useCallback, useEffect, useState } from "react";
 import { AdditionalHotels } from "@/components/additional-hotels";
+import { SummitFoodGuide } from "@/components/summit-food-guide";
 import { cn } from "@/lib/utils";
 
 export type InfoSectionId =
+  | "food-near-summit"
   | "accommodation"
   | "porter"
   | "via-rail"
@@ -15,6 +17,7 @@ export type InfoSectionId =
   | "venue";
 
 const SECTION_IDS: InfoSectionId[] = [
+  "food-near-summit",
   "accommodation",
   "porter",
   "via-rail",
@@ -322,6 +325,15 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
           {t("intro_hint")}
         </p>
       </div>
+
+      <AccordionSection
+        id="food-near-summit"
+        title={locale === "fr" ? "Restaurants et commerces alimentaires appartenant à des personnes noires près du Sommet" : "Black-Owned Food Near the Summit"}
+        open={activeSection === "food-near-summit"}
+        onToggle={toggleSection}
+      >
+        <SummitFoodGuide locale={locale} open={activeSection === "food-near-summit"} />
+      </AccordionSection>
 
       <AccordionSection
         id="accommodation"
