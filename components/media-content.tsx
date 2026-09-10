@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import { AboutSectionNav } from "./about-section-nav";
 import { MediaContributionForm } from "@/components/media-contribution-form";
 
 const INSTAGRAM_POSTS = [
@@ -160,6 +161,13 @@ export function MediaContent({ locale }: { locale: string }) {
 
   return (
     <>
+      <AboutSectionNav label={isFr ? "Navigation de la page médias" : "Media page navigation"} sections={[
+        ["media-instagram", "Instagram"],
+        ["media-social", isFr ? "Réseaux sociaux" : "Social media"],
+        ["media-news", isFr ? "Actualité" : "In the news"],
+        ["media-past-news", isFr ? "Sommets précédents" : "Past Summits"],
+        ["media-contribute", isFr ? "Partager du contenu" : "Share content"],
+      ]} />
       <section aria-label={isFr ? "Partenaire média officiel" : "Official Media Partner"} className="px-5 pt-12">
         <a href="https://www.cbc.ca/" target="_blank" rel="noopener noreferrer" className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-6 rounded-2xl border border-[#E8D4DB] bg-white px-6 py-8 text-[#5D1831]">
           <img src="/cbc-logo.png" alt="CBC" className="h-16 w-auto max-w-[180px] object-contain" />
@@ -184,7 +192,7 @@ export function MediaContent({ locale }: { locale: string }) {
         </div>
       </section>
 
-      <section className="px-5 py-14 sm:py-20">
+      <section id="media-instagram" className="px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-[1180px]">
           <div className="mb-8 text-center">
             <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
@@ -222,7 +230,7 @@ export function MediaContent({ locale }: { locale: string }) {
         </div>
       </section>
 
-      <section className="px-5 py-14 sm:py-20">
+      <section id="media-social" className="px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-[1180px]">
           <div className="mb-8 text-center">
             <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
@@ -255,6 +263,7 @@ export function MediaContent({ locale }: { locale: string }) {
       </section>
 
       <CoverageSection
+        id="media-news"
         locale={locale}
         eyebrowEn="NBCS 2026"
         eyebrowFr="SPCN 2026"
@@ -264,6 +273,7 @@ export function MediaContent({ locale }: { locale: string }) {
       />
 
       <CoverageSection
+        id="media-past-news"
         locale={locale}
         titleEn="Coverage from past Summits"
         titleFr="Articles sur les Sommets précédents"
@@ -277,6 +287,7 @@ export function MediaContent({ locale }: { locale: string }) {
 }
 
 function CoverageSection({
+  id,
   locale,
   eyebrowEn,
   eyebrowFr,
@@ -285,6 +296,7 @@ function CoverageSection({
   items,
   muted = false,
 }: {
+  id: string;
   locale: string;
   eyebrowEn?: string;
   eyebrowFr?: string;
@@ -297,6 +309,7 @@ function CoverageSection({
 
   return (
     <section
+      id={id}
       className={`${muted ? "bg-[#FAF6F7]" : "bg-white"} px-5 py-14 sm:py-20`}
     >
       <div className="mx-auto max-w-[1180px]">

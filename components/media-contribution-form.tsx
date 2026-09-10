@@ -62,7 +62,7 @@ export function MediaContributionForm({ locale }: { locale: string }) {
   }
 
   return (
-    <section className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
+    <section id="media-contribute" className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
       <div className="mx-auto grid max-w-[1060px] gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <div>
           <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
