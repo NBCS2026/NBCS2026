@@ -52,10 +52,10 @@ export default function Page() {
         </nav>
         <section id="summit-history" className="scroll-mt-36 max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-12 sm:mb-16 md:mb-24 lg:mb-[87px]">
           <div className="mb-6 text-center lg:text-start">
-            <p className="text-[clamp(16px,1.82vw,22px)] font-medium text-light-red">{t("text_one")}</p>
+            <p className="text-[clamp(16px,1.82vw,22px)] font-medium text-light-red">{isFr ? "AUX ORIGINES DU SOMMET" : t("text_one")}</p>
             <h2 className="text-[clamp(24px,2.79vw,43px)] font-bold text-black">{isFr ? "Histoire du Sommet" : "Summit History"}</h2>
           </div>
-          <p className="max-w-4xl text-base leading-relaxed text-[#1E1E1E]/80 sm:text-lg">{history[0]}</p>
+          <p className="max-w-4xl text-base leading-relaxed text-[#1E1E1E]/80 sm:text-lg">{isFr ? history[0].split(/(4e Mur : Rendre l’invisible visible|Décennie internationale des personnes d’ascendance africaine)/g).map((part, index) => index % 2 ? <strong key={index}>{part}</strong> : part) : history[0]}</p>
           <details className="group mt-5">
             <summary className="w-fit cursor-pointer rounded-full border border-[#E8D4DB] px-5 py-3 text-sm font-bold text-[#8C0C3A] focus-visible:outline-2 focus-visible:outline-offset-2">
               <span className="group-open:hidden">{isFr ? "Lire la suite" : "Read more"}</span>
