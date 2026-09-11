@@ -60,10 +60,10 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
             label: "panelists",
             names: [
               "Dr Jude Mary Cénat, professeur titulaire à l’École de psychologie et titulaire de la Chaire de recherche de l’Université sur la santé des Noir∙e∙s, Université d’Ottawa",
+              "Dre Bukola Salami, professeure et titulaire de la Chaire de recherche du Canada de niveau 1 sur la santé des personnes noires et racisées, Université de Calgary",
               "Dre Monnica Williams, professeure et titulaire de la Chaire de recherche du Canada sur l’innovation et l’équité en santé mentale, Université d’Ottawa",
               "Dre Josephine Etowa, professeure titulaire (niveau 1), titulaire de la Chaire de recherche du Canada sur la santé des femmes noires, responsable scientifique du Centre Interdisciplinaire pour la santé des Noir∙e∙s de l’Université d’Ottawa, fondatrice et directrice du CO-CREATH lab.",
               "Ashley Carruthers, infirmière praticienne, Université du Manitoba et Association des infirmières praticiennes du Manitoba (NPAM)",
-              "Dre Bukola Salami, professeure et titulaire de la Chaire de recherche du Canada de niveau 1 sur la santé des personnes noires et racisées, Université de Calgary",
             ],
           },
         ],

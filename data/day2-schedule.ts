@@ -60,10 +60,10 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
             label: "panelists",
             names: [
               "Dr. Jude Mary Cénat, Full Professor, School of Psychology & University Research Chair on Black Health, University of Ottawa",
+              "Dr. Bukola Salami, Professor and Tier 1 Canada Research Chair in Black and Racialized Peoples’ Health, University of Calgary",
               "Dr. Monnica Williams, Professor and Canada Research Chair in Mental Health Innovation and Equity, University of Ottawa",
               "Dr. Josephine Etowa, Full Professor (Tier 1), Canada Research Chair in Black Women's Health, Scientific Lead of the Interdisciplinary Centre for Black Health, University of Ottawa — Founder and Director, CO-CREATH Lab",
               "Ashley Carruthers, Nurse Practitioner, University of Manitoba and Nurse Practitioner Association of Manitoba (NPAM)",
-              "Dr. Bukola Salami, Professor and Tier 1 Canada Research Chair in Black and Racialized Peoples’ Health, University of Calgary",
             ],
           },
         ],
