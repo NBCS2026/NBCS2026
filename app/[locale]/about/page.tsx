@@ -64,7 +64,6 @@ export default function Page() {
             </div>
           </details>
           <AboutSpeakersCollage locale={locale} />
-          <AboutSpeakersCollage locale={locale} placement="below" />
         </section>
         <section id="summit-timeline" className={`${styles.section} ${styles.timeline}`}>
           <div className="mx-auto max-w-[900px]">
