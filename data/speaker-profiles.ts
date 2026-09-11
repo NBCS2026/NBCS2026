@@ -1,4 +1,5 @@
 import { SPEAKER_PROFILE_SUPPLEMENTS } from "./speaker-profile-supplements";
+import { SOURCED_SPEAKER_BIOS } from "./sourced-speaker-bios";
 
 export type SpeakerProfile = {
   name: string;
@@ -1030,6 +1031,17 @@ for (const supplement of SPEAKER_PROFILE_SUPPLEMENTS) {
     bioEn: existing?.bioEn || supplement.bioEn,
     bioFr: existing?.bioFr || supplement.bioFr,
     imageUrl: supplement.imageUrl || existing?.imageUrl,
+  });
+}
+
+for (const { sources: _sources, ...biography } of SOURCED_SPEAKER_BIOS) {
+  const key = normalizeName(biography.name);
+  const existing = mergedProfiles.get(key);
+  mergedProfiles.set(key, {
+    ...biography,
+    ...existing,
+    bioEn: existing?.bioEn || biography.bioEn,
+    bioFr: existing?.bioFr || biography.bioFr,
   });
 }
 
