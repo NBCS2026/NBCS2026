@@ -304,7 +304,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
         people: [
           {
             label: "moderator",
-            names: ["Harun Kibirige, vice-président adjoint, Opérations de placement, Canada Vie"],
+            names: ["Harun Kibirige, vice-président adjoint, Placements mondiaux, Canada Vie"],
           },
           {
             label: "panelists",

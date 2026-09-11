@@ -302,7 +302,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
         people: [
           {
             label: "moderator",
-            names: ["Harun Kibirige, Assistant Vice-President, Investment Operations, Canada Life"],
+            names: ["Harun Kibirige, Assistant Vice President, Global Investments, Canada Life"],
           },
           {
             label: "panelists",

@@ -21,6 +21,12 @@ export type SpeakerProfile = {
 
 const rawProfiles: SpeakerProfile[] = [
   {
+    name: "Harun Kibirige",
+    displayLineEn: "Harun Kibirige, Assistant Vice President, Global Investments, Canada Life",
+    imageUrl: "/speakers/harun-kibirige-2026.jpg",
+    imagePosition: "significant-down",
+  },
+  {
     name: "Aaliyah Hotomani-Hart",
     displayLineEn:
       "Aaliyah Hotomani-Hart, Assistant Volleyball Coach and Advocate for Black and Indigenous Representation in Sport",
