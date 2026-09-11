@@ -1,55 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useFormSubmission } from "@/lib/use-form-submission";
+import { FormHoneypot } from "./form-honeypot";
 
-const EXPERTISE = [
-  ["Research, data and evaluation", "Recherche, données et évaluation"],
-  [
-    "Community engagement and validation",
-    "Mobilisation et validation communautaires",
-  ],
-  [
-    "Public policy and government relations",
-    "Politiques publiques et relations gouvernementales",
-  ],
-  ["Youth leadership", "Leadership jeunesse"],
-  ["Arts, culture and heritage", "Arts, culture et patrimoine"],
-  [
-    "Economic development and entrepreneurship",
-    "Développement économique et entrepreneuriat",
-  ],
-  ["Health and well-being", "Santé et bien-être"],
-  ["Justice and human rights", "Justice et droits de la personne"],
-  ["Education and skills", "Éducation et compétences"],
-  [
-    "Communications, media and storytelling",
-    "Communications, médias et récits",
-  ],
-  ["Fundraising and partnerships", "Financement et partenariats"],
-] as const;
-
-const CONTRIBUTIONS = [
-  [
-    "Deepen research and evidence",
-    "Approfondir la recherche et les données probantes",
-  ],
-  ["Community involvement", "Participation communautaire"],
-  ["Policy recommendations", "Recommandations de politiques publiques"],
-  ["Framework and tool development", "Élaboration de cadres et d’outils"],
-  ["Future Summit planning", "Planification des prochains Sommets"],
-  [
-    "Working groups or advisory circles",
-    "Groupes de travail ou cercles consultatifs",
-  ],
-  [
-    "Knowledge sharing and storytelling",
-    "Mobilisation des connaissances et récits",
-  ],
-  ["Partnerships or resourcing", "Partenariats ou ressources"],
-] as const;
+import { EXPERTISE, CONTRIBUTIONS } from "@/data/survey-options";
 
 export function DelegateSurvey({ locale }: { locale: string }) {
   const isFr = locale === "fr";
+  const submission = useFormSubmission();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{
     type: "success" | "error" | null;
@@ -61,6 +20,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!submission.begin()) return;
     setIsSubmitting(true);
     setStatus({ type: null, message: "" });
 
@@ -68,6 +28,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
     const formData = new FormData(form);
     const payload = {
       submissionKind: "survey",
+      website: String(formData.get("website") || ""),
       name: String(formData.get("name") || ""),
       email: String(formData.get("email") || ""),
       location: String(formData.get("location") || ""),
@@ -85,12 +46,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
     };
 
     try {
-      const response = await fetch("/api/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const result = await response.json();
+      const { response, result } = await submission.send("/api/feedback", payload);
       if (!response.ok) {
         throw new Error(result.error || "Unable to submit the survey.");
       }
@@ -112,12 +68,13 @@ export function DelegateSurvey({ locale }: { locale: string }) {
               : "Unable to submit the survey.",
       });
     } finally {
+      submission.end();
       setIsSubmitting(false);
     }
   }
 
   return (
-    <section className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
+    <section id="delegate-survey" className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
       <div className="mx-auto max-w-[1060px]">
         <div className="mx-auto max-w-4xl text-center">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
@@ -139,6 +96,8 @@ export function DelegateSurvey({ locale }: { locale: string }) {
           onSubmit={handleSubmit}
           className="mt-10 space-y-8 rounded-3xl border border-[#E8D4DB] bg-white p-6 shadow-[0_16px_45px_rgba(93,24,49,0.08)] sm:p-8 lg:p-10"
         >
+          <fieldset disabled={isSubmitting} className="contents">
+          <FormHoneypot />
           <fieldset>
             <legend className="font-heading text-xl font-black text-[#5D1831] sm:text-2xl">
               {isFr ? "À propos de vous" : "About you"}
@@ -327,6 +286,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
 
           {status.type && (
             <output
+              role={status.type === "error" ? "alert" : "status"}
               className={`block rounded-xl border px-4 py-3 text-sm font-semibold ${
                 status.type === "success"
                   ? "border-green-200 bg-green-50 text-green-800"
@@ -350,6 +310,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
                 ? "Envoyer le sondage"
                 : "Submit survey"}
           </button>
+        </fieldset>
         </form>
       </div>
     </section>

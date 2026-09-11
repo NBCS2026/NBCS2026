@@ -6,7 +6,20 @@ import path from "path";
 const projectRoot = path.resolve(__dirname);
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  poweredByHeader: false,
+  allowedDevOrigins: ["127.0.0.1"],
+  async headers() {
+    return [{
+      source: "/(.*)",
+      headers: [
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        { key: "X-Frame-Options", value: "SAMEORIGIN" },
+        // Embeds, external registration and interpretation remain unrestricted.
+        { key: "Content-Security-Policy", value: "object-src 'none'; base-uri 'self'; frame-ancestors 'self'" },
+      ],
+    }];
+  },
   images: {
     qualities: [100, 90, 75],
   },

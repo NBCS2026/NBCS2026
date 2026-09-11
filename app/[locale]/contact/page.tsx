@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { useFormSubmission } from "@/lib/use-form-submission";
+import { FormHoneypot } from "@/components/form-honeypot";
 import { Footer } from "@/components/footer";
 import { LangSelect } from "@/components/lang-select";
 import { Logo } from "@/components/logo";
@@ -14,6 +16,8 @@ export default function Page() {
   const params = useParams<{ locale: string }>();
   const t = useTranslations("contact");
   const { locale } = params;
+  const isFr = locale === "fr";
+  const submission = useFormSubmission();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -22,6 +26,7 @@ export default function Page() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!submission.begin()) return;
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
 
@@ -29,29 +34,22 @@ export default function Page() {
     const form = e.currentTarget;
     const formData = new FormData(form);
     const data = {
+      locale,
+      website: String(formData.get("website") || ""),
       name: formData.get("name") as string,
       email: formData.get("email") as string,
       message: formData.get("message") as string,
     };
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      // Parse JSON response
-      const result = await response.json();
+      const { response, result } = await submission.send("/api/contact", data);
 
       // Check if response is ok
       if (response.ok && result.message) {
         setSubmitStatus({
           type: "success",
           message:
-            "Message sent successfully! We'll get back to you within 2-3 business days.",
+            isFr ? "Message envoyé ! Nous vous répondrons dans un délai de 2 à 3 jours ouvrables." : "Message sent successfully! We'll get back to you within 2-3 business days.",
         });
         // Reset form if it still exists
         if (form) {
@@ -61,18 +59,17 @@ export default function Page() {
         // Handle error response
         setSubmitStatus({
           type: "error",
-          message: result.error || "Failed to send message. Please try again.",
+          message: result.error || (isFr ? "Impossible d’envoyer votre message. Veuillez réessayer." : "Failed to send message. Please try again."),
         });
       }
     } catch (error) {
       setSubmitStatus({
         type: "error",
         message:
-          error instanceof Error
-            ? error.message
-            : "An error occurred. Please try again later.",
+          isFr ? "Impossible d’envoyer votre message. Veuillez réessayer plus tard." : "Unable to send your message. Please try again later.",
       });
     } finally {
+      submission.end();
       setIsSubmitting(false);
     }
   };
@@ -122,6 +119,7 @@ export default function Page() {
             {/* Right Side - Contact Form */}
             <div className="space-y-6">
               <form className="space-y-4" onSubmit={handleSubmit}>
+                <FormHoneypot />
                 <div>
                   <label
                     htmlFor="name"
@@ -133,6 +131,8 @@ export default function Page() {
                     type="text"
                     id="name"
                     name="name"
+                    maxLength={120}
+                    autoComplete="name"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light-red focus:border-transparent"
                     required
                     disabled={isSubmitting}
@@ -150,6 +150,8 @@ export default function Page() {
                     type="email"
                     id="email"
                     name="email"
+                    maxLength={200}
+                    autoComplete="email"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light-red focus:border-transparent"
                     required
                     disabled={isSubmitting}
@@ -166,6 +168,7 @@ export default function Page() {
                   <textarea
                     id="message"
                     name="message"
+                    maxLength={4000}
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light-red focus:border-transparent resize-vertical"
                     required
@@ -191,7 +194,7 @@ export default function Page() {
                   disabled={isSubmitting}
                   className="w-full bg-light-red text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-light-red focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? "Sending..." : t("text_eight")}
+                  {isSubmitting ? (isFr ? "Envoi…" : "Sending…") : t("text_eight")}
                 </button>
               </form>
 
@@ -236,6 +239,7 @@ export default function Page() {
             <Link
               href="https://www.instagram.com/michaellej_fdn/?hl=en"
               target="_blank"
+              rel="noopener noreferrer"
               className="flex gap-2 items-center"
             >
               <img src="/instagram2.png" alt="instagram" />
@@ -246,6 +250,7 @@ export default function Page() {
             <Link
               href="https://www.linkedin.com/company/fondationmjfoundation/"
               target="_blank"
+              rel="noopener noreferrer"
               className="flex gap-2 items-center"
             >
               <img src="/contact_linkedin.png" alt="linkedin icon" />
@@ -256,9 +261,10 @@ export default function Page() {
             <Link
               href="https://www.facebook.com/FondationMichaelleJeanFoundation"
               target="_blank"
+              rel="noopener noreferrer"
               className="flex gap-2 items-center"
             >
-              <img src="/contact_facebook.png" alt="instagram" />
+              <img src="/contact_facebook.png" alt="Facebook" />
               <span className="underline cursor-pointer">
                 {t("text_twenty")}
               </span>

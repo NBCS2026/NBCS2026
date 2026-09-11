@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 
 const FLOW_ID = "952c7914-98bb-4958-8add-066e946ee763";
@@ -62,16 +62,50 @@ function clearBizzaboIframes() {
     .querySelectorAll(
       'iframe[src*="events.bizzabo.com"], iframe[id*="ticketsSelect"]',
     )
-    .forEach((el) => el.remove());
+    .forEach((el) => { el.remove(); });
 }
 
 export function BizzaboRegistrationWidget() {
   const locale = useLocale();
   const lang = bizzaboLangFromLocale(locale);
   const mountId = useRef(0);
+  const widgetRef = useRef<HTMLDivElement>(null);
+  const [state, setState] = useState<"loading" | "ready" | "slow">("loading");
+  const [attempt, setAttempt] = useState(0);
+  const directRegistrationUrl = `https://events.bizzabo.com/flows/events/${EVENT_ID}/flow/${FLOW_ID}?lang=${lang}`;
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: A retry intentionally remounts the provider scripts and frames.
   useEffect(() => {
     const id = ++mountId.current;
+    setState("loading");
+    const timeout = window.setTimeout(
+      () => setState((current) => (current === "ready" ? current : "slow")),
+      20000,
+    );
+    let disposed = false;
+    const onReady = () => {
+      if (!disposed) setState("ready");
+      window.clearTimeout(timeout);
+    };
+    const onError = () => {
+      if (!disposed) setState("slow");
+      window.clearTimeout(timeout);
+    };
+    const frames = new Set<HTMLIFrameElement>();
+    const observeFrames = () => {
+      widgetRef.current?.querySelectorAll("iframe").forEach((frame) => {
+        if (!frame.title)
+          frame.title =
+            lang === "fr-ca" ? "Inscription au Sommet" : "Summit registration";
+        if (!frames.has(frame)) {
+          frames.add(frame);
+          frame.addEventListener("load", onReady);
+        }
+      });
+    };
+    const observer = new MutationObserver(observeFrames);
+    if (widgetRef.current)
+      observer.observe(widgetRef.current, { childList: true, subtree: true });
     syncBizzaboLangParam(lang);
     clearBizzaboIframes();
 
@@ -96,24 +130,75 @@ export function BizzaboRegistrationWidget() {
       },
     });
 
+    ticketsScript.addEventListener("error", onError);
+    popupScript.addEventListener("error", onError);
     return () => {
+      disposed = true;
+      window.clearTimeout(timeout);
+      observer.disconnect();
+      ticketsScript.removeEventListener("error", onError);
+      popupScript.removeEventListener("error", onError);
+      frames.forEach((frame) => { frame.removeEventListener("load", onReady); });
       if (mountId.current === id) {
         ticketsScript.remove();
         popupScript.remove();
         clearBizzaboIframes();
       }
     };
-  }, [lang]);
+  }, [lang, attempt]);
 
   return (
-    <div
-      key={`bz-widget-${lang}`}
-      className="bz-widget-tickets-inline w-full"
-      style={{ display: "inline-flex", width: "100%" }}
-      data-flow-id={FLOW_ID}
-      data-event-id={EVENT_ID}
-      data-registration-proxy="true"
-      data-lang={lang}
-    />
+    <>
+      <div
+        ref={widgetRef}
+        key={`bz-widget-${lang}`}
+        className="bz-widget-tickets-inline w-full"
+        style={{ display: "inline-flex", width: "100%" }}
+        data-flow-id={FLOW_ID}
+        data-event-id={EVENT_ID}
+        data-registration-proxy="true"
+        data-lang={lang}
+      />
+      {state !== "ready" && (
+        // biome-ignore lint/a11y/useSemanticElements: This is a loading status with a retry control, not a form calculation output.
+        <div
+          role="status"
+          className="rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] p-4 text-center text-sm text-[#5D1831]"
+        >
+          <p>
+            {state === "loading"
+              ? locale === "fr"
+                ? "Chargement de l’inscription…"
+                : "Loading registration…"
+              : locale === "fr"
+                ? "L’inscription prend plus de temps à charger."
+                : "Registration is taking longer to load."}
+          </p>
+          {state === "slow" && (
+            <button
+              type="button"
+              onClick={() => setAttempt((value) => value + 1)}
+              className="mt-3 min-h-11 rounded-full border border-[#8C0C3A] px-5 py-2 font-semibold"
+            >
+              {locale === "fr"
+                ? "Recharger l’inscription"
+                : "Reload registration"}
+            </button>
+          )}
+        </div>
+      )}
+      <p className="mt-4 text-center">
+        <a
+          href={directRegistrationUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex min-h-11 items-center px-2 text-sm font-semibold text-[#8C0C3A] underline underline-offset-4"
+        >
+          {locale === "fr"
+            ? "Ouvrir l’inscription dans un nouvel onglet"
+            : "Open registration in a new tab"}
+        </a>
+      </p>
+    </>
   );
 }

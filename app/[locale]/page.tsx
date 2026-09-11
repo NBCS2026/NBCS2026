@@ -50,7 +50,8 @@ export default function Page() {
 
   return (
     <>
-      <div className="min-h-screen relative bg-[url('/rectangle-2.png'),url('/rectangle-3.png')] bg-cover bg-center pb-20">
+      <div className="home-hero relative">
+        <img src="/rectangle-3.png" alt="" aria-hidden="true" className="home-hero-art" fetchPriority="high" />
         <header className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 mb-18 md:mb-52 lg:mb-18 w-full">
           <Logo />
           <NavLink className="hidden xl:block flex-1 mx-8 3xl:mx-8 4xl:mx-16" />
@@ -61,7 +62,7 @@ export default function Page() {
           </ul>
           <ToggleMenu local={locale} className="ml-auto xl:ml-0" />
         </header>
-        <div className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] px-5 2xl:px-8 3xl:px-16 4xl:px-24 text-center mx-auto mt-12 sm:mt-20 md:mt-32 lg:mt-40 xl:mt-48 hero-content">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] px-5 2xl:px-8 3xl:px-16 4xl:px-24 text-center mx-auto mt-12 sm:mt-20 md:mt-32 lg:mt-40 xl:mt-48 home-hero-content">
           <p
             className={`font-heading font-light text-[clamp(12px,1.2vw,22px)] tracking-[0.95em] bg-gradient-to-t from-gray-400 to-white bg-clip-text text-transparent mb-4 ${
               locale === "en"
@@ -86,7 +87,7 @@ export default function Page() {
           </p>
           <Button
             onClick={() => router.push("/ticket")}
-            className="text-[#FBFAFA] bg-transparent border hover:bg-white hover:text-light-red transition-colors cursor-pointer rounded-full h-[44px] sm:h-[50px] px-6 sm:px-8 py-[18px] sm:py-[21px] text-[16px] sm:text-[18px] backdrop-blur-xs group hero-button"
+            className="text-[#FBFAFA] bg-transparent border hover:bg-white hover:text-light-red transition-colors cursor-pointer rounded-full h-[44px] sm:h-[50px] px-6 sm:px-8 py-[18px] sm:py-[21px] text-[16px] sm:text-[18px] backdrop-blur-xs group home-hero-button"
           >
             {t("title_button")}
             <Arrow className="group-hover:text-light-red" />
@@ -127,7 +128,7 @@ export default function Page() {
               <Button
                 className="text-black bg-transparent border hover:bg-transparent cursor-pointer rounded-full px-7 text-[16px] h-14 font-semibold"
                 onClick={() =>
-                  window.open("https://www.tourismwinnipeg.com/", "_blank")
+                  window.open("https://www.tourismwinnipeg.com/", "_blank", "noopener,noreferrer")
                 }
               >
                 {t("section2_button")}
@@ -188,7 +189,7 @@ export default function Page() {
               </div>
               <Button
                 className="text-black bg-transparent border hover:bg-transparent cursor-pointer rounded-full px-7 text-[16px] h-14 font-semibold"
-                onClick={() => router.push("about")}
+                onClick={() => router.push("/about")}
               >
                 {t("discover_button")}
                 <Arrow className="text-black h-7 w-7" />

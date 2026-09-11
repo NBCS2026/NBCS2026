@@ -309,7 +309,7 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
   };
 
   return (
-    <div className="pb-8 sm:pb-12 md:pb-16 lg:pb-24">
+    <div className="pt-10 pb-8 sm:pb-12 md:pb-16 lg:pb-24">
       <div className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto px-5 2xl:px-8 3xl:px-16 4xl:px-24 mb-10 sm:mb-12 md:mb-16 text-center">
         <p className="font-bold text-[24px] lg:text-[43px] mb-4 sm:mb-6">
           {t("intro_heading_one")}{" "}

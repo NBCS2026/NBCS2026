@@ -1,3 +1,4 @@
+import { useLocale } from "next-intl";
 import Image from "next/image";
 
 const collageItems = [
@@ -20,13 +21,15 @@ const collageItems = [
 ];
 
 export function CollagePlaceholder() {
+  const isFr = useLocale() === "fr";
+  const frenchAlts = ["Winnipeg et l’extérieur du Musée canadien pour les droits de la personne", "Intérieur du Musée canadien pour les droits de la personne", "Cercle de célébration Oodena à La Fourche, Winnipeg", "Murale dans une rue de Winnipeg"];
   return (
     <div className="w-full overflow-hidden px-4">
       <div className="relative w-[520px] max-w-full mx-auto scale-[clamp(0.5,80vw/520px,0.85)] md:scale-[clamp(0.5,80vw/520px,1)] origin-center">
       <div className="grid grid-cols-2 justify-items-center gap-x-[17px] gap-y-[17px]">
         {collageItems.map((item, idx) => (
           <div
-            key={idx}
+            key={item.src}
             className={`relative rounded-xl overflow-hidden border border-[#d9d9d9] ${
               idx === 0 ? "w-[200px] h-[200px] md:w-[230px] md:h-[230px] mt-14 ml-4" : 
               idx === 3 ? "w-[200px] h-[200px] md:w-[230px] md:h-[230px] -ml-4" : 
@@ -35,7 +38,7 @@ export function CollagePlaceholder() {
           >
             <Image
               src={item.src}
-              alt={item.alt}
+              alt={isFr ? frenchAlts[idx] : item.alt}
               fill
               className="object-cover"
               sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 240px"
@@ -49,7 +52,7 @@ export function CollagePlaceholder() {
           <div className="relative w-[150px] h-[150px] rounded-full overflow-hidden">
             <Image
               src="/nbcs-logo-no-words.png"
-              alt="NBCS logo placeholder"
+              alt={isFr ? "Sommet pancanadien des communautés noires" : "National Black Canadians Summit"}
               fill
               className="object-contain"
               sizes="150px"

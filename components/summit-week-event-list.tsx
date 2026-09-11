@@ -1,10 +1,17 @@
 "use client";
 
-import { Fragment } from "react";
+import { AboutSectionNav } from "./about-section-nav";
+import { TreemonishaFeature } from "./treemonisha-feature";
 import { ExhibitionTitleText } from "./exhibition-title-text";
 import { CalendarDays, MapPin, Ticket, UserRound } from "lucide-react";
 import { SummitWeekVenueMap } from "@/components/summit-week-venue-map";
-import { SUMMIT_WEEK_EVENTS } from "@/data/summit-week-events";
+import {
+  ALSO_IN_WINNIPEG_EVENTS,
+  SUMMIT_WEEK_EVENTS,
+  SUMMIT_WEEK_DATES,
+  getSummitWeekEvents,
+  type SummitWeekEvent,
+} from "@/data/summit-week-events";
 
 function formatDate(date: string | undefined, locale: string) {
   if (!date) {
@@ -53,12 +60,165 @@ function dateAndTime(
 
 export function SummitWeekEventList({ locale }: { locale: string }) {
   const isFr = locale === "fr";
-  const festivalEvents = SUMMIT_WEEK_EVENTS.filter(event => event.id.startsWith("amfm-"));
-  const events = SUMMIT_WEEK_EVENTS.filter(event => !event.id.startsWith("amfm-"));
-  const festival = festivalEvents[0];
+  const festival = SUMMIT_WEEK_EVENTS.find((event) =>
+    event.id.startsWith("amfm-"),
+  );
+  function renderEvent(event: SummitWeekEvent) {
+    const title = isFr ? event.titleFr : event.titleEn;
+    const description = isFr ? event.descriptionFr : event.descriptionEn;
+    const host = isFr ? event.hostFr : event.hostEn;
+    const venue = isFr ? event.venueFr || event.venue : event.venue;
+    const access = isFr ? event.accessFr : event.accessEn;
+    const note = isFr ? event.noteFr : event.noteEn;
+    const directionsQuery = event.address || venue;
 
+    return (
+      <article
+        id={event.id}
+        key={event.id}
+        className={`flex h-full flex-col overflow-hidden rounded-2xl border border-[#E8D4DB] bg-white shadow-sm ${event.imageFormat === "cover-art" ? "lg:grid lg:grid-cols-[minmax(280px,420px)_1fr]" : ""}`}
+      >
+        <div
+          className={
+            event.imageFormat
+              ? "flex items-center justify-center bg-[#FAF6F7]"
+              : "flex min-h-40 items-center justify-center bg-[#FAF6F7] p-7"
+          }
+        >
+          <img
+            src={event.image}
+            alt=""
+            className={
+              event.imageFormat === "cover-art"
+                ? "aspect-square h-auto w-full max-w-[420px] object-contain"
+                : event.imageFormat === "poster"
+                  ? "aspect-video h-auto w-full object-contain"
+                  : "max-h-28 max-w-[85%] object-contain"
+            }
+            loading="lazy"
+            onError={(event) => {
+              event.currentTarget.style.visibility = "hidden";
+            }}
+          />
+        </div>
+        <div className="flex flex-1 flex-col p-6 sm:p-7">
+          <p className="flex items-start gap-2 font-semibold text-[#8C0C3A]">
+            <CalendarDays className="mt-0.5 size-5 shrink-0" aria-hidden />
+            <span>
+              {dateAndTime(event.date, event.startTime, event.endTime, locale)}
+            </span>
+          </p>
+          <h3 className="mt-3 font-heading text-2xl font-black leading-tight text-[#5D1831]">
+            {title}
+          </h3>
+          <p className="mt-4 text-[15px] leading-relaxed text-[#1E1E1E]/78">
+            <ExhibitionTitleText text={description} />
+          </p>
+          <dl className="mt-5 space-y-3 text-sm text-[#1E1E1E]/78">
+            <div className="flex items-start gap-2">
+              <UserRound
+                className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
+                aria-hidden
+              />
+              <div>
+                <dt className="sr-only">{isFr ? "Organisme hôte" : "Host"}</dt>
+                <dd>
+                  <span className="font-bold text-[#1E1E1E]">
+                    {isFr ? "Organisme hôte : " : "Host: "}
+                  </span>
+                  {host}
+                </dd>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <MapPin
+                className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
+                aria-hidden
+              />
+              <div>
+                <dt className="sr-only">{isFr ? "Lieu" : "Venue"}</dt>
+                <dd>
+                  <span className="font-bold text-[#1E1E1E]">
+                    {isFr ? "Lieu : " : "Venue: "}
+                  </span>
+                  {venue}
+                  {event.address && ` — ${event.address}`}
+                </dd>
+              </div>
+            </div>
+            {access && (
+              <div className="flex items-start gap-2">
+                <Ticket
+                  className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
+                  aria-hidden
+                />
+                <div>
+                  <dt className="sr-only">{isFr ? "Accès" : "Access"}</dt>
+                  <dd>
+                    <span className="font-bold text-[#1E1E1E]">
+                      {isFr ? "Accès : " : "Access: "}
+                    </span>
+                    {access}
+                  </dd>
+                </div>
+              </div>
+            )}
+          </dl>
+          {note && (
+            <p className="mt-5 rounded-xl bg-[#FAF6F7] px-4 py-3 text-sm font-semibold leading-relaxed text-[#5D1831]">
+              {note}
+            </p>
+          )}
+          <div className="mt-auto flex flex-wrap gap-3 pt-6">
+            {event.registrationUrl && (
+              <a
+                href={event.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#5D1831]"
+              >
+                {isFr
+                  ? event.registrationLabelFr || "S’inscrire"
+                  : event.registrationLabelEn || "Register"}
+              </a>
+            )}
+            {directionsQuery &&
+              !directionsQuery.toLowerCase().includes("confirm") && (
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(directionsQuery)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-[#8C0C3A] transition-colors hover:bg-[#FAF6F7]"
+                >
+                  {isFr ? "Itinéraire" : "Directions"}
+                </a>
+              )}
+          </div>
+        </div>
+      </article>
+    );
+  }
   return (
     <>
+      <AboutSectionNav
+        label={
+          isFr
+            ? "Navigation des événements parallèles"
+            : "Side Events navigation"
+        }
+        sections={[
+          ...SUMMIT_WEEK_DATES.map((date) => [
+            `week-${date}`,
+            new Intl.DateTimeFormat(isFr ? "fr-CA" : "en-CA", {
+              weekday: "short",
+              timeZone: "UTC",
+            })
+              .format(new Date(`${date}T12:00:00Z`))
+              .replace(/\.$/, "") + ` ${Number(date.slice(-2))}`,
+          ]),
+          ["treemonisha", "Treemonisha"],
+        ]}
+      />
       <section className="mx-auto max-w-[1180px] px-5 py-14 sm:py-20">
         <div className="mb-10 max-w-3xl">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
@@ -76,170 +236,167 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
           </p>
         </div>
 
-        <article id="week-amfm" aria-labelledby="week-amfm-title" className="my-8 overflow-hidden rounded-2xl border border-[#E8D4DB] bg-white">
-          <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="bg-[#FAF6F7] p-6 sm:p-8">
-              <img src={festival.image} alt="" className="mb-6 max-h-28 max-w-full object-contain" loading="lazy" />
-              <h2 id="week-amfm-title" className="font-heading text-2xl font-black leading-tight text-[#5D1831]">{isFr ? festival.titleFr : festival.titleEn}</h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-[#1E1E1E]/78">{isFr ? festival.descriptionFr : festival.descriptionEn}</p>
-              <p className="mt-5 text-sm text-[#1E1E1E]/78"><span className="font-bold">{isFr ? "Accès : " : "Access: "}</span>{isFr ? festival.accessFr : festival.accessEn}</p>
-              <p className="mt-4 text-sm font-semibold leading-relaxed text-[#5D1831]">{isFr ? festival.noteFr : festival.noteEn}</p>
-              <a href={festival.registrationUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#5D1831]">{isFr ? festival.registrationLabelFr : festival.registrationLabelEn}</a>
+        {festival && (
+          <details
+            id="week-amfm"
+            className="mb-10 rounded-2xl border border-[#E8D4DB] bg-[#FAF6F7] p-5 sm:p-7"
+          >
+            <summary className="cursor-pointer font-heading text-xl font-bold leading-snug text-[#5D1831] sm:text-2xl">
+              {isFr ? festival.titleFr : festival.titleEn}
+            </summary>
+            <div className="mt-5 grid items-start gap-5 sm:grid-cols-[140px_1fr]">
+              <img
+                src={festival.image}
+                alt=""
+                width="140"
+                height="110"
+                className="max-h-28 max-w-full object-contain"
+                loading="lazy"
+                onError={(event) => {
+                  event.currentTarget.style.visibility = "hidden";
+                }}
+              />
+              <div>
+                <p className="mt-4 text-[15px] leading-relaxed text-[#1E1E1E]/78">
+                  {isFr ? festival.descriptionFr : festival.descriptionEn}
+                </p>
+                <p className="mt-5 text-sm text-[#1E1E1E]/78">
+                  <span className="font-bold">
+                    {isFr ? "Accès : " : "Access: "}
+                  </span>
+                  {isFr ? festival.accessFr : festival.accessEn}
+                </p>
+                <p className="mt-4 text-sm font-semibold leading-relaxed text-[#5D1831]">
+                  {isFr ? festival.noteFr : festival.noteEn}
+                </p>
+                <a
+                  href={festival.registrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#5D1831]"
+                >
+                  {isFr
+                    ? festival.registrationLabelFr
+                    : festival.registrationLabelEn}
+                </a>
+              </div>
             </div>
-            <ul className="divide-y divide-[#E8D4DB] px-6 sm:px-8">
-              {festivalEvents.map(event => {
-                const venue = isFr ? event.venueFr || event.venue : event.venue;
-                return <li id={event.id} key={event.id} className="py-5">
-                  <h3 className="font-heading text-base font-bold text-[#8C0C3A]">{dateAndTime(event.date, event.startTime, event.endTime, locale)}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-[#1E1E1E]">{venue}{event.address && ` — ${event.address}`}</p>
-                  {event.id === "amfm-september-20" && <p className="mt-2 text-sm font-semibold leading-relaxed text-[#5D1831]">{isFr ? "Les personnes déléguées peuvent y assister après la cérémonie de clôture du Sommet, qui se termine à midi." : "Summit delegates can attend after the closing ceremony ends at noon."}</p>}
-                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.address || venue)}`} target="_blank" rel="noopener noreferrer" aria-label={`${isFr ? "Itinéraire" : "Directions"} — ${formatDate(event.date, locale)} — ${venue}`} className="mt-1 inline-flex min-h-11 items-center text-sm font-semibold text-[#8C0C3A] underline underline-offset-4">{isFr ? "Itinéraire" : "Directions"}</a>
-                </li>;
-              })}
-            </ul>
-          </div>
-        </article>
-        <div className="grid gap-6 lg:grid-cols-2">
-          {events.map((event, index) => {
-            const title = isFr ? event.titleFr : event.titleEn;
-            const description = isFr
-              ? event.descriptionFr
-              : event.descriptionEn;
-            const host = isFr ? event.hostFr : event.hostEn;
-            const venue = isFr ? event.venueFr || event.venue : event.venue;
-            const access = isFr ? event.accessFr : event.accessEn;
-            const note = isFr ? event.noteFr : event.noteEn;
-            const directionsQuery = event.address || venue;
-
-            return (
-              <Fragment key={event.id}>
-              {(index === 0 || events[index - 1].date !== event.date) && <h2 id={`week-${event.date || "tbc"}`} className="scroll-mt-44 pt-8 font-heading text-xl font-bold text-[#5D1831] lg:col-span-2">{formatDate(event.date, locale)}</h2>}
-              <article
-                key={event.id}
-                className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#E8D4DB] bg-white shadow-sm"
+          </details>
+        )}
+        {SUMMIT_WEEK_DATES.map((date) => {
+          const events = getSummitWeekEvents(date);
+          return (
+            <section
+              key={date}
+              id={`week-${date}`}
+              className="week-date-section"
+              aria-labelledby={`week-heading-${date}`}
+            >
+              <h2
+                id={`week-heading-${date}`}
+                className="week-date-heading font-heading"
               >
-                <div className="flex min-h-40 items-center justify-center bg-[#FAF6F7] p-7">
-                  <img
-                    src={event.image}
-                    alt={host}
-                    className="max-h-28 max-w-[85%] object-contain"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6 sm:p-7">
-                  <p className="flex items-start gap-2 font-semibold text-[#8C0C3A]">
-                    <CalendarDays
-                      className="mt-0.5 size-5 shrink-0"
-                      aria-hidden
-                    />
-                    <span>
-                      {dateAndTime(
-                        event.date,
-                        event.startTime,
-                        event.endTime,
-                        locale,
+                <span className="week-date-number" aria-hidden="true">
+                  {date.slice(-2)}
+                </span>
+                <span>{formatDate(date, locale)}</span>
+              </h2>
+              <div className="grid gap-6 lg:grid-cols-2">
+                {events.map((event) =>
+                  event.id.startsWith("amfm-") ? (
+                    <article
+                      key={event.id}
+                      id={event.id}
+                      className="rounded-xl border-l-4 border-[#8C0C3A] bg-[#FAF6F7] p-5 lg:col-span-2"
+                    >
+                      <p className="text-sm font-semibold text-[#8C0C3A]">
+                        {dateAndTime(
+                          event.date,
+                          event.startTime,
+                          event.endTime,
+                          locale,
+                        )}
+                      </p>
+                      <h3 className="mt-2 font-heading text-lg font-bold text-[#5D1831]">
+                        {isFr ? event.titleFr : event.titleEn}
+                      </h3>
+                      <p className="mt-2 text-sm">
+                        {isFr ? event.venueFr || event.venue : event.venue}
+                        {event.address && ` — ${event.address}`}
+                      </p>
+                      {event.id === "amfm-september-20" && (
+                        <p className="mt-2 text-sm font-semibold leading-relaxed text-[#5D1831]">
+                          {isFr
+                            ? "Les personnes déléguées peuvent y assister après la cérémonie de clôture du Sommet, qui se termine à midi."
+                            : "Summit delegates can attend after the closing ceremony ends at noon."}
+                        </p>
                       )}
-                    </span>
-                  </p>
-                  <h3 className="mt-3 font-heading text-2xl font-black leading-tight text-[#5D1831]">
-                    {title}
-                  </h3>
-                  <p className="mt-4 text-[15px] leading-relaxed text-[#1E1E1E]/78">
-                    <ExhibitionTitleText text={description} />
-                  </p>
-                  <dl className="mt-5 space-y-3 text-sm text-[#1E1E1E]/78">
-                    <div className="flex items-start gap-2">
-                      <UserRound
-                        className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
-                        aria-hidden
-                      />
-                      <div>
-                        <dt className="sr-only">
-                          {isFr ? "Organisme hôte" : "Host"}
-                        </dt>
-                        <dd>
-                          <span className="font-bold text-[#1E1E1E]">
-                            {isFr ? "Organisme hôte : " : "Host: "}
-                          </span>
-                          {host}
-                        </dd>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <MapPin
-                        className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
-                        aria-hidden
-                      />
-                      <div>
-                        <dt className="sr-only">{isFr ? "Lieu" : "Venue"}</dt>
-                        <dd>
-                          <span className="font-bold text-[#1E1E1E]">
-                            {isFr ? "Lieu : " : "Venue: "}
-                          </span>
-                          {venue}
-                          {event.address && ` — ${event.address}`}
-                        </dd>
-                      </div>
-                    </div>
-                    {access && (
-                      <div className="flex items-start gap-2">
-                        <Ticket
-                          className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
-                          aria-hidden
-                        />
-                        <div>
-                          <dt className="sr-only">
-                            {isFr ? "Accès" : "Access"}
-                          </dt>
-                          <dd>
-                            <span className="font-bold text-[#1E1E1E]">
-                              {isFr ? "Accès : " : "Access: "}
-                            </span>
-                            {access}
-                          </dd>
-                        </div>
-                      </div>
-                    )}
-                  </dl>
-                  {note && (
-                    <p className="mt-5 rounded-xl bg-[#FAF6F7] px-4 py-3 text-sm font-semibold leading-relaxed text-[#5D1831]">
-                      {note}
-                    </p>
-                  )}
-                  <div className="mt-auto flex flex-wrap gap-3 pt-6">
-                    {event.registrationUrl && (
-                      <a
-                        href={event.registrationUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-full bg-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#5D1831]"
-                      >
-                        {isFr
-                          ? event.registrationLabelFr || "S’inscrire"
-                          : event.registrationLabelEn || "Register"}
-                      </a>
-                    )}
-                    {directionsQuery &&
-                      !directionsQuery.toLowerCase().includes("confirm") && (
+                      <div className="mt-2 flex flex-wrap gap-x-6">
+                        {/* biome-ignore lint/a11y/useValidAnchor: This is a real in-page destination; the disclosure opens before native anchor navigation. */}
                         <a
-                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(directionsQuery)}`}
+                          href="#week-amfm"
+                          onClick={() => {
+                            const details =
+                              document.getElementById("week-amfm");
+                            if (details instanceof HTMLDetailsElement) {
+                              details.open = true;
+                              details
+                                .querySelector("summary")
+                                ?.focus({ preventScroll: true });
+                            }
+                          }}
+                          className="inline-flex min-h-11 items-center text-sm font-semibold text-[#8C0C3A] underline underline-offset-4"
+                        >
+                          {isFr ? "Détails du festival" : "Festival details"}
+                        </a>
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.address || event.venue)}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="rounded-full border border-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-[#8C0C3A] transition-colors hover:bg-[#FAF6F7]"
+                          aria-label={`${isFr ? "Itinéraire" : "Directions"} — ${formatDate(date, locale)} — ${event.venue}`}
+                          className="inline-flex min-h-11 items-center text-sm font-semibold text-[#8C0C3A] underline underline-offset-4"
                         >
                           {isFr ? "Itinéraire" : "Directions"}
                         </a>
-                      )}
-                  </div>
-                </div>
-              </article>
-              </Fragment>
-            );
-          })}
-        </div>
+                      </div>
+                    </article>
+                  ) : (
+                    renderEvent(event)
+                  ),
+                )}
+                {!events.length && (
+                  <p className="text-sm text-[#5D1831]">
+                    {isFr
+                      ? "Aucun événement indiqué pour cette date."
+                      : "No events listed for this date."}
+                  </p>
+                )}
+              </div>
+            </section>
+          );
+        })}
+        {SUMMIT_WEEK_EVENTS.filter(
+          (event) => !event.date || !SUMMIT_WEEK_DATES.includes(event.date),
+        ).map(renderEvent)}
       </section>
 
       <SummitWeekVenueMap locale={locale} />
+      <section
+        id="also-in-winnipeg"
+        aria-labelledby="also-in-winnipeg-title"
+        className="mx-auto max-w-[1180px] scroll-mt-44 px-5 py-14 sm:py-20"
+      >
+        <h2
+          id="also-in-winnipeg-title"
+          className="mb-8 font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#1E1E1E]"
+        >
+          {isFr ? "À découvrir aussi à Winnipeg" : "Also happening in Winnipeg"}
+        </h2>
+        <div className="grid gap-8">
+          <TreemonishaFeature locale={locale} />
+          {ALSO_IN_WINNIPEG_EVENTS.map(renderEvent)}
+        </div>
+      </section>
     </>
   );
 }

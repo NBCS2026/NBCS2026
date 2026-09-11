@@ -86,3 +86,6 @@
   .program-bio-heading h2 { font-size: 22px; }
   .program-portrait-large { width: 80px; height: 80px; }
 }
+.program-guide { padding-top: 1.5rem; }
+.program-breakout { scroll-margin-top: 184px; }
+.program-breakout:target, .program-block:target { box-shadow: 0 0 0 3px #BC8D3D; }

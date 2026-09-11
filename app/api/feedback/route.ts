@@ -1,18 +1,21 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
-
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
+import { sendFormEmail } from "@/lib/send-form-email";
+import { EXPERTISE, CONTRIBUTIONS } from "@/data/survey-options";
+import { getProgramEntries } from "@/data/program";
+import { readFormJson, formError, FormError, escapeHtml, oncePerSubmission } from "@/lib/form-security";
 
 export async function POST(request: NextRequest) {
+  let locale = "en";
   try {
-    const body = await request.json();
+    const body = await readFormJson(request);
+    locale = body.locale === "fr" ? "fr" : "en";
+    return await oncePerSubmission(request, body, () => submitFeedback(request, body));
+  } catch (error) { return formError(locale, error instanceof FormError ? error.status : 500); }
+}
+
+
+async function submitFeedback(request: NextRequest, body: Record<string, unknown>) {
+  try {
     const locale = body.locale === "fr" ? "fr" : "en";
 
     if (body.submissionKind === "media") {
@@ -68,16 +71,13 @@ export async function POST(request: NextRequest) {
         return NextResponse.json(
           {
             error:
-              locale === "fr"
-                ? "Le service de dépôt média n’est pas configuré."
-                : "The media submission service is not configured.",
+              locale === "fr" ? "Impossible d’envoyer le formulaire. Veuillez réessayer plus tard." : "Unable to send the form. Please try again later.",
           },
           { status: 500 },
         );
       }
 
-      const resend = new Resend(apiKey);
-      const result = await resend.emails.send({
+      const result = await sendFormEmail(request, body, {
         from: "NBCS 2026 Media Submissions <onboarding@resend.dev>",
         to: recipient,
         reply_to: email,
@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
         `,
       });
 
-      if ("error" in result && result.error) {
+      if (result.error || !result.data?.id) {
         return NextResponse.json(
           {
             error:
@@ -132,9 +132,11 @@ export async function POST(request: NextRequest) {
       const otherExpertise = String(body.otherExpertise || "")
         .trim()
         .slice(0, 240);
+      if (expertise.some(item => !EXPERTISE.some(option => option[0] === item))) return formError(locale);
       const contributions = Array.isArray(body.contributions)
         ? body.contributions.map(String).slice(0, 20)
         : [];
+      if (contributions.some(item => !CONTRIBUTIONS.some(option => option[0] === item))) return formError(locale);
       const otherContribution = String(body.otherContribution || "")
         .trim()
         .slice(0, 240);
@@ -186,20 +188,17 @@ export async function POST(request: NextRequest) {
         return NextResponse.json(
           {
             error:
-              locale === "fr"
-                ? "Le service de sondage n’est pas configuré."
-                : "The survey service is not configured.",
+              locale === "fr" ? "Impossible d’envoyer le formulaire. Veuillez réessayer plus tard." : "Unable to send the form. Please try again later.",
           },
           { status: 500 },
         );
       }
 
-      const resend = new Resend(apiKey);
       const expertiseText = [...expertise, otherExpertise]
         .filter(Boolean)
         .join(", ");
       const contributionsText = [...contributions, otherContribution].filter(Boolean).join(", ");
-      const result = await resend.emails.send({
+      const result = await sendFormEmail(request, body, {
         from: "NBCS 2026 Delegate Survey <onboarding@resend.dev>",
         to: recipient,
         ...(email ? { reply_to: email } : {}),
@@ -223,7 +222,7 @@ export async function POST(request: NextRequest) {
         `,
       });
 
-      if ("error" in result && result.error) {
+      if (result.error || !result.data?.id) {
         return NextResponse.json(
           {
             error:
@@ -240,7 +239,9 @@ export async function POST(request: NextRequest) {
 
     const feedbackType =
       body.feedbackType === "general" ? "general" : "session";
-    const session = String(body.session || "").trim();
+    const sessionId = String(body.session || "").trim();
+    const entry = getProgramEntries(locale).find(item => item.id === sessionId);
+    const session = entry ? `${entry.id} — ${entry.title}` : "";
     const topic = String(body.topic || "")
       .trim()
       .slice(0, 180);
@@ -259,7 +260,7 @@ export async function POST(request: NextRequest) {
       !["1", "2", "3", "4", "5"].includes(rating) ||
       comments.length < 2 ||
       comments.length > 4000 ||
-      (feedbackType === "session" && !session)
+      (feedbackType === "session" && !entry)
     ) {
       return NextResponse.json(
         {
@@ -290,15 +291,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error:
-            locale === "fr"
-              ? "Le service de commentaires n’est pas configuré."
-              : "The feedback service is not configured.",
+            locale === "fr" ? "Impossible d’envoyer le formulaire. Veuillez réessayer plus tard." : "Unable to send the form. Please try again later.",
         },
         { status: 500 },
       );
     }
 
-    const resend = new Resend(apiKey);
     const subjectTarget =
       feedbackType === "session"
         ? session.replace(/[\r\n]+/g, " ").slice(0, 140)
@@ -306,7 +304,7 @@ export async function POST(request: NextRequest) {
           "General Summit feedback";
     const responseName = anonymous ? "Anonymous" : name;
     const responseEmail = anonymous ? "Not disclosed" : email;
-    const result = await resend.emails.send({
+    const result = await sendFormEmail(request, body, {
       from: "NBCS 2026 Feedback <onboarding@resend.dev>",
       to: recipient,
       ...(!anonymous ? { reply_to: email } : {}),
@@ -326,7 +324,7 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    if ("error" in result && result.error) {
+    if (result.error || !result.data?.id) {
       return NextResponse.json(
         {
           error:
@@ -340,9 +338,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ message: "Feedback submitted" });
   } catch {
-    return NextResponse.json(
-      { error: "Unable to submit feedback." },
-      { status: 500 },
-    );
+    return formError(body.locale === "fr" ? "fr" : "en", 500);
   }
 }

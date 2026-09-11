@@ -242,7 +242,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     descriptionFr: "Vêtements, bijoux, livres, poupées et cadeaux africains.",
     daysEn: "Friday–Saturday",
     daysFr: "Vendredi–samedi",
-    website: "https://www.sankofagifts.ca",
   },
   {
     name: "HEYRU",
@@ -290,7 +289,6 @@ export const MARKETPLACE_VENDORS: MarketplaceVendor[] = [
     descriptionFr: "Poudres naturelles au moka et au cacao.",
     daysEn: "Friday",
     daysFr: "Vendredi",
-    website: "https://www.westnaturalgood.ca",
   },
   {
     name: "Alat Food Services",

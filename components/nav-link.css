@@ -1,0 +1,33 @@
+.site-primary-link {
+  position: relative;
+  text-decoration: none;
+}
+.site-primary-link::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  inset-inline: 0;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+.site-primary-link[aria-current="page"]::after,
+.site-primary-link:hover::after,
+.site-primary-link:focus-visible::after {
+  transform: scaleX(1);
+}
+@media (min-width: 1280px) {
+  header:not([data-site-dock]) nav .site-primary-link {
+    font-size: clamp(12px, 0.85vw, 16px);
+  }
+  header:not([data-site-dock]) nav ul {
+    gap: clamp(8px, 1vw, 16px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-primary-link::after {
+    transition: none;
+  }
+}

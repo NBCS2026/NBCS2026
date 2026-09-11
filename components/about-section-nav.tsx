@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { PageNavIndicator } from "./page-nav-indicator";
 
 export function AboutSectionNav({ sections, label }: { sections: string[][]; label: string }) {
-  const [active, setActive] = useState(sections[0][0]);
+  const [active, setActive] = useState(sections[0]?.[0] ?? "");
   const linksRef = useRef<HTMLDivElement>(null);
   const sectionIds = sections.map(([id]) => id).join(",");
 
@@ -12,7 +13,7 @@ export function AboutSectionNav({ sections, label }: { sections: string[][]; lab
     let frame = 0;
     const update = () => {
       frame = 0;
-      const threshold = Math.max(160, (linksRef.current?.closest("nav")?.getBoundingClientRect().bottom || 0) + 64);
+      const threshold = Math.max(208, (linksRef.current?.closest("nav")?.getBoundingClientRect().bottom || 0) + 64);
       const current = elements.filter(el => el.getBoundingClientRect().top <= threshold).at(-1) || elements[0];
       if (current) setActive(current.id);
     };
@@ -27,6 +28,7 @@ export function AboutSectionNav({ sections, label }: { sections: string[][]; lab
     };
   }, [sectionIds]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Reposition after the active link changes in the DOM.
   useEffect(() => {
     const row = linksRef.current;
     const link = row?.querySelector<HTMLElement>('[aria-current="location"]');
@@ -40,7 +42,8 @@ export function AboutSectionNav({ sections, label }: { sections: string[][]; lab
     <nav aria-label={label} className="sticky top-0 z-30 border-b border-[#E8D4DB] bg-white px-5 py-2 sm:px-8">
       <div className="mx-auto flex max-w-[1180px] items-center gap-3 sm:gap-5">
 
-        <div ref={linksRef} className="relative flex min-w-0 flex-1 gap-1 overflow-x-auto py-1">
+        <div ref={linksRef} className="page-nav-rail relative flex min-w-0 flex-1 gap-1 overflow-x-auto py-1">
+          <PageNavIndicator rail={linksRef} active={active} />
           {sections.map(([id, text]) => (
             <a key={id} href={`#${id}`} onClick={() => setActive(id)} aria-current={active === id ? "location" : undefined} className={`flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border px-4 py-2 text-sm font-semibold transition-colors motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#8C0C3A] ${active === id ? "border-[#E8D4DB] bg-[#FAF6F7] text-[#8C0C3A]" : "border-transparent text-[#5D1831] hover:border-[#E8D4DB] hover:bg-[#FAF6F7]"}`}>{text}</a>
           ))}

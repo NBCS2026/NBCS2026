@@ -4,7 +4,7 @@ export function AdvisorySubcommittee({ locale }: { locale: string }) {
   const isFr = locale === "fr";
 
   return (
-    <section className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
+    <section id="summit-advisory" className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
       <div className="mx-auto max-w-[1180px]">
         <div className="mb-9 max-w-4xl">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
@@ -12,18 +12,18 @@ export function AdvisorySubcommittee({ locale }: { locale: string }) {
           </p>
           <h2 className="mt-3 font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#1E1E1E]">
             {isFr
-              ? "Sous-comité consultatif du Sommet"
-              : "Summit Advisory Subcommittee"}
+              ? "Conseil consultatif du Sommet"
+              : "Summit Advisory Council"}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[#1E1E1E]/78 sm:text-lg">
             {isFr
-              ? "Le Sous-comité consultatif réunit des leaders communautaires, des organismes et des institutions du Manitoba et de partout au Canada afin d’orienter le 5e Sommet pancanadien des communautés noires. Ses membres contribuent à l’orientation du programme, à la mobilisation communautaire, aux partenariats locaux et au rayonnement, afin que le Sommet reflète les priorités, les histoires et les réalités vécues des communautés qu’il sert. Leur travail incarne l’approche de coconstruction au cœur du Sommet : les communautés ne sont pas simplement invitées à participer, elles contribuent à bâtir le rassemblement lui-même."
-              : "The Advisory Subcommittee brings together community leaders, organizations and institutions from across Manitoba and Canada to shape the direction of the 5th National Black Canadians Summit. Its members contribute to program orientation, community engagement, local partnerships and outreach, ensuring that the Summit reflects the priorities, histories and lived realities of the communities it serves. Their work embodies the co-construction approach at the heart of the Summit: communities are not simply invited to attend; they help build the gathering itself."}
+              ? "Le Conseil consultatif du Sommet réunit des leaders communautaires, des organismes et des institutions du Manitoba et de partout au Canada afin d’orienter le 5e Sommet pancanadien des communautés noires. Ses membres contribuent à l’orientation du programme, à la mobilisation communautaire, aux partenariats locaux et au rayonnement, afin que le Sommet reflète les priorités, les histoires et les réalités vécues des communautés qu’il sert. Leur travail incarne l’approche de coconstruction au cœur du Sommet : les communautés ne sont pas simplement invitées à participer, elles contribuent à bâtir le rassemblement lui-même."
+              : "The Summit Advisory Council brings together community leaders, organizations and institutions from across Manitoba and Canada to shape the direction of the 5th National Black Canadians Summit. Its members contribute to program orientation, community engagement, local partnerships and outreach, ensuring that the Summit reflects the priorities, histories and lived realities of the communities it serves. Their work embodies the co-construction approach at the heart of the Summit: communities are not simply invited to attend; they help build the gathering itself."}
           </p>
           <p className="mt-4 font-bold text-[#5D1831]">
             {isFr
-              ? "Nous remercions chaleureusement les membres du Sous-comité consultatif."
-              : "We gratefully acknowledge the members of the Advisory Subcommittee."}
+              ? "Nous remercions chaleureusement les membres du Conseil consultatif du Sommet."
+              : "We gratefully acknowledge the members of the Summit Advisory Council."}
           </p>
         </div>
 

@@ -1,3 +1,4 @@
+import { useLocale } from "next-intl";
 import Image from "next/image";
 
 const homeCollageItems = [
@@ -7,7 +8,7 @@ const homeCollageItems = [
   },
   {
     src: "/nbcs-dancers.jpg",
-    alt: "Deux danseuses se produisent sur scène devant un public lors du NBCS 2025",
+    alt: "Two dancers perform on stage at the 2025 Summit",
   },
   {
     src: "/nbcs-gala-greeting.jpg",
@@ -20,13 +21,15 @@ const homeCollageItems = [
 ];
 
 export function HomeCollage() {
+  const isFr = useLocale() === "fr";
+  const frenchAlts = ["Le public assiste à une discussion au SPCN 2025", "Deux danseuses se produisent sur scène au SPCN 2025", "Deux personnes se saluent au gala du SPCN 2025", "Prestation musicale sur scène au gala du SPCN 2025"];
   return (
     <div className="w-full overflow-hidden px-4">
       <div className="relative w-[520px] max-w-full mx-auto scale-[clamp(0.5,80vw/520px,0.85)] md:scale-[clamp(0.5,80vw/520px,1)] origin-center">
         <div className="grid grid-cols-2 justify-items-center gap-x-[17px] gap-y-[17px]">
           {homeCollageItems.map((item, idx) => (
             <div
-              key={idx}
+              key={item.src}
               className={`relative rounded-xl overflow-hidden border border-[#d9d9d9] ${
                 idx === 0 ? "w-[200px] h-[200px] md:w-[230px] md:h-[230px] mt-14 ml-4" : 
                 idx === 3 ? "w-[200px] h-[200px] md:w-[230px] md:h-[230px] -ml-4" : 
@@ -35,7 +38,7 @@ export function HomeCollage() {
             >
               <Image
                 src={item.src}
-                alt={item.alt}
+                alt={isFr ? frenchAlts[idx] : item.alt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 240px"
@@ -49,7 +52,7 @@ export function HomeCollage() {
             <div className="relative w-[150px] h-[150px] rounded-full overflow-hidden">
               <Image
                 src="/nbcs-logo-no-words.png"
-                alt="NBCS logo placeholder"
+                alt={isFr ? "Sommet pancanadien des communautés noires" : "National Black Canadians Summit"}
                 fill
                 className="object-contain"
                 sizes="150px"

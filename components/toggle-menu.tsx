@@ -31,7 +31,7 @@ export default function ToggleMenu({
       <SheetTrigger aria-label={_local === "fr" ? "Ouvrir le menu" : "Open menu"} className={`inline-flex min-h-11 min-w-11 items-center justify-center xl:hidden ${className ?? ""}`}>
         <Toggle />
       </SheetTrigger>
-      <SheetContent className="w-full overflow-y-auto px-4 pt-12 pb-8 sm:px-6">
+      <SheetContent aria-describedby={undefined} className="w-full overflow-y-auto px-4 pt-12 pb-8 sm:px-6">
         <SheetHeader>
           <SheetTitle className="sr-only">Menu</SheetTitle>
           <NavLink

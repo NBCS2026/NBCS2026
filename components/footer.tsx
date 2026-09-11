@@ -216,8 +216,10 @@ function Switcher({ locale }: { locale: string }) {
 
   const switchLang = (newLocale: string) => {
     if (newLocale !== locale) {
-      router.replace(pathname, { locale: newLocale });
-      router.refresh();
+      const params = new URLSearchParams(window.location.search);
+      params.delete("lang");
+      const query = params.toString();
+      router.replace(`${pathname}${query ? `?${query}` : ""}${window.location.hash}`, { locale: newLocale });
     }
   };
   return (

@@ -1,0 +1,44 @@
+.page-nav-rail > a {
+  position: relative;
+  z-index: 1;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+.page-nav-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 999px;
+  background: #faf6f7;
+  border: 1px solid #e8d4db;
+  transition:
+    transform 240ms ease,
+    width 240ms ease,
+    height 240ms ease,
+    opacity 120ms ease;
+}
+.program-page-nav .page-nav-indicator {
+  background: #5d1831;
+  border-color: #5d1831;
+}
+/* Keep the native active style until the indicator has been measured. */
+.page-nav-rail:has(.page-nav-indicator[data-ready="true"])
+> a[aria-current="location"] {
+  background-color: transparent;
+  border-color: transparent;
+}
+.page-nav-rail > a:focus-visible {
+  outline: 2px solid #8c0c3a;
+  outline-offset: -3px;
+}
+.program-page-nav .page-nav-rail > a[aria-current="location"]:focus-visible {
+  outline-color: white;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-nav-indicator,
+  .page-nav-rail > a {
+    transition: none;
+  }
+}

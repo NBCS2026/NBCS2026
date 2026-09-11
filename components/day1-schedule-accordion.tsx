@@ -7,12 +7,8 @@ import "./program-guide.css";
 import { ExhibitionTitleText } from "./exhibition-title-text";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useId, useState } from "react";
-import { DAY1_SCHEDULE } from "@/data/day1-schedule";
-import { DAY1_SCHEDULE_FR } from "@/data/day1-schedule-fr";
-import { DAY2_SCHEDULE } from "@/data/day2-schedule";
-import { DAY2_SCHEDULE_FR } from "@/data/day2-schedule-fr";
-import { DAY3_SCHEDULE } from "@/data/day3-schedule";
-import { DAY3_SCHEDULE_FR } from "@/data/day3-schedule-fr";
+import { getSchedule, resolveProgramAnchor } from "@/data/program";
+import { focusProgramTarget } from "@/lib/program-navigation";
 import type {
   ScheduleBlock,
   SchedulePersonGroup,
@@ -370,7 +366,7 @@ function SessionCard({
 }) {
   const panelId = useId();
   return (
-    <div className="program-breakout rounded-xl border border-[#E8D4DB] bg-white overflow-hidden">
+    <div id={`${day}-${session.id}`} className="program-breakout rounded-xl border border-[#E8D4DB] bg-white overflow-hidden">
       <button
         type="button"
         aria-expanded={open}
@@ -649,10 +645,25 @@ function ScheduleDayAccordion({
       };
 
   useEffect(() => {
-    const target = window.location.hash.slice(1);
-    const block = blocks.find(item => `${idPrefix}-${item.id}` === target);
-    if (block) setOpenBlocks(prev => new Set(prev).add(block.id));
-  }, [blocks, idPrefix]);
+    let timer: ReturnType<typeof setTimeout>;
+    const reveal = () => {
+      clearTimeout(timer);
+      const target = window.location.hash.slice(1);
+      const entry = resolveProgramAnchor(target, locale);
+      const block = blocks.find(item => `${idPrefix}-${item.id}` === target || item.id === entry?.blockId && `day${entry.day}` === idPrefix);
+      if (block) {
+        setOpenBlocks(prev => new Set(prev).add(block.id));
+        if (entry?.sessionId) setActiveSession(entry.sessionId);
+      }
+      if (block || target === idPrefix) {
+        timer = setTimeout(() => focusProgramTarget(target), window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 50 : 350);
+      }
+    };
+    reveal();
+    window.addEventListener("hashchange", reveal);
+    window.addEventListener("popstate", reveal);
+    return () => { clearTimeout(timer); window.removeEventListener("hashchange", reveal); window.removeEventListener("popstate", reveal); };
+  }, [blocks, idPrefix, locale]);
 
   const toggleBlock = (id: string) => {
     setOpenBlocks(prev => { const next = new Set(prev); if (next.has(id)) next.delete(id); else next.add(id); return next; });
@@ -750,7 +761,7 @@ export function Day1ScheduleAccordion({ locale }: { locale: string }) {
   return (
     <ScheduleDayAccordion
       locale={locale}
-      blocks={locale === "fr" ? DAY1_SCHEDULE_FR : DAY1_SCHEDULE}
+      blocks={getSchedule(1, locale)}
       idPrefix="day1"
     />
   );
@@ -760,7 +771,7 @@ export function Day2ScheduleAccordion({ locale }: { locale: string }) {
   return (
     <ScheduleDayAccordion
       locale={locale}
-      blocks={locale === "fr" ? DAY2_SCHEDULE_FR : DAY2_SCHEDULE}
+      blocks={getSchedule(2, locale)}
       idPrefix="day2"
     />
   );
@@ -770,7 +781,7 @@ export function Day3ScheduleAccordion({ locale }: { locale: string }) {
   return (
     <ScheduleDayAccordion
       locale={locale}
-      blocks={locale === "fr" ? DAY3_SCHEDULE_FR : DAY3_SCHEDULE}
+      blocks={getSchedule(3, locale)}
       idPrefix="day3"
     />
   );

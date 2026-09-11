@@ -2,9 +2,12 @@
 
 import { Upload } from "lucide-react";
 import { useState } from "react";
+import { useFormSubmission } from "@/lib/use-form-submission";
+import { FormHoneypot } from "./form-honeypot";
 
 export function MediaContributionForm({ locale }: { locale: string }) {
   const isFr = locale === "fr";
+  const submission = useFormSubmission();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{
     type: "success" | "error" | null;
@@ -15,17 +18,16 @@ export function MediaContributionForm({ locale }: { locale: string }) {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!submission.begin()) return;
     setIsSubmitting(true);
     setStatus({ type: null, message: "" });
     const form = event.currentTarget;
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("/api/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const { response, result } = await submission.send("/api/feedback", {
           submissionKind: "media",
+          website: String(formData.get("website") || ""),
           name: String(formData.get("name") || ""),
           email: String(formData.get("email") || ""),
           mediaUrl: String(formData.get("mediaUrl") || ""),
@@ -33,9 +35,7 @@ export function MediaContributionForm({ locale }: { locale: string }) {
           credit: String(formData.get("credit") || ""),
           permission: formData.get("permission") === "yes",
           locale,
-        }),
       });
-      const result = await response.json();
       if (!response.ok) {
         throw new Error(result.error || "Unable to submit media.");
       }
@@ -57,6 +57,7 @@ export function MediaContributionForm({ locale }: { locale: string }) {
               : "Unable to submit media.",
       });
     } finally {
+      submission.end();
       setIsSubmitting(false);
     }
   }
@@ -84,6 +85,8 @@ export function MediaContributionForm({ locale }: { locale: string }) {
           onSubmit={handleSubmit}
           className="space-y-5 rounded-3xl border border-[#E8D4DB] bg-white p-6 shadow-sm sm:p-8"
         >
+          <fieldset disabled={isSubmitting} className="contents">
+          <FormHoneypot />
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="block font-semibold">
               {isFr ? "Nom" : "Name"}
@@ -152,6 +155,7 @@ export function MediaContributionForm({ locale }: { locale: string }) {
 
           {status.type && (
             <output
+              role={status.type === "error" ? "alert" : "status"}
               className={`block rounded-xl border px-4 py-3 text-sm font-semibold ${
                 status.type === "success"
                   ? "border-green-200 bg-green-50 text-green-800"
@@ -176,6 +180,7 @@ export function MediaContributionForm({ locale }: { locale: string }) {
                 ? "Transmettre le lien"
                 : "Submit media link"}
           </button>
+        </fieldset>
         </form>
       </div>
     </section>

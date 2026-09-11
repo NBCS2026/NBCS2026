@@ -36,6 +36,7 @@ export function NewSwiper() {
         <Link
           href="https://www.cbc.ca/player/play/video/9.6631108"
           target="_blank"
+          rel="noopener noreferrer"
           className="relative"
         >
           <img

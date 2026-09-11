@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import "./nav-link.css";
 
 interface NavLinKProps extends React.HTMLAttributes<HTMLElement> {
   onClose?: () => void;
@@ -71,9 +72,7 @@ export function NavLink({ className, onClick }: NavLinKProps) {
           return (
             <li key={link.url}>
               <Link
-                className={`whitespace-nowrap ${
-                  isActive ? "border-b-2 border-current" : "border-b-2 border-transparent"
-                } inline-flex min-h-11 items-center hover:border-current`}
+                className="site-primary-link inline-flex min-h-11 items-center whitespace-nowrap"
                 aria-current={isActive ? "page" : undefined}
                 href={link.url}
                 onClick={onClick}

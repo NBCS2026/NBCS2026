@@ -21,7 +21,6 @@ export function LangSelect({ className }: React.HTMLAttributes<HTMLElement>) {
       params.delete("lang");
       const query = params.toString();
       router.replace(`${pathname}${query ? `?${query}` : ""}${window.location.hash}`, { locale: newLocale });
-      router.refresh();
     }
   };
   return (

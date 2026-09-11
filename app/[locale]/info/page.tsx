@@ -2,6 +2,7 @@
 
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { AboutSectionNav } from "@/components/about-section-nav";
 import { Footer } from "@/components/footer";
 import { InfoSectionsAccordion } from "@/components/info-sections-accordion";
 import { LangSelect } from "@/components/lang-select";
@@ -37,7 +38,13 @@ export default function Page() {
           </h1>
         </div>
       </div>
-      <main id="main-content" tabIndex={-1} className="bg-white rounded-t-2xl pt-14">
+      <main id="main-content" tabIndex={-1} className="bg-white rounded-t-2xl">
+        <AboutSectionNav label={locale === "fr" ? "Navigation pour planifier votre séjour" : "Plan your visit navigation"} sections={[
+          ["food-near-summit", locale === "fr" ? "Se restaurer" : "Food"],
+          ["accommodation", locale === "fr" ? "Hébergement" : "Accommodation"],
+          ["porter", "Porter"], ["via-rail", "VIA Rail"], ["westjet", "WestJet"],
+          ["venue", locale === "fr" ? "Lieu" : "Venue"],
+        ]} />
         <InfoSectionsAccordion locale={locale} />
         <WayfindingGuide locale={locale} />
       </main>

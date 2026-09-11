@@ -21,7 +21,7 @@ export default function Page() {
   const { locale } = params;
   const isFr = locale === "fr";
   const history = isFr ? SUMMIT_HISTORY.fr : SUMMIT_HISTORY.en;
-  const sections = [["summit-history", isFr ? "Histoire" : "History"], ["summit-timeline", isFr ? "Chronologie" : "Timeline"], ["welcome-messages", isFr ? "Messages" : "Messages"], ["summit-voices", isFr ? "Témoignages" : "Voices"], ["summit-highlights", isFr ? "Faits saillants" : "Highlights"]];
+  const sections = [["summit-history", isFr ? "Histoire" : "History"], ["summit-timeline", isFr ? "Chronologie" : "Timeline"], ["welcome-messages", isFr ? "Messages" : "Messages"], ["summit-advisory", isFr ? "Conseil consultatif du Sommet" : "Summit Advisory Council"], ["summit-voices", isFr ? "Témoignages" : "Voices"], ["summit-highlights", isFr ? "Faits saillants" : "Highlights"]];
 
   return (
     <div className={styles.page}>
@@ -74,6 +74,8 @@ export default function Page() {
 
         <WelcomeMessages locale={locale} />
 
+        <AdvisorySubcommittee locale={locale} />
+
         {/* Testimonial Section */}
         <section id="summit-voices" className={`${styles.section} ${styles.voices}`}>
           <div className="text-center lg:text-start mb-16">
@@ -104,7 +106,6 @@ export default function Page() {
           </div>
         </section>
 
-        <AdvisorySubcommittee locale={locale} />
 
         {/* News Section */}
         <section id="summit-highlights" className={`${styles.section} ${styles.highlights}`}>

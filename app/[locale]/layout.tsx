@@ -9,14 +9,17 @@ import { getMessages } from "next-intl/server";
 import { SiteNavigationDock } from "@/components/site-navigation-dock";
 import { ViewportProvider } from "@/components/viewport-provider";
 
-export const metadata: Metadata = {
-  title: "National Black Canadians Summit",
-  description:
-    "The National Black Canadians Summit is a three-day gathering of leaders, artists, and changemakers.",
-  other: {
-    'google': 'notranslate',
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: locale === "fr" ? "Sommet pancanadien des communautés noires" : "National Black Canadians Summit",
+    description: locale === "fr"
+      ? "Le Sommet pancanadien des communautés noires est un rassemblement de trois jours de leaders, d’artistes et d’acteurs du changement."
+      : "The National Black Canadians Summit is a three-day gathering of leaders, artists, and changemakers.",
+    other: { google: "notranslate" },
+    ...(process.env.VERCEL_ENV === "preview" ? { robots: { index: false, follow: false } } : {}),
+  };
+}
 
 const montserrat = Montserrat({
   subsets: ["latin"],

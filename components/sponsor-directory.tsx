@@ -1,3 +1,4 @@
+import { AboutSectionNav } from "./about-section-nav";
 type SponsorLogo = {
   src: string;
   alt: string;
@@ -446,6 +447,16 @@ const communityPartners: SponsorEntry[] = [
     }],
   },
   {
+    name: "Roots in Harmony",
+    website: "https://www.rootsinharmony.ca/",
+    logos: [{ src: "/roots-in-harmony-logo.png", alt: "Roots in Harmony", className: "!h-[288px] !w-[432px] !max-w-none !max-h-none shrink-0" }],
+  },
+  {
+    name: "Manitoba Opera",
+    website: "https://mbopera.ca/",
+    logos: [{ src: "/manitoba-opera-logo.jpg", alt: "Manitoba Opera", className: "max-h-24 max-w-[260px]" }],
+  },
+  {
     name: "Organization for Economic Development and Diplomacy (OEDD)",
     website: "https://oedd.ca/",
     logos: [{ src: "/oedd-logo.svg", alt: "Organization for Economic Development and Diplomacy (OEDD)", className: "max-h-28 max-w-[260px]" }],
@@ -485,10 +496,10 @@ function SponsorCard({
 
   return (
     <article
-      className={`flex ${height} w-full ${entry.name === "CBC" ? "flex-row flex-wrap" : "flex-col"} items-center justify-center gap-4 rounded-2xl border border-[#E8D4DB] bg-white text-center shadow-[0_10px_35px_rgba(93,24,49,0.06)] ${prominence === "champion" || prominence === "paid" ? "p-6 [&_img]:scale-[1.06]" : "p-5"}`}
+      className={`flex ${height} min-w-0 w-full ${entry.name === "CBC" ? "flex-row flex-wrap" : "flex-col"} items-center justify-center gap-4 rounded-2xl border border-[#E8D4DB] bg-white text-center shadow-[0_10px_35px_rgba(93,24,49,0.06)] ${prominence === "champion" || prominence === "paid" ? "p-6 [&_img]:scale-[1.06]" : "p-5"}`}
     >
       {entry.logos && (
-        <div className={`flex min-h-16 flex-wrap items-center justify-center ${entry.name === "Province of Manitoba / Travel Manitoba" ? "gap-8" : "gap-4"}`}>
+        <div className={`flex min-h-16 min-w-0 max-w-full flex-wrap items-center justify-center ${entry.name === "Roots in Harmony" ? "h-[180px] w-full !flex-nowrap overflow-hidden [&_img]:-translate-y-[10px]" : ""} ${entry.name === "Province of Manitoba / Travel Manitoba" ? "gap-8" : "gap-4"}`}>
           {entry.logos.map((logo) => (
             <img
               key={logo.src}
@@ -528,6 +539,7 @@ function SponsorCard({
 }
 
 function Tier({
+  id,
   titleEn,
   titleFr,
   entries,
@@ -535,6 +547,7 @@ function Tier({
   prominence = "standard",
   compact,
 }: {
+  id?: string;
   titleEn: string;
   titleFr: string;
   entries: SponsorEntry[];
@@ -554,7 +567,7 @@ function Tier({
             : "sm:grid-cols-2 lg:grid-cols-4";
 
   return (
-    <section className={compact ? "mb-10" : "mb-14 sm:mb-16"}>
+    <section id={id} className={compact ? "mb-10" : "mb-14 sm:mb-16"}>
       <h2 className="mb-6 text-center font-heading text-sm font-black uppercase tracking-[0.16em] text-[#5D1831] sm:text-base">
         {locale === "fr" ? titleFr : titleEn}
       </h2>
@@ -582,6 +595,13 @@ export function SponsorDirectory({
 }) {
   return (
     <div id="sponsors" tabIndex={-1} style={{ scrollMarginTop: "88px" }} data-sponsor-directory className="mx-auto w-full max-w-[1180px]">
+      {!compact && <AboutSectionNav label={locale === "fr" ? "Navigation des partenaires" : "Partners navigation"} sections={[
+        ["sponsors", locale === "fr" ? "Présenté par" : "Presented by"],
+        ["sponsor-champions", "Champions"],
+        ["sponsor-advocates", locale === "fr" ? "Défenseurs" : "Advocates"],
+        ["sponsor-partners", locale === "fr" ? "Partenaires" : "Partners"],
+        ["sponsor-community", locale === "fr" ? "Partenaires communautaires" : "Community Partners"],
+      ]} />}
       <section
         className={`flex flex-col items-center justify-center rounded-[2rem] border-2 border-[#8C0C3A]/20 bg-[#FAF6F7] px-6 text-center shadow-[0_18px_60px_rgba(93,24,49,0.09)] ${compact ? "mb-14 py-10" : "mb-20 py-16 sm:mb-24 sm:py-20"}`}
       >
@@ -597,6 +617,7 @@ export function SponsorDirectory({
       </section>
 
       <Tier
+        id={compact ? undefined : "sponsor-champions"}
         titleEn="Champions"
         titleFr="Champions"
         entries={champions}
@@ -605,6 +626,7 @@ export function SponsorDirectory({
         compact={compact}
       />
       <Tier
+        id={compact ? undefined : "sponsor-advocates"}
         titleEn="Advocates"
         titleFr="Défenseurs"
         entries={advocates}
@@ -628,6 +650,7 @@ export function SponsorDirectory({
         compact={compact}
       />
       <Tier
+        id={compact ? undefined : "sponsor-partners"}
         titleEn="Partners"
         titleFr="Partenaires"
         entries={partners}
@@ -649,6 +672,7 @@ export function SponsorDirectory({
         compact={compact}
       />
       <Tier
+        id={compact ? undefined : "sponsor-community"}
         titleEn="Community Partners"
         titleFr="Partenaires communautaires"
         entries={communityPartners}

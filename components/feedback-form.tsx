@@ -1,37 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { DAY1_SCHEDULE } from "@/data/day1-schedule";
-import { DAY1_SCHEDULE_FR } from "@/data/day1-schedule-fr";
-import { DAY2_SCHEDULE } from "@/data/day2-schedule";
-import { DAY2_SCHEDULE_FR } from "@/data/day2-schedule-fr";
-import { DAY3_SCHEDULE } from "@/data/day3-schedule";
-import { DAY3_SCHEDULE_FR } from "@/data/day3-schedule-fr";
-import type { ScheduleBlock } from "@/data/schedule-types";
-
-function feedbackOptions(blocks: ScheduleBlock[], dayLabel: string) {
-  return blocks.flatMap((block) => {
-    if (block.compact) {
-      return [];
-    }
-    if (block.sessions?.length) {
-      return block.sessions.map((session) => ({
-        id: `${dayLabel}: ${session.title}`,
-        label: `${dayLabel} · ${block.time} · ${session.title}`,
-      }));
-    }
-
-    return [
-      {
-        id: `${dayLabel}: ${block.title}`,
-        label: `${dayLabel} · ${block.time} · ${block.title}`,
-      },
-    ];
-  });
-}
+import { useEffect, useMemo, useState } from "react";
+import { getProgramEntries, getProgramDays } from "@/data/program";
+import { useFormSubmission } from "@/lib/use-form-submission";
+import { FormHoneypot } from "./form-honeypot";
 
 export function FeedbackForm({ locale }: { locale: string }) {
   const isFr = locale === "fr";
+  const submission = useFormSubmission();
+  const [selectedSession, setSelectedSession] = useState("");
   const [feedbackType, setFeedbackType] = useState<"session" | "general">(
     "session",
   );
@@ -42,26 +19,26 @@ export function FeedbackForm({ locale }: { locale: string }) {
   }>({ type: null, message: "" });
 
   const sessions = useMemo(() => {
-    const schedules = isFr
-      ? [DAY1_SCHEDULE_FR, DAY2_SCHEDULE_FR, DAY3_SCHEDULE_FR]
-      : [DAY1_SCHEDULE, DAY2_SCHEDULE, DAY3_SCHEDULE];
-    const dayLabels = isFr
-      ? ["Jour 1 — vendredi", "Jour 2 — samedi", "Jour 3 — dimanche"]
-      : ["Day 1 — Friday", "Day 2 — Saturday", "Day 3 — Sunday"];
-
-    return schedules.flatMap((blocks, index) =>
-      feedbackOptions(blocks, dayLabels[index]),
-    );
-  }, [isFr]);
+    const labels = getProgramDays(locale).map(day => day.nav);
+    return getProgramEntries(locale).map(entry => ({ id: entry.id, label: `${labels[entry.day - 1]} · ${entry.time} · ${entry.title}` }));
+  }, [isFr, locale]);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const session = params.get("session");
+    if (params.get("type") === "general") setFeedbackType("general");
+    else if (session && getProgramEntries(locale).some(entry => entry.id === session)) { setSelectedSession(session); setFeedbackType("session"); }
+  }, [locale]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!submission.begin()) return;
     setIsSubmitting(true);
     setStatus({ type: null, message: "" });
 
     const form = event.currentTarget;
     const formData = new FormData(form);
     const payload = {
+      website: String(formData.get("website") || ""),
       feedbackType,
       session:
         feedbackType === "session" ? String(formData.get("session") || "") : "",
@@ -76,17 +53,13 @@ export function FeedbackForm({ locale }: { locale: string }) {
     };
 
     try {
-      const response = await fetch("/api/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const result = await response.json();
+      const { response, result } = await submission.send("/api/feedback", payload);
       if (!response.ok) {
-        throw new Error(result.error || "Unable to submit feedback.");
+        throw new Error(result.error || (isFr ? "Impossible de transmettre vos commentaires." : "Unable to submit feedback."));
       }
       form.reset();
       setFeedbackType("session");
+      setSelectedSession("");
       setStatus({
         type: "success",
         message: isFr
@@ -104,6 +77,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
               : "Unable to submit feedback.",
       });
     } finally {
+      submission.end();
       setIsSubmitting(false);
     }
   }
@@ -112,7 +86,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
     "mt-2 w-full rounded-xl border border-[#D8C1C9] bg-white px-4 py-3 text-[#1E1E1E] outline-none transition focus:border-[#8C0C3A] focus:ring-2 focus:ring-[#8C0C3A]/20";
 
   return (
-    <section className="px-5 py-14 sm:py-20">
+    <section id="feedback-form" className="px-5 py-14 sm:py-20">
       <div className="mx-auto grid max-w-[1060px] gap-10 lg:grid-cols-[0.7fr_1.3fr]">
         <div>
           <h2 className="font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#5D1831]">
@@ -130,7 +104,9 @@ export function FeedbackForm({ locale }: { locale: string }) {
           onSubmit={handleSubmit}
           className="space-y-5 rounded-3xl border border-[#E8D4DB] bg-[#FAF6F7] p-6 shadow-sm sm:p-8"
         >
-          <fieldset>
+          <fieldset disabled={isSubmitting} className="contents">
+          <FormHoneypot />
+          <fieldset disabled={isSubmitting}>
             <legend className="font-heading font-bold text-[#1E1E1E]">
               {isFr ? "Type de commentaires" : "Feedback type"}
             </legend>
@@ -164,14 +140,15 @@ export function FeedbackForm({ locale }: { locale: string }) {
             </div>
           </fieldset>
 
-          {feedbackType === "session" && (
+          <div hidden={feedbackType !== "session"}>
             <label className="block font-semibold">
               {isFr ? "Séance" : "Session"}
               <select
                 name="session"
-                required
+                required={feedbackType === "session"}
                 className={fieldClass}
-                defaultValue=""
+                value={selectedSession}
+                onChange={event => setSelectedSession(event.target.value)}
               >
                 <option value="" disabled>
                   {isFr ? "Choisir une séance" : "Choose a session"}
@@ -183,9 +160,9 @@ export function FeedbackForm({ locale }: { locale: string }) {
                 ))}
               </select>
             </label>
-          )}
+          </div>
 
-          {feedbackType === "general" && (
+          <div hidden={feedbackType !== "general"}>
             <label className="block font-semibold">
               {isFr ? "Sujet (facultatif)" : "Topic (optional)"}
               <input
@@ -200,7 +177,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
                 }
               />
             </label>
-          )}
+          </div>
 
           <p className="text-sm text-[#1E1E1E]/70">
             {isFr ? "Vous pouvez aussi commenter l’accessibilité ou l’organisation en choisissant un sujet." : "You can also comment on accessibility or event organization by choosing a topic."}
@@ -233,6 +210,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
               name="comments"
               required
               rows={6}
+              minLength={2}
               maxLength={4000}
               className={fieldClass}
               placeholder={
@@ -280,6 +258,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
 
           {status.type && (
             <output
+              role={status.type === "error" ? "alert" : "status"}
               className={`rounded-xl border px-4 py-3 text-sm font-semibold ${
                 status.type === "success"
                   ? "border-green-200 bg-green-50 text-green-800"
@@ -303,6 +282,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
                 ? "Envoyer les commentaires"
                 : "Submit feedback"}
           </button>
+        </fieldset>
         </form>
       </div>
     </section>

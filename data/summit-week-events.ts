@@ -20,12 +20,39 @@ export type SummitWeekEvent = {
   noteEn?: string;
   noteFr?: string;
   image: string;
+  imageFormat?: "poster" | "cover-art";
 };
 
 const AMFM_DESCRIPTION_EN =
   "Now in its ninth edition, the African Movie Festival in Manitoba celebrates African and diasporic cinema through films, discussions, networking, youth programming and community gatherings.";
 const AMFM_DESCRIPTION_FR =
   "Pour sa neuvième édition, le Festival du film africain du Manitoba célèbre le cinéma africain et diasporique avec des films, des discussions, du réseautage, une programmation jeunesse et des activités communautaires.";
+
+export const ALSO_IN_WINNIPEG_EVENTS: SummitWeekEvent[] = [
+  {
+    id: "sandy-and-nora-september-20",
+    date: "2026-09-20",
+    startTime: "16:30",
+    endTime: "18:45",
+    titleEn: "Sandy and Nora live in Winnipeg",
+    titleFr: "Sandy and Nora en direct à Winnipeg",
+    descriptionEn: "A live recording of Sandy and Nora Talk Politics, following the Noble and Whimsical free clothing and clothing swap event.",
+    descriptionFr: "Un enregistrement en direct de Sandy and Nora Talk Politics, après l’événement de distribution et d’échange de vêtements gratuits de Noble and Whimsical.",
+    hostEn: "Sandy and Nora Talk Politics",
+    hostFr: "Sandy and Nora Talk Politics",
+    venue: "Deer Lodge Community Club",
+    address: "323 Bruce Avenue, Winnipeg, MB",
+    accessEn: "Public — ticket required",
+    accessFr: "Public — billet requis",
+    registrationUrl: "https://thepointofsale.com/tickets/q3e260920001?lang=en",
+    registrationLabelEn: "Tickets and event details",
+    registrationLabelFr: "Billets et détails de l’événement",
+    noteEn: "Doors open at 4:15 p.m.",
+    noteFr: "Ouverture des portes à 16 h 15.",
+    image: "/sandy-nora-original.jpg",
+    imageFormat: "cover-art",
+  },
+];
 
 export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
   {
@@ -332,3 +359,11 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     image: "/summit-week-amfm.webp",
   },
 ];
+
+/** Navigation covers every Summit Week date, including dates without listed events. */
+export const SUMMIT_WEEK_DATES = Array.from({ length: 7 }, (_, index) => `2026-09-${14 + index}`);
+
+export function getSummitWeekEvents(date: string) {
+  return SUMMIT_WEEK_EVENTS.filter(event => event.date === date)
+    .sort((a, b) => (a.startTime || "24:00").localeCompare(b.startTime || "24:00"));
+}

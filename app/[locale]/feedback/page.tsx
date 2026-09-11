@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
+import { AboutSectionNav } from "@/components/about-section-nav";
 import { DelegateSurvey } from "@/components/delegate-survey";
 import { FeedbackForm } from "@/components/feedback-form";
 import { Footer } from "@/components/footer";
@@ -36,6 +37,10 @@ export default function FeedbackPage() {
         </div>
       </div>
       <main id="main-content" tabIndex={-1}>
+        <AboutSectionNav label={isFr ? "Navigation des commentaires" : "Feedback navigation"} sections={[
+          ["feedback-form", isFr ? "Votre voix compte" : "Your voice matters"],
+          ["delegate-survey", isFr ? "Ensemble, allons de l’avant" : "Moving Forward Together"],
+        ]} />
         <FeedbackForm locale={locale} />
         <DelegateSurvey locale={locale} />
       </main>
