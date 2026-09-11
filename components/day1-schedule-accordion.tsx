@@ -244,8 +244,17 @@ function getDisplayProfiles(
 
 function ProfileImage({ profile, large = false }: { profile: DisplayProfile; large?: boolean }) {
   const [isVisible, setIsVisible] = useState(true);
+  const [sourceRatio, setSourceRatio] = useState<number | null>(null);
+  const requestedFrame = profile.portraitFraming;
+  const cropWidth = requestedFrame && sourceRatio ? Math.min(requestedFrame.width, 100, sourceRatio * 100) : 100;
+  const halfHeight = sourceRatio ? cropWidth / sourceRatio / 2 : 50;
+  const frame = requestedFrame && sourceRatio ? {
+    width: cropWidth,
+    x: Math.max(cropWidth / 2, Math.min(100 - cropWidth / 2, requestedFrame.x)),
+    y: Math.max(halfHeight, Math.min(100 - halfHeight, requestedFrame.y)),
+  } : null;
   const renderedWidth = Math.ceil((large ? 128 : 56) * (profile.portraitFraming ? 100 / profile.portraitFraming.width : 1));
-  const thumbnailWidth = Math.min(1280, Math.max(160, renderedWidth * 2));
+  const thumbnailWidth = Math.min(1280, Math.max(large ? 640 : 320, renderedWidth * 2));
 
   if (!profile.imageUrl || !isVisible) {
     return null;
@@ -262,19 +271,19 @@ function ProfileImage({ profile, large = false }: { profile: DisplayProfile; lar
         alt={profile.name}
         loading="lazy"
         referrerPolicy="no-referrer"
-        style={profile.portraitFraming ? {
-          width: `${10000 / profile.portraitFraming.width}%`,
+        style={frame ? {
+          width: `${10000 / frame.width}%`,
           height: "auto",
           maxWidth: "none",
           left: "50%",
           top: "50%",
-          transform: `translate(-${profile.portraitFraming.x}%, -${profile.portraitFraming.y}%)`,
-        } : profile.imageFraming ? {
+          transform: `translate(-${frame.x}%, -${frame.y}%)`,
+        } : !requestedFrame && profile.imageFraming ? {
           scale: profile.imageFraming.scale,
           translate: `0 ${profile.imageFraming.offsetY ?? 0}%`,
           transformOrigin: "center",
         } : undefined}
-        className={profile.portraitFraming ? "absolute" : cn(
+        className={frame ? "absolute" : requestedFrame ? "absolute inset-0 size-full object-cover" : cn(
           "absolute inset-0 size-full",
           profile.fit === "contain"
             ? "object-contain p-1.5"
@@ -291,6 +300,10 @@ function ProfileImage({ profile, large = false }: { profile: DisplayProfile; lar
           profile.imageScale === "top-large" && "origin-top scale-[1.55]",
           profile.imageOffsetY === "slight-down" && "translate-y-[6%]",
         )}
+        onLoad={(event) => {
+          const image = event.currentTarget;
+          if (image.naturalWidth && image.naturalHeight) setSourceRatio(image.naturalHeight / image.naturalWidth);
+        }}
         onError={() => setIsVisible(false)}
       />
     </div>

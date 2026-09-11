@@ -37,7 +37,8 @@ export const DAY3_SCHEDULE_FR: ScheduleBlock[] = [
       {
         title: "Prestation",
         items: [
-          "Measha Brueggergosman-Lee et la grande chorale du Sommet, avec la participation de la chorale Roots in Harmony, sous la direction de Sonya Williams",
+          "Measha Brueggergosman-Lee",
+          "La grande chorale du Sommet, avec la participation de la chorale Roots in Harmony, sous la direction de Sonya Williams",
         ],
       },
       {

@@ -35,7 +35,8 @@ export const DAY3_SCHEDULE: ScheduleBlock[] = [
       {
         title: "Performance",
         items: [
-          "Measha Brueggergosman-Lee and the Summit Mass Choir, including Roots in Harmony Choir, directed by Sonya Williams",
+          "Measha Brueggergosman-Lee",
+          "Summit Mass Choir, including Roots in Harmony Choir, directed by Sonya Williams",
         ],
       },
       {
