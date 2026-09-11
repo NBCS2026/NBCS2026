@@ -277,7 +277,6 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
     hostEn: "The Right Honourable Michaëlle Jean and the Honourable Marci Ien",
     hostFr: "La très honorable Michaëlle Jean et l’honorable Marci Ien",
     venue: "Manitoba Legislative Assembly",
-    address: "450 Broadway, Winnipeg, MB R3C 3L6",
     accessEn: "By invitation only",
     accessFr: "Sur invitation seulement",
     image: "/manitoba-legislature.webp",
