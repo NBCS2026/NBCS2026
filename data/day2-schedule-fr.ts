@@ -305,7 +305,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
           logoUrl: "/sponsor_5.jpg",
         },
         description:
-          "Cette session explore comment le racisme environnemental touche de manière disproportionnée les communautés noires, y compris l'exposition à des environnements nuisibles et les disparités sanitaires qui en résultent. Elle présente la justice climatique comme une question de justice raciale et met en lumière les voies de plaidoyer, de réforme des politiques et de solutions portés par la communauté.",
+          "Cette conversation examine comment nos expériences vécues façonnent notre façon de diriger, de faire entendre notre voix et d’accéder au pouvoir. Les panélistes partageront des récits personnels sur leur parcours au sein de systèmes qui ne semblent pas toujours conçus pour tout le monde, ainsi que sur les choix et les tensions bien réels qui en découlent. Nous parlerons également de ce qu’il faut pour exercer son influence de manière réfléchie et de ce que les leaders peuvent faire pour contribuer à créer des parcours plus équitables et inclusifs.",
         people: [
           {
             label: "moderator",

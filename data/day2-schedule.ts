@@ -303,7 +303,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
           logoUrl: "/sponsor_5.jpg",
         },
         description:
-          "This session explores how environmental racism disproportionately impacts Black communities, including exposure to harmful environments and resulting health disparities. It frames climate justice as a racial justice issue and highlights pathways for advocacy, policy reform, and community-led solutions.",
+          "This conversation looks at how our lived experiences shape the way we lead, use our voice, and access power. Panelists will share personal stories about navigating systems that don’t always feel built for everyone and the real choices and tensions that come with that. We’ll also talk about what it takes to use your influence thoughtfully, and what leaders can do to help create more fair and inclusive paths forward.",
         people: [
           {
             label: "moderator",
