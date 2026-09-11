@@ -346,6 +346,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
     id: "networking",
     time: "6:00 p.m. – 7:00 p.m.",
     title: "Delegate Networking Hour",
+    location: "Carleton Concourse, Hall C, Hall D",
     description: "Connect with fellow delegates before the Opening Ceremony.",
   },
   {

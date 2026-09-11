@@ -19,6 +19,7 @@ import type {
   ScheduleSession,
 } from "@/data/schedule-types";
 import { findSpeakerProfiles } from "@/data/speaker-profiles";
+import { PROGRAM_PORTRAIT_FRAMING, type PortraitFraming } from "@/data/program-portrait-framing";
 import { cn } from "@/lib/utils";
 
 type Labels = {
@@ -125,6 +126,7 @@ function personLabel(
 
 type DisplayProfile = {
   name: string;
+  portraitFraming?: PortraitFraming;
   bioEn?: string;
   bioFr?: string;
   imageUrl?: string;
@@ -208,6 +210,7 @@ function getDisplayProfiles(
 ): DisplayProfile[] {
   const speakerProfiles = findSpeakerProfiles(text).map((profile) => ({
     ...profile,
+    portraitFraming: PROGRAM_PORTRAIT_FRAMING[profile.name],
     name: isFr ? profile.nameFr ?? profile.name : profile.name,
     imageFraming: isFr ? profile.imageFramingFr : undefined,
   }));
@@ -241,6 +244,8 @@ function getDisplayProfiles(
 
 function ProfileImage({ profile, large = false }: { profile: DisplayProfile; large?: boolean }) {
   const [isVisible, setIsVisible] = useState(true);
+  const renderedWidth = Math.ceil((large ? 128 : 56) * (profile.portraitFraming ? 100 / profile.portraitFraming.width : 1));
+  const thumbnailWidth = Math.min(1280, Math.max(160, renderedWidth * 2));
 
   if (!profile.imageUrl || !isVisible) {
     return null;
@@ -249,20 +254,27 @@ function ProfileImage({ profile, large = false }: { profile: DisplayProfile; lar
   return (
     <div className={cn("program-portrait relative shrink-0 overflow-hidden bg-[#F7F3EF]", large && "program-portrait-large", profile.fit === "contain" && "program-logo")}>
       <Image
-        src={profile.imageUrl.startsWith("https://drive.google.com/thumbnail") ? profile.imageUrl.replace(/sz=w\d+/, large ? "sz=w640" : "sz=w160") : profile.imageUrl}
+        src={profile.imageUrl.startsWith("https://drive.google.com/thumbnail") ? profile.imageUrl.replace(/sz=w\d+/, `sz=w${thumbnailWidth}`) : profile.imageUrl}
         width={large ? 256 : 128}
         height={large ? 256 : 128}
         unoptimized={!profile.imageUrl.startsWith("/")}
-        sizes={large ? "128px" : "56px"}
+        sizes={`${renderedWidth}px`}
         alt={profile.name}
         loading="lazy"
         referrerPolicy="no-referrer"
-        style={profile.imageFraming ? {
+        style={profile.portraitFraming ? {
+          width: `${10000 / profile.portraitFraming.width}%`,
+          height: "auto",
+          maxWidth: "none",
+          left: "50%",
+          top: "50%",
+          transform: `translate(-${profile.portraitFraming.x}%, -${profile.portraitFraming.y}%)`,
+        } : profile.imageFraming ? {
           scale: profile.imageFraming.scale,
           translate: `0 ${profile.imageFraming.offsetY ?? 0}%`,
           transformOrigin: "center",
         } : undefined}
-        className={cn(
+        className={profile.portraitFraming ? "absolute" : cn(
           "absolute inset-0 size-full",
           profile.fit === "contain"
             ? "object-contain p-1.5"

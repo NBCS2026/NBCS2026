@@ -342,6 +342,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
     id: "networking",
     time: "18 h – 19 h",
     title: "Période de réseautage des personnes délégué·e·s",
+    location: "Carleton Concourse, Hall C, Hall D",
     description:
       "Échangez avec les autres délégué·e·s avant la cérémonie d'ouverture.",
   },
