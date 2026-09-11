@@ -410,7 +410,7 @@ const rawProfiles: SpeakerProfile[] = [
   {
     name: "Lerato Chondoma",
     displayLineEn:
-      "Lerato Chondoma LL.B, MBA, Associate Vice-President Equity, Diversity, Inclusion and Anti-Racism, Acadia University and Commissioner, Nova Scotia Human Rights Commission.",
+      "Lerato Chondoma (LL.B, MBA) - Associate Vice-President EDI-AR, Acadia University and Commissioner, Nova Scotia Human Rights Commission.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=18rrvtncqhHa9oWe65norGQ3YxjZ0egfG&sz=w600",
     imagePosition: "slight-down",

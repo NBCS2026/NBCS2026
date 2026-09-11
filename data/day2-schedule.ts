@@ -362,7 +362,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
               "amanuel melles, Senior Nonprofit Sector Strategist, Mentor and Executive Director of Network for the Advancement of Black Communities",
               "Richard Sharpe, Director, Black Equity Branch, Treasury Board Secretariat",
               "Nicholas Marcus Thompson, President and CEO of Black Class Action Secretariat and Human Rights Advocate",
-              "Lerato Chondoma, Leader, Storyteller, and Board Secretary of the Canadian Black Policy Network",
+              "Lerato Chondoma (LL.B, MBA) - Associate Vice-President EDI-AR, Acadia University and Commissioner, Nova Scotia Human Rights Commission.",
               "Kevin Junor, Executive Director, KRJ Corporation, and Former Deputy Superintendent, Ontario Ministry of the Solicitor General",
             ],
           },

@@ -364,7 +364,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
               "amanuel melles, stratège principal du secteur associatif (ONG), mentor et directeur général du Network for the Advancement of Black Communities",
               "Richard Sharpe, directeur, Direction de l'équité pour les noirs, Secrétariat du Conseil du Trésor",
               "Nicholas Marcus Thompson, président et directeur général du Secrétariat des actions collectives noires et défenseur des droits de la personne",
-              "Lerato Chondoma, leader, conteuse et secrétaire du conseil d'administration du Réseau canadien de politique noire",
+              "Lerato Chondoma (LL.B, MBA) - Vice-rectrice associée à l’équité, la diversité, l’inclusion et la lutte contre le racisme, Université Acadia, et commissaire à la Commission des droits de la personne de la Nouvelle-Écosse.",
               "Kevin Junor, directeur général, KRJ Corporation et ancien sous-surintendant, ministère du Solliciteur général de l’Ontario",
             ],
           },
