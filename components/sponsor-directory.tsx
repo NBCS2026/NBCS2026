@@ -438,6 +438,14 @@ const communityPartners: SponsorEntry[] = [
     ],
   },
   {
+    name: "Interdisciplinary Centre for Black Health (ICBH / CISN)",
+    logos: [{
+      src: "/icbh-cisn-logo.png",
+      alt: "Interdisciplinary Centre for Black Health — Centre interdisciplinaire pour la santé des Noir.e.s",
+      className: "max-h-40 max-w-[280px] w-full",
+    }],
+  },
+  {
     name: "Organization for Economic Development and Diplomacy (OEDD)",
     website: "https://oedd.ca/",
     logos: [{ src: "/oedd-logo.svg", alt: "Organization for Economic Development and Diplomacy (OEDD)", className: "max-h-28 max-w-[260px]" }],
