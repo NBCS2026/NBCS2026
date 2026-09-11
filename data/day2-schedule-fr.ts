@@ -483,7 +483,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
     time: "17 h 00 – 19 h 00",
     title: "Réception des commanditaires et des partenaires",
     description:
-      "**Uniquement sur invitation.** Cette réception réunira partenaires, commanditaires et personnes invitées afin de resserrer les liens, de souligner les collaborations et de poursuivre les échanges dans une ambiance conviviale.",
+      "**Uniquement sur invitation.** Cette réception réunira partenaires, commanditaires et personnes invitées afin de resserrer les liens, de souligner les collaborations et de poursuivre les échanges dans une ambiance conviviale. Elle se tiendra à l’Assemblée législative du Manitoba.",
   },
   {
     id: "in-circle",

@@ -258,7 +258,7 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
       "Une réception réunissant commanditaires, partenaires, conférencières, conférenciers et personnes invitées afin de souligner les collaborations et de poursuivre les échanges dans une ambiance conviviale.",
     hostEn: "National Black Canadians Summit",
     hostFr: "Sommet pancanadien des communautés noires",
-    venue: "Venue to be confirmed",
+    venue: "Manitoba Legislative Assembly",
     accessEn: "By invitation only",
     accessFr: "Sur invitation seulement",
     image: "/manitoba-legislature.webp",

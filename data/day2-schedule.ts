@@ -481,7 +481,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
     time: "5:00 p.m. – 7:00 p.m.",
     title: "Sponsors & Partners Reception",
     description:
-      "**By invitation only.** An evening reception bringing together partners and sponsors to strengthen relationships, celebrate collaboration, and continue conversations in an informal setting.",
+      "**By invitation only.** An evening reception bringing together partners and sponsors to strengthen relationships, celebrate collaboration, and continue conversations in an informal setting. Hosted at the Manitoba Legislative Assembly.",
   },
   {
     id: "in-circle",

@@ -1,6 +1,7 @@
 "use client";
 
 import { ProgramBioDialog } from "./program-bio-dialog";
+import { ProgramWordlyLink } from "./program-wordly-link";
 import Image from "next/image";
 import "./program-guide.css";
 import { ExhibitionTitleText } from "./exhibition-title-text";
@@ -329,12 +330,14 @@ function PeopleList({ people, labels, isFr, resourceContext }: {
 
 function SessionCard({
   session,
+  day,
   open,
   onToggle,
   labels,
   isFr,
 }: {
   session: ScheduleSession;
+  day: string;
   open: boolean;
   onToggle: () => void;
   labels: Labels;
@@ -369,6 +372,7 @@ function SessionCard({
           )}
         />
       </button>
+      <ProgramWordlyLink day={day} sessionId={session.id} title={session.title} isFr={isFr} />
       <div
         id={panelId}
         inert={!open}
@@ -428,12 +432,14 @@ function PowerOfYouthLogo() {
 
 function BlockDetails({
   block,
+  day,
   labels,
   activeSession,
   setActiveSession,
   isFr,
 }: {
   block: ScheduleBlock;
+  day: string;
   labels: Labels;
   activeSession: string | null;
   setActiveSession: (id: string | null) => void;
@@ -486,6 +492,7 @@ function BlockDetails({
             {block.sessions.map((session) => (
               <SessionCard
                 key={session.id}
+                day={day}
                 session={session}
                 open={activeSession === session.id}
                 onToggle={() =>
@@ -683,6 +690,7 @@ function ScheduleDayAccordion({
                 )}
               />
             </button></h3>
+            <ProgramWordlyLink day={idPrefix} sessionId={block.id} title={block.subtitle ? `${block.title} — ${block.subtitle}` : block.title} isFr={isFr} />
 
             <div
               id={`${idPrefix}-${block.id}-panel`}
@@ -697,6 +705,7 @@ function ScheduleDayAccordion({
                 <div className="program-block-details">
                   {open && <BlockDetails
                     block={block}
+                    day={idPrefix}
                     labels={labels}
                     activeSession={activeSession}
                     setActiveSession={setActiveSession}
