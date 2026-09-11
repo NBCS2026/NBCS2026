@@ -684,7 +684,7 @@ function ScheduleDayAccordion({
           <div
             key={block.id}
             id={`${idPrefix}-${block.id}`}
-            className={cn("program-block rounded-xl border border-[#E8D4DB] bg-white overflow-hidden", block.id.includes("plenary") && "program-plenary")}
+            className={cn("program-block rounded-xl border border-[#E8D4DB] bg-white overflow-hidden", block.id.includes("plenary") && "program-plenary", idPrefix === "day1" && block.id === "opening-ceremony" && "program-opening-ceremony")}
           >
             <h3 className="program-block-heading"><button
               type="button"
