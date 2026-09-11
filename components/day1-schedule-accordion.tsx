@@ -1,6 +1,8 @@
 "use client";
 
-import { BiographyDisclosure } from "./biography-disclosure";
+import { ProgramBioDialog } from "./program-bio-dialog";
+import Image from "next/image";
+import "./program-guide.css";
 import { ExhibitionTitleText } from "./exhibition-title-text";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useId, useState } from "react";
@@ -236,7 +238,7 @@ function getDisplayProfiles(
   );
 }
 
-function ProfileImage({ profile }: { profile: DisplayProfile }) {
+function ProfileImage({ profile, large = false }: { profile: DisplayProfile; large?: boolean }) {
   const [isVisible, setIsVisible] = useState(true);
 
   if (!profile.imageUrl || !isVisible) {
@@ -244,9 +246,13 @@ function ProfileImage({ profile }: { profile: DisplayProfile }) {
   }
 
   return (
-    <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-[#F7F3EF]">
-      <img
-        src={profile.imageUrl}
+    <div className={cn("program-portrait relative shrink-0 overflow-hidden bg-[#F7F3EF]", large && "program-portrait-large", profile.fit === "contain" && "program-logo")}>
+      <Image
+        src={profile.imageUrl.startsWith("https://drive.google.com/thumbnail") ? profile.imageUrl.replace(/sz=w\d+/, large ? "sz=w640" : "sz=w160") : profile.imageUrl}
+        width={large ? 256 : 128}
+        height={large ? 256 : 128}
+        unoptimized={!profile.imageUrl.startsWith("/")}
+        sizes={large ? "128px" : "56px"}
         alt={profile.name}
         loading="lazy"
         referrerPolicy="no-referrer"
@@ -278,105 +284,47 @@ function ProfileImage({ profile }: { profile: DisplayProfile }) {
   );
 }
 
-function ProfileCards({
-  text,
-  labels,
-  isFr,
-  resourceContext,
-}: {
-  text: string;
-  labels: Labels;
-  isFr: boolean;
-  resourceContext?: string;
-}) {
-  const profiles = getDisplayProfiles(text, isFr, resourceContext);
-  const visibleProfiles = profiles.filter(
-    (profile) => profile.imageUrl || profile.bioEn || profile.bioFr,
-  );
-
-  if (visibleProfiles.length === 0) {
-    return null;
+function ParticipantLine({ text }: { text: string }) {
+  // Keep the complete supplied line, including qualifications and punctuation.
+  let depth = 0;
+  let split = -1;
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === "(") depth++;
+    if (text[i] === ")") depth--;
+    if (text[i] === "," && depth === 0) { split = i; break; }
   }
-
-  return (
-    <div className="mt-3 grid gap-3 sm:grid-cols-2">
-      {visibleProfiles.map((profile) => {
-        const bio = isFr ? profile.bioFr || profile.bioEn : profile.bioEn;
-
-        return (
-          <article
-            key={profile.name}
-            className="flex flex-wrap sm:flex-nowrap gap-3 rounded-xl border border-[#E8D4DB] bg-white p-3"
-          >
-            <ProfileImage profile={profile} />
-            <div className="min-w-0 flex-1">
-              <p className="font-heading font-bold leading-snug text-[#5D1831]">
-                {profile.name}
-              </p>
-              {(profile.subtitleEn || profile.subtitleFr) && (
-                <p className="mt-1 text-[13px] font-semibold leading-snug text-[#1E1E1E]/75">
-                  {isFr ? profile.subtitleFr : profile.subtitleEn}
-                </p>
-              )}
-              {profile.resourceUrl && (
-                <a
-                  href={profile.resourceUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-2 inline-flex rounded-full bg-[#8C0C3A] px-3 py-1.5 text-[12px] font-bold text-white transition-colors hover:bg-[#5D1831] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8C0C3A]"
-                >
-                  {isFr ? profile.resourceLabelFr : profile.resourceLabelEn}
-                </a>
-              )}
-              {bio && (
-                <BiographyDisclosure label={labels.biography} text={bio} name={profile.name} />
-              )}
-            </div>
-          </article>
-        );
-      })}
-    </div>
-  );
+  return <p className="program-person-line">{split < 0 ? <strong>{renderFormattedText(text)}</strong> : <><strong>{renderFormattedText(text.slice(0, split))}</strong><span>{renderFormattedText(text.slice(split))}</span></>}</p>;
 }
 
-function PeopleList({
-  people,
-  labels,
-  isFr,
-  resourceContext,
-}: {
-  people: SchedulePersonGroup[];
-  labels: Labels;
-  isFr: boolean;
-  resourceContext?: string;
+function ProfileCards({ text, labels, isFr, resourceContext }: {
+  text: string; labels: Labels; isFr: boolean; resourceContext?: string;
 }) {
-  return (
-    <div className="space-y-4">
-      {people.map((group) => (
-        <div key={group.label + group.names[0]}>
-          <p className="font-heading font-bold text-[14px] sm:text-[15px] text-[#8C0C3A] tracking-wide uppercase mb-1.5">
-            {personLabel(group.label, labels)}
-          </p>
-          <ul className="space-y-1.5">
-            {group.names.map((name) => (
-              <li
-                key={name}
-                className="sm:border-l-2 border-[#E8D4DB] sm:pl-3 font-body text-[14px] leading-relaxed text-[#1E1E1E]/90 sm:text-[15px]"
-              >
-                <p>{renderFormattedText(name)}</p>
-                <ProfileCards
-                  text={name}
-                  labels={labels}
-                  isFr={isFr}
-                  resourceContext={resourceContext}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+  const profiles = getDisplayProfiles(text, isFr, resourceContext);
+  const lead = profiles.find(p => p.fit !== "contain") || profiles[0];
+  return <div className="program-person">
+    {lead && <ProfileImage profile={lead} />}
+    <div className="program-person-copy">
+      <ParticipantLine text={text} />
+      {profiles.map(profile => {
+        const bio = isFr ? profile.bioFr || profile.bioEn : profile.bioEn;
+        return <div key={profile.name} className="program-person-tools">
+          {profile !== lead && <span className="program-extra-person"><ProfileImage profile={profile} /><span>{profile.name}</span></span>}
+          {(profile.subtitleEn || profile.subtitleFr) && <p>{isFr ? profile.subtitleFr : profile.subtitleEn}</p>}
+          {bio && <ProgramBioDialog name={profile.name} line={<ParticipantLine text={text} />} bio={bio} isFr={isFr} portrait={<ProfileImage profile={profile} large />} />}
+          {profile.resourceUrl && <a className="program-bio-trigger" href={profile.resourceUrl} target="_blank" rel="noreferrer">{isFr ? profile.resourceLabelFr : profile.resourceLabelEn}</a>}
+        </div>;
+      })}
     </div>
-  );
+  </div>;
+}
+
+function PeopleList({ people, labels, isFr, resourceContext }: {
+  people: SchedulePersonGroup[]; labels: Labels; isFr: boolean; resourceContext?: string;
+}) {
+  return <div className="program-people">{people.map((group, index) => <section key={group.label + index} className="program-person-group">
+    <p className="program-role-label">{personLabel(group.label, labels)}</p>
+    <ul className="program-participants">{group.names.map((name, i) => <li key={i}><ProfileCards text={name} labels={labels} isFr={isFr} resourceContext={resourceContext} /></li>)}</ul>
+  </section>)}</div>;
 }
 
 function SessionCard({
@@ -394,22 +342,25 @@ function SessionCard({
 }) {
   const panelId = useId();
   return (
-    <div className="rounded-xl border border-[#E8D4DB] bg-white overflow-hidden">
+    <div className="program-breakout rounded-xl border border-[#E8D4DB] bg-white overflow-hidden">
       <button
         type="button"
         aria-expanded={open}
         aria-controls={panelId}
+        aria-labelledby={`${panelId}-title ${panelId}-room`}
+        aria-describedby={`${panelId}-prompt`}
         onClick={onToggle}
-        className="w-full flex items-start justify-between gap-3 px-4 py-3.5 text-left cursor-pointer hover:bg-[#FAF6F7] transition-colors"
+        className="program-breakout-toggle w-full text-left"
       >
         <div className="min-w-0">
-          <p className="font-heading font-bold text-[15px] sm:text-[16px] text-[#5D1831] leading-snug">
+          <h4 id={`${panelId}-title`} className="program-session-title">
             {session.number != null ? `${session.number}. ` : ""}
             {session.title}
-          </p>
-          <p className="mt-1 text-[13px] sm:text-[14px] text-[#8C0C3A] font-semibold">
-            {labels.room}: {session.room}
-          </p>
+          </h4>
+          <span id={`${panelId}-room`} className="program-room">{session.room}</span>
+          {!open && <p className="program-description-preview">{session.description}</p>}
+          {!open && session.people && <p className="program-names-preview">{session.people.flatMap(g => g.names).map(line => { const profiles = findSpeakerProfiles(line); return profiles.length ? profiles.map(p => isFr ? p.nameFr ?? p.name : p.name).join(" · ") : line; }).join(" · ")}</p>}
+          <span id={`${panelId}-prompt`} className="program-detail-label">{open ? (isFr ? "Fermer les détails" : "Close details") : (isFr ? "Voir les détails" : "View details")}</span>
         </div>
         <ChevronDown
           className={cn(
@@ -428,7 +379,8 @@ function SessionCard({
         )}
       >
         <div className="overflow-hidden">
-          <div className="px-4 pb-4 pt-1 space-y-4 border-t border-[#E8D4DB]">
+          <div className="program-breakout-details space-y-4">
+            {open && <>
             <p className="font-body text-[14px] sm:text-[15px] text-[#1E1E1E]/85 leading-relaxed">
               {session.description}
             </p>
@@ -453,6 +405,7 @@ function SessionCard({
             {session.people && (
               <PeopleList people={session.people} labels={labels} isFr={isFr} resourceContext={session.title} />
             )}
+            </>}
           </div>
         </div>
       </div>
@@ -489,12 +442,6 @@ function BlockDetails({
   return (
     <div className="space-y-5">
       {block.seriesLogoUrl && <PowerOfYouthLogo />}
-      {block.location && (
-        <p className="inline-flex items-center rounded-full bg-[#FAF6F7] border border-[#E8D4DB] px-3 py-1 text-[13px] sm:text-[14px] font-semibold text-[#5D1831]">
-          {labels.room}: {block.location}
-        </p>
-      )}
-
       {block.subtitle && (
         <p className="font-heading font-bold text-[16px] sm:text-[20px] text-[#5D1831] leading-snug tracking-wide">
           {block.subtitle}
@@ -535,7 +482,7 @@ function BlockDetails({
           <p className="font-heading font-bold text-[14px] sm:text-[15px] text-[#8C0C3A] tracking-wide uppercase">
             {labels.sessions}
           </p>
-          <div className="grid items-start gap-3 xl:grid-cols-2">
+          <div className="program-breakout-grid">
             {block.sessions.map((session) => (
               <SessionCard
                 key={session.id}
@@ -555,15 +502,13 @@ function BlockDetails({
       )}
 
       {block.segments && (
-        <div className="space-y-4">
+        <ol className="program-ceremony">
           {block.segments.map((segment, segmentIndex) => (
-            <div
+            <li
               key={`${segmentIndex}-${segment.title}`}
-              className="rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] px-4 py-3.5"
+              className="program-ceremony-step"
             >
-              <p className="font-heading font-bold text-[15px] sm:text-[16px] text-[#5D1831] mb-1">
-                {segment.title}
-              </p>
+              <h4 className="program-segment-title">{segment.title}</h4>
               {segment.body && (
                 <p className="font-body text-[14px] sm:text-[15px] text-[#1E1E1E]/80 leading-relaxed">
                   {segment.body}
@@ -585,15 +530,14 @@ function BlockDetails({
                       key={item}
                       className="font-body text-[14px] sm:text-[15px] text-[#1E1E1E]/85 leading-relaxed pl-3 border-l-2 border-[#E8D4DB]"
                     >
-                      {renderFormattedText(item)}
                       <ProfileCards text={item} labels={labels} isFr={isFr} />
                     </li>
                   ))}
                 </ul>
               )}
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       )}
 
       {block.note && (
@@ -614,7 +558,7 @@ function ScheduleDayAccordion({
   blocks: ScheduleBlock[];
   idPrefix: string;
 }) {
-  const [activeBlock, setActiveBlock] = useState<string | null>(null);
+  const [openBlocks, setOpenBlocks] = useState<Set<string>>(() => new Set());
   const [activeSession, setActiveSession] = useState<string | null>(null);
   const isFr = locale === "fr";
 
@@ -675,34 +619,22 @@ function ScheduleDayAccordion({
   useEffect(() => {
     const target = window.location.hash.slice(1);
     const block = blocks.find(item => `${idPrefix}-${item.id}` === target);
-    if (block) setActiveBlock(block.id);
+    if (block) setOpenBlocks(prev => new Set(prev).add(block.id));
   }, [blocks, idPrefix]);
 
   const toggleBlock = (id: string) => {
-    setActiveBlock((prev) => {
-      const next = prev === id ? null : id;
-      if (next) {
-        window.setTimeout(() => {
-          document.getElementById(`${idPrefix}-${next}`)?.scrollIntoView({
-            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
-            block: "nearest",
-          });
-        }, 280);
-      }
-      return next;
-    });
-    setActiveSession(null);
+    setOpenBlocks(prev => { const next = new Set(prev); if (next.has(id)) next.delete(id); else next.add(id); return next; });
   };
 
   return (
-    <div className="w-full space-y-3">
+    <div className="program-schedule w-full space-y-3">
       {blocks.map((block) => {
         if (block.compact) {
           return (
             <div
               key={block.id}
               id={`${idPrefix}-${block.id}`}
-              className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6 px-4 py-3.5 rounded-xl border border-dashed border-[#E8D4DB] bg-[#FAF6F7]/60"
+              className="program-break"
             >
               <p className="text-light-red font-bold text-[15px] sm:text-[16px] sm:w-[200px] shrink-0">
                 {block.time}
@@ -714,31 +646,31 @@ function ScheduleDayAccordion({
           );
         }
 
-        const open = activeBlock === block.id;
+        const open = openBlocks.has(block.id);
 
         return (
           <div
             key={block.id}
             id={`${idPrefix}-${block.id}`}
-            className="rounded-xl border border-[#E8D4DB] bg-white overflow-hidden shadow-[0_1px_0_rgba(93,24,49,0.04)] scroll-mt-24"
+            className={cn("program-block rounded-xl border border-[#E8D4DB] bg-white overflow-hidden", block.id.includes("plenary") && "program-plenary")}
           >
-            <button
+            <h3 className="program-block-heading"><button
               type="button"
               aria-expanded={open}
               aria-controls={`${idPrefix}-${block.id}-panel`}
               onClick={() => toggleBlock(block.id)}
-              className="w-full flex items-start justify-between gap-4 px-4 sm:px-5 py-4 text-left cursor-pointer hover:bg-[#FAF6F7] transition-colors"
+              className="program-block-toggle w-full text-left"
             >
-              <div className="min-w-0 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
-                <p className="text-light-red font-bold text-[15px] sm:text-[17px] sm:w-[200px] shrink-0">
+              <div className="program-block-summary">
+                <p className="program-time">
                   {block.time}
                 </p>
                 <div className="min-w-0">
-                  <p className="font-heading font-bold text-[16px] sm:text-[19px] text-[#1E1E1E] leading-snug tracking-wide">
+                  <p className="program-block-title">
                     {block.title}
                   </p>
                   {block.location && (
-                    <p className="mt-1 text-[13px] sm:text-[14px] text-[#8C0C3A] font-medium">
+                    <p className="program-room">
                       {block.location}
                     </p>
                   )}
@@ -750,7 +682,7 @@ function ScheduleDayAccordion({
                   open && "rotate-180",
                 )}
               />
-            </button>
+            </button></h3>
 
             <div
               id={`${idPrefix}-${block.id}-panel`}
@@ -762,14 +694,14 @@ function ScheduleDayAccordion({
               )}
             >
               <div className="overflow-hidden">
-                <div className="px-4 sm:px-5 pb-5 pt-1 border-t border-[#E8D4DB]">
-                  <BlockDetails
+                <div className="program-block-details">
+                  {open && <BlockDetails
                     block={block}
                     labels={labels}
                     activeSession={activeSession}
                     setActiveSession={setActiveSession}
                     isFr={isFr}
-                  />
+                  />}
                 </div>
               </div>
             </div>

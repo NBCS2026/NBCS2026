@@ -1,0 +1,73 @@
+.program-guide { --program-border: #E8D4DB; --program-ink: #5D1831; }
+.program-guide button:focus-visible, .program-guide a:focus-visible { outline: 2px solid #8C0C3A; outline-offset: 3px; }
+.program-days button { min-height: 64px; }
+.program-days button[aria-selected="true"] { box-shadow: inset 0 -4px 0 #5D1831; }
+.program-block { scroll-margin-top: calc(var(--site-nav-offset) + 100px); }
+.program-block-heading { margin: 0; }
+.program-block-toggle { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 20px; }
+.program-block-summary { min-width: 0; display: grid; gap: 8px; flex: 1; }
+.program-guide .program-time { font-size: 14px; font-weight: 800; color: #8C0C3A; line-height: 1.5; }
+.program-guide .program-block-title { font-size: 19px; font-weight: 800; color: #1E1E1E; line-height: 1.3; }
+.program-plenary { border-left: 4px solid #8C0C3A; }
+.program-guide .program-plenary .program-block-title { color: #5D1831; font-size: 21px; }
+.program-guide .program-room { display: inline-flex; width: fit-content; max-width: 100%; margin-top: 8px; padding: 3px 9px; border: 1px solid #E8D4DB; border-radius: 6px; font-size: 12px; font-weight: 700; color: #5D1831; background: #FAF6F7; line-height: 1.5; }
+.program-block-details { padding: 20px; border-top: 1px solid #E8D4DB; }
+.program-break { display: grid; gap: 4px; padding: 14px 20px; border-left: 2px solid #E8D4DB; margin-left: 2px; color: #5D1831; background: #FAF6F7; border-radius: 8px; }
+.program-break p { font-size: 14px; }
+.program-breakout-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 14px; align-items: start; }
+.program-breakout { min-width: 0; }
+.program-breakout-toggle { display: flex; gap: 10px; padding: 18px; justify-content: space-between; }
+.program-session-title { font-size: 17px; line-height: 1.35; font-weight: 800; color: #5D1831; }
+.program-guide .program-description-preview { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-top: 12px; font-size: 14px; line-height: 1.65; color: #1E1E1E; font-weight: 400; }
+.program-guide .program-names-preview { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 10px; font-size: 12px; color: #5D1831; font-weight: 500; line-height: 1.6; }
+.program-detail-label { display: inline-block; padding-top: 14px; font-size: 13px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; color: #8C0C3A; }
+.program-breakout-details { padding: 16px 18px 20px; border-top: 1px solid #E8D4DB; }
+.program-people { display: grid; gap: 20px; }
+.program-guide .program-role-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: #8C0C3A; margin-bottom: 10px; }
+.program-participants { display: grid; gap: 14px 24px; list-style: none; padding: 0; }
+.program-person { display: flex; gap: 12px; min-width: 0; align-items: flex-start; }
+.program-person-copy { min-width: 0; flex: 1; }
+.program-portrait { width: 56px; height: 56px; border-radius: 50%; }
+.program-portrait-large { width: 112px; height: 112px; }
+.program-logo { border-radius: 8px; background: white; }
+.program-guide .program-person-line, .program-bio-role .program-person-line { font-size: 13px; line-height: 1.6; font-weight: 400; color: #1E1E1E; margin: 0; }
+.program-person-line strong { font-weight: 750; color: #5D1831; }
+.program-person-line span { color: #1E1E1E; }
+.program-bio-trigger { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 12px; font-weight: 700; color: #8C0C3A; text-decoration: underline; text-underline-offset: 3px; border-radius: 3px; text-align: left; }
+.program-extra-person { display: flex; align-items: center; gap: 8px; font-size: 12px; margin-top: 8px; }
+.program-extra-person .program-portrait { width: 40px; height: 40px; }
+.program-person-tools > p { font-size: 12px; }
+.program-ceremony { list-style: none; border-left: 2px solid #E8D4DB; margin-left: 6px; padding-left: 22px; }
+.program-ceremony-step { position: relative; padding: 0 0 26px; }
+.program-ceremony-step:last-child { padding-bottom: 0; }
+.program-ceremony-step::before { content: ''; position: absolute; left: -29px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: #8C0C3A; border: 3px solid white; }
+.program-segment-title { font-size: 17px; color: #5D1831; font-weight: 750; line-height: 1.4; margin-bottom: 8px; }
+.program-bio-dialog { position: fixed; inset: 0; margin: auto; width: min(680px,calc(100% - 32px)); max-height: min(85dvh,900px); padding: 0; border: 1px solid #E8D4DB; border-radius: 20px; color: #1E1E1E; background: white; overflow-y: auto; overscroll-behavior: contain; }
+.program-bio-dialog::backdrop { background: rgba(30,30,30,.55); }
+.program-bio-bar { position: sticky; top: 0; z-index: 1; background: white; display: flex; align-items: center; justify-content: space-between; padding: 8px 16px 8px 24px; border-bottom: 1px solid #E8D4DB; font-size: 13px; font-weight: 700; color: #8C0C3A; }
+.program-bio-bar button { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; }
+.program-bio-bar button:hover { background: #FAF6F7; }
+.program-bio-content { padding: 24px; }
+.program-bio-heading { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 24px; }
+.program-bio-heading h2 { font-size: 25px; line-height: 1.2; font-weight: 800; color: #5D1831; margin-bottom: 10px; }
+.program-bio-role { font-size: 13px; }
+.program-bio-dialog .program-bio-paragraph { font-size: 15px; line-height: 1.8; margin-top: 16px; white-space: pre-wrap; }
+@media (min-width: 768px) {
+  .program-block-summary { grid-template-columns: 172px minmax(0,1fr); gap: 20px; }
+  .program-break { grid-template-columns: 172px minmax(0,1fr); gap: 20px; }
+  .program-block-details { padding: 24px; }
+  .program-breakout-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .program-participants { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .program-breakout .program-participants { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width: 639px) {
+  .program-guide .program-block-toggle { padding: 16px; }
+  .program-block-details { padding: 16px; }
+  .program-guide .program-block-title { font-size: 18px; }
+  .program-guide .program-plenary .program-block-title { font-size: 20px; }
+  .program-bio-dialog { inset: auto 0 0; width: 100vw; max-width: none; max-height: 90dvh; border-radius: 20px 20px 0 0; margin: 0; }
+  .program-bio-content { padding: 20px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+  .program-bio-heading { gap: 14px; }
+  .program-bio-heading h2 { font-size: 22px; }
+  .program-portrait-large { width: 80px; height: 80px; }
+}

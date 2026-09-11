@@ -19,7 +19,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
     description:
       "La deuxième Décennie internationale des personnes d’ascendance africaine offre une nouvelle occasion de faire le lien entre les engagements internationaux du Canada et des mesures concrètes au pays. En s’appuyant sur la participation du Canada au Forum permanent des Nations Unies sur les personnes d’ascendance africaine, cette session explorera comment les priorités internationales peuvent nourrir les politiques de lutte contre le racisme, la mémoire collective, la reddition de comptes des institutions ainsi que des partenariats durables avec les communautés noires et les jeunes.",
     people: [
-      {
+{
         label: "animatrice",
         names: ["La très honorable Michaëlle Jean, 27e gouverneure générale et commandante en chef du Canada"],
       },
@@ -343,6 +343,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
               "Dre Monnica Williams, professeure et directrice clinique des cliniques de bien-être comportemental",
               "Nicole Kaniki, fondatrice et directrice de Senomi Solutions Inc., conseil en EDI",
               "Isaac Carter, DJ et producteur, fondateur de BlkEq",
+              "Dre Bukola Salami, professeure et titulaire de la Chaire de recherche du Canada de niveau 1 sur la santé des personnes noires et racisées, Université de Calgary",
             ],
           },
         ],
@@ -368,7 +369,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
               "amanuel melles, stratège principal du secteur associatif (ONG), mentor et directeur général du Network for the Advancement of Black Communities",
               "Richard Sharpe, directeur, Direction de l'équité pour les noirs, Secrétariat du Conseil du Trésor",
               "Nicholas Marcus Thompson, président et directeur général du Secrétariat des actions collectives noires et défenseur des droits de la personne",
-              "Lerato Chondoma (LL.B, MBA) - Vice-rectrice associée à l’équité, la diversité, l’inclusion et la lutte contre le racisme, Université Acadia, et commissaire à la Commission des droits de la personne de la Nouvelle-Écosse.",
+      "Lerato Chondoma (LL.B, MBA) - Vice-rectrice associée à l’équité, la diversité, l’inclusion et la lutte contre le racisme, Université Acadia, et commissaire à la Commission des droits de la personne de la Nouvelle-Écosse.",
               "Kevin Junor, directeur général, KRJ Corporation et ancien sous-surintendant, ministère du Solliciteur général de l’Ontario",
             ],
           },

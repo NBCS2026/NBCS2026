@@ -58,8 +58,9 @@ export function Events({ local }: { local: string }) {
                 if (next) { event.preventDefault(); selectDay(next); document.getElementById(`program-day-${next}-tab`)?.focus(); }
               }}
               className={`min-w-0 rounded-xl border-2 px-2 py-3 text-center transition-colors ${day === item.day ? "border-[#8C0C3A] bg-[#8C0C3A] text-white" : "border-[#E8D4DB] text-[#8C0C3A] hover:bg-[#FAF6F7]"}`}>
-              <span className="block font-heading text-base font-bold sm:text-xl">{item.label}</span>
-              <span className="mt-1 block text-xs leading-snug sm:text-sm">{item.date}</span>
+              <span className="sr-only">{item.label} — {item.date}</span>
+              <span aria-hidden="true" className="block font-heading text-base font-bold sm:text-xl">{(local === "fr" ? ["VEN. 18", "SAM. 19", "DIM. 20"] : ["FRI 18", "SAT 19", "SUN 20"])[item.day - 1]}</span>
+              <span aria-hidden="true" className="mt-1 hidden text-xs leading-snug sm:block">{item.label}</span>
             </button>
           ))}
         </div>

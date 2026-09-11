@@ -19,7 +19,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
     description:
       "The Second International Decade for People of African Descent provides a renewed opportunity to connect Canada's international commitments with meaningful action at home. Drawing on Canada's engagement with the United Nations Permanent Forum on People of African Descent, this session will explore how international priorities can inform anti-racism policy, public memory, institutional accountability and sustained partnership with Black communities and young people.",
     people: [
-      {
+{
         label: "animatrice",
         names: ["The Right Honourable Michaëlle Jean, 27th Governor General and Commander-in-Chief of Canada"],
       },
@@ -341,6 +341,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
               "Dr. Monnica Williams, Professor and Canada Research Chair in Mental Health Innovation and Equity, University of Ottawa",
               "Nicole Kaniki, Founder and Director, Senomi Solutions Inc., EDI Consulting",
               "Issac Carter, DJ and Producer, Founder of BlkEq",
+              "Dr. Bukola Salami, Professor and Tier 1 Canada Research Chair in Black and Racialized Peoples’ Health, University of Calgary",
             ],
           },
         ],
@@ -366,7 +367,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
               "amanuel melles, Senior Nonprofit Sector Strategist, Mentor and Executive Director of Network for the Advancement of Black Communities",
               "Richard Sharpe, Director, Black Equity Branch, Treasury Board Secretariat",
               "Nicholas Marcus Thompson, President and CEO of Black Class Action Secretariat and Human Rights Advocate",
-              "Lerato Chondoma (LL.B, MBA) - Associate Vice-President EDI-AR, Acadia University and Commissioner, Nova Scotia Human Rights Commission.",
+      "Lerato Chondoma (LL.B, MBA) - Associate Vice-President EDI-AR, Acadia University and Commissioner, Nova Scotia Human Rights Commission.",
               "Kevin Junor, Executive Director, KRJ Corporation, and Former Deputy Superintendent, Ontario Ministry of the Solicitor General",
             ],
           },

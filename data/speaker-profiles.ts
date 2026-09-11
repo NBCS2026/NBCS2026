@@ -21,6 +21,12 @@ export type SpeakerProfile = {
 
 const rawProfiles: SpeakerProfile[] = [
   {
+    name: "Dr. Bukola Salami",
+    nameFr: "Dre Bukola Salami",
+    imageUrl: "/speakers/bukola-salami.jpg",
+    imagePosition: "significant-down",
+  },
+{
     name: "Harun Kibirige",
     displayLineEn: "Harun Kibirige, Assistant Vice President, Global Investments, Canada Life",
     imageUrl: "/speakers/harun-kibirige-2026.jpg",
@@ -428,7 +434,8 @@ const rawProfiles: SpeakerProfile[] = [
     bioFr: "Lisa Meeches, C.M., O.M., est une Anishinaabe Kwe distinguée des territoires du Traité no 1 et une figure très respectée de l’industrie canadienne de la télévision et du cinéma. Productrice, créatrice, mentore et défenseure des droits, elle a consacré sa carrière à faire rayonner les récits des Premières Nations et des peuples autochtones au Manitoba, partout au Canada et sur la scène internationale.\n\nAu cours de sa remarquable carrière, Lisa a dirigé des projets primés qui ont diverti, éduqué et inspiré le public. Son travail a mis en lumière les voix, les histoires et les perspectives autochtones, contribuant à approfondir la compréhension des enjeux, de la résilience et de la force culturelle des communautés des Premières Nations et des peuples autochtones. Ses contributions lui ont valu de nombreux prix et distinctions, notamment sa nomination à l’Ordre du Manitoba en 2017 et à l’Ordre du Canada en 2020.\n\nEn plus de son travail au cinéma et à la télévision, Lisa est directrice générale du Festival Manito Ahbee, où elle contribue à diriger une célébration des arts, de la culture et des liens communautaires autochtones. Dans ce rôle et par son engagement continu dans la communauté, elle soutient et valorise les artistes et les conteurs autochtones, tout en créant des possibilités pour eux et pour les générations futures. Elle est également associée fondatrice d’Eagle Vision Inc., où elle continue de contribuer à façonner l’avenir des récits autochtones et d’accompagner la prochaine génération de créateurs. Par son leadership, sa créativité et son engagement envers la communauté, Lisa Meeches continue de marquer durablement le paysage culturel.",
     imageUrl: "/speakers/lisa-meeches-2026.jpg",
     imagePosition: "significant-down",
-  },  {
+  },
+  {
     name: "Mabel Adesopo",
     displayLineEn: "LEAD-HER-SHIP – Mabel Adesopo and Asha Jama",
     imageUrl:
