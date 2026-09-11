@@ -488,7 +488,7 @@ function SponsorCard({
       className={`flex ${height} w-full ${entry.name === "CBC" ? "flex-row flex-wrap" : "flex-col"} items-center justify-center gap-4 rounded-2xl border border-[#E8D4DB] bg-white text-center shadow-[0_10px_35px_rgba(93,24,49,0.06)] ${prominence === "champion" || prominence === "paid" ? "p-6 [&_img]:scale-[1.06]" : "p-5"}`}
     >
       {entry.logos && (
-        <div className="flex min-h-16 flex-wrap items-center justify-center gap-4">
+        <div className={`flex min-h-16 flex-wrap items-center justify-center ${entry.name === "Province of Manitoba / Travel Manitoba" ? "gap-8" : "gap-4"}`}>
           {entry.logos.map((logo) => (
             <img
               key={logo.src}

@@ -44,11 +44,6 @@ export function Events({ local }: { local: string }) {
         {(t("post_titleOne").trim() || t("post_titleTwo").trim()) && <p className="tracking-[0.08em] max-w-[38ch] md:max-w-[68ch] mx-auto text-light-red font-medium text-[clamp(14px,1.43vw,22px)] leading-tight mb-6">
           {t("post_titleOne")}{t("post_titleOne").trim() && t("post_titleTwo").trim() && <br />}{t("post_titleTwo")}
         </p>}
-        <p className="mx-auto mb-10 max-w-3xl rounded-2xl border border-[#E8D4DB] bg-[#FAF6F7] px-5 py-4 text-center font-body text-[15px] font-semibold leading-relaxed text-[#5D1831] sm:text-[17px]">
-          {local === "fr"
-            ? "L’interprétation simultanée et le sous-titrage en direct seront offerts pour toutes les séances officielles."
-            : "Simultaneous interpretation and live captioning will be available for all formal sessions."}
-        </p>
         <div ref={tabsRef} role="tablist" aria-label={local === "fr" ? "Jours du programme" : "Program days"} className="program-days sticky z-30 mb-5 grid grid-cols-3 gap-2 border-b border-[#E8D4DB] bg-white py-3">
           {days.map(item => (
             <button key={item.day} role="tab" type="button" id={`program-day-${item.day}-tab`} aria-selected={day === item.day} aria-controls="program-day-panel" tabIndex={day === item.day ? 0 : -1} title={item.hint}
