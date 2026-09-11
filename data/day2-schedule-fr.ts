@@ -20,6 +20,10 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
       "La deuxième Décennie internationale des personnes d’ascendance africaine offre une nouvelle occasion de faire le lien entre les engagements internationaux du Canada et des mesures concrètes au pays. En s’appuyant sur la participation du Canada au Forum permanent des Nations Unies sur les personnes d’ascendance africaine, cette session explorera comment les priorités internationales peuvent nourrir les politiques de lutte contre le racisme, la mémoire collective, la reddition de comptes des institutions ainsi que des partenariats durables avec les communautés noires et les jeunes.",
     people: [
       {
+        label: "animatrice",
+        names: ["La très honorable Michaëlle Jean, 27e gouverneure générale et commandante en chef du Canada"],
+      },
+      {
         label: "keynote",
         names: ["Andrew Brown, sous-ministre adjoint, Patrimoine canadien"],
       },

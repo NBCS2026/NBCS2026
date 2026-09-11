@@ -423,13 +423,12 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "Lisa Meeches",
-    displayLineEn:
-      "Lisa Meeches, C.M., O.M., Executive Director, Manito Ahbee Festival",
-    imageUrl:
-      "https://drive.google.com/thumbnail?id=1fUADDRYvWnkc5p3frpz_MYz28iSvNzOa&sz=w600",
-    imagePosition: "slight-down",
-  },
-  {
+    displayLineEn: "Lisa Meeches, C.M., O.M., Executive Director, Manito Ahbee Festival",
+    bioEn: "Lisa Meeches, C.M., O.M., is a distinguished Anishinaabe Kwe from the Treaty 1 Territories and a highly respected leader in Canada’s television and film industry. A producer, creator, mentor, and advocate, she has dedicated her career to advancing First Nations and Indigenous storytelling in Manitoba, across Canada, and on the international stage.\n\nThroughout her remarkable career, Lisa has led award-winning projects that have entertained, educated, and inspired audiences. Her work has brought forward Indigenous voices, histories, and perspectives, helping to deepen understanding of the issues, resilience, and cultural strength of First Nations and Indigenous communities. Her contributions have been recognized with numerous awards and honours, including her appointment to the Order of Manitoba in 2017 and the Order of Canada in 2020.\n\nIn addition to her work in film and television, Lisa is the Executive Director of the Manito Ahbee Festival, where she helps lead a celebration of Indigenous arts, culture, and community connection. Through this role and her ongoing work in the community, she continues to support, uplift, and create opportunities for Indigenous artists, storytellers, and future generations. She is also a founding partner of Eagle Vision Inc., where she continues to help shape the future of Indigenous storytelling and mentor the next generation of creators. Through her leadership, creativity, and commitment to community, Lisa Meeches continues to leave a lasting impact on the cultural landscape.",
+    bioFr: "Lisa Meeches, C.M., O.M., est une Anishinaabe Kwe distinguée des territoires du Traité no 1 et une figure très respectée de l’industrie canadienne de la télévision et du cinéma. Productrice, créatrice, mentore et défenseure des droits, elle a consacré sa carrière à faire rayonner les récits des Premières Nations et des peuples autochtones au Manitoba, partout au Canada et sur la scène internationale.\n\nAu cours de sa remarquable carrière, Lisa a dirigé des projets primés qui ont diverti, éduqué et inspiré le public. Son travail a mis en lumière les voix, les histoires et les perspectives autochtones, contribuant à approfondir la compréhension des enjeux, de la résilience et de la force culturelle des communautés des Premières Nations et des peuples autochtones. Ses contributions lui ont valu de nombreux prix et distinctions, notamment sa nomination à l’Ordre du Manitoba en 2017 et à l’Ordre du Canada en 2020.\n\nEn plus de son travail au cinéma et à la télévision, Lisa est directrice générale du Festival Manito Ahbee, où elle contribue à diriger une célébration des arts, de la culture et des liens communautaires autochtones. Dans ce rôle et par son engagement continu dans la communauté, elle soutient et valorise les artistes et les conteurs autochtones, tout en créant des possibilités pour eux et pour les générations futures. Elle est également associée fondatrice d’Eagle Vision Inc., où elle continue de contribuer à façonner l’avenir des récits autochtones et d’accompagner la prochaine génération de créateurs. Par son leadership, sa créativité et son engagement envers la communauté, Lisa Meeches continue de marquer durablement le paysage culturel.",
+    imageUrl: "/speakers/lisa-meeches-2026.jpg",
+    imagePosition: "significant-down",
+  },  {
     name: "Mabel Adesopo",
     displayLineEn: "LEAD-HER-SHIP – Mabel Adesopo and Asha Jama",
     imageUrl:

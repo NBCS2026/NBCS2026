@@ -20,6 +20,10 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
       "The Second International Decade for People of African Descent provides a renewed opportunity to connect Canada's international commitments with meaningful action at home. Drawing on Canada's engagement with the United Nations Permanent Forum on People of African Descent, this session will explore how international priorities can inform anti-racism policy, public memory, institutional accountability and sustained partnership with Black communities and young people.",
     people: [
       {
+        label: "animatrice",
+        names: ["The Right Honourable Michaëlle Jean, 27th Governor General and Commander-in-Chief of Canada"],
+      },
+      {
         label: "keynote",
         names: ["Andrew Brown, Associate Deputy Minister, Canadian Heritage"],
       },
