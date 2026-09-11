@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { AboutSpeakersCollage } from "@/components/about-speakers-collage";
+import { AdvisorySubcommittee } from "@/components/advisory-subcommittee";
 import { Footer } from "@/components/footer";
 import { LangSelect } from "@/components/lang-select";
 import { Logo } from "@/components/logo";
@@ -102,6 +103,8 @@ export default function Page() {
             </figure>
           </div>
         </section>
+
+        <AdvisorySubcommittee locale={locale} />
 
         {/* News Section */}
         <section id="summit-highlights" className={`${styles.section} ${styles.highlights}`}>

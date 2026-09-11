@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { AdvisorySubcommittee } from "@/components/advisory-subcommittee";
 import { Events } from "@/components/events";
 import { Footer } from "@/components/footer";
 import { LangSelect } from "@/components/lang-select";
@@ -99,7 +98,6 @@ export default function Page() {
             </div>
           </div>
         </section>
-        <AdvisorySubcommittee locale={locale} />
       </main>
       <Footer />
     </>
