@@ -58,15 +58,12 @@ export default function Page() {
               <span className="hidden group-open:inline">{isFr ? "Réduire l’histoire" : "Show less history"}</span>
             </summary>
             <div className="mt-6 flow-root">
-              <div className="mb-8 w-full lg:float-right lg:mb-6 lg:ml-10 lg:w-[43%]">
-                <AboutSpeakersCollage locale={locale} />
-              </div>
               <div className="space-y-6 text-base leading-relaxed text-[#1E1E1E]/80 sm:text-lg">
                 {history.slice(1).map(paragraph => <p key={paragraph}>{paragraph}</p>)}
               </div>
             </div>
-            <AboutSpeakersCollage locale={locale} placement="additional" />
           </details>
+          <AboutSpeakersCollage locale={locale} />
           <AboutSpeakersCollage locale={locale} placement="below" />
         </section>
         <section id="summit-timeline" className={`${styles.section} ${styles.timeline}`}>
