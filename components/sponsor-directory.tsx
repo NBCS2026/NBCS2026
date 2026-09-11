@@ -442,7 +442,7 @@ const communityPartners: SponsorEntry[] = [
     logos: [{
       src: "/icbh-cisn-logo.png",
       alt: "Interdisciplinary Centre for Black Health — Centre interdisciplinaire pour la santé des Noir.e.s",
-      className: "max-h-40 max-w-full w-[260px]",
+      className: "!h-[146px] !w-[260px] max-w-full",
     }],
   },
   {
