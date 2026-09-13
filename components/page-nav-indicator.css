@@ -20,8 +20,8 @@
     opacity 120ms ease;
 }
 .program-page-nav .page-nav-indicator {
-  background: #8c0c3a;
-  border-color: #8c0c3a;
+  background: #5d1831;
+  border-color: #5d1831;
 }
 /* Keep the native active style until the indicator has been measured. */
 .page-nav-rail:has(.page-nav-indicator[data-ready="true"])

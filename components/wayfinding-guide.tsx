@@ -14,7 +14,7 @@ function Room({
     <div
       className={`flex min-h-20 items-center justify-center rounded-xl border-2 px-3 py-4 text-center font-heading text-sm font-black sm:text-base ${
         emphasis
-          ? "border-[#8C0C3A] bg-[#8C0C3A] text-white"
+          ? "border-[#5D1831] bg-[#5D1831] text-white"
           : "border-[#D8C1C9] bg-white text-[#5D1831]"
       }`}
     >
@@ -170,7 +170,7 @@ export function WayfindingGuide({ locale }: { locale: string }) {
           </a>
           <Link
             href="/summit-week"
-            className="inline-flex items-center gap-2 rounded-full bg-[#8C0C3A] px-5 py-3 font-bold text-white"
+            className="inline-flex items-center gap-2 rounded-full bg-[#5D1831] px-5 py-3 font-bold text-white"
           >
             <MapPin className="size-4" aria-hidden />
             {isFr

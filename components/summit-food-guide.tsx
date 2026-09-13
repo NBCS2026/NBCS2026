@@ -38,7 +38,7 @@ export function SummitFoodGuide({ locale, open }: { locale: string; open: boolea
                 : (isFr ? "À quelques minutes du Sommet en voiture" : "Short ride from the Summit")}</span></p>
               <div className="mt-auto grid grid-cols-1 gap-2 sm:grid-cols-2">
                 {business.website && <a href={business.website} target="_blank" rel="noopener noreferrer" aria-label={`${isFr ? "Site Web / Menu" : "Website / Menu"} — ${business.name}`} className={`${actionClass} border border-[#E8D4DB] bg-[#FAF6F7] text-[#5D1831] hover:bg-[#E8D4DB]`}><ExternalLink className="size-4 shrink-0" aria-hidden />{isFr ? "Site Web / Menu" : "Website / Menu"}</a>}
-                <a href={foodDirectionsUrl(business)} target="_blank" rel="noopener noreferrer" aria-label={isFr ? `Itinéraire vers ${business.name} depuis le Centre des congrès RBC` : `Directions to ${business.name} from RBC Convention Centre`} className={`${actionClass} bg-[#8C0C3A] text-white hover:bg-[#5D1831]`}><Navigation className="size-4 shrink-0" aria-hidden />{isFr ? "Itinéraire" : "Directions"}</a>
+                <a href={foodDirectionsUrl(business)} target="_blank" rel="noopener noreferrer" aria-label={isFr ? `Itinéraire vers ${business.name} depuis le Centre des congrès RBC` : `Directions to ${business.name} from RBC Convention Centre`} className={`${actionClass} bg-[#5D1831] text-white hover:bg-[#5D1831]`}><Navigation className="size-4 shrink-0" aria-hidden />{isFr ? "Itinéraire" : "Directions"}</a>
               </div>
             </article>
           </li>

@@ -96,7 +96,7 @@ export function Events({ local }: { local: string }) {
                   document.getElementById(`program-day-${next}-tab`)?.focus();
                 }
               }}
-              className={`min-w-0 rounded-xl border-2 px-2 py-3 text-center transition-colors ${day === item.day ? "border-[#8C0C3A] bg-[#8C0C3A] text-white" : "border-[#E8D4DB] text-[#8C0C3A] hover:bg-[#FAF6F7]"}`}
+              className={`min-w-0 rounded-xl border-2 px-2 py-3 text-center transition-colors ${day === item.day ? "border-[#5D1831] bg-[#5D1831] text-white" : "border-[#E8D4DB] text-[#8C0C3A] hover:bg-[#FAF6F7]"}`}
             >
               <span className="sr-only">
                 {item.label} — {item.date}

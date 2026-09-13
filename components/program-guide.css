@@ -12,7 +12,7 @@
 }
 .program-guide button:focus-visible, .program-guide a:focus-visible { outline: 2px solid #8C0C3A; outline-offset: 3px; }
 .program-days button { min-height: 64px; }
-.program-days button[aria-selected="true"] { box-shadow: inset 0 -4px 0 #8C0C3A; }
+.program-days button[aria-selected="true"] { box-shadow: inset 0 -4px 0 #5D1831; }
 .program-block { scroll-margin-top: calc(var(--site-nav-offset) + 100px); }
 .program-block-heading { margin: 0; }
 .program-block-toggle { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 20px; }

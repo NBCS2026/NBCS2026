@@ -62,7 +62,7 @@ function AccordionSection({
           aria-expanded={open}
           aria-controls={`${id}-panel`}
           onClick={() => onToggle(id)}
-          className="w-full flex items-center justify-between gap-4 px-4 sm:px-6 md:px-8 lg:px-12 py-5 sm:py-6 md:py-7 text-left cursor-pointer transition-colors hover:bg-white/5"
+          className="w-full flex items-center justify-between gap-4 px-4 sm:px-6 md:px-8 lg:px-12 py-5 sm:py-6 md:py-7 text-left cursor-pointer bg-[#5D1831] transition-[filter] hover:brightness-110"
           id={`${id}-trigger`}
         >
           <h2 className="font-heading text-white text-[clamp(22px,3.2vw,40px)] font-black tracking-widest">
