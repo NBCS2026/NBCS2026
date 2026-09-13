@@ -7,7 +7,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
     title: "Inscription générale et Marché",
     location: "Hall D",
     description:
-      "Inscrivez-vous au Sommet et explorez le marché dès le début de la journée.",
+      "Inscrivez-vous au Sommet et découvrez le marché, les kiosques des partenaires et l’exposition d’art dès le début de la journée.",
   },
   {
     id: "opening-plenary",

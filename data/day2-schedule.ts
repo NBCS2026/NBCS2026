@@ -7,7 +7,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
     title: "Registration and Marketplace",
     location: "Hall D",
     description:
-      "Check in for the Summit and explore the marketplace as the day begins.",
+      "Check in for the Summit and explore the marketplace, partners’ booths and the art exhibition as the day begins.",
   },
   {
     id: "opening-plenary",

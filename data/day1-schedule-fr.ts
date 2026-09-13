@@ -7,7 +7,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
     title: "Inscription générale et Marché",
     location: "Hall D",
     description:
-      "Inscrivez-vous au Sommet et explorez le marché dès le début de la journée.",
+      "Inscrivez-vous au Sommet et découvrez le marché, les kiosques des partenaires et l’exposition d’art dès le début de la journée.",
   },
   {
     id: "opening-plenary",
@@ -331,7 +331,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
   "time": "18 h – 18 h 30",
   "title": "Rencontre avec les artistes de l’exposition",
   "location": "Hall D",
-  "description": "Rencontrez les artistes de l’exposition Together in Motion 2026 et découvrez les idées et les récits qui inspirent leurs œuvres. Cette rencontre marque aussi le début de la Fête de la culture, la célébration annuelle pancanadienne des arts, de la culture et du patrimoine.",
+  "description": "Rencontrez les artistes de l’exposition En mouvement ensemble : avenirs noirs et autochtones sur le territoire du Traité no 1 et découvrez les idées et les récits qui inspirent leurs œuvres. Cette rencontre marque aussi le début de la Fête de la culture, la célébration annuelle pancanadienne des arts, de la culture et du patrimoine.",
   "note": "Ouvert au public — aucune inscription au Sommet requise.",
   "action": {
     "label": "Découvrir la Fête de la culture",
@@ -362,6 +362,11 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
           "Vidéo d'ouverture du Sommet — Réalisée par Joye Social House et produite par 9:16 Stories",
       },
       {
+        title:
+          "Mot de bienvenue, reconnaissance du territoire, entrée officielle et prières d'ouverture",
+        items: ["Festival Manito Ahbee"],
+      },
+      {
         title: "Coanimation",
         items: [
           "Odario Williams, animateur de l'émission _Afterdark_ à CBC, artiste hip-hop, acteur, DJ et conteur",
@@ -372,11 +377,6 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
         items: [
           "Patricia Bitu Tshikudi, directrice générale, Centre culturel franco-manitobain (CCFM)",
         ],
-      },
-      {
-        title:
-          "Mot de bienvenue, reconnaissance du territoire, entrée officielle et prières d'ouverture",
-        items: ["Festival Manito Ahbee"],
       },
       {
         title: "Allocution",
@@ -421,10 +421,6 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
           "Présentation — Natalie Thiesen, vice-présidente au tourisme, Tourisme Winnipeg",
           "Jully Black, artiste primée et militante",
         ],
-      },
-      {
-        title: "Musique de clôture",
-        items: ["Dr. Henry Band"],
       },
     ],
   },

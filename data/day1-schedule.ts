@@ -13,7 +13,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
     title: "Registration and Marketplace",
     location: "Hall D",
     description:
-      "Check in for the Summit and explore the marketplace as the day begins.",
+      "Check in for the Summit and explore the marketplace, partners’ booths and the art exhibition as the day begins.",
   },
   {
     id: "opening-plenary",
@@ -335,7 +335,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
   "time": "6:00 p.m. – 6:30 p.m.",
   "title": "Exhibition Artists’ Meet & Greet",
   "location": "Hall D",
-  "description": "Meet the artists behind Together in Motion 2026 and discover the ideas and stories behind the exhibition. This gathering also marks the opening of Culture Days, the annual pan-Canadian celebration of arts, culture and heritage.",
+  "description": "Meet the artists behind Together in Motion: Black and Indigenous Futures in Treaty 1 Territory and discover the ideas and stories behind the exhibition. This gathering also marks the opening of Culture Days, the annual pan-Canadian celebration of arts, culture and heritage.",
   "note": "Open to the public — no Summit registration required.",
   "action": {
     "label": "About Culture Days",
@@ -365,6 +365,10 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
         body: "Filmed by Joye Social House and Produced by 9:16 Stories",
       },
       {
+        title: "Welcome, Land Acknowledgement, Grand Entry and Opening Prayers",
+        items: ["Manito Ahbee Festival"],
+      },
+      {
         title: "Co-Host",
         items: [
           "Odario Williams, host of CBC's _Afterdark_, hip-hop artist, actor, DJ, and storyteller",
@@ -375,10 +379,6 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
         items: [
           "Patricia Bitu Tshikudi, Executive Director, Centre Culturel Franco-Manitobain (CCFM)",
         ],
-      },
-      {
-        title: "Welcome, Land Acknowledgement, Grand Entry and Opening Prayers",
-        items: ["Manito Ahbee Festival"],
       },
       {
         title: "Remarks",
@@ -424,10 +424,6 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
           "Introduction: Natalie Thiesen, Vice-President, Tourism, Tourism Winnipeg",
           "Jully Black, Award-winning singer, songwriter, actor and advocate",
         ],
-      },
-      {
-        title: "Closing Music",
-        items: ["Dr. Henry Band"],
       },
     ],
   },

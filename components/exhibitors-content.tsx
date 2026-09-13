@@ -13,8 +13,8 @@ import {
 const CURATORS = [
   {
     name: "Gabriel Bell-Gam",
-    roleEn: "Curator, Together in Motion 2026 Exhibition",
-    roleFr: "Commissaire de l’exposition En mouvement ensemble 2026",
+    roleEn: "Curator, Together in Motion: Black and Indigenous Futures in Treaty 1 Territory Exhibition",
+    roleFr: "Commissaire de l’exposition En mouvement ensemble : avenirs noirs et autochtones sur le territoire du Traité no 1",
     bioEn:
       "Gabriel Bell-Gam is a Nigerian-Canadian curator and cultural heritage practitioner based in Winnipeg. His practice sits at the intersection of contemporary art, cultural memory, archives and digital technology, with a focus on Black and African cultural heritage, representation and belonging.",
     bioFr:
@@ -74,8 +74,8 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
             title={isFr ? "Exposition d’art jeunesse" : "Youth Art Exhibition"}
             description={
               isFr
-                ? "En mouvement ensemble 2026 réunit des artistes et des organismes qui explorent l’identité, la mémoire, la migration, la résilience et l’appartenance. L’exposition est présentée au hall D du 18 au 20 septembre."
-                : "Together in Motion 2026 brings artists and organizations together to explore identity, memory, migration, resilience and belonging. The exhibition is presented in Hall D from September 18–20."
+                ? "En mouvement ensemble : avenirs noirs et autochtones sur le territoire du Traité no 1 réunit des artistes et des organismes qui explorent l’identité, la mémoire, la migration, la résilience et l’appartenance. L’exposition est présentée au hall D du 18 au 20 septembre."
+                : "Together in Motion: Black and Indigenous Futures in Treaty 1 Territory brings artists and organizations together to explore identity, memory, migration, resilience and belonging. The exhibition is presented in Hall D from September 18–20."
             }
           />
 
@@ -96,8 +96,8 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
               </h3>
               <p className="mt-3 leading-relaxed text-[#1E1E1E]/75">
                 <ExhibitionTitleText text={isFr
-                  ? "Graffiti Art Programming accompagne l’équipe de commissariat et de production de l’exposition En mouvement ensemble 2026."
-                  : "Graffiti Art Programming supports the curatorial and production team behind the Together in Motion 2026 exhibition."} />
+                  ? "Graffiti Art Programming accompagne l’équipe de commissariat et de production de l’exposition En mouvement ensemble : avenirs noirs et autochtones sur le territoire du Traité no 1."
+                  : "Graffiti Art Programming supports the curatorial and production team behind the Together in Motion: Black and Indigenous Futures in Treaty 1 Territory exhibition."} />
               </p>
             </div>
           </div>
@@ -139,6 +139,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                     loading="lazy"
                     referrerPolicy="no-referrer"
                     className={`size-full ${artist.imageFit === "contain" ? "object-contain p-6" : "object-cover"}`}
+                    style={{ objectPosition: artist.imagePosition }}
                   />
                 </div>
                 <div className="p-5">

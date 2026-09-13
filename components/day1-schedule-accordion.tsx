@@ -158,6 +158,13 @@ const PROGRAMME_MEDIA: Array<{
   resourceContextMatches?: string[];
 }> = [
   {
+    matches: ["province of manitoba", "gouvernement du manitoba"],
+    nameEn: "Province of Manitoba",
+    nameFr: "Gouvernement du Manitoba",
+    imageUrl: "/manitoba-logo.png",
+    fit: "contain",
+  },
+  {
     matches: ["manito ahbee"],
     nameEn: "Manito Ahbee Festival",
     nameFr: "Festival Manito Ahbee",

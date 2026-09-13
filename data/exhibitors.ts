@@ -4,6 +4,7 @@ export type ExhibitionArtist = {
   descriptionFr: string;
   imageUrl: string;
   imageFit?: "cover" | "contain";
+  imagePosition?: string;
 };
 
 export type MarketplaceVendor = {
@@ -116,9 +117,9 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
   {
     name: "Black Canadian Experience Centre",
     descriptionEn:
-      "A Winnipeg community heritage initiative preserving and sharing the histories, stories and cultural heritage of Black communities in Manitoba and Canada. The Centre’s exhibition contribution includes work by Nova Scotia-born, Manitoba-based quilter Melinda Clayton-Patterson, who specializes in Underground Railroad secret-code quilts and culturally rooted storytelling.",
+      "A Winnipeg community heritage initiative preserving and sharing the histories, stories and cultural heritage of Black communities in Manitoba and Canada. The Centre’s exhibition contribution includes work by Nova Scotia-born, Manitoba-based quilter Melinda Clayton Patterson, who specializes in Underground Railroad secret-code quilts and culturally rooted storytelling.",
     descriptionFr:
-      "Initiative patrimoniale communautaire de Winnipeg qui préserve et transmet les histoires, les récits et le patrimoine culturel des communautés noires du Manitoba et du Canada. La contribution du Centre à l’exposition comprend le travail de Melinda Clayton-Patterson, courtepointeuse née en Nouvelle-Écosse et établie au Manitoba, spécialisée dans les courtepointes à codes secrets du chemin de fer clandestin et les récits ancrés dans la culture.",
+      "Initiative patrimoniale communautaire de Winnipeg qui préserve et transmet les histoires, les récits et le patrimoine culturel des communautés noires du Manitoba et du Canada. La contribution du Centre à l’exposition comprend le travail de Melinda Clayton Patterson, courtepointeuse née en Nouvelle-Écosse et établie au Manitoba, spécialisée dans les courtepointes à codes secrets du chemin de fer clandestin et les récits ancrés dans la culture.",
     imageUrl: "/black-canadian-experience-centre.webp",
     imageFit: "contain",
   },
@@ -145,6 +146,15 @@ export const EXHIBITION_ARTISTS: ExhibitionArtist[] = [
     descriptionFr:
       "Artiste multidisciplinaire établi au Canada qui utilise la peinture, les techniques mixtes, la sculpture et l’installation pour examiner la migration, l’inégalité et la justice sociale.",
     imageUrl: "/exhibition-artists/habeeb-andu.webp",
+  },
+  {
+    name: "Melinda Clayton Patterson",
+    descriptionEn:
+      "Melinda Clayton Patterson resides in Kleefeld, Manitoba. She is a native of East Preston, Nova Scotia (The Preston Township), also known as the birthplace of Black Culture and Heritage in Canada. Melinda specializes in Underground Railroad-Secret Code quilts and other culturally related quilting. She also provides presentations related to the “Story of the Underground Railway and the Secret Codes hidden in quilt patterns.”",
+    descriptionFr:
+      "Melinda Clayton Patterson réside à Kleefeld, au Manitoba. Elle est originaire d’East Preston, en Nouvelle-Écosse (le canton de Preston), également connu comme le berceau de la culture et du patrimoine noirs au Canada. Melinda se spécialise dans les courtepointes à codes secrets du chemin de fer clandestin et dans d’autres courtepointes liées à la culture. Elle donne également des présentations sur « l’histoire du chemin de fer clandestin et les codes secrets cachés dans les motifs des courtepointes ».",
+    imageUrl: "/exhibition-artists/melinda-clayton-patterson.jpeg",
+    imagePosition: "50% 25%",
   },
   {
     name: "Olanrewaju Victor Abiola",
