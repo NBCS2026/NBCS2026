@@ -83,13 +83,13 @@ export function FeedbackForm({ locale }: { locale: string }) {
   }
 
   const fieldClass =
-    "mt-2 w-full rounded-xl border border-[#D8C1C9] bg-white px-4 py-3 text-[#1E1E1E] outline-none transition focus:border-[#8C0C3A] focus:ring-2 focus:ring-[#8C0C3A]/20";
+    "mt-2 w-full rounded-xl palette-field border border-[#967984] bg-white px-4 py-3 text-[#1E1E1E] outline-none transition focus:border-[#8E0C3A] focus:ring-2 focus:ring-[#8E0C3A]/20 focus:ring-offset-2";
 
   return (
     <section id="feedback-form" className="px-5 py-14 sm:py-20">
       <div className="mx-auto grid max-w-[1060px] gap-10 lg:grid-cols-[0.7fr_1.3fr]">
         <div>
-          <h2 className="font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#5D1831]">
+          <h2 className="font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#8E0C3A]">
             {isFr ? "Votre voix compte" : "Your voice matters"}
           </h2>
 
@@ -111,7 +111,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
               {isFr ? "Type de commentaires" : "Feedback type"}
             </legend>
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
-              <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-[#D8C1C9] bg-white p-4">
+              <label className="flex cursor-pointer items-center gap-3 rounded-xl palette-field border border-[#967984] bg-white p-4">
                 <input
                   type="radio"
                   name="feedbackType"
@@ -123,7 +123,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
                   {isFr ? "Une séance" : "A session"}
                 </span>
               </label>
-              <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-[#D8C1C9] bg-white p-4">
+              <label className="flex cursor-pointer items-center gap-3 rounded-xl palette-field border border-[#967984] bg-white p-4">
                 <input
                   type="radio"
                   name="feedbackType"
@@ -272,7 +272,7 @@ export function FeedbackForm({ locale }: { locale: string }) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-full bg-[#8C0C3A] px-6 py-3.5 font-bold text-white transition-colors hover:bg-[#5D1831] disabled:cursor-not-allowed disabled:opacity-60"
+            className="w-full rounded-full bg-[#8E0C3A] px-6 py-3.5 font-bold text-white transition-colors hover:bg-[#8E0C3A] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting
               ? isFr

@@ -91,8 +91,8 @@ export function Art({ className }: React.HTMLAttributes<SVGElement>) {
           y2="71.2"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_31_92"
@@ -102,8 +102,8 @@ export function Art({ className }: React.HTMLAttributes<SVGElement>) {
           y2="51.6203"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_31_92"
@@ -113,8 +113,8 @@ export function Art({ className }: React.HTMLAttributes<SVGElement>) {
           y2="38.3799"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_31_92"
@@ -124,8 +124,8 @@ export function Art({ className }: React.HTMLAttributes<SVGElement>) {
           y2="38.3799"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_31_92"
@@ -135,8 +135,8 @@ export function Art({ className }: React.HTMLAttributes<SVGElement>) {
           y2="44.5003"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_31_92"
@@ -146,8 +146,8 @@ export function Art({ className }: React.HTMLAttributes<SVGElement>) {
           y2="42.7199"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_31_92"
@@ -157,8 +157,8 @@ export function Art({ className }: React.HTMLAttributes<SVGElement>) {
           y2="29.2578"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_31_92"
@@ -168,8 +168,8 @@ export function Art({ className }: React.HTMLAttributes<SVGElement>) {
           y2="29.48"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_31_92"
@@ -179,8 +179,8 @@ export function Art({ className }: React.HTMLAttributes<SVGElement>) {
           y2="35.5998"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
       </defs>
     </svg>

@@ -16,7 +16,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
   }>({ type: null, message: "" });
 
   const fieldClass =
-    "mt-2 w-full rounded-xl border border-[#D8C1C9] bg-white px-4 py-3 text-[#1E1E1E] outline-none transition focus:border-[#8C0C3A] focus:ring-2 focus:ring-[#8C0C3A]/20";
+    "mt-2 w-full rounded-xl palette-field border border-[#967984] bg-white px-4 py-3 text-[#1E1E1E] outline-none transition focus:border-[#8E0C3A] focus:ring-2 focus:ring-[#8E0C3A]/20 focus:ring-offset-2";
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -77,10 +77,10 @@ export function DelegateSurvey({ locale }: { locale: string }) {
     <section id="delegate-survey" className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
       <div className="mx-auto max-w-[1060px]">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8E0C3A]">
             Moving Forward Together · Ensemble, allons de l’avant
           </p>
-          <h2 className="mt-3 font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#5D1831]">
+          <h2 className="mt-3 font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#8E0C3A]">
             {isFr
               ? "Sondage sur les connaissances et les contributions"
               : "Delegate knowledge & contribution survey"}
@@ -94,12 +94,12 @@ export function DelegateSurvey({ locale }: { locale: string }) {
 
         <form
           onSubmit={handleSubmit}
-          className="mt-10 space-y-8 rounded-3xl border border-[#E8D4DB] bg-white p-6 shadow-[0_16px_45px_rgba(93,24,49,0.08)] sm:p-8 lg:p-10"
+          className="mt-10 space-y-8 rounded-3xl border border-[#E8D4DB] bg-white p-6 shadow-[0_16px_45px_rgba(142,12,58,0.08)] sm:p-8 lg:p-10"
         >
           <fieldset disabled={isSubmitting} className="contents">
           <FormHoneypot />
           <fieldset>
-            <legend className="font-heading text-xl font-black text-[#5D1831] sm:text-2xl">
+            <legend className="font-heading text-xl font-black text-[#8E0C3A] sm:text-2xl">
               {isFr ? "À propos de vous" : "About you"}
             </legend>
             <p className="mt-2 text-sm leading-relaxed text-[#1E1E1E]/65">
@@ -147,7 +147,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
           </fieldset>
 
           <fieldset>
-            <legend className="font-heading text-xl font-black text-[#5D1831] sm:text-2xl">
+            <legend className="font-heading text-xl font-black text-[#8E0C3A] sm:text-2xl">
               {isFr ? "Domaines d’expertise" : "Areas of expertise"}
             </legend>
             <p className="mt-2 text-sm text-[#1E1E1E]/65">
@@ -184,7 +184,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
 
 
           <fieldset className="space-y-5">
-            <legend className="font-heading text-xl font-black text-[#5D1831] sm:text-2xl">
+            <legend className="font-heading text-xl font-black text-[#8E0C3A] sm:text-2xl">
               {isFr
                 ? "Perspectives et possibilités"
                 : "Insights & opportunities"}
@@ -216,7 +216,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
           </fieldset>
 
           <fieldset>
-            <legend className="font-heading text-xl font-black text-[#5D1831] sm:text-2xl">
+            <legend className="font-heading text-xl font-black text-[#8E0C3A] sm:text-2xl">
               {isFr
                 ? "Comment aimeriez-vous vous impliquer davantage?"
                 : "How would you like to get more involved?"}
@@ -300,7 +300,7 @@ export function DelegateSurvey({ locale }: { locale: string }) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-full bg-[#8C0C3A] px-6 py-3.5 font-bold text-white transition-colors hover:bg-[#5D1831] disabled:cursor-not-allowed disabled:opacity-60"
+            className="w-full rounded-full bg-[#8E0C3A] px-6 py-3.5 font-bold text-white transition-colors hover:bg-[#8E0C3A] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting
               ? isFr

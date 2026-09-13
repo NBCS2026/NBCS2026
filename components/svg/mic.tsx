@@ -49,8 +49,8 @@ export function Mic({ className }: React.HTMLAttributes<SVGElement>) {
           y2="71.2"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_31_84"
@@ -60,8 +60,8 @@ export function Mic({ className }: React.HTMLAttributes<SVGElement>) {
           y2="37.3806"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_31_84"
@@ -71,8 +71,8 @@ export function Mic({ className }: React.HTMLAttributes<SVGElement>) {
           y2="51.62"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
       </defs>
     </svg>

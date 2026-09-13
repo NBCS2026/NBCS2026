@@ -51,7 +51,7 @@ export function GoToArrow(props: SVGProps<SVGSVGElement>) {
           gradientTransform="matrix(19.0658 53.4 -3.00036 19.0658 1.10756 -7.67625)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
+          <stop stopColor="#8E0C3A" />
           <stop offset="1" stopColor="#D5D5D5" />
         </radialGradient>
       </defs>

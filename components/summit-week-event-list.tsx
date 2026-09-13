@@ -102,13 +102,13 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
           />
         </div>
         <div className="flex flex-1 flex-col p-6 sm:p-7">
-          <p className="flex items-start gap-2 font-semibold text-[#8C0C3A]">
+          <p className="flex items-start gap-2 font-semibold text-[#8E0C3A]">
             <CalendarDays className="mt-0.5 size-5 shrink-0" aria-hidden />
             <span>
               {dateAndTime(event.date, event.startTime, event.endTime, locale)}
             </span>
           </p>
-          <h3 className="mt-3 font-heading text-2xl font-black leading-tight text-[#5D1831]">
+          <h3 className="mt-3 font-heading text-2xl font-black leading-tight text-[#8E0C3A]">
             {title}
           </h3>
           <p className="mt-4 text-[15px] leading-relaxed text-[#1E1E1E]/78">
@@ -117,7 +117,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
           <dl className="mt-5 space-y-3 text-sm text-[#1E1E1E]/78">
             <div className="flex items-start gap-2">
               <UserRound
-                className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
+                className="mt-0.5 size-4 shrink-0 text-[#8E0C3A]"
                 aria-hidden
               />
               <div>
@@ -132,7 +132,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
             </div>
             <div className="flex items-start gap-2">
               <MapPin
-                className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
+                className="mt-0.5 size-4 shrink-0 text-[#8E0C3A]"
                 aria-hidden
               />
               <div>
@@ -149,7 +149,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
             {access && (
               <div className="flex items-start gap-2">
                 <Ticket
-                  className="mt-0.5 size-4 shrink-0 text-[#8C0C3A]"
+                  className="mt-0.5 size-4 shrink-0 text-[#8E0C3A]"
                   aria-hidden
                 />
                 <div>
@@ -165,7 +165,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
             )}
           </dl>
           {note && (
-            <p className="mt-5 rounded-xl bg-[#FAF6F7] px-4 py-3 text-sm font-semibold leading-relaxed text-[#5D1831]">
+            <p className="mt-5 rounded-xl bg-[#FAF6F7] px-4 py-3 text-sm font-semibold leading-relaxed text-[#8E0C3A]">
               {note}
             </p>
           )}
@@ -175,7 +175,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                 href={event.registrationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#5D1831]"
+                className="rounded-full bg-[#8E0C3A] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#8E0C3A]"
               >
                 {isFr
                   ? event.registrationLabelFr || "S’inscrire"
@@ -188,7 +188,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(directionsQuery)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-[#8C0C3A] transition-colors hover:bg-[#FAF6F7]"
+                  className="rounded-full border border-[#8E0C3A] px-5 py-2.5 text-sm font-bold text-[#8E0C3A] transition-colors hover:bg-[#FAF6F7]"
                 >
                   {isFr ? "Itinéraire" : "Directions"}
                 </a>
@@ -221,7 +221,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
       />
       <section className="mx-auto max-w-[1180px] px-5 py-14 sm:py-20">
         <div className="mb-10 max-w-3xl">
-          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8E0C3A]">
             {isFr ? "Du 14 au 20 septembre 2026" : "September 14–20, 2026"}
           </p>
           <h2 className="mt-3 font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#1E1E1E]">
@@ -241,7 +241,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
             id="week-amfm"
             className="mb-10 rounded-2xl border border-[#E8D4DB] bg-[#FAF6F7] p-5 sm:p-7"
           >
-            <summary className="cursor-pointer font-heading text-xl font-bold leading-snug text-[#5D1831] sm:text-2xl">
+            <summary className="cursor-pointer font-heading text-xl font-bold leading-snug text-[#8E0C3A] sm:text-2xl">
               {isFr ? festival.titleFr : festival.titleEn}
             </summary>
             <div className="mt-5 grid items-start gap-5 sm:grid-cols-[140px_1fr]">
@@ -266,14 +266,14 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                   </span>
                   {isFr ? festival.accessFr : festival.accessEn}
                 </p>
-                <p className="mt-4 text-sm font-semibold leading-relaxed text-[#5D1831]">
+                <p className="mt-4 text-sm font-semibold leading-relaxed text-[#8E0C3A]">
                   {isFr ? festival.noteFr : festival.noteEn}
                 </p>
                 <a
                   href={festival.registrationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#5D1831]"
+                  className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[#8E0C3A] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#8E0C3A]"
                 >
                   {isFr
                     ? festival.registrationLabelFr
@@ -307,9 +307,9 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                     <article
                       key={event.id}
                       id={event.id}
-                      className="rounded-xl border-l-4 border-[#8C0C3A] bg-[#FAF6F7] p-5 lg:col-span-2"
+                      className="rounded-xl border-l-4 border-[#8E0C3A] bg-[#FAF6F7] p-5 lg:col-span-2"
                     >
-                      <p className="text-sm font-semibold text-[#8C0C3A]">
+                      <p className="text-sm font-semibold text-[#8E0C3A]">
                         {dateAndTime(
                           event.date,
                           event.startTime,
@@ -317,7 +317,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                           locale,
                         )}
                       </p>
-                      <h3 className="mt-2 font-heading text-lg font-bold text-[#5D1831]">
+                      <h3 className="mt-2 font-heading text-lg font-bold text-[#8E0C3A]">
                         {isFr ? event.titleFr : event.titleEn}
                       </h3>
                       <p className="mt-2 text-sm">
@@ -325,7 +325,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                         {event.address && ` — ${event.address}`}
                       </p>
                       {event.id === "amfm-september-20" && (
-                        <p className="mt-2 text-sm font-semibold leading-relaxed text-[#5D1831]">
+                        <p className="mt-2 text-sm font-semibold leading-relaxed text-[#8E0C3A]">
                           {isFr
                             ? "Les personnes déléguées peuvent y assister après la cérémonie de clôture du Sommet, qui se termine à midi."
                             : "Summit delegates can attend after the closing ceremony ends at noon."}
@@ -345,7 +345,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                                 ?.focus({ preventScroll: true });
                             }
                           }}
-                          className="inline-flex min-h-11 items-center text-sm font-semibold text-[#8C0C3A] underline underline-offset-4"
+                          className="inline-flex min-h-11 items-center text-sm font-semibold text-[#8E0C3A] underline underline-offset-4"
                         >
                           {isFr ? "Détails du festival" : "Festival details"}
                         </a>
@@ -354,7 +354,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`${isFr ? "Itinéraire" : "Directions"} — ${formatDate(date, locale)} — ${event.venue}`}
-                          className="inline-flex min-h-11 items-center text-sm font-semibold text-[#8C0C3A] underline underline-offset-4"
+                          className="inline-flex min-h-11 items-center text-sm font-semibold text-[#8E0C3A] underline underline-offset-4"
                         >
                           {isFr ? "Itinéraire" : "Directions"}
                         </a>
@@ -365,7 +365,7 @@ export function SummitWeekEventList({ locale }: { locale: string }) {
                   ),
                 )}
                 {!events.length && (
-                  <p className="text-sm text-[#5D1831]">
+                  <p className="text-sm text-[#8E0C3A]">
                     {isFr
                       ? "Aucun événement indiqué pour cette date."
                       : "No events listed for this date."}

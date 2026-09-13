@@ -4,8 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-light-red: #8c0c3a;
-  --color-dark-red: #5d1831;
+  --color-light-red: #8E0C3A;
+  --color-dark-red: #5D0826;
   --color-dark-gray: #000000b3;
   --color-light-gray: #1e1e1eb2;
 

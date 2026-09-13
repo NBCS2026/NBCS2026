@@ -4,7 +4,7 @@ export function SummitWeekVenueMap({ locale }: { locale: string }) {
   return (
     <section className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
       <div className="mx-auto max-w-[1180px]">
-        <h2 className="mb-4 font-heading text-3xl font-black text-[#5D1831] sm:text-4xl">
+        <h2 className="mb-4 font-heading text-3xl font-black text-[#8E0C3A] sm:text-4xl">
           {isFr ? "Carte des lieux" : "Venue map"}
         </h2>
         <p className="mb-6 text-[#1E1E1E]/75">
@@ -20,7 +20,7 @@ export function SummitWeekVenueMap({ locale }: { locale: string }) {
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
-        <a href="https://www.google.com/maps/d/viewer?mid=1r-B7HyiL4j1NG_MT20rrLDryXixkk-4" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex font-semibold text-[#8C0C3A] underline underline-offset-4">
+        <a href="https://www.google.com/maps/d/viewer?mid=1r-B7HyiL4j1NG_MT20rrLDryXixkk-4" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex font-semibold text-[#8E0C3A] underline underline-offset-4">
           {isFr ? "Agrandir la carte dans Google Maps" : "Open full map in Google Maps"}
         </a>
       </div>

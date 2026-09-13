@@ -22,8 +22,11 @@ test('English and French share every stable session ID, parent and anchor', () =
   assert.deepEqual(en.map(x => [x.id,x.anchor,x.blockId]), fr.map(x => [x.id,x.anchor,x.blockId]));
   for (const entry of en) assert.equal(resolveProgramAnchor(entry.anchor)?.id,entry.id);
 });
-test('all seven themes contain only real sessions, and every interpretation link still resolves', () => {
+test('all five themes contain only real sessions, and every interpretation link still resolves', () => {
   const entries = getProgramEntries('en');
+  assert.equal(PROGRAM_THEMES.length, 5);
+  assert.equal(Object.keys(SESSION_THEMES).length, 28);
+  assert.deepEqual(PROGRAM_THEMES.map(t => Object.values(SESSION_THEMES).filter(id => id === t.id).length), [7,5,4,6,6]);
   for (const [id, theme] of Object.entries(SESSION_THEMES)) {
     assert(entries.some(x=>x.id===id), id);
     assert.equal(typeof theme, "string", "A session must have exactly one primary theme");

@@ -25,7 +25,7 @@ export default function Page() {
 
   return (
     <div className={styles.page}>
-      <div className="site-hero min-h-[100svh] flex flex-col relative bg-[linear-gradient(to_bottom,rgba(93,4,36,0.8)_0%,rgba(115,10,47,0.6)_32%,rgba(102,9,42,0.4)_66%,rgba(89,8,37,0.2)_100%),url('/about-hero.webp')] bg-cover bg-center">
+      <div className="site-hero min-h-[100svh] flex flex-col relative bg-[linear-gradient(to_bottom,rgba(93,8,38,0.8)_0%,rgba(142,12,58,0.6)_32%,rgba(142,12,58,0.4)_66%,rgba(142,12,58,0.2)_100%),url('/about-hero.webp')] bg-cover bg-center">
         <header className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 mb-18 md:mb-52 lg:mb-18 w-full">
           <Logo />
           <NavLink className="hidden xl:block flex-1 mx-8 3xl:mx-8 4xl:mx-16" />
@@ -54,7 +54,7 @@ export default function Page() {
           </div>
           <p className="max-w-4xl text-base leading-relaxed text-[#1E1E1E]/80 sm:text-lg">{isFr ? history[0].split(/(4e Mur : Rendre l’invisible visible|Décennie internationale des personnes d’ascendance africaine)/g).map((part, index) => index % 2 ? <strong key={index}>{part}</strong> : part) : history[0]}</p>
           <details className="group mt-5">
-            <summary className="w-fit cursor-pointer rounded-full border border-[#E8D4DB] px-5 py-3 text-sm font-bold text-[#8C0C3A] focus-visible:outline-2 focus-visible:outline-offset-2">
+            <summary className="w-fit cursor-pointer rounded-full border border-[#E8D4DB] px-5 py-3 text-sm font-bold text-[#8E0C3A] focus-visible:outline-2 focus-visible:outline-offset-2">
               <span className="group-open:hidden">{isFr ? "Lire la suite" : "Read more"}</span>
               <span className="hidden group-open:inline">{isFr ? "Réduire l’histoire" : "Show less history"}</span>
             </summary>
@@ -122,7 +122,7 @@ export default function Page() {
                   href="https://www.youtube.com/watch?v=w_pZDBOxB7o"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity motion-reduce:transition-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-[-4px] focus-visible:outline-[#8C0C3A]"
+                  className="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity motion-reduce:transition-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-[-4px] focus-visible:outline-[#8E0C3A]"
                 >
                   <img
                     src="/news-card-1.png"
@@ -136,7 +136,7 @@ export default function Page() {
                   href="https://vimeo.com/1173038507?share=copy&fl=sv&fe=ci"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity motion-reduce:transition-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-[-4px] focus-visible:outline-[#8C0C3A]"
+                  className="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity motion-reduce:transition-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-[-4px] focus-visible:outline-[#8E0C3A]"
                 >
                   <img
                     src="/news-card-2.png"

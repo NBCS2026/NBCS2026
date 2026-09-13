@@ -14,7 +14,7 @@ export function MediaContributionForm({ locale }: { locale: string }) {
     message: string;
   }>({ type: null, message: "" });
   const fieldClass =
-    "mt-2 w-full rounded-xl border border-[#D8C1C9] bg-white px-4 py-3 text-[#1E1E1E] outline-none transition focus:border-[#8C0C3A] focus:ring-2 focus:ring-[#8C0C3A]/20";
+    "mt-2 w-full rounded-xl palette-field border border-[#967984] bg-white px-4 py-3 text-[#1E1E1E] outline-none transition focus:border-[#8E0C3A] focus:ring-2 focus:ring-[#8E0C3A]/20 focus:ring-offset-2";
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -66,10 +66,10 @@ export function MediaContributionForm({ locale }: { locale: string }) {
     <section id="media-contribute" className="bg-[#FAF6F7] px-5 py-14 sm:py-20">
       <div className="mx-auto grid max-w-[1060px] gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <div>
-          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8E0C3A]">
             {isFr ? "Contribuez à la galerie" : "Contribute to the gallery"}
           </p>
-          <h2 className="mt-3 font-heading text-[clamp(30px,4vw,48px)] font-black leading-tight text-[#5D1831]">
+          <h2 className="mt-3 font-heading text-[clamp(30px,4vw,48px)] font-black leading-tight text-[#8E0C3A]">
             {isFr
               ? "Partagez vos photos et vidéos"
               : "Share your photos & videos"}
@@ -169,7 +169,7 @@ export function MediaContributionForm({ locale }: { locale: string }) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#8C0C3A] px-6 py-3.5 font-bold text-white transition-colors hover:bg-[#5D1831] disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#8E0C3A] px-6 py-3.5 font-bold text-white transition-colors hover:bg-[#8E0C3A] disabled:opacity-60"
           >
             <Upload className="size-5" aria-hidden />
             {isSubmitting

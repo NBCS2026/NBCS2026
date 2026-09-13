@@ -20,7 +20,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="site-hero programme-hero min-h-[100svh] flex flex-col relative bg-[url('/gradiant_hero_program.png'),url('/program-hero-394A4674.jpg')] bg-cover bg-center">
+      <div className="site-hero programme-hero min-h-[100svh] flex flex-col relative bg-[linear-gradient(to_bottom,rgba(93,8,38,0.92),rgba(142,12,58,0.35)),url('/program-hero-394A4674.jpg')] bg-cover bg-center">
         <header className="flex items-center text-white max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] mx-auto pt-12 px-8 md:px-12 lg:px-16 2xl:px-20 3xl:px-16 4xl:px-24 mb-18 md:mb-52 lg:mb-18 w-full">
           <Logo />
           <NavLink className="hidden xl:block flex-1 mx-8 3xl:mx-8 4xl:mx-16" />
@@ -40,7 +40,7 @@ export default function Page() {
       <main id="main-content" tabIndex={-1} className="bg-white rounded-t-2xl">
         <Events local={locale} />
         <section id="program-feedback" className="mx-auto mb-14 max-w-[1180px] px-5 sm:mb-20">
-          <div className="flex flex-col items-center justify-between gap-5 rounded-3xl bg-[#5D1831] px-6 py-8 text-center text-white sm:px-10 md:flex-row md:text-left">
+          <div className="flex flex-col items-center justify-between gap-5 rounded-3xl bg-[#8E0C3A] px-6 py-8 text-center text-white sm:px-10 md:flex-row md:text-left">
             <div>
               <h2 className="font-heading text-2xl font-black sm:text-3xl">
                 {locale === "fr"
@@ -55,7 +55,7 @@ export default function Page() {
             </div>
             <Button
               onClick={() => router.push("/feedback?type=general#feedback-form")}
-              className="h-auto shrink-0 rounded-full bg-white px-6 py-3 font-bold text-[#5D1831] hover:bg-[#FAF6F7]"
+              className="h-auto shrink-0 rounded-full bg-white px-6 py-3 font-bold text-[#8E0C3A] hover:bg-[#FAF6F7]"
             >
               {locale === "fr" ? "Donner mon avis" : "Give feedback"}
             </Button>

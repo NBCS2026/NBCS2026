@@ -169,19 +169,19 @@ export function MediaContent({ locale }: { locale: string }) {
         ["media-contribute", isFr ? "Partager du contenu" : "Share content"],
       ]} />
       <section aria-label={isFr ? "Partenaire média officiel" : "Official Media Partner"} className="px-5 pt-12">
-        <a href="https://www.cbc.ca/" target="_blank" rel="noopener noreferrer" className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-6 rounded-2xl border border-[#E8D4DB] bg-white px-6 py-8 text-[#5D1831]">
+        <a href="https://www.cbc.ca/" target="_blank" rel="noopener noreferrer" className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-6 rounded-2xl border border-[#E8D4DB] bg-white px-6 py-8 text-[#8E0C3A]">
           <img src="/cbc-logo.png" alt="CBC" className="h-16 w-auto max-w-[180px] object-contain" />
           <span className="font-heading text-lg font-bold underline underline-offset-4">{isFr ? "Partenaire média officiel" : "Official Media Partner"}</span>
         </a>
       </section>
       <section className="px-5 pb-4 pt-14 text-center sm:pt-20">
         <div className="mx-auto max-w-3xl">
-          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8E0C3A]">
             {isFr
               ? "Regarder · Découvrir · Partager"
               : "Watch · Explore · Share"}
           </p>
-          <h2 className="mt-3 font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#5D1831]">
+          <h2 className="mt-3 font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight text-[#8E0C3A]">
             {isFr ? "Le Sommet en images" : "The Summit in motion"}
           </h2>
           <p className="mt-4 leading-relaxed text-[#1E1E1E]/75 sm:text-lg">
@@ -195,10 +195,10 @@ export function MediaContent({ locale }: { locale: string }) {
       <section id="media-instagram" className="px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-[1180px]">
           <div className="mb-8 text-center">
-            <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+            <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8E0C3A]">
               {isFr ? "Publications à découvrir" : "Featured posts"}
             </p>
-            <h2 className="mt-3 font-heading text-3xl font-black text-[#5D1831] sm:text-4xl">
+            <h2 className="mt-3 font-heading text-3xl font-black text-[#8E0C3A] sm:text-4xl">
               Instagram
             </h2>
           </div>
@@ -219,7 +219,7 @@ export function MediaContent({ locale }: { locale: string }) {
                   href={post.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between gap-3 border-t border-[#E8D4DB] p-4 text-sm font-bold text-[#5D1831]"
+                  className="flex items-center justify-between gap-3 border-t border-[#E8D4DB] p-4 text-sm font-bold text-[#8E0C3A]"
                 >
                   {isFr ? post.titleFr : post.titleEn}
                   <ExternalLink className="size-4 shrink-0" aria-hidden />
@@ -233,10 +233,10 @@ export function MediaContent({ locale }: { locale: string }) {
       <section id="media-social" className="px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-[1180px]">
           <div className="mb-8 text-center">
-            <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+            <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8E0C3A]">
               {isFr ? "Suivez la conversation" : "Follow the conversation"}
             </p>
-            <h2 className="mt-3 font-heading text-3xl font-black text-[#5D1831] sm:text-4xl">
+            <h2 className="mt-3 font-heading text-3xl font-black text-[#8E0C3A] sm:text-4xl">
               {isFr ? "Réseaux sociaux" : "Social media"}
             </h2>
           </div>
@@ -247,9 +247,9 @@ export function MediaContent({ locale }: { locale: string }) {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex min-h-32 flex-col justify-between rounded-2xl border border-[#E8D4DB] bg-[#FAF6F7] p-5 transition-colors hover:border-[#8C0C3A]"
+                className="group flex min-h-32 flex-col justify-between rounded-2xl border border-[#E8D4DB] bg-[#FAF6F7] p-5 transition-colors hover:border-[#8E0C3A]"
               >
-                <span className="flex items-center justify-between font-heading text-xl font-black text-[#5D1831]">
+                <span className="flex items-center justify-between font-heading text-xl font-black text-[#8E0C3A]">
                   {social.name}
                   <ExternalLink className="size-5" aria-hidden />
                 </span>
@@ -314,10 +314,10 @@ function CoverageSection({
     >
       <div className="mx-auto max-w-[1180px]">
         <div className="mb-8 max-w-3xl">
-          {(isFr ? eyebrowFr : eyebrowEn) && <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+          {(isFr ? eyebrowFr : eyebrowEn) && <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8E0C3A]">
             {isFr ? eyebrowFr : eyebrowEn}
           </p>}
-          <h2 className="mt-3 font-heading text-3xl font-black text-[#5D1831] sm:text-4xl">
+          <h2 className="mt-3 font-heading text-3xl font-black text-[#8E0C3A] sm:text-4xl">
             {isFr ? titleFr : titleEn}
           </h2>
         </div>
@@ -330,10 +330,10 @@ function CoverageSection({
               rel="noopener noreferrer"
               className="group flex h-full flex-col rounded-2xl border border-[#E8D4DB] bg-white p-6 shadow-sm transition-transform hover:-translate-y-0.5"
             >
-              <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#8C0C3A]">
+              <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#8E0C3A]">
                 {item.source} · {item.date}
               </span>
-              <span className="mt-3 flex items-start justify-between gap-4 font-heading text-xl font-black leading-snug text-[#5D1831]">
+              <span className="mt-3 flex items-start justify-between gap-4 font-heading text-xl font-black leading-snug text-[#8E0C3A]">
                 {item.title}
                 <ExternalLink className="mt-1 size-5 shrink-0" aria-hidden />
               </span>

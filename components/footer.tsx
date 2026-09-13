@@ -13,46 +13,19 @@ export function Footer({ showSponsors = true }: { showSponsors?: boolean }) {
   const params = useParams<{ locale: string }>();
   const { locale } = params;
   return (
-    <footer className="bg-[#5D1831]">
+    <footer className="bg-[#5D0826]">
       {showSponsors && <SponsorFooterBand locale={locale} />}
-      <div className="pt-8 sm:pt-12 md:pt-16 lg:pt-[65px] pb-8 sm:pb-10 md:pb-12 lg:pb-[50px]">
-        <div className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] px-4 sm:px-5 2xl:px-8 3xl:px-16 4xl:px-24 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-9 2xl:gap-12 3xl:gap-16 4xl:gap-20">
-          <div className="flex flex-col gap-6 sm:gap-8 justify-between md:gap-12 lg:gap-20">
-            <div className="sm:space-y-2 text-left">
+      <div className="py-10 sm:py-12 lg:py-14">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] 4xl:max-w-[2400px] px-4 sm:px-5 2xl:px-8 3xl:px-16 4xl:px-24 mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 lg:gap-x-12 items-start">
+          <div className="flex flex-col gap-7">
+            <div className="space-y-2 text-left leading-relaxed">
               <p className="text-white">{t("text_one")}</p>
-              <p className="text-[#9D989A]">{t("text_two")}</p>
+              <p className="text-[#D4C7CD]">{t("text_two")}</p>
             </div>
-            <div className="flex flex-col items-start justify-between">
-              {/* <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
-              <Link
-                href="https://www.instagram.com/michaellej_fdn/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram — michaellej_fdn"
-              >
-                <Instagram />
-              </Link>
-              <Link
-                href="https://www.facebook.com/FondationMichaelleJeanFoundation/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook — Fondation Michaëlle Jean Foundation"
-              >
-                <Facebook />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/company/fondationmjfoundation/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn — Fondation Michaëlle Jean Foundation"
-                className="bg-white rounded-full size-9 flex items-center justify-center"
-              >
-                <LinkedIn width={18} height={18} className="text-dark-red" />
-              </Link>
-            </div> */}
+            <div className="flex flex-col items-start gap-6">
 
-              <div className="mb-16 lg:mb-32 w-full flex flex-col items-center md:items-start">
-                <p className="text-[13px] text-white font-extralight mb-2 text-center md:text-left">
+              <div className="w-full flex flex-col items-start gap-2">
+                <p className="text-[13px] text-white font-extralight text-left">
                   {t("text_ten")}
                 </p>
                 <div className="w-full max-w-[280px] sm:max-w-[300px] md:max-w-[320px]">
@@ -60,16 +33,15 @@ export function Footer({ showSponsors = true }: { showSponsors?: boolean }) {
                 </div>
               </div>
               <div className="self-start">
-                <p className="text-[#9D989A] text-[12px] md:text-[16px]">
+                <p className="text-[#D4C7CD] text-[12px] md:text-[16px]">
                   {t("text_four")}
                 </p>
-                <p className="text-[#9D989A] text-[12px] md:text-[16px] text-left">
+                <p className="text-[#D4C7CD] text-[12px] md:text-[16px] text-left">
                   {t("text_five")}
                 </p>
               </div>
             </div>
-          </div>
-          <div className="flex items-center justify-center order-first md:order-none">
+          <div className="flex items-start justify-start">
             <div className="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[320px] aspect-[3.21/1]">
               <Image
                 src="/africandescent-emblem.png"
@@ -80,20 +52,17 @@ export function Footer({ showSponsors = true }: { showSponsors?: boolean }) {
               />
             </div>
           </div>
+          </div>
           <div>
             <FooterNav />
-            {/* <div className="mb-6 lg:mb-14">
-            <p className="text-[13px] text-white font-extralight">{t("text_ten")}</p>
-            <Foundation />
-          </div> */}
-            <div className="mb-8">
+            <div className="mt-7 space-y-1.5">
               <p className="text-white font-medium">{t("text_six")}</p>
-              <p className="text-[#8F9FA3]">+1 (613)-562-9393</p>
-              <a className="text-[#8F9FA3]" href="mailto:nbcs-spcn@fmjf.ca">
+              <p className="text-[#D4C7CD]">+1 (613)-562-9393</p>
+              <a className="text-[#D4C7CD]" href="mailto:nbcs-spcn@fmjf.ca">
                 nbcs-spcn@fmjf.ca
               </a>
 
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mt-2.5">
+              <div className="flex items-center gap-4 pt-3">
                 <Link
                   href="https://www.instagram.com/michaellej_fdn/"
                   target="_blank"
@@ -121,10 +90,10 @@ export function Footer({ showSponsors = true }: { showSponsors?: boolean }) {
                 </Link>
               </div>
             </div>
-            <div className="flex justify-between">
+            <div className="mt-7 flex flex-wrap gap-x-10 gap-y-5">
               <div>
                 <p className="text-white font-medium">{t("text_seven")}</p>
-                <p className="text-[#8F9FA3]">{t("text_eight")}</p>
+                <p className="text-[#D4C7CD]">{t("text_eight")}</p>
               </div>
               <div>
                 <p className="text-white">{t("text_nine")}</p>
@@ -199,11 +168,13 @@ function FooterNav() {
   ];
   return (
     <nav>
-      <ul className="flex text-[#8F9FA3] gap-4 sm:gap-6 md:gap-8 mb-4 sm:mb-6 md:mb-8 lg:mb-14 flex-wrap gap-y-2.5">
+      <ul className="grid grid-cols-2 text-[#D4C7CD] gap-x-6 gap-y-1">
         {Links.map((link) => (
-          <Link key={link.url} href={link.url}>
-            {link.title}
-          </Link>
+          <li key={link.url}>
+            <Link href={link.url} className="inline-flex min-h-11 items-center py-2 leading-snug">
+              {link.title}
+            </Link>
+          </li>
         ))}
       </ul>
     </nav>
@@ -228,7 +199,7 @@ function Switcher({ locale }: { locale: string }) {
         type="button"
         onClick={() => switchLang("en")}
         className={`${
-          locale === "en" ? "text-white" : "text-[#8F9FA3]"
+          locale === "en" ? "text-white" : "text-[#D4C7CD]"
         } cursor-pointer`}
       >
         EN
@@ -238,7 +209,7 @@ function Switcher({ locale }: { locale: string }) {
         type="button"
         onClick={() => switchLang("fr")}
         className={`${
-          locale === "fr" ? "text-white" : "text-[#8F9FA3]"
+          locale === "fr" ? "text-white" : "text-[#D4C7CD]"
         } cursor-pointer`}
       >
         FR

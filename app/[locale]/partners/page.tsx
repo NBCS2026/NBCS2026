@@ -14,7 +14,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="relative h-screen bg-[linear-gradient(to_bottom,rgba(93,4,36,0.8)_0%,rgba(115,10,47,0.6)_22%,rgba(102,9,42,0.4)_56%,rgba(89,8,37,0.2)_90%),url('/sponsor_main.webp')] bg-cover bg-center">
+      <div className="relative h-screen bg-[linear-gradient(to_bottom,rgba(93,8,38,0.8)_0%,rgba(142,12,58,0.6)_22%,rgba(142,12,58,0.4)_56%,rgba(142,12,58,0.2)_90%),url('/sponsor_main.webp')] bg-cover bg-center">
         <header className="mx-auto mb-18 flex w-full max-w-[1440px] items-center px-8 pt-12 text-white md:mb-52 md:px-12 lg:mb-18 lg:px-16 2xl:max-w-[1600px] 2xl:px-20 3xl:max-w-[1800px] 3xl:px-16 4xl:max-w-[2400px] 4xl:px-24">
           <Logo />
           <NavLink className="mx-8 hidden flex-1 xl:block 3xl:mx-12" />

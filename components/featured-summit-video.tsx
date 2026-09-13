@@ -10,7 +10,7 @@ export function FeaturedSummitVideo({ locale }: { locale: string }) {
           preload="metadata"
           poster="/summit-2026-video-poster.jpg"
           aria-label={isFr ? "Vidéo du Sommet 2026" : "2026 Summit video"}
-          className="mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-3xl bg-[#1E1E1E] object-cover shadow-[0_18px_50px_rgba(93,24,49,0.16)]"
+          className="mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-3xl bg-[#1E1E1E] object-cover shadow-[0_18px_50px_rgba(142,12,58,0.16)]"
         >
           <source src="/summit-2026-video.mp4" type="video/mp4" />
           <track

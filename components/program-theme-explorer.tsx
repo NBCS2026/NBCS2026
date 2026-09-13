@@ -15,8 +15,8 @@ const point = (radius: number, angle: number) => {
   return [330 + radius * Math.cos(radians), 330 + radius * Math.sin(radians)];
 };
 function segment(index: number) {
-  const start = (index * 360) / 7 - 360 / 14 + 1.1;
-  const end = start + 360 / 7 - 2.2;
+  const start = (index * 360) / PROGRAM_THEMES.length - 180 / PROGRAM_THEMES.length + 1.1;
+  const end = start + 360 / PROGRAM_THEMES.length - 2.2;
   return `M ${point(318, start)} A 318 318 0 0 1 ${point(318, end)} L ${point(89, end)} A 89 89 0 0 0 ${point(89, start)} Z`;
 }
 
@@ -68,7 +68,7 @@ export function ProgramThemeExplorer({ locale }: { locale: string }) {
                 aria-controls="theme-sessions"
                 onClick={() => setSelected(item.id)}
                 className={selected === item.id ? "is-selected" : ""}
-                style={{ background: item.color }}
+                style={{ background: item.color, color: item.foreground }}
               >
                 {index + 1}
               </button>
@@ -104,7 +104,7 @@ export function ProgramThemeExplorer({ locale }: { locale: string }) {
             />
           </span>
           {PROGRAM_THEMES.map((item, index) => {
-            const [x, y] = point(216, (index * 360) / 7);
+            const [x, y] = point(216, (index * 360) / PROGRAM_THEMES.length);
             return (
               <button
                 key={item.id}
@@ -116,6 +116,7 @@ export function ProgramThemeExplorer({ locale }: { locale: string }) {
                 style={
                   {
                     "--theme-color": item.color,
+                    "--theme-foreground": item.foreground,
                     "--theme-x": `${x / 6.6}%`,
                     "--theme-y": `${y / 6.6}%`,
                   } as CSSProperties

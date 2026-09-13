@@ -496,7 +496,7 @@ function SponsorCard({
 
   return (
     <article
-      className={`flex ${height} min-w-0 w-full ${entry.name === "CBC" ? "flex-row flex-wrap" : "flex-col"} items-center justify-center gap-4 rounded-2xl border border-[#E8D4DB] bg-white text-center shadow-[0_10px_35px_rgba(93,24,49,0.06)] ${prominence === "champion" || prominence === "paid" ? "p-6 [&_img]:scale-[1.06]" : "p-5"}`}
+      className={`flex ${height} min-w-0 w-full ${entry.name === "CBC" ? "flex-row flex-wrap" : "flex-col"} items-center justify-center gap-4 rounded-2xl border border-[#E8D4DB] bg-white text-center shadow-[0_10px_35px_rgba(142,12,58,0.06)] ${prominence === "champion" || prominence === "paid" ? "p-6 [&_img]:scale-[1.06]" : "p-5"}`}
     >
       {entry.logos && (
         <div className={`flex min-h-16 min-w-0 max-w-full flex-wrap items-center justify-center ${entry.name === "Roots in Harmony" ? "h-[180px] w-full !flex-nowrap overflow-hidden [&_img]:-translate-y-[10px]" : ""} ${entry.name === "Province of Manitoba / Travel Manitoba" ? "gap-8" : "gap-4"}`}>
@@ -513,10 +513,10 @@ function SponsorCard({
       )}
       {entry.showRole && role && (
         entry.website ? (
-          <a href={entry.website} target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#8C0C3A] underline underline-offset-4">
+          <a href={entry.website} target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#8E0C3A] underline underline-offset-4">
             {role}
           </a>
-        ) : <p className="text-sm font-bold text-[#8C0C3A]">{role}</p>
+        ) : <p className="text-sm font-bold text-[#8E0C3A]">{role}</p>
       )}
       {!entry.logos && (
         <div>
@@ -527,7 +527,7 @@ function SponsorCard({
           </p>
           {role && (
             <p
-              className={`${entry.logos ? "" : "mt-1.5"} text-xs font-semibold uppercase tracking-[0.09em] text-[#8C0C3A]`}
+              className={`${entry.logos ? "" : "mt-1.5"} text-xs font-semibold uppercase tracking-[0.09em] text-[#8E0C3A]`}
             >
               {role}
             </p>
@@ -568,7 +568,7 @@ function Tier({
 
   return (
     <section id={id} className={compact ? "mb-10" : "mb-14 sm:mb-16"}>
-      <h2 className="mb-6 text-center font-heading text-sm font-black uppercase tracking-[0.16em] text-[#5D1831] sm:text-base">
+      <h2 className="mb-6 text-center font-heading text-sm font-black uppercase tracking-[0.16em] text-[#8E0C3A] sm:text-base">
         {locale === "fr" ? titleFr : titleEn}
       </h2>
       <div className={`grid gap-5 ${columns}`}>
@@ -603,9 +603,9 @@ export function SponsorDirectory({
         ["sponsor-community", locale === "fr" ? "Partenaires communautaires" : "Community Partners"],
       ]} />}
       <section
-        className={`flex flex-col items-center justify-center rounded-[2rem] border-2 border-[#8C0C3A]/20 bg-[#FAF6F7] px-6 text-center shadow-[0_18px_60px_rgba(93,24,49,0.09)] ${compact ? "mb-14 py-10" : "mb-20 py-16 sm:mb-24 sm:py-20"}`}
+        className={`flex flex-col items-center justify-center rounded-[2rem] border-2 border-[#8E0C3A]/20 bg-[#FAF6F7] px-6 text-center shadow-[0_18px_60px_rgba(142,12,58,0.09)] ${compact ? "mb-14 py-10" : "mb-20 py-16 sm:mb-24 sm:py-20"}`}
       >
-        <h2 className="mb-7 font-heading text-sm font-black uppercase tracking-[0.18em] text-[#5D1831] sm:text-base">
+        <h2 className="mb-7 font-heading text-sm font-black uppercase tracking-[0.18em] text-[#8E0C3A] sm:text-base">
           {locale === "fr" ? "Présenté par" : "Presented by"}
         </h2>
         <img

@@ -53,7 +53,7 @@
   min-width: 0;
 }
 .quote blockquote {
-  color: #5D0424;
+  color: #8E0C3A;
   font-weight: 600;
   line-height: 1.65;
   font-size: 1rem;
@@ -62,7 +62,7 @@
   font-size: clamp(1.3rem, 2.2vw, 1.8rem);
 }
 .quote figcaption {
-  color: #5D1831;
+  color: #8E0C3A;
   font-size: .875rem;
   line-height: 1.6;
   margin-top: 1.25rem;
@@ -86,7 +86,7 @@
 @media (min-width: 768px) {
   .section { padding-inline: 2rem; }
   .quotes { grid-template-columns: 1.1fr 1fr; column-gap: 4rem; }
-  .quote:first-child { grid-row: span 3; padding-left: 2rem; border-left-color: #8C0C3A; }
+  .quote:first-child { grid-row: span 3; padding-left: 2rem; border-left-color: #8E0C3A; }
 }
 @media (prefers-reduced-motion: reduce) {
   .page *, .page *::before, .page *::after { scroll-behavior: auto; }

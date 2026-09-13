@@ -15,7 +15,7 @@ export function AboutCollage({ locale = "en" }: { locale?: string }) {
           </figure>
         ))}
       </div>
-      <div className="pointer-events-none absolute left-1/2 top-1/2 flex aspect-square w-[44%] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-[#8C0C3A] bg-white p-[5%] shadow-lg">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 flex aspect-square w-[44%] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-[#8E0C3A] bg-white p-[5%] shadow-lg">
         <img src="/nbcs-logo-no-words.png" alt={locale === "fr" ? "Sommet pancanadien des communautés noires" : "National Black Canadians Summit"} className="h-full w-full object-contain" loading="lazy" />
       </div>
     </div>

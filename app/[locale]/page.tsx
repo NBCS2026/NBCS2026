@@ -109,7 +109,7 @@ export default function Page() {
               <div className="space-y-4">
                 <p className="text-[clamp(16px,1.82vw,28px)] text-[#1E1E1EB2] font-medium leading-relaxed">
                   {s2.prefix}
-                  <span className="text-[#8C0C3A] font-semibold">
+                  <span className="text-[#8E0C3A] font-semibold">
                     {s2.quote}
                   </span>
                   {s2.p1}

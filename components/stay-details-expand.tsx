@@ -39,8 +39,8 @@ function CtaButton({
   const className = cn(
     "inline-flex items-center justify-center rounded-full h-11 px-6 text-[15px] sm:text-[16px] font-semibold transition-colors cursor-pointer w-full sm:w-auto",
     isDark
-      ? "bg-white text-[#5D1831] hover:bg-[#F5E9EE] border border-white"
-      : "bg-[#8C0C3A] text-white hover:bg-[#5D1831] border border-[#8C0C3A]",
+      ? "bg-white text-[#8E0C3A] hover:bg-[#F5E9EE] border border-white"
+      : "bg-[#8E0C3A] text-white hover:bg-[#8E0C3A] border border-[#8E0C3A]",
   );
 
   if (external) {
@@ -93,7 +93,7 @@ function SectionCard({
           "w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left font-heading font-bold text-[15px] sm:text-[17px] tracking-wide cursor-pointer transition-colors",
           isDark
             ? "text-[#FFD6E0] hover:bg-white/5"
-            : "text-[#5D1831] hover:bg-[#FAF6F7]",
+            : "text-[#8E0C3A] hover:bg-[#FAF6F7]",
         )}
       >
         <span>{title}</span>
@@ -158,7 +158,7 @@ function PageLink({
       href={href}
       className={cn(
         "inline-block underline underline-offset-2 font-semibold text-[13px] sm:text-[14px]",
-        isDark ? "text-[#FFB6C8]" : "text-[#8C0C3A]",
+        isDark ? "text-[#FFB6C8]" : "text-[#8E0C3A]",
       )}
     >
       {children}
@@ -191,7 +191,7 @@ export function StayDetailsExpand({
         <p
           className={cn(
             "font-heading text-[18px] sm:text-[22px] font-bold tracking-wide",
-            isDark ? "text-[#FFD6E0]" : "text-[#5D1831]",
+            isDark ? "text-[#FFD6E0]" : "text-[#8E0C3A]",
             textAlign,
           )}
         >
@@ -204,7 +204,7 @@ export function StayDetailsExpand({
           "font-body text-[15px] lg:text-[18px] font-medium leading-relaxed",
           isDark
             ? "text-[#F8F0F3] [&>span]:text-[#FFB6C8]"
-            : "text-[#1E1E1EB2] [&>span]:text-[#8C0C3A]",
+            : "text-[#1E1E1EB2] [&>span]:text-[#8E0C3A]",
           textAlign,
         )}
       >
@@ -234,7 +234,7 @@ export function StayDetailsExpand({
           onClick={() => setOpen((prev) => !prev)}
           className={cn(
             "inline-flex items-center justify-center gap-2 font-semibold underline underline-offset-4 transition-opacity hover:opacity-80 cursor-pointer text-[15px] lg:text-[17px]",
-            isDark ? "text-[#FFB6C8]" : "text-[#8C0C3A]",
+            isDark ? "text-[#FFB6C8]" : "text-[#8E0C3A]",
           )}
         >
           {open
@@ -270,7 +270,7 @@ export function StayDetailsExpand({
               <p
                 className={cn(
                   "font-body text-[13px] sm:text-[14px] font-medium px-1",
-                  isDark ? "text-[#FFD6E0]" : "text-[#5D1831]",
+                  isDark ? "text-[#FFD6E0]" : "text-[#8E0C3A]",
                 )}
               >
                 {isFr
@@ -299,8 +299,8 @@ export function StayDetailsExpand({
                   className={cn(
                     "rounded-lg border px-3 py-2 text-[14px] sm:text-[15px] font-bold",
                     isDark
-                      ? "border-white/40 bg-white text-[#5D1831]"
-                      : "border-[#8C0C3A]/30 bg-[#F5E9EE] text-[#5D1831]",
+                      ? "border-white/40 bg-white text-[#8E0C3A]"
+                      : "border-[#8E0C3A]/30 bg-[#F5E9EE] text-[#8E0C3A]",
                   )}
                 >
                   {isFr
@@ -583,7 +583,7 @@ export function StayDetailsExpand({
                   href={MAP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block rounded-xl overflow-hidden border border-[#8C0C3A]/30 hover:opacity-90 transition-opacity"
+                  className="block rounded-xl overflow-hidden border border-[#8E0C3A]/30 hover:opacity-90 transition-opacity"
                 >
                   <img
                     src="/rbc-convention-centre-map.png"

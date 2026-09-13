@@ -14,7 +14,7 @@ export function TreemonishaFeature({ locale }: { locale: string }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-labelledby="treemonisha-title treemonisha-link-label"
-        className="group flex h-full flex-col focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-[-4px] focus-visible:outline-[#8C0C3A]"
+        className="group flex h-full flex-col focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-[-4px] focus-visible:outline-[#8E0C3A]"
       >
         <img
           src="/treemonisha-2026.jpg"
@@ -26,16 +26,16 @@ export function TreemonishaFeature({ locale }: { locale: string }) {
         />
         <div className="flex flex-1 flex-col items-start gap-6 p-6 sm:p-7">
           <div>
-            <p className="mb-2 text-sm font-semibold text-[#8C0C3A]">
+            <p className="mb-2 text-sm font-semibold text-[#8E0C3A]">
               Manitoba Opera
             </p>
             <h3
               id="treemonisha-title"
-              className="font-heading text-2xl font-bold leading-tight text-[#5D1831] sm:text-3xl"
+              className="font-heading text-2xl font-bold leading-tight text-[#8E0C3A] sm:text-3xl"
             >
               Scott Joplin’s <em>Treemonisha</em>
             </h3>
-            <p className="mt-3 text-sm text-[#5D1831] sm:text-base">
+            <p className="mt-3 text-sm text-[#8E0C3A] sm:text-base">
               {isFr
                 ? "Les 21, 25 et 27 novembre 2026"
                 : "November 21, 25 & 27, 2026"}{" "}
@@ -49,7 +49,7 @@ export function TreemonishaFeature({ locale }: { locale: string }) {
           </div>
           <span
             id="treemonisha-link-label"
-            className="mt-auto inline-flex min-h-11 items-center gap-3 rounded-full bg-[#8C0C3A] px-5 py-3 text-sm font-bold text-white transition-colors group-hover:bg-[#5D1831] motion-reduce:transition-none"
+            className="mt-auto inline-flex min-h-11 items-center gap-3 rounded-full bg-[#8E0C3A] px-5 py-3 text-sm font-bold text-white transition-colors group-hover:bg-[#8E0C3A] motion-reduce:transition-none"
           >
             {isFr ? "Détails et billets" : "Details & tickets"}
             <span aria-hidden="true">↗</span>

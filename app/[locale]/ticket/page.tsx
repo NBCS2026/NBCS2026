@@ -14,7 +14,7 @@ import ToggleMenu from "@/components/toggle-menu";
 import { Link } from "@/i18n/navigation";
 
 const GRADIENT_BG =
-  "linear-gradient(163.81deg, #5D1831 15.12%, #1C040D 88.75%)";
+  "linear-gradient(163.81deg, #8E0C3A 15.12%, #5D0826 88.75%)";
 
 export default function Page() {
   const params = useParams<{ locale: string }>();
@@ -33,7 +33,7 @@ export default function Page() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('/ticket-hero-gradient.png'), url('/registration-hero-394A3185.jpg')`,
+              backgroundImage: `linear-gradient(to bottom,rgba(93,8,38,0.92),rgba(142,12,58,0.35)), url('/registration-hero-394A3185.jpg')`,
               backgroundPosition: "center, center top",
             }}
           />
@@ -79,7 +79,7 @@ export default function Page() {
               <span className="uppercase text-[#1E1E1E]">
                 {t("seat_title_part1")}{" "}
               </span>
-              <span className="uppercase text-[#8C0C3A]">
+              <span className="uppercase text-[#8E0C3A]">
                 {t("seat_title_part2")}
               </span>
             </h2>
@@ -123,7 +123,7 @@ export default function Page() {
 
             <div
               className="rounded-2xl sm:rounded-3xl lg:rounded-[40px] p-3 sm:p-4 md:p-5 lg:p-6"
-              style={{ background: GRADIENT_BG, border: "1px solid #5D1831" }}
+              style={{ background: GRADIENT_BG, border: "1px solid #8E0C3A" }}
             >
               <div className="rounded-xl sm:rounded-2xl lg:rounded-[32px] bg-white p-4 sm:p-6 md:p-8 lg:p-10 space-y-8">
                 <div className="space-y-4">
@@ -132,14 +132,14 @@ export default function Page() {
                   </p>
                   <BizzaboRegistrationWidget key={`bizzabo-${locale}`} />
                   <aside id="youth-waitlist" aria-label={isFr ? "Liste d’attente jeunesse" : "Youth ticket waitlist"} className="rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] p-5 text-center sm:p-6">
-                    <h3 className="font-heading text-lg font-bold text-[#5D1831]">{isFr ? "Les billets jeunesse sont épuisés" : "Youth tickets are sold out"}</h3>
+                    <h3 className="font-heading text-lg font-bold text-[#8E0C3A]">{isFr ? "Les billets jeunesse sont épuisés" : "Youth tickets are sold out"}</h3>
                     <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-[#1E1E1E]/75">{isFr ? "Inscrivez-vous sur la liste d’attente pour être contacté·e si un billet se libère. L’inscription ne garantit pas un billet." : "Join the waitlist to be contacted if a ticket becomes available. Joining does not guarantee a ticket."}</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-4DhY8etnlxSWOKabEUVeDZjlP0uw1cjGan-91o0dQMWH5g/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-[#8C0C3A] px-6 py-3 text-sm font-bold text-white hover:bg-[#5D1831]">{isFr ? "Rejoindre la liste d’attente jeunesse" : "Join the youth waitlist"}</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-4DhY8etnlxSWOKabEUVeDZjlP0uw1cjGan-91o0dQMWH5g/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-[#8E0C3A] px-6 py-3 text-sm font-bold text-white hover:bg-[#8E0C3A]">{isFr ? "Rejoindre la liste d’attente jeunesse" : "Join the youth waitlist"}</a>
                   </aside>
                   <OpeningCeremonyRsvp locale={locale} />
                 </div>
                 <div id="registration-next-step" className="rounded-xl sm:rounded-2xl lg:rounded-[28px] border border-[#E8D4DB] bg-[#FAF6F7] px-5 sm:px-8 py-6 sm:py-8 space-y-4">
-                  <p className="font-heading text-[16px] sm:text-[20px] font-bold tracking-[0.12em] uppercase text-[#8C0C3A] text-center">
+                  <p className="font-heading text-[16px] sm:text-[20px] font-bold tracking-[0.12em] uppercase text-[#8E0C3A] text-center">
                     {isFr ? "Prochaine étape" : "Next step"}
                   </p>
                   <StayDetailsExpand isFr={isFr} tone="light" />
@@ -158,7 +158,7 @@ export default function Page() {
                     Soutenir l&apos;accès au
                   </span>
                   <br />
-                  <span className="uppercase text-[#8C0C3A]">
+                  <span className="uppercase text-[#8E0C3A]">
                     Sommet pancanadien des communautés noires
                   </span>
                 </>
@@ -168,7 +168,7 @@ export default function Page() {
                     Supporting Access to the
                   </span>
                   <br />
-                  <span className="uppercase text-[#8C0C3A]">
+                  <span className="uppercase text-[#8E0C3A]">
                     National Black Canadians Summit
                   </span>
                 </>
@@ -193,7 +193,7 @@ export default function Page() {
                     consulter notre page{" "}
                     <Link
                       href="/partners"
-                      className="underline underline-offset-2 text-[#8C0C3A] font-semibold hover:opacity-80 transition-opacity"
+                      className="underline underline-offset-2 text-[#8E0C3A] font-semibold hover:opacity-80 transition-opacity"
                     >
                       Partenaires
                     </Link>
@@ -224,7 +224,7 @@ export default function Page() {
                     learn more about their generosity, please visit our{" "}
                     <Link
                       href="/partners"
-                      className="underline underline-offset-2 text-[#8C0C3A] font-semibold hover:opacity-80 transition-opacity"
+                      className="underline underline-offset-2 text-[#8E0C3A] font-semibold hover:opacity-80 transition-opacity"
                     >
                       Partners
                     </Link>{" "}
@@ -246,7 +246,7 @@ export default function Page() {
                   href="https://www.canadahelps.org/en/dn/141226"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block font-body text-[15px] lg:text-[22px] text-[#8C0C3A] font-semibold underline underline-offset-4 hover:opacity-80 transition-opacity tracking-[0.08em] uppercase"
+                  className="inline-block font-body text-[15px] lg:text-[22px] text-[#8E0C3A] font-semibold underline underline-offset-4 hover:opacity-80 transition-opacity tracking-[0.08em] uppercase"
                 >
                   {isFr ? "Faites un don dès aujourd'hui" : "Donate Today"}
                 </a>

@@ -163,7 +163,7 @@ export function BizzaboRegistrationWidget() {
         // biome-ignore lint/a11y/useSemanticElements: This is a loading status with a retry control, not a form calculation output.
         <div
           role="status"
-          className="rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] p-4 text-center text-sm text-[#5D1831]"
+          className="rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] p-4 text-center text-sm text-[#8E0C3A]"
         >
           <p>
             {state === "loading"
@@ -178,7 +178,7 @@ export function BizzaboRegistrationWidget() {
             <button
               type="button"
               onClick={() => setAttempt((value) => value + 1)}
-              className="mt-3 min-h-11 rounded-full border border-[#8C0C3A] px-5 py-2 font-semibold"
+              className="mt-3 min-h-11 rounded-full border border-[#8E0C3A] px-5 py-2 font-semibold"
             >
               {locale === "fr"
                 ? "Recharger l’inscription"
@@ -192,7 +192,7 @@ export function BizzaboRegistrationWidget() {
           href={directRegistrationUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex min-h-11 items-center px-2 text-sm font-semibold text-[#8C0C3A] underline underline-offset-4"
+          className="inline-flex min-h-11 items-center px-2 text-sm font-semibold text-[#8E0C3A] underline underline-offset-4"
         >
           {locale === "fr"
             ? "Ouvrir l’inscription dans un nouvel onglet"

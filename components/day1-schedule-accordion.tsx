@@ -395,7 +395,7 @@ function SessionCard({
         </div>
         <ChevronDown
           className={cn(
-            "size-5 shrink-0 mt-0.5 text-[#8C0C3A] transition-transform duration-200",
+            "size-5 shrink-0 mt-0.5 text-[#8E0C3A] transition-transform duration-200",
             open && "rotate-180",
           )}
         />
@@ -418,7 +418,7 @@ function SessionCard({
             </p>
             {session.presentedBy && (
               <div className="inline-flex items-center gap-3 rounded-xl border border-[#E8D4DB] bg-[#FAF6F7] px-4 py-3">
-                <span className="font-heading text-[12px] font-bold uppercase tracking-[0.12em] text-[#8C0C3A]">
+                <span className="font-heading text-[12px] font-bold uppercase tracking-[0.12em] text-[#8E0C3A]">
                   {isFr ? "Présenté par" : "Presented by"}
                 </span>
                 <img
@@ -430,7 +430,7 @@ function SessionCard({
               </div>
             )}
             {session.note && (
-              <p className="font-body text-[13px] sm:text-[14px] text-[#5D1831]/70 italic leading-relaxed">
+              <p className="font-body text-[13px] sm:text-[14px] text-[#8E0C3A]/70 italic leading-relaxed">
                 {session.note}
               </p>
             )}
@@ -477,7 +477,7 @@ function BlockDetails({
     <div className="space-y-5">
       {block.seriesLogoUrl && <PowerOfYouthLogo />}
       {block.subtitle && (
-        <p className="font-heading font-bold text-[16px] sm:text-[20px] text-[#5D1831] leading-snug tracking-wide">
+        <p className="font-heading font-bold text-[16px] sm:text-[20px] text-[#8E0C3A] leading-snug tracking-wide">
           {block.subtitle}
         </p>
       )}
@@ -496,7 +496,7 @@ function BlockDetails({
           href={block.action.url}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center rounded-full bg-[#8C0C3A] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#5D1831] focus:outline-none focus:ring-2 focus:ring-[#8C0C3A]/30 focus:ring-offset-2"
+          className="inline-flex items-center rounded-full bg-[#8E0C3A] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#8E0C3A] focus:outline-none focus:ring-2 focus:ring-[#8E0C3A]/30 focus:ring-offset-2"
         >
           {block.action.label}
         </a>
@@ -513,7 +513,7 @@ function BlockDetails({
 
       {block.sessions && block.sessions.length > 0 && (
         <div className="space-y-3">
-          <p className="font-heading font-bold text-[14px] sm:text-[15px] text-[#8C0C3A] tracking-wide uppercase">
+          <p className="font-heading font-bold text-[14px] sm:text-[15px] text-[#8E0C3A] tracking-wide uppercase">
             {labels.sessions}
           </p>
           <div className="program-breakout-grid">
@@ -576,7 +576,7 @@ function BlockDetails({
       )}
 
       {block.note && (
-        <p className="rounded-xl bg-[#8C0C3A]/8 border border-[#8C0C3A]/20 px-4 py-3 font-semibold text-[14px] sm:text-[15px] text-[#5D1831]">
+        <p className="rounded-xl bg-[#8E0C3A]/8 border border-[#8E0C3A]/20 px-4 py-3 font-semibold text-[14px] sm:text-[15px] text-[#8E0C3A]">
           {labels.note}: {block.note}
         </p>
       )}
@@ -728,7 +728,7 @@ function ScheduleDayAccordion({
               </div>
               <ChevronDown
                 className={cn(
-                  "size-5 sm:size-6 shrink-0 mt-1 text-[#8C0C3A] transition-transform duration-200",
+                  "size-5 sm:size-6 shrink-0 mt-1 text-[#8E0C3A] transition-transform duration-200",
                   open && "rotate-180",
                 )}
               />

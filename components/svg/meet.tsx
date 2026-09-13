@@ -63,8 +63,8 @@ export default function Meet({ className }: React.HTMLAttributes<SVGElement>) {
           y2="71.2"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_31_60"
@@ -74,8 +74,8 @@ export default function Meet({ className }: React.HTMLAttributes<SVGElement>) {
           y2="26.6996"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_31_60"
@@ -85,8 +85,8 @@ export default function Meet({ className }: React.HTMLAttributes<SVGElement>) {
           y2="50.2846"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_31_60"
@@ -96,8 +96,8 @@ export default function Meet({ className }: React.HTMLAttributes<SVGElement>) {
           y2="26.6996"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_31_60"
@@ -107,8 +107,8 @@ export default function Meet({ className }: React.HTMLAttributes<SVGElement>) {
           y2="50.2846"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#8C0C3A" />
-          <stop offset="1" stopColor="#5D1831" />
+          <stop stopColor="#8E0C3A" />
+          <stop offset="1" stopColor="#8E0C3A" />
         </linearGradient>
       </defs>
     </svg>

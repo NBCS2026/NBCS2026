@@ -3,7 +3,7 @@ export function AboutSpeakersCollage({ locale = "en" }: { locale?: string }) {
   return (
     <figure className="mx-auto mt-8 w-full max-w-3xl">
       <img src="/nbcs-2025-speakers.jpg" alt={caption} className="h-auto w-full rounded-xl" loading="lazy" />
-      <figcaption className="mt-2 text-xs italic leading-relaxed text-[#5D1831]">{caption}</figcaption>
+      <figcaption className="mt-2 text-xs italic leading-relaxed text-[#8E0C3A]">{caption}</figcaption>
     </figure>
   );
 }

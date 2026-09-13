@@ -49,7 +49,7 @@ export function AdditionalHotels({
       <h3
         className={cn(
           "font-heading text-xl font-black sm:text-2xl",
-          isDark ? "text-white" : "text-[#5D1831]",
+          isDark ? "text-white" : "text-[#8E0C3A]",
         )}
       >
         {isFr
@@ -76,8 +76,8 @@ export function AdditionalHotels({
             className={cn(
               "flex min-h-20 items-center justify-between gap-3 rounded-xl border px-4 py-3 text-sm font-bold leading-snug transition-colors",
               isDark
-                ? "border-white/25 bg-[#5D1831]/35 text-white hover:bg-white/15"
-                : "border-[#E8D4DB] bg-[#FAF6F7] text-[#5D1831] hover:border-[#8C0C3A]",
+                ? "border-white/25 bg-[#8E0C3A]/35 text-white hover:bg-white/15"
+                : "border-[#E8D4DB] bg-[#FAF6F7] text-[#8E0C3A] hover:border-[#8E0C3A]",
             )}
           >
             <span>{hotel.name}</span>

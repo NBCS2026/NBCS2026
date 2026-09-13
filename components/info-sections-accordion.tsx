@@ -53,8 +53,8 @@ function AccordionSection({
         className="rounded-2xl sm:rounded-3xl lg:rounded-[40px] overflow-hidden"
         style={{
           background:
-            "linear-gradient(163.81deg, #5D1831 15.12%, #1C040D 88.75%)",
-          border: "1px solid #5D1831",
+            "linear-gradient(163.81deg, #8E0C3A 15.12%, #5D0826 88.75%)",
+          border: "1px solid #8E0C3A",
         }}
       >
         <button
@@ -62,7 +62,7 @@ function AccordionSection({
           aria-expanded={open}
           aria-controls={`${id}-panel`}
           onClick={() => onToggle(id)}
-          className="w-full flex items-center justify-between gap-4 px-4 sm:px-6 md:px-8 lg:px-12 py-5 sm:py-6 md:py-7 text-left cursor-pointer bg-[#5D1831] transition-[filter] hover:brightness-110"
+          className="w-full flex items-center justify-between gap-4 px-4 sm:px-6 md:px-8 lg:px-12 py-5 sm:py-6 md:py-7 text-left cursor-pointer bg-[#5D0826] transition-[filter] hover:brightness-110"
           id={`${id}-trigger`}
         >
           <h2 className="font-heading text-white text-[clamp(22px,3.2vw,40px)] font-black tracking-widest">
@@ -107,7 +107,7 @@ function LocationCard() {
   const tHome = useTranslations("home");
 
   return (
-    <div className="flex flex-col items-start p-4 sm:p-6 md:p-8 lg:p-10 gap-6 md:gap-8 rounded-2xl sm:rounded-3xl lg:rounded-[32px] border border-[#8C0C3A] bg-black/10">
+    <div className="flex flex-col items-start p-4 sm:p-6 md:p-8 lg:p-10 gap-6 md:gap-8 rounded-2xl sm:rounded-3xl lg:rounded-[32px] border border-[#8E0C3A] bg-black/10">
       <h3 className="font-heading text-white text-[clamp(28px,3.5vw,40px)] font-black tracking-widest w-full text-center">
         {tHome("location_title")}
       </h3>
@@ -321,7 +321,7 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
         <p className="max-w-[38ch] md:max-w-[68ch] mx-auto text-[#1E1E1E]/80 font-body font-medium text-[clamp(15px,1.35vw,18px)] leading-relaxed mb-3">
           {t("intro_body")}
         </p>
-        <p className="max-w-[38ch] md:max-w-[60ch] mx-auto text-[#5D1831]/70 font-body text-[13px] sm:text-[14px] leading-relaxed">
+        <p className="max-w-[38ch] md:max-w-[60ch] mx-auto text-[#8E0C3A]/70 font-body text-[13px] sm:text-[14px] leading-relaxed">
           {t("intro_hint")}
         </p>
       </div>
@@ -342,7 +342,7 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
         onToggle={toggleSection}
       >
         <div className="w-full flex flex-col gap-8 relative">
-          <div className="w-full text-white space-y-4 border border-[#8C0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10">
+          <div className="w-full text-white space-y-4 border border-[#8E0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10">
             {locale === "fr" ? (
               <>
                 <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
@@ -357,7 +357,7 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
                   activités du Sommet. Rejoignez-nous dans ce cadre idéal pour
                   rencontrer les autres participants tout au long de la semaine.
                 </p>
-                <p className="rounded-2xl border border-white/50 bg-white px-4 py-3 text-[clamp(16px,1.8vw,20px)] font-bold text-[#5D1831]">
+                <p className="rounded-2xl border border-white/50 bg-white px-4 py-3 text-[clamp(16px,1.8vw,20px)] font-bold text-[#8E0C3A]">
                   Complet — le bloc de chambres du SPCN au Delta Hotels Winnipeg
                   est maintenant entièrement réservé.
                 </p>
@@ -407,7 +407,7 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
                   Summit activities. Join us in this ideal setting to connect
                   with fellow attendees throughout the week.
                 </p>
-                <p className="rounded-2xl border border-white/50 bg-white px-4 py-3 text-[clamp(16px,1.8vw,20px)] font-bold text-[#5D1831]">
+                <p className="rounded-2xl border border-white/50 bg-white px-4 py-3 text-[clamp(16px,1.8vw,20px)] font-bold text-[#8E0C3A]">
                   Sold out — the NBCS room block at Delta Hotels Winnipeg is now
                   fully booked.
                 </p>
@@ -478,7 +478,7 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
         open={activeSection === "porter"}
         onToggle={toggleSection}
       >
-        <div className="w-full border border-[#8C0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10 space-y-7 text-white">
+        <div className="w-full border border-[#8E0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10 space-y-7 text-white">
           <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
             {t("porter_intro")}
           </p>
@@ -525,7 +525,7 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
         open={activeSection === "via-rail"}
         onToggle={toggleSection}
       >
-        <div className="w-full border border-[#8C0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10 space-y-7 text-white">
+        <div className="w-full border border-[#8E0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10 space-y-7 text-white">
           <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
             {t("via_intro")}
           </p>
@@ -557,7 +557,7 @@ export function InfoSectionsAccordion({ locale }: { locale: string }) {
         open={activeSection === "westjet"}
         onToggle={toggleSection}
       >
-        <div className="w-full border border-[#8C0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10 space-y-7 text-white">
+        <div className="w-full border border-[#8E0C3A] rounded-2xl sm:rounded-3xl lg:rounded-[32px] px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-7 lg:py-8 bg-black/10 space-y-7 text-white">
           <p className="text-[clamp(16px,1.8vw,20px)] opacity-90">
             {t("westjet_intro")}
           </p>

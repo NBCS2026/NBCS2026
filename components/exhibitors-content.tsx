@@ -45,7 +45,7 @@ function SectionHeading({
   return (
     <div className="mx-auto mb-10 max-w-3xl text-center">
       <h2
-        className={`font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight ${dark ? "text-white" : "text-[#5D1831]"}`}
+        className={`font-heading text-[clamp(30px,4vw,52px)] font-black leading-tight ${dark ? "text-white" : "text-[#8E0C3A]"}`}
       >
         {title}
       </h2>
@@ -88,10 +88,10 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
               />
             </div>
             <div>
-              <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8C0C3A]">
+              <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-[#8E0C3A]">
                 {isFr ? "Partenaire principal" : "Lead partner"}
               </p>
-              <h3 className="mt-2 font-heading text-2xl font-black text-[#5D1831]">
+              <h3 className="mt-2 font-heading text-2xl font-black text-[#8E0C3A]">
                 Graffiti Art Programming Inc.
               </h3>
               <p className="mt-3 leading-relaxed text-[#1E1E1E]/75">
@@ -114,10 +114,10 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                   className="aspect-square w-[132px] rounded-2xl object-cover"
                 />
                 <div>
-                  <h3 className="font-heading text-xl font-black text-[#5D1831]">
+                  <h3 className="font-heading text-xl font-black text-[#8E0C3A]">
                     {curator.name}
                   </h3>
-                  <p className="mt-1 text-sm font-bold text-[#8C0C3A]">
+                  <p className="mt-1 text-sm font-bold text-[#8E0C3A]">
                     <ExhibitionTitleText text={isFr ? curator.roleFr : curator.roleEn} />
                   </p>
                   <BiographyDisclosure label={isFr ? "Lire la biographie" : "Read biography"} text={isFr ? curator.bioFr : curator.bioEn} name={curator.name} />
@@ -143,7 +143,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-heading text-xl font-black text-[#5D1831]">
+                  <h3 className="font-heading text-xl font-black text-[#8E0C3A]">
                     {artist.name}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-[#1E1E1E]/75">
@@ -159,7 +159,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
       <section
         id="exhibitors"
         tabIndex={-1}
-        className="bg-[#5D1831] px-5 py-14 text-white sm:py-20"
+        className="bg-[#8E0C3A] px-5 py-14 text-white sm:py-20"
       >
         <div className="mx-auto max-w-[1180px]">
           <SectionHeading
@@ -222,13 +222,13 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                 className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#E8D4DB] bg-white shadow-sm"
               >
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-heading text-xl font-black text-[#5D1831]">
+                  <h3 className="font-heading text-xl font-black text-[#8E0C3A]">
                     {vendor.name}
                   </h3>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E1E1E]/75">
                     {isFr ? vendor.descriptionFr : vendor.descriptionEn}
                   </p>
-                  <p className="mt-5 flex items-center gap-2 text-sm font-bold text-[#8C0C3A]">
+                  <p className="mt-5 flex items-center gap-2 text-sm font-bold text-[#8E0C3A]">
                     <CalendarDays className="size-4" aria-hidden />
                     {isFr ? vendor.daysFr : vendor.daysEn}
                   </p>
@@ -237,7 +237,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
                       href={vendor.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#5D1831] underline underline-offset-2"
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#8E0C3A] underline underline-offset-2"
                     >
                       {isFr ? "Visiter" : "Visit"}
                       <ExternalLink className="size-4" aria-hidden />
@@ -247,7 +247,7 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
               </article>
             ))}
           </div>
-          <p className="mt-10 flex items-center justify-center gap-2 text-center font-bold text-[#5D1831]">
+          <p className="mt-10 flex items-center justify-center gap-2 text-center font-bold text-[#8E0C3A]">
             <MapPin className="size-5" aria-hidden />
             {isFr
               ? "Marché et exposition : hall D, Centre des congrès RBC"
