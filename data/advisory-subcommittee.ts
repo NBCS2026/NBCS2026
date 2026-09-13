@@ -11,6 +11,10 @@ export const ADVISORY_SUBCOMMITTEE: AdvisoryMember[] = [
   },
   { name: "Angela Cassie", organization: "Michaëlle Jean Foundation" },
   {
+    name: "Angelica Johnson Baptista",
+    organization: "Organization for Economic Development and Diplomacy (OEDD)",
+  },
+  {
     name: "Anita Chambers",
     organization: "Afro-Caribbean Association of Winnipeg",
   },
