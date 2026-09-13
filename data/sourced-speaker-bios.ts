@@ -71,10 +71,11 @@ export const SOURCED_SPEAKER_BIOS: (SpeakerProfile & { sources: string[] })[] = 
     sources: ["https://markuschambers.ca/about-markus/"],
   },
   {
+    // Updated biography supplied by the Summit organizer, September 13, 2026.
     name: "Kamil Jones Strachan",
-    bioEn: "Kamil Jones Strachan is a Winnipeg singer and pianist who has performed with the Winnipeg Boys’ Choir. His musical achievements were recognized in the Manitoba Legislature in 2023, including the Stewart M. Thomson trophy for young vocalists and selection as a finalist in the Royal Conservatory’s Music Lights the Way Piano Festival.",
-    bioFr: "Kamil Jones Strachan est un chanteur et pianiste de Winnipeg qui a chanté avec le Winnipeg Boys’ Choir. Ses réalisations musicales ont été soulignées à l’Assemblée législative du Manitoba en 2023, notamment le trophée Stewart-M.-Thomson pour jeunes chanteurs et sa sélection comme finaliste du festival de piano Music Lights the Way du Conservatoire royal.",
-    sources: ["https://www.gov.mb.ca/legislature/hansard/42nd_5th/vol_29/h29.html"],
+    bioEn: "Kamil Jones Strachan is 15 years old and is an Honour Roll with Distinction student at St Paul’s High School. He is a piano student of Sydney Young McInnis and is currently preparing for his ARCT with the Royal Conservatory of Music, where he has won two gold medals and second place in the international Music Lights the Way Festival. He has won numerous awards and scholarships from the Winnipeg Music Festival and Provincial Music Festival, for piano, singing and French horn. He also sings with the Winnipeg Boys Choir and plays soccer with 1 v 1 Futbol Dreams. His musical achievements were recognized in the Manitoba Legislature in 2023. He hopes to study music and science in University.",
+    bioFr: "Kamil Jones Strachan a 15 ans et figure au tableau d’honneur avec distinction de la St Paul’s High School. Il étudie le piano auprès de Sydney Young McInnis et prépare actuellement son diplôme ARCT au Conservatoire royal de musique, où il a remporté deux médailles d’or et la deuxième place au festival international Music Lights the Way. Il a remporté de nombreux prix et bourses au Winnipeg Music Festival et au Provincial Music Festival, en piano, en chant et en cor français. Il chante également avec le Winnipeg Boys Choir et joue au soccer avec 1 v 1 Futbol Dreams. Ses réalisations musicales ont été reconnues à l’Assemblée législative du Manitoba en 2023. Il espère étudier la musique et les sciences à l’université.",
+    sources: [],
   },
   {
     name: "Gary Clement",
