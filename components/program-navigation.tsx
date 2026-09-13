@@ -114,7 +114,7 @@ export function ProgramNavigation({
               event.preventDefault();
               navigateProgram(item.day, item.id);
             }}
-            className={`flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold ${section === item.id ? "bg-[#5D1831] text-white" : "text-[#5D1831] hover:bg-[#FAF6F7]"}`}
+            className={`flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold ${section === item.id ? "bg-[#8C0C3A] text-white" : "text-[#5D1831] hover:bg-[#FAF6F7]"}`}
           >
             {item.label}
           </a>
