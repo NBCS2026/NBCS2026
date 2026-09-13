@@ -365,8 +365,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
         body: "Filmed by Joye Social House and Produced by 9:16 Stories",
       },
       {
-        title: "Welcome, Land Acknowledgement, Grand Entry and Opening Prayers",
-        items: ["Manito Ahbee Festival"],
+        title: "Welcome and Land Acknowledgement",
       },
       {
         title: "Co-Host",
@@ -379,6 +378,10 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
         items: [
           "Patricia Bitu Tshikudi, Executive Director, Centre Culturel Franco-Manitobain (CCFM)",
         ],
+      },
+      {
+        title: "Grand Entry and Opening Prayers",
+        items: ["Manito Ahbee Festival"],
       },
       {
         title: "Remarks",

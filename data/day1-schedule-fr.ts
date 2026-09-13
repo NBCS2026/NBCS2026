@@ -362,9 +362,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
           "Vidéo d'ouverture du Sommet — Réalisée par Joye Social House et produite par 9:16 Stories",
       },
       {
-        title:
-          "Mot de bienvenue, reconnaissance du territoire, entrée officielle et prières d'ouverture",
-        items: ["Festival Manito Ahbee"],
+        title: "Mot de bienvenue et reconnaissance du territoire",
       },
       {
         title: "Coanimation",
@@ -377,6 +375,10 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
         items: [
           "Patricia Bitu Tshikudi, directrice générale, Centre culturel franco-manitobain (CCFM)",
         ],
+      },
+      {
+        title: "Entrée officielle et prières d'ouverture",
+        items: ["Festival Manito Ahbee"],
       },
       {
         title: "Allocution",
