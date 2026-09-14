@@ -132,7 +132,7 @@ export const SOURCED_SPEAKER_BIOS: (SpeakerProfile & { sources: string[] })[] = 
     sources: ["https://umanitoba.ca/law/faculty-staff/laurelle-harris"],
   },
   {
-    name: "Mohamed Hashim",
+    name: "Mohammed Hashim",
     bioEn: "Hashim leads the Canadian Race Relations Foundation and brings more than two decades of experience in human rights advocacy. His work spans civil society, government and the labour movement, with a focus on confronting racism and hate. He has helped build partnerships and public-policy responses that support inclusion, community trust and collective action.",
     bioFr: "Hashim dirige la Fondation canadienne des relations raciales et possède plus de vingt ans d’expérience dans la défense des droits de la personne. Son parcours traverse la société civile, le gouvernement et le mouvement syndical, avec un engagement contre le racisme et la haine. Il contribue à des partenariats et à des réponses publiques favorisant l’inclusion, la confiance communautaire et l’action collective.",
     sources: ["https://crrf-fcrr.ca/people/mohammed-hashim/"],

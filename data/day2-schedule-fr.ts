@@ -247,7 +247,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
       {
         label: "keynote",
         names: [
-          "Mohamed Hashim, président-directeur général, Fondation canadienne des relations raciales",
+          "Mohammed Hashim, président-directeur général, Fondation canadienne des relations raciales",
         ],
       },
       {

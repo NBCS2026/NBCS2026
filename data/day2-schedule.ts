@@ -245,7 +245,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
       {
         label: "keynote",
         names: [
-          "Mohamed Hashim, Chief Executive Officer, Canadian Race Relations Foundation",
+          "Mohammed Hashim, Chief Executive Officer, Canadian Race Relations Foundation",
         ],
       },
       {

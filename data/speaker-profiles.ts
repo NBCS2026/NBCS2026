@@ -797,9 +797,9 @@ const rawProfiles: SpeakerProfile[] = [
       "https://drive.google.com/thumbnail?id=1e7GVd7ha_s6W4xPNNTS3pJA7wMmpIrko&sz=w600",
   },
   {
-    name: "Mohamed Hashim",
+    name: "Mohammed Hashim",
     displayLineEn:
-      "Mohamed Hashim, Chief Executive Officer, Canadian Race Relations Foundation",
+      "Mohammed Hashim, Chief Executive Officer, Canadian Race Relations Foundation",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1WgEyZnuyfrUsw-3PhIQFudxXh5JNdJHi&sz=w600",
   },
