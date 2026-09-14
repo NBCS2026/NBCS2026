@@ -420,7 +420,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
       {
         title: "Prestation vedette",
         items: [
-          "Présentation — Natalie Thiesen, vice-présidente au tourisme, Tourisme Winnipeg",
+          "Présentation — Natalie Thiesen, vice-présidente au tourisme, Développement économique et tourisme de Winnipeg",
           "Jully Black, artiste primée et militante",
         ],
       },

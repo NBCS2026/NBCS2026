@@ -424,7 +424,7 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
       {
         title: "Featured Performance",
         items: [
-          "Introduction: Natalie Thiesen, Vice-President, Tourism, Tourism Winnipeg",
+          "Introduction: Natalie Thiesen, Vice-President, Tourism, Winnipeg Economic Development and Tourism",
           "Jully Black, Award-winning singer, songwriter, actor and advocate",
         ],
       },
