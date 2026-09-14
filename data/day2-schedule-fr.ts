@@ -144,7 +144,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
               "Surintendant Darryl Dawkins, directeur du Secrétariat de la GRC sur la lutte contre le racisme, l’équité, la diversité et l’inclusion, et fondateur du programme DICE",
               "Jean-René Dominique Kwilu, avocat et président de l’Association canadienne des avocats noirs (CABL), section du Manitoba",
               "Mandela Kuet, PDG de Mark1T, fondateur de Hoodfams et membre du comité directeur de la Stratégie canadienne en matière de justice pour les personnes noires (CJBS)",
-              "Dre Felicia Masenu, directrice de programme, Bilal Community Center",
+              "Dre Felicia Masenu, directrice de programme, Bilal Community and Family Centre Inc.",
             ],
           },
         ],

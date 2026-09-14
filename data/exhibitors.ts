@@ -60,7 +60,7 @@ export const EXHIBITORS: Exhibitor[] = [
     logoUrls: ["/manitoba-logo.png"],
   },
   {
-    name: "Bilal Community Centre",
+    name: "Bilal Community and Family Centre Inc.",
     logoUrls: [
       "https://bilalcommunitycentre.ca/wp-content/uploads/2022/06/BCFC-logo.png",
     ],

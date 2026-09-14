@@ -35,7 +35,7 @@ export const PROGRAM_PORTRAIT_FRAMING: Record<string, PortraitFraming> = {
   "Demilade Akinleye-Abraham": { x: 50, y: 30, width: 42 },
   "Djaka Blais": { x: 50, y: 40, width: 50 },
   "Dr. Bukola Salami": { x: 45, y: 34, width: 82 },
-  "Dr. Felicia Masenu": { x: 50, y: 29, width: 85 },
+  "Dr. Felicia Masenu": { x: 55, y: 40, width: 85 },
   "Dr. Gideon Christian": { x: 50, y: 39, width: 75 },
   "Dr. Idrissa Beogo": { x: 50, y: 32, width: 82 },
   "Dr. Josephine Etowa": { x: 50, y: 45, width: 50 },

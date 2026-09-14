@@ -814,9 +814,9 @@ const rawProfiles: SpeakerProfile[] = [
     name: "Dr. Felicia Masenu",
     nameFr: "Dre Felicia Masenu",
     displayLineEn:
-      "Dr. Felicia Masenu, Program Director, Bilal Community Centre",
+      "Dr. Felicia Masenu, Program Director, Bilal Community and Family Centre Inc.",
     imageUrl:
-      "https://drive.google.com/thumbnail?id=1O98Dks2D45qT_ERAoioFxe_L7hW8Zg0M&sz=w600",
+      "/speakers/felicia-masenu-2026.jpg",
     imagePosition: "slight-down",
   },
   {

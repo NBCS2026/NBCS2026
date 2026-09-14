@@ -144,7 +144,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
               "Superintendent Darryl Dawkins, Director, RCMP Anti-Racism, Equity, Diversity and Inclusion Secretariat, and Founder, DICE Program",
               "Jean-René Dominique Kwilu, Lawyer and President of CABL (MB)",
               "Mandela Kuet, CEO, Mark1T, Founder of Hoodfams, and Member of the Steering Committee, Canada Black Justice Strategy (CBJS)",
-              "Dr. Felicia Masenu, Program Director, Bilal Community Centre",
+              "Dr. Felicia Masenu, Program Director, Bilal Community and Family Centre Inc.",
             ],
           },
         ],
