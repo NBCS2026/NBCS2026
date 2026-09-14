@@ -51,6 +51,22 @@ type CoverageItem = {
 };
 
 const CURRENT_COVERAGE: CoverageItem[] = [
+  {
+    title: "Moving Forward Together: Black Canadians Gather in Winnipeg — Angela Cassie",
+    source: "Winnipeg Free Press",
+    date: "2026-09-12",
+    url: "https://www.winnipegfreepress.com/breakingnews/2026/09/12/moving-forward-together-black-canadians-gather-in-winnipeg-angela-cassie",
+    summaryEn: "",
+    summaryFr: "",
+  },
+  {
+    title: "Le cinquième Sommet pancanadien des communautés noires",
+    source: "Radio-Canada OHdio",
+    date: "",
+    url: "https://ici.radio-canada.ca/ohdio/premiere/emissions/la-mouvee/segments/rattrapage/2463671/cinquieme-sommet-pancanadien-communautes-noires",
+    summaryEn: "",
+    summaryFr: "",
+  },
 {
   "title": "National Black Canadians Summit 2026",
   "source": "CBC Manitoba",
@@ -331,15 +347,15 @@ function CoverageSection({
               className="group flex h-full flex-col rounded-2xl border border-[#E8D4DB] bg-white p-6 shadow-sm transition-transform hover:-translate-y-0.5"
             >
               <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#8E0C3A]">
-                {item.source} · {item.date}
+                {item.source}{item.date && ` · ${item.date}`}
               </span>
               <span className="mt-3 flex items-start justify-between gap-4 font-heading text-xl font-black leading-snug text-[#8E0C3A]">
                 {item.title}
                 <ExternalLink className="mt-1 size-5 shrink-0" aria-hidden />
               </span>
-              <span className="mt-3 text-sm leading-relaxed text-[#1E1E1E]/70">
+              {(isFr ? item.summaryFr : item.summaryEn) && <span className="mt-3 text-sm leading-relaxed text-[#1E1E1E]/70">
                 {isFr ? item.summaryFr : item.summaryEn}
-              </span>
+              </span>}
             </a>
           ))}
         </div>
