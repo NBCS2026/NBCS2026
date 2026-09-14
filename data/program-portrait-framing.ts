@@ -92,7 +92,7 @@ export const PROGRAM_PORTRAIT_FRAMING: Record<string, PortraitFraming> = {
   "Measha Brueggergosman-Lee": { x: 50, y: 43, width: 36 },
   "Michelle Jean-Paul": { x: 62, y: 43, width: 55 },
   "Mohamed Elmi": { x: 50, y: 43, width: 115 },
-  "Mohammed Hashim": { x: 50, y: 52, width: 110 },
+  "Mohammed Hashim": { x: 49, y: 35, width: 48 },
   "Moji Akande": { x: 50, y: 39, width: 55 },
   "Nancy Mitchell": { x: 50, y: 46, width: 100 },
   "Natalie Thiesen": { x: 50, y: 46, width: 92 },

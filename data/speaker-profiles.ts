@@ -801,7 +801,7 @@ const rawProfiles: SpeakerProfile[] = [
     displayLineEn:
       "Mohammed Hashim, Chief Executive Officer, Canadian Race Relations Foundation",
     imageUrl:
-      "https://drive.google.com/thumbnail?id=1WgEyZnuyfrUsw-3PhIQFudxXh5JNdJHi&sz=w600",
+      "/speakers/mohammed-hashim-2026.jpg",
   },
   {
     name: "Laurelle A. Harris",
