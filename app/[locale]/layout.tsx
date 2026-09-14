@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import { SiteAnalytics } from "@/components/site-analytics";
 import { Montserrat } from "next/font/google";
 import "../globals.css";
 import "../refinements.css";
@@ -11,14 +13,7 @@ import { ViewportProvider } from "@/components/viewport-provider";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: locale === "fr" ? "Sommet pancanadien des communautés noires" : "National Black Canadians Summit",
-    description: locale === "fr"
-      ? "Le Sommet pancanadien des communautés noires est un rassemblement de trois jours de leaders, d’artistes et d’acteurs du changement."
-      : "The National Black Canadians Summit is a three-day gathering of leaders, artists, and changemakers.",
-    other: { google: "notranslate" },
-    ...(process.env.VERCEL_ENV === "preview" ? { robots: { index: false, follow: false } } : {}),
-  };
+  return { ...pageMetadata(locale), other: { google: "notranslate" }, verification: { google: "aFEkdb8FJXJdgnVSFjghoXqVURni8JMqDgHo6-T8Rcw" } };
 }
 
 const montserrat = Montserrat({
@@ -83,6 +78,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
             {children}
           </ViewportProvider>
         </NextIntlClientProvider>
+        {process.env.VERCEL_ENV === "production" && <SiteAnalytics />}
       </body>
     </html>
   );

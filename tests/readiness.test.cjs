@@ -154,3 +154,19 @@ test('the in-memory throttle stops repeated attempts', () => {
     assert.throws(()=>checkFormRate(request),e=>e.status===429);
   } finally { if(old===undefined)delete process.env.VERCEL; else process.env.VERCEL=old; }
 });
+
+
+test('search metadata uses unique canonical URLs and reciprocal bilingual alternatives', () => {
+  const {SEARCH_PAGES, pageMetadata} = require('../lib/seo.ts');
+  const urls = new Set();
+  for (const page of SEARCH_PAGES) for (const locale of ['en','fr']) {
+    const metadata = pageMetadata(locale, page.path);
+    assert(!urls.has(metadata.alternates.canonical));
+    urls.add(metadata.alternates.canonical);
+    assert.equal(metadata.alternates.languages[locale === 'en' ? 'en-CA' : 'fr-CA'], metadata.alternates.canonical);
+    assert(!metadata.alternates.canonical.includes('?'));
+  }
+  assert.equal(urls.size, 22);
+  const sitemap = require('../app/sitemap.ts').default();
+  assert.deepEqual(new Set(sitemap.map(x=>x.url)), urls);
+});
