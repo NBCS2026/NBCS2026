@@ -13,7 +13,7 @@ import { ViewportProvider } from "@/components/viewport-provider";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return { ...pageMetadata(locale), other: { google: "notranslate" }, verification: { google: "aFEkdb8FJXJdgnVSFjghoXqVURni8JMqDgHo6-T8Rcw" } };
+  return { ...pageMetadata(locale), other: { google: "notranslate" }, verification: { google: ["aFEkdb8FJXJdgnVSFjghoXqVURni8JMqDgHo6-T8Rcw", "4e44d77p6SIWLC5vR5NAU49gqR228AtPxGQpdyBnWnk"] } };
 }
 
 const montserrat = Montserrat({
