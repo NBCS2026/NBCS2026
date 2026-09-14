@@ -147,8 +147,8 @@ export const SUMMIT_WEEK_EVENTS: SummitWeekEvent[] = [
   {
     id: "afroproud",
     date: "2026-09-17",
-    startTime: "12:00",
-    endTime: "13:00",
+    startTime: "13:00",
+    endTime: "15:00",
     titleEn: "AfroProud: Imagining Black Queer Audacity in Winnipeg",
     titleFr: "AfroProud : imaginer l’audace queer noire à Winnipeg",
     descriptionEn:
