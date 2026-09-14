@@ -48,7 +48,6 @@
 .program-guide .program-person-line, .program-bio-role .program-person-line { font-size: 13px; line-height: 1.6; font-weight: 400; color: #1E1E1E; margin: 0; }
 .program-person-line strong { font-weight: 750; color: #8E0C3A; }
 .program-person-line span { color: #1E1E1E; }
-.program-bio-trigger { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 12px; font-weight: 700; color: #8E0C3A; text-decoration: underline; text-underline-offset: 3px; border-radius: 3px; text-align: left; }
 .program-extra-person { display: flex; align-items: center; gap: 8px; font-size: 12px; margin-top: 8px; }
 .program-extra-person .program-portrait { width: 40px; height: 40px; }
 .program-person-tools > p { font-size: 12px; }
@@ -57,16 +56,6 @@
 .program-ceremony-step:last-child { padding-bottom: 0; }
 .program-ceremony-step::before { content: ''; position: absolute; left: -29px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: #5D0826; border: 3px solid white; }
 .program-segment-title { font-size: 17px; color: #8E0C3A; font-weight: 750; line-height: 1.4; margin-bottom: 8px; }
-.program-bio-dialog { position: fixed; inset: 0; margin: auto; width: min(680px,calc(100% - 32px)); max-height: min(85dvh,900px); padding: 0; border: 1px solid #E8D4DB; border-radius: 20px; color: #1E1E1E; background: white; overflow-y: auto; overscroll-behavior: contain; }
-.program-bio-dialog::backdrop { background: rgba(30,30,30,.55); }
-.program-bio-bar { position: sticky; top: 0; z-index: 1; background: white; display: flex; align-items: center; justify-content: space-between; padding: 8px 16px 8px 24px; border-bottom: 1px solid #E8D4DB; font-size: 13px; font-weight: 700; color: #8E0C3A; }
-.program-bio-bar button { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; }
-.program-bio-bar button:hover { background: #FAF6F7; }
-.program-bio-content { padding: 24px; }
-.program-bio-heading { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 24px; }
-.program-bio-heading h2 { font-size: 25px; line-height: 1.2; font-weight: 800; color: #8E0C3A; margin-bottom: 10px; }
-.program-bio-role { font-size: 13px; }
-.program-bio-dialog .program-bio-paragraph { font-size: 15px; line-height: 1.8; margin-top: 16px; white-space: pre-wrap; }
 @media (min-width: 768px) {
   .program-block-summary { grid-template-columns: 172px minmax(0,1fr); gap: 20px; }
   .program-break { grid-template-columns: 172px minmax(0,1fr); gap: 20px; }
@@ -80,10 +69,6 @@
   .program-block-details { padding: 16px; }
   .program-guide .program-block-title { font-size: 18px; }
   .program-guide .program-plenary .program-block-title { font-size: 20px; }
-  .program-bio-dialog { inset: auto 0 0; width: 100vw; max-width: none; max-height: 90dvh; border-radius: 20px 20px 0 0; margin: 0; }
-  .program-bio-content { padding: 20px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
-  .program-bio-heading { gap: 14px; }
-  .program-bio-heading h2 { font-size: 22px; }
   .program-portrait-large { width: 80px; height: 80px; }
 }
 .program-guide { padding-top: 1.5rem; }

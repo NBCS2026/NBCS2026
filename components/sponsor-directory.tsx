@@ -1,4 +1,6 @@
 import { AboutSectionNav } from "./about-section-nav";
+import { ProgramBioDialog } from "./program-bio-dialog";
+import { MEASHA_FULL_BIO } from "@/data/measha-full-bio";
 type SponsorLogo = {
   src: string;
   alt: string;
@@ -657,6 +659,25 @@ export function SponsorDirectory({
         locale={locale}
         compact={compact}
       />
+      <section className={compact ? "mb-14 text-center" : "mb-20 text-center sm:mb-24"}>
+        <h2 className="mb-5 font-heading text-xl font-bold text-[#8E0C3A]">
+          {locale === "fr" ? "Ambassadrice internationale" : "International Ambassador"}
+        </h2>
+        <ProgramBioDialog
+          name="Measha Brueggergosman-Lee"
+          isFr={locale === "fr"}
+          line={locale === "fr" ? "Ambassadrice internationale" : "International Ambassador"}
+          bio={MEASHA_FULL_BIO}
+          triggerClassName="group mx-auto block w-full max-w-sm cursor-pointer rounded-2xl text-center focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-[#8E0C3A]"
+          triggerContent={<>
+            <img src="/measha-ambassador-cylla-von-tiedemann.jpg" alt="Measha Brueggergosman-Lee" width={720} height={480} loading="lazy" className="mx-auto h-auto w-[180px] max-w-full rounded-xl" />
+            <span className="mt-2 block text-xs italic text-[#1E1E1E]/70">
+              {locale === "fr" ? "Crédit photo : Cylla von Tiedemann" : "Photo credit: Cylla von Tiedemann"}
+            </span>
+            <span className="mt-3 block font-heading text-xl font-bold text-[#8E0C3A] group-hover:underline">Measha Brueggergosman-Lee</span>
+          </>}
+        />
+      </section>
       <Tier
         titleEn="In-Circle Women’s Gathering"
         titleFr="Rassemblement En Cercle des femmes"

@@ -824,7 +824,7 @@ const rawProfiles: SpeakerProfile[] = [
     displayLineEn:
       "Measha Brueggergosman-Lee, classical singer, author, speaker and executive producer",
     imageUrl:
-      "https://drive.google.com/thumbnail?id=143p4EJ2Jm12JZLbhZqE_Cbo2-YX5xwGe&sz=w600",
+      "/measha-green-dress.jpg",
   },
   {
     name: "Tomiwa Omolayo (Tommyphyll)",
