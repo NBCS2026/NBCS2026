@@ -102,7 +102,7 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
         people: [
           {
             label: "allocution",
-            names: ["Le ministre Jamie Moses"],
+            names: ["Le ministre Jamie Moses, ministre des Affaires, des Mines, du Commerce et de la Création d’emplois, Province du Manitoba"],
           },
           {
             label: "facilitator",
