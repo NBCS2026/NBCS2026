@@ -74,8 +74,8 @@ export function ExhibitorsContent({ locale }: { locale: string }) {
             title={isFr ? "Exposition d’art jeunesse" : "Youth Art Exhibition"}
             description={
               isFr
-                ? "En mouvement ensemble : avenirs noirs et autochtones sur le territoire du Traité no 1 réunit des artistes et des organismes qui explorent l’identité, la mémoire, la migration, la résilience et l’appartenance. L’exposition est présentée au hall D du 18 au 20 septembre."
-                : "Together in Motion: Black and Indigenous Futures in Treaty 1 Territory brings artists and organizations together to explore identity, memory, migration, resilience and belonging. The exhibition is presented in Hall D from September 18–20."
+                ? "En mouvement ensemble réunit des artistes et des organismes qui explorent l’identité, la mémoire, la migration, la résilience et l’appartenance. L’exposition est présentée au hall D du 18 au 20 septembre."
+                : "Together in Motion brings artists and organizations together to explore identity, memory, migration, resilience and belonging. The exhibition is presented in Hall D from September 18–20."
             }
           />
 
