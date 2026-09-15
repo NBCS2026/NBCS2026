@@ -101,6 +101,10 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
           "Cette session aborde l'entrepreneuriat et l'autonomisation économique comme voies vers la durabilité et l'autodétermination. Les discussions porteront sur la création d'entreprises, l'indépendance financière, la création de richesse au sein des communautés, ainsi que les possibilités et obstacles auxquels sont confrontés les jeunes Noirs dans le paysage économique canadien.",
         people: [
           {
+            label: "allocution",
+            names: ["Le ministre Jamie Moses"],
+          },
+          {
             label: "facilitator",
             names: ["Drayton Mulindabigwi — Fondateur de The Novas Group"],
           },

@@ -106,6 +106,10 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
           "This session looks at entrepreneurship and economic empowerment as pathways toward sustainability and self-determination. Conversations will centre on business creation, financial independence, community wealth-building, and the opportunities and barriers facing Black youth in Canada's economic landscape.",
         people: [
           {
+            label: "remarks",
+            names: ["Minister Jamie Moses"],
+          },
+          {
             label: "facilitator",
             names: ["Drayton Mulindabigwi, Founder, The Novas Group"],
           },
