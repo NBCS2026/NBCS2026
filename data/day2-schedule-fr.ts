@@ -144,7 +144,7 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
               "Surintendant Darryl Dawkins, directeur du Secrétariat de la GRC sur la lutte contre le racisme, l’équité, la diversité et l’inclusion, et fondateur du programme DICE",
               "Jean-René Dominique Kwilu, avocat et président de l’Association canadienne des avocats noirs (CABL), section du Manitoba",
               "Mandela Kuet, PDG de Mark1T, fondateur de Hoodfams et membre du comité directeur de la Stratégie canadienne en matière de justice pour les personnes noires (CJBS)",
-              "Dre Felicia Masenu, directrice de programme, Bilal Community and Family Centre Inc.",
+              "Dre Felicia Masenu, directrice des programmes, Bilal Community and Family Centre Inc.",
             ],
           },
         ],
@@ -167,7 +167,6 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
           {
             label: "panelists",
             names: [
-              "Liza Arnason, fondatrice et présidente de la Ase Community Foundation for Black Canadians with Disabilities",
               "Alice Charles, gestionnaire des programmes communautaires, Rainbow Resource Centre",
               "Félicia Cà, ancienne participante de La jeunesse au pouvoir, coordonnatrice de la recherche et des projets chez Relais-femmes",
               "Bernadeth Betchi, chercheure décoloniale et intersectionnelle en santé mentale maternelle des personnes Noires et militante des droits de la personne",
@@ -195,7 +194,8 @@ export const DAY2_SCHEDULE_FR: ScheduleBlock[] = [
               "Djaka Blais, directrice générale, Advancing Racial Equity & Housing Justice",
               "Dre Marlene Ruck, gestionnaire principale des opérations, 902 ManUp Campus",
               "Hanaa Ali, gestionnaire principale, Planification et recherche, Black Planning Project",
-              "Jerome Morgan, gestionnaire, Centre for Advancing the Interests of Black People, Toronto Community Housing",
+              "Naomi Gichungu, cofondatrice et directrice générale, Inuka",
+              "Jerome Morgan, gestionnaire du Centre for the Advancement of Black People, Toronto Community Housing",
             ],
           },
         ],

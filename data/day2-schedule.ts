@@ -144,7 +144,7 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
               "Superintendent Darryl Dawkins, Director, RCMP Anti-Racism, Equity, Diversity and Inclusion Secretariat, and Founder, DICE Program",
               "Jean-René Dominique Kwilu, Lawyer and President of CABL (MB)",
               "Mandela Kuet, CEO, Mark1T, Founder of Hoodfams, and Member of the Steering Committee, Canada Black Justice Strategy (CBJS)",
-              "Dr. Felicia Masenu, Program Director, Bilal Community and Family Centre Inc.",
+              "Dr. Felicia Masenu, Programs Director, Bilal Community and Family Centre Inc.",
             ],
           },
         ],
@@ -167,7 +167,6 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
           {
             label: "panelists",
             names: [
-              "Liza Arnason, Founder and Chair of the Ase Community Foundation for Black Canadians with Disabilities",
               "Alice Charles, Program Manager, Community Programs, Rainbow Resource Centre",
               "Felicia Ca, Power of Youth Alumni, Research and Project Coordinator at Relais-femmes",
               "Bernadeth Betchi, PhD Candidate at the University of Ottawa, Decolonial and Intersectional Researcher in Black Maternal Mental Health and Human Rights Advocate",
@@ -195,6 +194,8 @@ export const DAY2_SCHEDULE: ScheduleBlock[] = [
               "Djaka Blais, Executive Director, Advancing Racial Equity & Housing Justice",
               "Dr. Marlene Ruck, Executive Operations Manager, 902 ManUp Campus",
               "Hanaa Ali, Senior Manager, Planning and Research, Black Planning Project",
+              "Naomi Gichungu, Co-Founder and CEO, Inuka",
+              "Jerome Morgan, Centre Manager, Centre for the Advancement of Black People, Toronto Community Housing",
             ],
           },
         ],
