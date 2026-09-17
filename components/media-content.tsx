@@ -298,6 +298,34 @@ export function MediaContent({ locale }: { locale: string }) {
       />
 
       <MediaContributionForm locale={locale} />
+
+      <section aria-label="In The Black: Canada" className="px-5 pb-14 pt-6 sm:pb-20">
+        <a
+          href="https://www.intheblackcanada.ca/black-in-time"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mx-auto flex max-w-[960px] flex-col overflow-hidden rounded-2xl border border-[#E8D4DB] bg-white shadow-sm transition-shadow hover:shadow-md focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[#8E0C3A] sm:flex-row"
+        >
+          <img
+            src="/in-the-black-canada-banner.jpg"
+            width={699}
+            height={356}
+            alt={isFr ? "Portraits réunis dans une carte du Canada — Fibres noires" : "Portraits within a map of Canada — Black Threads"}
+            loading="lazy"
+            className="h-auto w-full object-contain sm:w-3/5"
+          />
+          <div className="flex flex-col items-start justify-center gap-4 p-6 sm:w-2/5 sm:p-8">
+            <p className="text-sm font-semibold text-[#8E0C3A]">In The Black: Canada</p>
+            <h2 className="font-heading text-2xl font-bold leading-tight text-[#8E0C3A] sm:text-3xl">
+              {isFr ? "Fibres noires" : "Black Threads"}
+            </h2>
+            <span className="inline-flex min-h-11 items-center gap-3 rounded-full bg-[#8E0C3A] px-5 py-3 text-sm font-bold text-white">
+              {isFr ? "Découvrir" : "Explore"}
+              <ExternalLink className="size-4" aria-hidden="true" />
+            </span>
+          </div>
+        </a>
+      </section>
     </>
   );
 }
