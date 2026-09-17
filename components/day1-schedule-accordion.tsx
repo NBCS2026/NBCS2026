@@ -494,7 +494,7 @@ function BlockDetails({
       {block.action && (
         <a
           href={block.action.url}
-          target="_blank"
+          target={block.action.url.startsWith("/") ? undefined : "_blank"}
           rel="noreferrer"
           className="inline-flex items-center rounded-full bg-[#8E0C3A] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#8E0C3A] focus:outline-none focus:ring-2 focus:ring-[#8E0C3A]/30 focus:ring-offset-2"
         >

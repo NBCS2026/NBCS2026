@@ -78,11 +78,12 @@ test('a direct cross-day anchor wins over a stale day query', () => {
   assert.equal(programDayFromUrl(new URL('https://example.test/fr/program?day=1#day3-closing-ceremony')),3);
   assert.equal(programDayFromUrl(new URL('https://example.test/en/program?day=99')),1);
 });
-test('the registration RSVP derives from the current opening ceremony in both languages', () => {
+test('the ceremony waitlist links to the registration form in both languages', () => {
   for(const locale of ['en','fr']) {
     const ceremony=getOpeningCeremony(locale);
     assert.equal(ceremony.id,'opening-ceremony');
-    assert.match(ceremony.action.url,/^https:\/\/forms\.cloud\.microsoft\//);
+    assert.equal(ceremony.action.url,`/${locale}/ticket#opening-ceremony-rsvp`);
+    assert.match(ceremony.action.label,locale==='fr' ? /liste d’attente/ : /Waitlist/);
     assert.equal(ceremony.location,'Hall C');
   }
 });

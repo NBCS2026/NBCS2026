@@ -357,8 +357,8 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
     location: "Hall C",
     description: "Programme",
     action: {
-      label: "Déjà inscrit·e ? Confirmez votre présence au gala de la cérémonie d'ouverture",
-      url: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=vB0PioNw9EiVbyINjkwTgYlai5JlZfBMpmSprhIBBrdUNFA1NUdUSEdFUlQ2OTRKMkNKOEhNUk0xSS4u&route=shorturl",
+      label: "Rejoindre la liste d’attente du gala de la cérémonie d’ouverture",
+      url: "/fr/ticket#opening-ceremony-rsvp",
     },
     segments: [
       {

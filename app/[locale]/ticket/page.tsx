@@ -70,7 +70,7 @@ export default function Page() {
         <AboutSectionNav label={isFr ? "Navigation de l’inscription" : "Registration navigation"} sections={[
           ["registration", isFr ? "Inscription" : "Registration"],
           ["youth-waitlist", isFr ? "Liste d’attente jeunesse" : "Youth Waitlist"],
-          ["opening-ceremony-rsvp", isFr ? "RSVP — Cérémonie d’ouverture" : "Opening Ceremony RSVP"],
+          ["opening-ceremony-rsvp", isFr ? "Liste d’attente — Gala" : "Gala Waitlist"],
           ["supporting-access", isFr ? "Soutenir l’accès" : "Supporting Access"],
         ]} />
         <section id="registration" className="bg-white py-8 sm:py-10 md:py-12">

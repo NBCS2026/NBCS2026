@@ -360,8 +360,8 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
     location: "Hall C",
     description: "Opening Ceremony Program",
     action: {
-      label: "Already Registered? RSVP for the Opening Ceremony Gala",
-      url: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=vB0PioNw9EiVbyINjkwTgYlai5JlZfBMpmSprhIBBrdUNFA1NUdUSEdFUlQ2OTRKMkNKOEhNUk0xSS4u&route=shorturl",
+      label: "Join the Opening Ceremony Gala Waitlist",
+      url: "/en/ticket#opening-ceremony-rsvp",
     },
     segments: [
       {
