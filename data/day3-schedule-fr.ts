@@ -24,6 +24,8 @@ export const DAY3_SCHEDULE_FR: ScheduleBlock[] = [
       {
         title: "Allocutions",
         items: [
+          "L’honorable Greg Fergus, député de Hull—Aylmer",
+          "Tatiana Auguste, députée de Terrebonne",
           "L'honorable Michael Coteau, député",
           "Edward Matwawana, directeur général, Fondation Michaëlle Jean",
         ],

@@ -2,6 +2,8 @@
 // x/y are the centre in percent; width is the square crop as a percent of source width.
 export type PortraitFraming = { x: number; y: number; width: number };
 export const PROGRAM_PORTRAIT_FRAMING: Record<string, PortraitFraming> = {
+  "The Honourable Greg Fergus": { x: 50, y: 40, width: 100 },
+  "Tatiana Auguste": { x: 50, y: 40, width: 100 },
   "Aaliyah Hotomani-Hart": { x: 48, y: 36, width: 65 },
   "Abubaker Bukulu": { x: 50, y: 44, width: 65 },
   "Agapi Gessesse": { x: 48, y: 37, width: 30 },

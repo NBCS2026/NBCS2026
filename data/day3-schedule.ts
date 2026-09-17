@@ -22,6 +22,8 @@ export const DAY3_SCHEDULE: ScheduleBlock[] = [
       {
         title: "Remarks",
         items: [
+          "The Honourable Greg Fergus, Member of Parliament for Hull—Aylmer",
+          "Tatiana Auguste, Member of Parliament for Terrebonne",
           "The Honourable Michael Coteau, Member of Parliament",
           "Edward Matwawana, Executive Director, Michaëlle Jean Foundation",
         ],

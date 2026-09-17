@@ -5,6 +5,18 @@ import type { SpeakerProfile } from "./speaker-profiles";
 // These fill missing biographies only; supplied biographies take precedence.
 export const SOURCED_SPEAKER_BIOS: (SpeakerProfile & { sources: string[] })[] = [
   {
+    name: "The Honourable Greg Fergus",
+    bioEn: "The Honourable Greg Fergus represents Hull—Aylmer, Quebec, in the House of Commons, where he was first elected in 2015. He served as Speaker of the House of Commons from 2023 to 2025. His earlier parliamentary responsibilities included serving as Parliamentary Secretary to the Prime Minister and to the President of the Treasury Board. He is a member of the National Security and Intelligence Committee of Parliamentarians.",
+    bioFr: "L’honorable Greg Fergus représente Hull—Aylmer, au Québec, à la Chambre des communes, où il a été élu pour la première fois en 2015. Il a été président de la Chambre des communes de 2023 à 2025. Il a auparavant exercé notamment les fonctions de secrétaire parlementaire du premier ministre et de la présidente du Conseil du Trésor. Il est membre du Comité des parlementaires sur la sécurité nationale et le renseignement.",
+    sources: ["https://www.ourcommons.ca/members/en/greg-fergus(88478)/roles"],
+  },
+  {
+    name: "Tatiana Auguste",
+    bioEn: "Tatiana Auguste represents Terrebonne, Quebec, in the House of Commons. First elected in 2025, she was elected again in the April 2026 by-election. She serves on the Standing Committees on Canadian Heritage and Veterans Affairs and is Vice-Chair of the Canadian Branch of the Assemblée parlementaire de la Francophonie. She is also a member of the Canada-Africa Parliamentary Association.",
+    bioFr: "Tatiana Auguste représente Terrebonne, au Québec, à la Chambre des communes. Élue pour la première fois en 2025, elle a été élue de nouveau lors de l’élection partielle d’avril 2026. Elle siège aux comités permanents du patrimoine canadien et des anciens combattants et est vice-présidente de la Section canadienne de l’Assemblée parlementaire de la Francophonie. Elle est également membre de l’Association parlementaire Canada-Afrique.",
+    sources: ["https://www.ourcommons.ca/members/en/tatiana-auguste(122753)/roles"],
+  },
+  {
     name: "Justin Holness",
     bioEn: "Justin Holness, known artistically as Jah’kota, is an Afro-Indigenous musician and entrepreneur raised in Winnipeg. His Jamaican and Nakota/Assiniboine roots inform a creative practice centred on culture, resilience and community. Through music and his work in entrepreneurship and financial empowerment, he encourages people to build opportunities grounded in their identities and strengths.",
     bioFr: "Justin Holness, connu sous le nom artistique Jah’kota, est un musicien et entrepreneur afro-autochtone qui a grandi à Winnipeg. Ses racines jamaïcaines et nakotas/assiniboines nourrissent une démarche axée sur la culture, la résilience et la communauté. Sa musique et son travail en entrepreneuriat et en autonomisation financière encouragent chacun à créer des possibilités à partir de son identité et de ses forces.",

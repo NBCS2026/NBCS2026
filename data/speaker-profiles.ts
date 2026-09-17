@@ -22,6 +22,17 @@ export type SpeakerProfile = {
 
 const rawProfiles: SpeakerProfile[] = [
   {
+    name: "The Honourable Greg Fergus",
+    nameFr: "L’honorable Greg Fergus",
+    displayLineEn: "The Honourable Greg Fergus, Member of Parliament for Hull—Aylmer",
+    imageUrl: "/speakers/greg-fergus-official.jpg",
+  },
+  {
+    name: "Tatiana Auguste",
+    displayLineEn: "Tatiana Auguste, Member of Parliament for Terrebonne",
+    imageUrl: "/speakers/tatiana-auguste-official.jpg",
+  },
+  {
     name: "The Honourable Marc Miller",
     nameFr: "L’honorable Marc Miller",
     imageUrl: "/speakers/marc-miller-official.jpg",
