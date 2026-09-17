@@ -381,6 +381,16 @@ const communityPartners: SponsorEntry[] = [
     ],
   },
   {
+    name: "Manitoba Music",
+    logos: [
+      {
+        src: "/manitoba-music-logo.jpg",
+        alt: "Manitoba Music",
+        className: "max-h-24 max-w-[250px]",
+      },
+    ],
+  },
+  {
     name: "Graffiti Art Programming",
     logos: [
       {

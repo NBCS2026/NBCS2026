@@ -22,6 +22,11 @@ export type SpeakerProfile = {
 
 const rawProfiles: SpeakerProfile[] = [
   {
+    name: "The Honourable Marc Miller",
+    nameFr: "L’honorable Marc Miller",
+    imageUrl: "/speakers/marc-miller-official.jpg",
+  },
+  {
     name: "Dr. Bukola Salami",
     nameFr: "Dre Bukola Salami",
     imageUrl: "/speakers/bukola-salami.jpg",
