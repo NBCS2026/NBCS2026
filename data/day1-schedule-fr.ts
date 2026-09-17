@@ -415,6 +415,12 @@ export const DAY1_SCHEDULE_FR: ScheduleBlock[] = [
         ],
       },
       {
+        title: "Salutations",
+        items: [
+          "L’honorable Marc Miller, ministre de l’Identité et de la Culture canadiennes et ministre responsable des Langues officielles",
+        ],
+      },
+      {
         title: "Allocution principale",
         items: [
           "Introduction – TD Bank Group, commanditaire principal du Sommet pancanadien des communautés noires - Gary Clement, directeur des relations gouvernementales, Groupe Banque TD",

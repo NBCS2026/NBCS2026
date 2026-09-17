@@ -418,6 +418,12 @@ export const DAY1_SCHEDULE: ScheduleBlock[] = [
         ],
       },
       {
+        title: "Greetings",
+        items: [
+          "The Honourable Marc Miller, Minister of Canadian Identity and Culture and Minister responsible for Official Languages",
+        ],
+      },
+      {
         title: "Keynote remarks",
         items: [
           "TD Bank Group, Presenting Sponsor of the National Black Canadians Summit",
