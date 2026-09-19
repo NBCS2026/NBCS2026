@@ -3,6 +3,7 @@ import { SOURCED_SPEAKER_BIOS } from "./sourced-speaker-bios";
 
 export type SpeakerProfile = {
   name: string;
+  displayName?: string;
   nameFr?: string;
   displayLineEn?: string;
   bioEn?: string;
@@ -423,6 +424,9 @@ const rawProfiles: SpeakerProfile[] = [
   },
   {
     name: "Kevin Junor",
+    displayName: "Kevin R. Junor, MMM, OOnt, CD",
+    bioEn: "Kevin Junor has a distinguished career in the Canadian Armed Forces and public service. A retired officer, he rose to Regimental Sergeant Major and then Captain. Kevin was a member of the National Apology Advisory Committee, advising the Government of Canada on the apology to the descendants of No. 2 Construction Battalion.\n\nKevin is also a retired deputy superintendent from the Ontario Ministry of the Solicitor General. He served in other positions such as a strategic policy advisor and change management consultant. Kevin is a recipient of the Order of Military Merit, the Order of Ontario and the Harry Jerome Professional Excellence Award. His account in the Canadian War Museum’s oral-history project reflects on military service, leadership and belonging.",
+    bioFr: "Kevin Junor a mené une carrière distinguée au sein des Forces armées canadiennes et de la fonction publique. Officier à la retraite, il a accédé au poste de sergent-major régimentaire, puis au grade de capitaine. Kevin a été membre du Comité consultatif national sur la présentation d’excuses, qui conseillait le gouvernement du Canada sur les excuses présentées aux descendants des membres du 2e Bataillon de construction.\n\nKevin est également surintendant adjoint à la retraite du ministère du Solliciteur général de l’Ontario. Il a occupé d’autres fonctions, notamment celles de conseiller en politiques stratégiques et de consultant en gestion du changement. Kevin est récipiendaire de l’Ordre du mérite militaire, de l’Ordre de l’Ontario et du prix Harry Jerome pour l’excellence professionnelle. Son témoignage dans le projet d’histoire orale du Musée canadien de la guerre porte sur le service militaire, le leadership et l’appartenance.",
     imageUrl:
       "https://drive.google.com/thumbnail?id=1ScGsBXNQao9lfDtb53VwgRisSHNxE5IN&sz=w600",
   },
@@ -1064,6 +1068,7 @@ for (const { sources: _sources, ...biography } of SOURCED_SPEAKER_BIOS) {
 
 export const SPEAKER_PROFILES = Array.from(mergedProfiles.values()).map((profile) => ({
   ...profile,
+  name: profile.displayName ?? profile.name,
   normalizedName: normalizeName(profile.name),
   normalizedNameFr: profile.nameFr ? normalizeName(profile.nameFr) : undefined,
 }));
