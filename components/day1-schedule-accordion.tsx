@@ -588,10 +588,12 @@ function ScheduleDayAccordion({
   locale,
   blocks,
   idPrefix,
+  alwaysExpanded = false,
 }: {
   locale: string;
   blocks: ScheduleBlock[];
   idPrefix: string;
+  alwaysExpanded?: boolean;
 }) {
   const [openBlocks, setOpenBlocks] = useState<Set<string>>(() => new Set());
   const [activeSession, setActiveSession] = useState<string | null>(null);
@@ -696,7 +698,7 @@ function ScheduleDayAccordion({
           );
         }
 
-        const open = openBlocks.has(block.id);
+        const open = alwaysExpanded || openBlocks.has(block.id);
 
         return (
           <div
@@ -704,6 +706,17 @@ function ScheduleDayAccordion({
             id={`${idPrefix}-${block.id}`}
             className={cn("program-block rounded-xl border border-[#E8D4DB] bg-white overflow-hidden", block.id.includes("plenary") && "program-plenary", idPrefix === "day1" && block.id === "opening-ceremony" && "program-opening-ceremony")}
           >
+            {alwaysExpanded ? (
+              <header className="program-block-toggle">
+                <div className="program-block-summary">
+                  <p className="program-time">{block.time}</p>
+                  <div className="min-w-0">
+                    <h3 className="program-block-title">{block.title}</h3>
+                    {block.location && <p className="program-room">{block.location}</p>}
+                  </div>
+                </div>
+              </header>
+            ) : (
             <h3 className="program-block-heading"><button
               type="button"
               aria-expanded={open}
@@ -733,6 +746,7 @@ function ScheduleDayAccordion({
                 )}
               />
             </button></h3>
+            )}
             <ProgramWordlyLink day={idPrefix} sessionId={block.id} title={block.subtitle ? `${block.title} — ${block.subtitle}` : block.title} isFr={isFr} />
 
             <div
@@ -790,6 +804,7 @@ export function Day3ScheduleAccordion({ locale }: { locale: string }) {
       locale={locale}
       blocks={getSchedule(3, locale)}
       idPrefix="day3"
+      alwaysExpanded
     />
   );
 }
