@@ -473,6 +473,18 @@ function BlockDetails({
   setActiveSession: (id: string | null) => void;
   isFr: boolean;
 }) {
+  const actionAtEnd = day === "day3" && block.id === "closing-ceremony";
+  const action = block.action && (
+    <a
+      href={block.action.url}
+      target={block.action.url.startsWith("/") ? undefined : "_blank"}
+      rel="noreferrer"
+      className="inline-flex items-center rounded-full bg-[#8E0C3A] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#8E0C3A] focus:outline-none focus:ring-2 focus:ring-[#8E0C3A]/30 focus:ring-offset-2"
+    >
+      {block.action.label}
+    </a>
+  );
+
   return (
     <div className="space-y-5">
       {block.seriesLogoUrl && <PowerOfYouthLogo />}
@@ -491,16 +503,7 @@ function BlockDetails({
         </p>
       ))}
 
-      {block.action && (
-        <a
-          href={block.action.url}
-          target={block.action.url.startsWith("/") ? undefined : "_blank"}
-          rel="noreferrer"
-          className="inline-flex items-center rounded-full bg-[#8E0C3A] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#8E0C3A] focus:outline-none focus:ring-2 focus:ring-[#8E0C3A]/30 focus:ring-offset-2"
-        >
-          {block.action.label}
-        </a>
-      )}
+      {!actionAtEnd && action}
 
       {block.people && (
         <PeopleList
@@ -580,6 +583,7 @@ function BlockDetails({
           {labels.note}: {block.note}
         </p>
       )}
+      {actionAtEnd && action}
     </div>
   );
 }
