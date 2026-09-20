@@ -15,7 +15,7 @@ export const DAY3_SCHEDULE: ScheduleBlock[] = [
       {
         title: "Opening Choir Performance",
         items: [
-          "Summit Mass Choir, including members from Roots in Harmony",
+          "Summit Choir, including members from Roots in Harmony",
         ],
       },
       {

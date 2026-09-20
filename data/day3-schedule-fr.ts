@@ -15,7 +15,7 @@ export const DAY3_SCHEDULE_FR: ScheduleBlock[] = [
       {
         title: "Prestation d’ouverture de la chorale",
         items: [
-          "La grande chorale du Sommet, avec la participation de membres de Roots in Harmony",
+          "La chorale du Sommet, avec la participation de membres de Roots in Harmony",
         ],
       },
       {
