@@ -66,7 +66,7 @@ export function NavLink({ className, onClick }: NavLinKProps) {
           `}</style>
       )}
       <ul
-        className={`flex flex-row gap-1.5 md:gap-2.5 xl:gap-5 2xl:gap-7 3xl:gap-9 justify-center font-medium text-xs xl:text-sm 2xl:text-base 3xl:text-lg ${
+        className={`flex flex-row flex-wrap gap-y-0 gap-1.5 md:gap-2.5 xl:gap-5 2xl:gap-7 3xl:gap-9 justify-center font-medium text-xs xl:text-sm 2xl:text-base 3xl:text-lg ${
           locale === "fr" ? "french-nav-text" : ""
         }`}
       >
