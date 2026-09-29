@@ -35,6 +35,10 @@ export function NavLink({ className, onClick }: NavLinKProps) {
       url: "/media",
     },
     {
+      title: t("feedback"),
+      url: "/feedback",
+    },
+    {
       title: t("tickets"),
       url: "/ticket",
     },
