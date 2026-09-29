@@ -107,10 +107,20 @@ test('JSON requests reject oversized bodies, malformed input, cross-origin posts
 test('forms validate, escape, anonymize, handle provider errors and coalesce retries without sending real mail', async () => {
   const realFetch=global.fetch;
   const oldKey=process.env.RESEND_API_KEY, oldRecipient=process.env.FEEDBACK_RECIPIENT_EMAIL;
+  const oldSheetsUrl=process.env.FORMS_SHEETS_URL, oldSheetsSecret=process.env.FORMS_SHEETS_SECRET;
+  process.env.FORMS_SHEETS_URL='https://script.google.com/macros/s/test-receiver/exec';
+  process.env.FORMS_SHEETS_SECRET='test-only-secret-for-spreadsheet-requests';
   process.env.RESEND_API_KEY='test-only-not-a-real-key';
   process.env.FEEDBACK_RECIPIENT_EMAIL='test@example.invalid';
   const sent=[];
   global.fetch=async (url, options)=>{
+    if(url===process.env.FORMS_SHEETS_URL){
+      const envelope=JSON.parse(options.body);
+      assert.equal(envelope.signature,require('node:crypto').createHmac('sha256',process.env.FORMS_SHEETS_SECRET).update(envelope.payload).digest('hex'));
+      const data=JSON.parse(envelope.payload);
+      sent.push({body:data});
+      return new Response(JSON.stringify({ok:true,id:data.id}),{status:200});
+    }
     assert.equal(url,'https://api.resend.com/emails');
     sent.push({body:JSON.parse(options.body),headers:options.headers});
     await new Promise(resolve=>setTimeout(resolve,10));
@@ -134,9 +144,20 @@ test('forms validate, escape, anonymize, handle provider errors and coalesce ret
     assert.match(sent[0].headers['Idempotency-Key'],/^[a-f0-9]{64}$/);
     const response=await feedback(request('feedback',{name:'Private Name',email:'private@example.test',anonymous:true,feedbackType:'session',session:'day2:d2-am-1',rating:'5',comments:'Useful session',locale:'fr'},'readiness-anonymous-001'));
     assert.equal(response.status,200);
-    assert(sent[1].body.text.includes('day2:d2-am-1'));
+    assert(sent[1].body.values.some(x=>String(x).includes('day2:d2-am-1')));
+    assert.equal(sent[1].body.sheet,'Feedback');
     assert(!JSON.stringify(sent[1].body).includes('Private Name'));
     assert(!JSON.stringify(sent[1].body).includes('private@example.test'));
+    const survey={submissionKind:'survey',name:'Survey Test',email:'test@example.invalid',location:'Winnipeg, Manitoba',expertise:['Youth leadership'],contributions:['Future Summit planning'],insights:'More community-led sessions would be useful.',contactConsent:false,anonymizedConsent:true};
+    assert.equal((await feedback(request('feedback',survey,'readiness-survey-001'))).status,200);
+    assert.equal(sent[2].body.sheet,'Survey responses');
+    assert.deepEqual(sent[2].body.values.slice(-2),[false,true]);
+    assert.equal((await feedback(request('feedback',{submissionKind:'media',name:'Media Test',email:'test@example.invalid',mediaUrl:'https://example.invalid/photo',caption:'Test caption',credit:'Test credit',permission:true},'readiness-media-001'))).status,200);
+    assert.equal(sent[3].body.sheet,'Media submissions');
+    global.fetch=async()=>new Response(JSON.stringify({ok:false}),{status:200});
+    assert.equal((await feedback(request('feedback',survey,'readiness-rejected-001'))).status,500);
+    global.fetch=async()=>new Response(JSON.stringify({ok:true,id:'wrong-id'}),{status:200});
+    assert.equal((await feedback(request('feedback',survey,'readiness-rejected-001'))).status,500);
     global.fetch=async()=>new Response('{}',{status:500});
     const failed=await contact(request('contact',{...body,locale:'fr'},'readiness-failure-001'));
     assert.equal(failed.status,502);
@@ -145,6 +166,8 @@ test('forms validate, escape, anonymize, handle provider errors and coalesce ret
     global.fetch=realFetch;
     if(oldKey===undefined) delete process.env.RESEND_API_KEY; else process.env.RESEND_API_KEY=oldKey;
     if(oldRecipient===undefined) delete process.env.FEEDBACK_RECIPIENT_EMAIL; else process.env.FEEDBACK_RECIPIENT_EMAIL=oldRecipient;
+    if(oldSheetsUrl===undefined) delete process.env.FORMS_SHEETS_URL; else process.env.FORMS_SHEETS_URL=oldSheetsUrl;
+    if(oldSheetsSecret===undefined) delete process.env.FORMS_SHEETS_SECRET; else process.env.FORMS_SHEETS_SECRET=oldSheetsSecret;
   }
 });
 test('the in-memory throttle stops repeated attempts', () => {
@@ -171,3 +194,4 @@ test('search metadata uses unique canonical URLs and reciprocal bilingual altern
   const sitemap = require('../app/sitemap.ts').default();
   assert.deepEqual(new Set(sitemap.map(x=>x.url)), urls);
 });
+
